@@ -99,35 +99,35 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
             case "english_grammar_course":
               homePageController.getHomeSectionAllSeries(limit: '10', order: 'desc', page: '1', sectionType: homeSection.value.sectionType);
               break;
-            // case "top_movies":
-            //   homePageController.getHomeSectionTopMovie(limit: '10', sectionId: homeSection.value.id.toString(), sectionType: homeSection.value.sectionType);
-            //   break;
-            // case "top_series":
-            //   homePageController.getHomeSectionTopSeries(limit: '10', sectionType: homeSection.value.sectionType, sectionId: homeSection.value.id.toString());
-            //   break;
-            // case "selected_movies":
-            //   homePageController.getHomeSectionSelectMovie(sectionId: homeSection.value.id.toString());
-            //   break;
-            // case "selected_series":
-            //   homePageController.getHomeSectionSelectSeries(sectionId: homeSection.value.id.toString());
-            //   break;
-            // case "slider_poster":
-            //   if(homeSection.value.subSectionType == "movie"){
-            //     homePageController.getHomeSectionPosterSliderMovie(sectionId: homeSection.value.id.toString());
-            //   } else if(homeSection.value.subSectionType == "series"){
-            //     homePageController.getHomeSectionPosterSliderSeries(sectionId: homeSection.value.id.toString());
-            //   }
-            //
-            //   break;
-            // case "application_features":
-            //   homePageController.getHomeSectionApplicationFeatures();
-            //   break;
-            // case "favorite_personalities":
-            //   homePageController.getHomeSectionFavorite(sectionId: homeSection.value.id.toString());
-            //   break;
-            // case "blogs":
-            //   homePageController.getHomeSectionBlogs(limit: '10', order: 'desc', page: '1', sectionType: homeSection.value.sectionType);
-            //   break;
+            case "top_movies":
+              homePageController.getHomeSectionTopMovie(limit: '10', sectionId: homeSection.value.id.toString(), sectionType: homeSection.value.sectionType);
+              break;
+            case "top_series":
+              homePageController.getHomeSectionTopSeries(limit: '10', sectionType: homeSection.value.sectionType, sectionId: homeSection.value.id.toString());
+              break;
+            case "selected_movies":
+              homePageController.getHomeSectionSelectMovie(sectionId: homeSection.value.id.toString());
+              break;
+            case "selected_series":
+              homePageController.getHomeSectionSelectSeries(sectionId: homeSection.value.id.toString());
+              break;
+            case "slider_poster":
+              if(homeSection.value.subSectionType == "movie"){
+                homePageController.getHomeSectionPosterSliderMovie(sectionId: homeSection.value.id.toString());
+              } else if(homeSection.value.subSectionType == "series"){
+                homePageController.getHomeSectionPosterSliderSeries(sectionId: homeSection.value.id.toString());
+              }
+
+              break;
+            case "application_features":
+              homePageController.getHomeSectionApplicationFeatures();
+              break;
+            case "favorite_personalities":
+              homePageController.getHomeSectionFavorite(sectionId: homeSection.value.id.toString());
+              break;
+            case "blogs":
+              homePageController.getHomeSectionBlogs(limit: '10', order: 'desc', page: '1', sectionType: homeSection.value.sectionType);
+              break;
             default:
               log("Unknown section type: ${homeSection.value.sectionType}");
               break;
@@ -165,31 +165,31 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
           case "english_grammar_course":
             homePageController.getHomeSectionAllSeries(limit: '10', order: 'desc', page: '1', sectionType: homeSection.value.sectionType);
             break;
-          // case "top_movies":
-          //   homePageController.getHomeSectionTopMovie(limit: '10', sectionId: homeSection.value.id.toString(), sectionType: homeSection.value.sectionType);
-          //   break;
-          // case "top_series":
-          //   homePageController.getHomeSectionTopSeries(limit: '10', sectionType: homeSection.value.sectionType, sectionId: homeSection.value.id.toString(),);
-          //   break;
-          // case "selected_movies":
-          //   homePageController.getHomeSectionSelectMovie(sectionId: homeSection.value.id.toString());
-          //   break;
-          // case "selected_series":
-          //   homePageController.getHomeSectionSelectSeries(sectionId: homeSection.value.id.toString());
-          //   break;
-          // case "slider_poster":
-          //   homePageController.getHomeSectionPosterSliderMovie(sectionId: homeSection.value.id.toString());
-          //   homePageController.getHomeSectionPosterSliderSeries(sectionId: homeSection.value.id.toString());
-          //   break;
-          // case "application_features":
-          //   homePageController.getHomeSectionApplicationFeatures();
-          //   break;
-          // case "favorite_personalities":
-          //   homePageController.getHomeSectionFavorite(sectionId: homeSection.value.id.toString());
-          //   break;
-          // case "blogs":
-          //   homePageController.getHomeSectionBlogs(limit: '10', order: 'desc', page: '1', sectionType: homeSection.value.sectionType);
-          //   break;
+          case "top_movies":
+            homePageController.getHomeSectionTopMovie(limit: '10', sectionId: homeSection.value.id.toString(), sectionType: homeSection.value.sectionType);
+            break;
+          case "top_series":
+            homePageController.getHomeSectionTopSeries(limit: '10', sectionType: homeSection.value.sectionType, sectionId: homeSection.value.id.toString(),);
+            break;
+          case "selected_movies":
+            homePageController.getHomeSectionSelectMovie(sectionId: homeSection.value.id.toString());
+            break;
+          case "selected_series":
+            homePageController.getHomeSectionSelectSeries(sectionId: homeSection.value.id.toString());
+            break;
+          case "slider_poster":
+            homePageController.getHomeSectionPosterSliderMovie(sectionId: homeSection.value.id.toString());
+            homePageController.getHomeSectionPosterSliderSeries(sectionId: homeSection.value.id.toString());
+            break;
+          case "application_features":
+            homePageController.getHomeSectionApplicationFeatures();
+            break;
+          case "favorite_personalities":
+            homePageController.getHomeSectionFavorite(sectionId: homeSection.value.id.toString());
+            break;
+          case "blogs":
+            homePageController.getHomeSectionBlogs(limit: '10', order: 'desc', page: '1', sectionType: homeSection.value.sectionType);
+            break;
           default:
             log("Unknown section type: ${homeSection.value.sectionType}");
             break;
@@ -294,114 +294,114 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                       return HomeSectionUpComingWidget(homeSectionData: sectionData);
 
                     }
-                    // else if (sectionData?.sectionType == "poster") {
-                    //   /// ==# Poster
-                    //   if(sectionData?.subSectionType == "movie"){
-                    //     return HomeSectionMoviePosterWidget(homeSectionData: sectionData);
-                    //
-                    //   } else if(sectionData?.subSectionType == "series"){
-                    //     return HomeSectionSeriesPosterWidget(homeSectionData: sectionData);
-                    //
-                    //   } else{
-                    //     return Container();
-                    //   }
-                    //
-                    // } else if (sectionData?.sectionType == "all_movies") {
-                    //   /// ==# All Movies
-                    //   return HomeSectionAllMovieWidget(homeSectionData: sectionData);
-                    //
-                    // } else if (sectionData?.sectionType == "all_series") {
-                    //   /// ==# All Series
-                    //   return HomeSectionAllSeriesWidget(homeSectionData: sectionData);
-                    //
-                    // } else if (sectionData?.sectionType == "top_movies") {
-                    //   /// ==# Top Movies
-                    //   return HomeSectionTopMovieWidget(homeSectionData: sectionData);
-                    //
-                    // } else if (sectionData?.sectionType == "top_series") {
-                    //   /// ==# Top Series
-                    //   return HomeSectionTopSeriesWidget(homeSectionData: sectionData);
-                    //
-                    // } else if (sectionData?.sectionType == "selected_movies") {
-                    //   /// ==# Selected Movies
-                    //   return HomeSectionSelectedMovieWidget(homeSectionData: sectionData);
-                    //
-                    // } else if (sectionData?.sectionType == "selected_series") {
-                    //   /// ==# Selected Series
-                    //   return HomeSectionSelectedSeriesWidget(homeSectionData: sectionData);
-                    //
-                    // }
-                    // else if (sectionData?.sectionType == "slider_poster") {
-                    //   /// ==# Slider Poster
-                    //   if(sectionData?.subSectionType == "movie"){
-                    //     return homePageController.homeSectionPosterSliderMovieDataList?.isNotEmpty ?? false ?
-                    //     Column(
-                    //       children: [
-                    //         sizedBoxH(20),
-                    //         CarouselSlider(
-                    //           carouselController: homeSectionPosterMovieCarouselController,
-                    //           items: homePageController.homeSectionPosterSliderMovieDataList?.map((movie) {
-                    //             return HomeSectionMovieSliderPosterWidget(movie: movie);
-                    //           }).toList() ?? [],
-                    //           options: CarouselOptions(
-                    //             height: 300,
-                    //             scrollPhysics: const BouncingScrollPhysics(),
-                    //             aspectRatio: 2,
-                    //             viewportFraction: 1,
-                    //             autoPlay: true,
-                    //             // autoPlayInterval: const Duration(seconds: 5),
-                    //             // autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                    //             onPageChanged: (index, reason) {
-                    //               setState(() {
-                    //                 currentIndex = index;
-                    //               });
-                    //             },
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ) : const SizedBox.shrink();
-                    //   } else if(sectionData?.subSectionType == "series"){
-                    //     return homePageController.homeSectionPosterSliderSeriesDataList?.isNotEmpty ?? false ?
-                    //     Column(
-                    //       children: [
-                    //         CarouselSlider(
-                    //           carouselController: homeSectionPosterSeriesCarouselController,
-                    //           items: homePageController.homeSectionPosterSliderSeriesDataList?.map((series) {
-                    //             return HomeSectionSeriesSliderPosterWidget(series: series);
-                    //           }).toList() ?? [],
-                    //           options: CarouselOptions(
-                    //             height: 300,
-                    //             scrollPhysics: const BouncingScrollPhysics(),
-                    //             aspectRatio: 2,
-                    //             viewportFraction: 1,
-                    //             autoPlay: true,
-                    //             onPageChanged: (index, reason) {
-                    //               setState(() {
-                    //                 currentIndex = index;
-                    //               });
-                    //             },
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ) : const SizedBox.shrink();
-                    //   } else{
-                    //     return Container();
-                    //   }
-                    //
-                    // }
-                    // else if (sectionData?.sectionType == "application_features") {
-                    //   /// ==# Application Features
-                    //   return const HomeSectionApplicationFeaturesWidget();
-                    //
-                    // } else if (sectionData?.sectionType == "favorite_personalities") {
-                    //   /// ==# Favorite Personalities
-                    //   return HomeSectionFavoriteWidget(homeSectionData: sectionData);
-                    //
-                    // } else if (sectionData?.sectionType == "blogs") {
-                    //   /// ==# Blogs
-                    //   return HomeSectionBlogsWidget(homeSectionData: sectionData);
-                    //
-                    // }
+                    else if (sectionData?.sectionType == "poster") {
+                      /// ==# Poster
+                      if(sectionData?.subSectionType == "movie"){
+                        return HomeSectionMoviePosterWidget(homeSectionData: sectionData);
+
+                      } else if(sectionData?.subSectionType == "series"){
+                        return HomeSectionSeriesPosterWidget(homeSectionData: sectionData);
+
+                      } else{
+                        return Container();
+                      }
+
+                    } else if (sectionData?.sectionType == "all_movies") {
+                      /// ==# All Movies
+                      return HomeSectionAllMovieWidget(homeSectionData: sectionData);
+
+                    } else if (sectionData?.sectionType == "all_series") {
+                      /// ==# All Series
+                      return HomeSectionAllSeriesWidget(homeSectionData: sectionData);
+
+                    } else if (sectionData?.sectionType == "top_movies") {
+                      /// ==# Top Movies
+                      return HomeSectionTopMovieWidget(homeSectionData: sectionData);
+
+                    } else if (sectionData?.sectionType == "top_series") {
+                      /// ==# Top Series
+                      return HomeSectionTopSeriesWidget(homeSectionData: sectionData);
+
+                    } else if (sectionData?.sectionType == "selected_movies") {
+                      /// ==# Selected Movies
+                      return HomeSectionSelectedMovieWidget(homeSectionData: sectionData);
+
+                    } else if (sectionData?.sectionType == "selected_series") {
+                      /// ==# Selected Series
+                      return HomeSectionSelectedSeriesWidget(homeSectionData: sectionData);
+
+                    }
+                    else if (sectionData?.sectionType == "slider_poster") {
+                      /// ==# Slider Poster
+                      if(sectionData?.subSectionType == "movie"){
+                        return homePageController.homeSectionPosterSliderMovieDataList?.isNotEmpty ?? false ?
+                        Column(
+                          children: [
+                            sizedBoxH(20),
+                            CarouselSlider(
+                              carouselController: homeSectionPosterMovieCarouselController,
+                              items: homePageController.homeSectionPosterSliderMovieDataList?.map((movie) {
+                                return HomeSectionMovieSliderPosterWidget(movie: movie);
+                              }).toList() ?? [],
+                              options: CarouselOptions(
+                                height: 300,
+                                scrollPhysics: const BouncingScrollPhysics(),
+                                aspectRatio: 2,
+                                viewportFraction: 1,
+                                autoPlay: true,
+                                // autoPlayInterval: const Duration(seconds: 5),
+                                // autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                                onPageChanged: (index, reason) {
+                                  setState(() {
+                                    currentIndex = index;
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ) : const SizedBox.shrink();
+                      } else if(sectionData?.subSectionType == "series"){
+                        return homePageController.homeSectionPosterSliderSeriesDataList?.isNotEmpty ?? false ?
+                        Column(
+                          children: [
+                            CarouselSlider(
+                              carouselController: homeSectionPosterSeriesCarouselController,
+                              items: homePageController.homeSectionPosterSliderSeriesDataList?.map((series) {
+                                return HomeSectionSeriesSliderPosterWidget(series: series);
+                              }).toList() ?? [],
+                              options: CarouselOptions(
+                                height: 300,
+                                scrollPhysics: const BouncingScrollPhysics(),
+                                aspectRatio: 2,
+                                viewportFraction: 1,
+                                autoPlay: true,
+                                onPageChanged: (index, reason) {
+                                  setState(() {
+                                    currentIndex = index;
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ) : const SizedBox.shrink();
+                      } else{
+                        return Container();
+                      }
+
+                    }
+                    else if (sectionData?.sectionType == "application_features") {
+                      /// ==# Application Features
+                      return const HomeSectionApplicationFeaturesWidget();
+
+                    } else if (sectionData?.sectionType == "favorite_personalities") {
+                      /// ==# Favorite Personalities
+                      return HomeSectionFavoriteWidget(homeSectionData: sectionData);
+
+                    } else if (sectionData?.sectionType == "blogs") {
+                      /// ==# Blogs
+                      return HomeSectionBlogsWidget(homeSectionData: sectionData);
+
+                    }
                     else {
                       return const SizedBox.shrink();
 
@@ -409,7 +409,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   },
                 ),
 
-                sizedBoxH(20),
+                sizedBoxH(100),
                 // Container(
                 //   width: size(context).width,
                 //   color: ColorRes.appColor,
@@ -463,272 +463,272 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                 //         ],
                 //       ),
                 //
-                //       sizedBoxH(30),
-                //       Container(
-                //         width: size(context).width,
-                //         decoration: BoxDecoration(
-                //             border: Border.all(width: 1, color: ColorRes.white),
-                //             borderRadius: BorderRadius.circular(5)
-                //         ),
-                //         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                //         margin: const EdgeInsets.symmetric(horizontal: 15),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           crossAxisAlignment: CrossAxisAlignment.start,
-                //           children: [
-                //             GestureDetector(
-                //               onTap: (){
-                //                 setState(() {
-                //                   isExploreClick = !isExploreClick;
-                //                 });
-                //               },
-                //               child: const SizedBox(
-                //                 child: Row(
-                //                   children: [
-                //                     Expanded(
-                //                       child: GlobalText(
-                //                         str: "Explore",
-                //                         fontWeight: FontWeight.w600,
-                //                       ),
-                //                     ),
-                //                     Icon(
-                //                       Icons.arrow_drop_down_outlined,
-                //                       color: ColorRes.white,
-                //                       size: 18,
-                //                     )
-                //                   ],
-                //                 ),
-                //               ),
-                //             ),
+                //     //   sizedBoxH(30),
+                //     //   Container(
+                //     //     width: size(context).width,
+                //     //     decoration: BoxDecoration(
+                //     //         border: Border.all(width: 1, color: ColorRes.white),
+                //     //         borderRadius: BorderRadius.circular(5)
+                //     //     ),
+                //     //     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                //     //     margin: const EdgeInsets.symmetric(horizontal: 15),
+                //     //     child: Column(
+                //     //       mainAxisAlignment: MainAxisAlignment.center,
+                //     //       crossAxisAlignment: CrossAxisAlignment.start,
+                //     //       children: [
+                //     //         GestureDetector(
+                //     //           onTap: (){
+                //     //             setState(() {
+                //     //               isExploreClick = !isExploreClick;
+                //     //             });
+                //     //           },
+                //     //           child: const SizedBox(
+                //     //             child: Row(
+                //     //               children: [
+                //     //                 Expanded(
+                //     //                   child: GlobalText(
+                //     //                     str: "Explore",
+                //     //                     fontWeight: FontWeight.w600,
+                //     //                   ),
+                //     //                 ),
+                //     //                 Icon(
+                //     //                   Icons.arrow_drop_down_outlined,
+                //     //                   color: ColorRes.white,
+                //     //                   size: 18,
+                //     //                 )
+                //     //               ],
+                //     //             ),
+                //     //           ),
+                //     //         ),
+                //     //
+                //     //         isExploreClick == true ?
+                //     //         Padding(
+                //     //           padding: const EdgeInsets.only(left: 20, top: 8),
+                //     //           child: Column(
+                //     //               crossAxisAlignment: CrossAxisAlignment.start,
+                //     //               children: homePageController.footerExploreModel?.data?.asMap().entries.map((item){
+                //     //                 return Container(
+                //     //                   padding: const EdgeInsets.symmetric(vertical: 5),
+                //     //                   child: GlobalText(
+                //     //                     str: LanguageCheck.checkLanguage(
+                //     //                       langCode: langCode,
+                //     //                       enText: item.value.pageTitle ?? "",
+                //     //                       bnText: item.value.pageTitleBn ?? "",
+                //     //                       hiText: item.value.pageTitleHi ?? "",
+                //     //                       arText: item.value.pageTitleAr ?? "",
+                //     //                     ),
+                //     //                     fontSize: 12,
+                //     //                     fontWeight: FontWeight.w300,
+                //     //                   ),
+                //     //                 );
+                //     //               }).toList() ?? []
+                //     //           ),
+                //     //         ) : const SizedBox.shrink()
+                //     //       ],
+                //     //     ),
+                //     //   ),
+                //     //
+                //     // sizedBoxH(10),
+                //     // Container(
+                //     //   width: size(context).width,
+                //     //   decoration: BoxDecoration(
+                //     //       border: Border.all(width: 1, color: ColorRes.white),
+                //     //       borderRadius: BorderRadius.circular(5)
+                //     //   ),
+                //     //   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                //     //   margin: const EdgeInsets.symmetric(horizontal: 15),
+                //     //   child: Column(
+                //     //     mainAxisAlignment: MainAxisAlignment.center,
+                //     //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     //     children: [
+                //     //       GestureDetector(
+                //     //         onTap: (){
+                //     //           setState(() {
+                //     //             isExploreClick = !isExploreClick;
+                //     //           });
+                //     //         },
+                //     //         child: const SizedBox(
+                //     //           child: Row(
+                //     //             children: [
+                //     //               Expanded(
+                //     //                 child: GlobalText(
+                //     //                   str: "Popular Series",
+                //     //                   fontWeight: FontWeight.w600,
+                //     //                 ),
+                //     //               ),
+                //     //               Icon(
+                //     //                 Icons.arrow_drop_down_outlined,
+                //     //                 color: ColorRes.white,
+                //     //                 size: 18,
+                //     //               )
+                //     //             ],
+                //     //           ),
+                //     //         ),
+                //     //       ),
+                //     //
+                //     //         isExploreClick == true ?
+                //     //         Padding(
+                //     //           padding: const EdgeInsets.only(left: 20, top: 8),
+                //     //           child: Column(
+                //     //               crossAxisAlignment: CrossAxisAlignment.start,
+                //     //               children: homePageController.footerPopularSeriesModel?.data?.asMap().entries.map((item){
+                //     //                 return Container(
+                //     //                   padding: const EdgeInsets.symmetric(vertical: 5),
+                //     //                   child: GlobalText(
+                //     //                     str: LanguageCheck.checkLanguage(
+                //     //                       langCode: langCode,
+                //     //                       enText: item.value.pageTitle ?? "",
+                //     //                       bnText: item.value.pageTitleBn ?? "",
+                //     //                       hiText: item.value.pageTitleHi ?? "",
+                //     //                       arText: item.value.pageTitleAr ?? "",
+                //     //                     ),
+                //     //                     fontSize: 12,
+                //     //                     fontWeight: FontWeight.w300,
+                //     //                   ),
+                //     //                 );
+                //     //               }).toList() ?? []
+                //     //           ),
+                //     //         ) : const SizedBox.shrink()
+                //     //       ],
+                //     //     ),
+                //     //   ),
+                //     //
+                //     //   sizedBoxH(10),
+                //     //   Container(
+                //     //     width: size(context).width,
+                //     //     decoration: BoxDecoration(
+                //     //         border: Border.all(width: 1, color: ColorRes.white),
+                //     //         borderRadius: BorderRadius.circular(5)
+                //     //     ),
+                //     //     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                //     //     margin: const EdgeInsets.symmetric(horizontal: 15),
+                //     //     child: Column(
+                //     //       mainAxisAlignment: MainAxisAlignment.center,
+                //     //       crossAxisAlignment: CrossAxisAlignment.start,
+                //     //       children: [
+                //     //         GestureDetector(
+                //     //           onTap: (){
+                //     //             setState(() {
+                //     //               isExploreClick = !isExploreClick;
+                //     //             });
+                //     //           },
+                //     //           child: const SizedBox(
+                //     //             child: Row(
+                //     //               children: [
+                //     //                 Expanded(
+                //     //                   child: GlobalText(
+                //     //                     str: "Popular Movies",
+                //     //                     fontWeight: FontWeight.w600,
+                //     //                   ),
+                //     //                 ),
+                //     //                 Icon(
+                //     //                   Icons.arrow_drop_down_outlined,
+                //     //                   color: ColorRes.white,
+                //     //                   size: 18,
+                //     //                 )
+                //     //               ],
+                //     //             ),
+                //     //           ),
+                //     //         ),
+                //     //
+                //     //         isExploreClick == true ?
+                //     //         Padding(
+                //     //           padding: const EdgeInsets.only(left: 20, top: 8),
+                //     //           child: Column(
+                //     //               crossAxisAlignment: CrossAxisAlignment.start,
+                //     //               children: homePageController.footerPopularMoviesModel?.data?.asMap().entries.map((item){
+                //     //                 return Container(
+                //     //                   padding: const EdgeInsets.symmetric(vertical: 5),
+                //     //                   child: GlobalText(
+                //     //                     str: LanguageCheck.checkLanguage(
+                //     //                       langCode: langCode,
+                //     //                       enText: item.value.pageTitle ?? "",
+                //     //                       bnText: item.value.pageTitleBn ?? "",
+                //     //                       hiText: item.value.pageTitleHi ?? "",
+                //     //                       arText: item.value.pageTitleAr ?? "",
+                //     //                     ),
+                //     //                     fontSize: 12,
+                //     //                     fontWeight: FontWeight.w300,
+                //     //                   ),
+                //     //                 );
+                //     //               }).toList() ?? []
+                //     //           ),
+                //     //         ) : const SizedBox.shrink()
+                //     //       ],
+                //     //     ),
+                //     //   ),
+                //     //
+                //     //   sizedBoxH(10),
+                //     //   Container(
+                //     //     width: size(context).width,
+                //     //     decoration: BoxDecoration(
+                //     //         border: Border.all(width: 1, color: ColorRes.white),
+                //     //         borderRadius: BorderRadius.circular(5)
+                //     //     ),
+                //     //     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                //     //     margin: const EdgeInsets.symmetric(horizontal: 15),
+                //     //     child: Column(
+                //     //       mainAxisAlignment: MainAxisAlignment.center,
+                //     //       crossAxisAlignment: CrossAxisAlignment.start,
+                //     //       children: [
+                //     //         GestureDetector(
+                //     //           onTap: (){
+                //     //             setState(() {
+                //     //               isExploreClick = !isExploreClick;
+                //     //             });
+                //     //           },
+                //     //           child: const SizedBox(
+                //     //             child: Row(
+                //     //               children: [
+                //     //                 Expanded(
+                //     //                   child: GlobalText(
+                //     //                     str: "Company",
+                //     //                     fontWeight: FontWeight.w600,
+                //     //                   ),
+                //     //                 ),
+                //     //                 Icon(
+                //     //                   Icons.arrow_drop_down_outlined,
+                //     //                   color: ColorRes.white,
+                //     //                   size: 18,
+                //     //                 )
+                //     //               ],
+                //     //             ),
+                //     //           ),
+                //     //         ),
+                //     //
+                //     //         isExploreClick == true ?
+                //     //         Padding(
+                //     //           padding: const EdgeInsets.only(left: 20, top: 8),
+                //     //           child: Column(
+                //     //               crossAxisAlignment: CrossAxisAlignment.start,
+                //     //               children: homePageController.footerCompanyModel?.data?.asMap().entries.map((item){
+                //     //                 return Container(
+                //     //                   padding: const EdgeInsets.symmetric(vertical: 5),
+                //     //                   child: GlobalText(
+                //     //                     str: LanguageCheck.checkLanguage(
+                //     //                       langCode: langCode,
+                //     //                       enText: item.value.pageTitle ?? "",
+                //     //                       bnText: item.value.pageTitleBn ?? "",
+                //     //                       hiText: item.value.pageTitleHi ?? "",
+                //     //                       arText: item.value.pageTitleAr ?? "",
+                //     //                     ),
+                //     //                     fontSize: 12,
+                //     //                     fontWeight: FontWeight.w300,
+                //     //                   ),
+                //     //                 );
+                //     //               }).toList() ?? []
+                //     //           ),
+                //     //         ) : const SizedBox.shrink()
+                //     //       ],
+                //     //     ),
+                //     //   ),
                 //
-                //             isExploreClick == true ?
-                //             Padding(
-                //               padding: const EdgeInsets.only(left: 20, top: 8),
-                //               child: Column(
-                //                   crossAxisAlignment: CrossAxisAlignment.start,
-                //                   children: homePageController.footerExploreModel?.data?.asMap().entries.map((item){
-                //                     return Container(
-                //                       padding: const EdgeInsets.symmetric(vertical: 5),
-                //                       child: GlobalText(
-                //                         str: LanguageCheck.checkLanguage(
-                //                           langCode: langCode,
-                //                           enText: item.value.pageTitle ?? "",
-                //                           bnText: item.value.pageTitleBn ?? "",
-                //                           hiText: item.value.pageTitleHi ?? "",
-                //                           arText: item.value.pageTitleAr ?? "",
-                //                         ),
-                //                         fontSize: 12,
-                //                         fontWeight: FontWeight.w300,
-                //                       ),
-                //                     );
-                //                   }).toList() ?? []
-                //               ),
-                //             ) : const SizedBox.shrink()
-                //           ],
-                //         ),
+                //       sizedBoxH(20),
+                //       const GlobalText(
+                //         str: "Copyright © 2024 NP",
+                //         fontSize: 12,
+                //         fontWeight: FontWeight.bold,
                 //       ),
-                //
-                //     sizedBoxH(10),
-                //     Container(
-                //       width: size(context).width,
-                //       decoration: BoxDecoration(
-                //           border: Border.all(width: 1, color: ColorRes.white),
-                //           borderRadius: BorderRadius.circular(5)
-                //       ),
-                //       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                //       margin: const EdgeInsets.symmetric(horizontal: 15),
-                //       child: Column(
-                //         mainAxisAlignment: MainAxisAlignment.center,
-                //         crossAxisAlignment: CrossAxisAlignment.start,
-                //         children: [
-                //           GestureDetector(
-                //             onTap: (){
-                //               setState(() {
-                //                 isExploreClick = !isExploreClick;
-                //               });
-                //             },
-                //             child: const SizedBox(
-                //               child: Row(
-                //                 children: [
-                //                   Expanded(
-                //                     child: GlobalText(
-                //                       str: "Popular Series",
-                //                       fontWeight: FontWeight.w600,
-                //                     ),
-                //                   ),
-                //                   Icon(
-                //                     Icons.arrow_drop_down_outlined,
-                //                     color: ColorRes.white,
-                //                     size: 18,
-                //                   )
-                //                 ],
-                //               ),
-                //             ),
-                //           ),
-                //
-                //             isExploreClick == true ?
-                //             Padding(
-                //               padding: const EdgeInsets.only(left: 20, top: 8),
-                //               child: Column(
-                //                   crossAxisAlignment: CrossAxisAlignment.start,
-                //                   children: homePageController.footerPopularSeriesModel?.data?.asMap().entries.map((item){
-                //                     return Container(
-                //                       padding: const EdgeInsets.symmetric(vertical: 5),
-                //                       child: GlobalText(
-                //                         str: LanguageCheck.checkLanguage(
-                //                           langCode: langCode,
-                //                           enText: item.value.pageTitle ?? "",
-                //                           bnText: item.value.pageTitleBn ?? "",
-                //                           hiText: item.value.pageTitleHi ?? "",
-                //                           arText: item.value.pageTitleAr ?? "",
-                //                         ),
-                //                         fontSize: 12,
-                //                         fontWeight: FontWeight.w300,
-                //                       ),
-                //                     );
-                //                   }).toList() ?? []
-                //               ),
-                //             ) : const SizedBox.shrink()
-                //           ],
-                //         ),
-                //       ),
-                //
-                //       sizedBoxH(10),
-                //       Container(
-                //         width: size(context).width,
-                //         decoration: BoxDecoration(
-                //             border: Border.all(width: 1, color: ColorRes.white),
-                //             borderRadius: BorderRadius.circular(5)
-                //         ),
-                //         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                //         margin: const EdgeInsets.symmetric(horizontal: 15),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           crossAxisAlignment: CrossAxisAlignment.start,
-                //           children: [
-                //             GestureDetector(
-                //               onTap: (){
-                //                 setState(() {
-                //                   isExploreClick = !isExploreClick;
-                //                 });
-                //               },
-                //               child: const SizedBox(
-                //                 child: Row(
-                //                   children: [
-                //                     Expanded(
-                //                       child: GlobalText(
-                //                         str: "Popular Movies",
-                //                         fontWeight: FontWeight.w600,
-                //                       ),
-                //                     ),
-                //                     Icon(
-                //                       Icons.arrow_drop_down_outlined,
-                //                       color: ColorRes.white,
-                //                       size: 18,
-                //                     )
-                //                   ],
-                //                 ),
-                //               ),
-                //             ),
-                //
-                //             isExploreClick == true ?
-                //             Padding(
-                //               padding: const EdgeInsets.only(left: 20, top: 8),
-                //               child: Column(
-                //                   crossAxisAlignment: CrossAxisAlignment.start,
-                //                   children: homePageController.footerPopularMoviesModel?.data?.asMap().entries.map((item){
-                //                     return Container(
-                //                       padding: const EdgeInsets.symmetric(vertical: 5),
-                //                       child: GlobalText(
-                //                         str: LanguageCheck.checkLanguage(
-                //                           langCode: langCode,
-                //                           enText: item.value.pageTitle ?? "",
-                //                           bnText: item.value.pageTitleBn ?? "",
-                //                           hiText: item.value.pageTitleHi ?? "",
-                //                           arText: item.value.pageTitleAr ?? "",
-                //                         ),
-                //                         fontSize: 12,
-                //                         fontWeight: FontWeight.w300,
-                //                       ),
-                //                     );
-                //                   }).toList() ?? []
-                //               ),
-                //             ) : const SizedBox.shrink()
-                //           ],
-                //         ),
-                //       ),
-                //
-                //       sizedBoxH(10),
-                //       Container(
-                //         width: size(context).width,
-                //         decoration: BoxDecoration(
-                //             border: Border.all(width: 1, color: ColorRes.white),
-                //             borderRadius: BorderRadius.circular(5)
-                //         ),
-                //         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                //         margin: const EdgeInsets.symmetric(horizontal: 15),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           crossAxisAlignment: CrossAxisAlignment.start,
-                //           children: [
-                //             GestureDetector(
-                //               onTap: (){
-                //                 setState(() {
-                //                   isExploreClick = !isExploreClick;
-                //                 });
-                //               },
-                //               child: const SizedBox(
-                //                 child: Row(
-                //                   children: [
-                //                     Expanded(
-                //                       child: GlobalText(
-                //                         str: "Company",
-                //                         fontWeight: FontWeight.w600,
-                //                       ),
-                //                     ),
-                //                     Icon(
-                //                       Icons.arrow_drop_down_outlined,
-                //                       color: ColorRes.white,
-                //                       size: 18,
-                //                     )
-                //                   ],
-                //                 ),
-                //               ),
-                //             ),
-                //
-                //             isExploreClick == true ?
-                //             Padding(
-                //               padding: const EdgeInsets.only(left: 20, top: 8),
-                //               child: Column(
-                //                   crossAxisAlignment: CrossAxisAlignment.start,
-                //                   children: homePageController.footerCompanyModel?.data?.asMap().entries.map((item){
-                //                     return Container(
-                //                       padding: const EdgeInsets.symmetric(vertical: 5),
-                //                       child: GlobalText(
-                //                         str: LanguageCheck.checkLanguage(
-                //                           langCode: langCode,
-                //                           enText: item.value.pageTitle ?? "",
-                //                           bnText: item.value.pageTitleBn ?? "",
-                //                           hiText: item.value.pageTitleHi ?? "",
-                //                           arText: item.value.pageTitleAr ?? "",
-                //                         ),
-                //                         fontSize: 12,
-                //                         fontWeight: FontWeight.w300,
-                //                       ),
-                //                     );
-                //                   }).toList() ?? []
-                //               ),
-                //             ) : const SizedBox.shrink()
-                //           ],
-                //         ),
-                //       ),
-                //
-                //       // sizedBoxH(20),
-                //       // const GlobalText(
-                //       //   str: "Copyright © 2024 NP",
-                //       //   fontSize: 12,
-                //       //   fontWeight: FontWeight.bold,
-                //       // ),
                 //
                 //       sizedBoxH(110),
                 //     ],
