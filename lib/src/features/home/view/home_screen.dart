@@ -41,29 +41,30 @@ class _HomeScreenState extends State<HomeScreen> {
           height: size(context).height,
           width: size(context).width,
           color: ColorRes.appBackColor,
-          child: Stack(
-            children: [
-
-              homePageController.tabBarIndex == -1
-                  ? const HomeViewScreen()
-                  : IndexedStack(
-                index: homePageController.tabBarIndex,
-                children: [
-                  const MovieTabViewScreen(),
-                  const SeriesTabViewScreen(),
-                  const FreeTabViewScreen(),
-                  Scaffold(body: Center(child: Container(height: double.infinity, width: double.infinity, color: ColorRes.appBackColor, child: const Center(child: Text("Free", style: TextStyle(color: Colors.white)))))),
-                ],
-              ),
-
-              // == AppBar
-              const DashboardAppbar()
-
-              // homePageController.isScrolled
-              //     ? const SizedBox.shrink()
-              //     : const DashboardAppbar()
-            ],
-          ),
+          child: const HomeViewScreen()
+          // Stack(
+          //   children: [
+          //
+          //     homePageController.tabBarIndex == -1
+          //         ? const HomeViewScreen()
+          //         : IndexedStack(
+          //       index: homePageController.tabBarIndex,
+          //       children: [
+          //         // const MovieTabViewScreen(),
+          //         // const SeriesTabViewScreen(),
+          //         // const FreeTabViewScreen(),
+          //         // Scaffold(body: Center(child: Container(height: double.infinity, width: double.infinity, color: ColorRes.appBackColor, child: const Center(child: Text("Free", style: TextStyle(color: Colors.white)))))),
+          //       ],
+          //     ),
+          //
+          //     // == AppBar
+          //     const DashboardAppbar()
+          //
+          //     // homePageController.isScrolled
+          //     //     ? const SizedBox.shrink()
+          //     //     : const DashboardAppbar()
+          //   ],
+          // ),
         ),
       );
     });

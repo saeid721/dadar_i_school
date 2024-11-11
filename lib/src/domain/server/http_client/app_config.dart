@@ -21,7 +21,6 @@ enum AppConfig {
   homeSectionTopSeriesUrl,
   homeSectionApplicationFeaturesUrl,
   homeSectionBlogsUrl,
-  HomeSectionAllGenresUrl,
 
   footerExploreUrl,
   footerPopularSeriesUrl,
@@ -118,8 +117,6 @@ extension AppUrlExtention on AppConfig {
         return '/application-features/client';
       case AppConfig.homeSectionBlogsUrl:
         return '/blogs/client/pages';
-      case AppConfig.HomeSectionAllGenresUrl:
-        return '/genres/client';
 
       case AppConfig.footerExploreUrl:
         return'/footer/footer-type/explore';

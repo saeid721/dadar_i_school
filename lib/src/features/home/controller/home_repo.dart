@@ -5,7 +5,6 @@ import '../model/footer_model/footer_company_model.dart';
 import '../model/footer_model/footer_explore_model.dart';
 import '../model/footer_model/footer_popular_movies_model.dart';
 import '../model/footer_model/footer_popular_series_model.dart';
-import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
 import '../model/home_section/home_section_all_series_model.dart';
 import '../model/home_section/home_section_application_features_model.dart';
@@ -195,19 +194,6 @@ class HomeRepository extends ApiHelper {
   }
   Future<FooterCompanyModel> getFooterCompany() async {
     return FooterCompanyModel.fromJson(await requestHandler.get(AppConfig.footerCompanyUrl.url));
-  }
-
-  Future<HomeSectionAllGenresModel> getHomeSectionAllGenres({
-    required String limit,
-    required String genreId,
-    required String page,
-  }) async {
-    Map<String, dynamic> params = {};
-    params['limit'] = limit;
-    params['genreId'] = genreId;
-    params['page'] = page;
-
-    return HomeSectionAllGenresModel.fromJson(await requestHandler.get(AppConfig.HomeSectionAllGenresUrl.url, queryParams: params));
   }
 
 }

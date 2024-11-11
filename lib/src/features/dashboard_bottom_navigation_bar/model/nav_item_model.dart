@@ -23,7 +23,7 @@ List<NavItemModel> navItemList = [
       img: "assets/app_src/icon/download_ic.png"
   ),
   NavItemModel(
-      title: "Menu",
+      title: "Account",
       img: "assets/app_src/icon/account_ic.png"
   ),
 

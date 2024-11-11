@@ -6,7 +6,6 @@ import 'package:dadar_i_school/src/features/home/model/footer_model/footer_compa
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_explore_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_movies_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_series_model.dart';
-import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
 import '../model/home_section/home_section_all_series_model.dart';
 import '../model/home_section/home_section_application_features_model.dart';
@@ -669,38 +668,6 @@ FooterCompanyModel? footerCompanyModel;
       log('Error: ', error: e, stackTrace: s);
     }
   }
-
-  // =/@ Home Section All Genres Model
-  HomeSectionAllGenresModel? homeSectionAllGenresModel;
-
-  Future getHomeSectionAllGenres({
-    required String limit,
-    required String genreId,
-    required String page
-  }) async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getHomeSectionAllGenres(
-          limit: limit,
-          genreId: genreId,
-          page: page,
-      );
-      homeSectionAllGenresModel = response;
-
-
-      _isLoading = false;
-      update();
-    } catch (e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
 
 
 }
