@@ -1,12 +1,12 @@
 
 import '../../../domain/server/http_client/api_helper.dart';
 import '../../../domain/server/http_client/app_config.dart';
-import '../model/search_model.dart';
+import '../model/search_list_model.dart';
 import '../model/search_popular_model.dart';
 
 class SearchBarRepository extends ApiHelper {
 
-  Future<SearchModel> getSearch({
+  Future<SearchListModel> getSearchList({
     required String limit,
     required String order,
     required String page,
@@ -18,7 +18,7 @@ class SearchBarRepository extends ApiHelper {
     params['page'] = page;
     params['search'] = search;
 
-    return SearchModel.fromJson(await requestHandler.get(AppConfig.searchUrl.url, queryParams: params));
+    return SearchListModel.fromJson(await requestHandler.get(AppConfig.searchUrl.url, queryParams: params));
   }
 
   Future<SearchPopularModel> getSearchPopular({

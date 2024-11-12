@@ -253,7 +253,7 @@ class SeriesVideoDetailsSeasons {
   List<Directors>? directors;
   List<SeasonLanguages>? languages;
   List<Trailers>? trailers;
-  List<Episodes>? episodes;
+  List<SeasonDetailsEpisodes>? episodes;
 
   SeriesVideoDetailsSeasons(
       {this.id,
@@ -314,9 +314,9 @@ class SeriesVideoDetailsSeasons {
       });
     }
     if (json['episodes'] != null) {
-      episodes = <Episodes>[];
+      episodes = <SeasonDetailsEpisodes>[];
       json['episodes'].forEach((v) {
-        episodes!.add(Episodes.fromJson(v));
+        episodes!.add(SeasonDetailsEpisodes.fromJson(v));
       });
     }
   }
@@ -508,7 +508,7 @@ class Language {
   }
 }
 
-class Episodes {
+class SeasonDetailsEpisodes {
   int? id;
   int? seasonId;
   int? episodeNumber;
@@ -538,7 +538,7 @@ class Episodes {
   String? updatedAt;
   List<Dubbed>? dubbed;
 
-  Episodes(
+  SeasonDetailsEpisodes(
       {this.id,
         this.seasonId,
         this.episodeNumber,
@@ -568,7 +568,7 @@ class Episodes {
         this.updatedAt,
         this.dubbed});
 
-  Episodes.fromJson(Map<String, dynamic> json) {
+  SeasonDetailsEpisodes.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     seasonId = json['season_id'];
     episodeNumber = json['episode_number'];

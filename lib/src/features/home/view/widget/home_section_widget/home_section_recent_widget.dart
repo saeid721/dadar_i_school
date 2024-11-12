@@ -1,11 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../domain/local/preferences/local_storage.dart';
-import '../../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../../global/widget/global_sized_box.dart';
-import '../../../../../initializer.dart';
-import '../../../../../service/language_check/language_check.dart';
 import '../../../../video_details/view/movie_video_details_screen.dart';
 import '../../../../video_details/view/series_video_details_screen.dart';
 import '../../../controller/home_controller.dart';
@@ -13,7 +8,7 @@ import '../../../model/home_section_model.dart';
 import '../../components/home_section_see_all/home_section_recent_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionRecentWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -30,7 +25,6 @@ class _HomeSectionRecentWidgetState extends State<HomeSectionRecentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final langCode = locator<LocalStorage>().getString(key: StorageKeys.langCode);
     return GetBuilder<HomePageController>(builder: (homePageController){
       return homePageController.homeSectionRecentModel != null ? Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -41,13 +35,7 @@ class _HomeSectionRecentWidgetState extends State<HomeSectionRecentWidget> {
 
             sizedBoxH(10),
             MovieMenuBarWidget(
-                text: LanguageCheck.checkLanguage(
-                  langCode: langCode,
-                  enText: widget.homeSectionData?.title ?? "",
-                  bnText: widget.homeSectionData?.titleBn ?? "",
-                  hiText: widget.homeSectionData?.titleHi ?? "",
-                  arText: widget.homeSectionData?.titleAr ?? "",
-                ),
+                text: widget.homeSectionData?.title ?? "",
                 seeAllOnTap: (){
                   Get.to(()=> HomeSectionRecentSeeAllScreen(sectionId: widget.homeSectionData?.id.toString() ?? ""));
                 }
@@ -60,32 +48,37 @@ class _HomeSectionRecentWidgetState extends State<HomeSectionRecentWidget> {
                 children: homePageController.homeSectionRecentModel?.data?.map((recent) {
 
                   if(recent.customData != null){
-                    return MovieMenuWidget(
+                    return BasicEnglishCourseMenuWidget(
                       img: "${recent.customData?.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
-                        langCode: langCode,
-                        enText: recent.customData?.title ?? "",
-                        bnText: recent.customData?.titleBn ?? "",
-                        hiText: recent.customData?.titleHi ?? "",
-                        arText: recent.customData?.titleAr ?? "",
-                      ),
+                      title: recent.customData?.title ?? "",
                       subText: recent.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
-                        Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: recent.slug ?? "",
-                        ));
+                        if(recent.type == "movie"){
+                          Get.to(()=> MovieVideoDetailsScreen(
+                            slug: recent.slug ?? "",
+                          ));
+                        } else if(recent.type == "series"){
+                          Get.to(()=> SeriesVideoDetailsScreen(
+                            slug: recent.slug ?? "",
+                          ));
+                        } else if(recent.type == "season"){
+                          Get.to(()=> SeriesVideoDetailsScreen(
+                            slug: recent.series?.slug ?? "",
+                          ));
+                        } else if(recent.type == "episode"){
+                          Get.to(()=> SeriesVideoDetailsScreen(
+                            slug: recent.season?.series?.slug ?? "",
+                          ));
+                        } else{
+
+                        }
                       },
                     );
+
                   } else if(recent.type == "movie"){
-                    return MovieMenuWidget(
+                    return BasicEnglishCourseMenuWidget(
                       img: "${recent.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
-                        langCode: langCode,
-                        enText: recent.title ?? "",
-                        bnText: recent.titleBn ?? "",
-                        hiText: recent.titleHi ?? "",
-                        arText: recent.titleAr ?? "",
-                      ),
+                      title: recent.title ?? "",
                       subText: recent.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> MovieVideoDetailsScreen(
@@ -94,32 +87,20 @@ class _HomeSectionRecentWidgetState extends State<HomeSectionRecentWidget> {
                       },
                     );
                   } else if(recent.type == "series"){
-                    return MovieMenuWidget(
+                    return BasicEnglishCourseMenuWidget(
                       img: "${recent.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
-                        langCode: langCode,
-                        enText: recent.title ?? "",
-                        bnText: recent.titleBn ?? "",
-                        hiText: recent.titleHi ?? "",
-                        arText: recent.titleAr ?? "",
-                      ),
+                      title: recent.title ?? "",
                       subText: recent.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: recent.series?.slug ?? "",
+                          slug: recent.slug ?? "",
                         ));
                       },
                     );
                   } else if(recent.type == "season"){
-                    return MovieMenuWidget(
+                    return BasicEnglishCourseMenuWidget(
                       img: "${recent.series?.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
-                        langCode: langCode,
-                        enText: recent.series?.title ?? "",
-                        bnText: recent.series?.titleBn ?? "",
-                        hiText: recent.series?.titleHi ?? "",
-                        arText: recent.series?.titleAr ?? "",
-                      ),
+                      title: recent.series?.title ?? "",
                       subText: recent.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
@@ -128,19 +109,13 @@ class _HomeSectionRecentWidgetState extends State<HomeSectionRecentWidget> {
                       },
                     );
                   } else if(recent.type == "episode"){
-                    return MovieMenuWidget(
+                    return BasicEnglishCourseMenuWidget(
                       img: "${recent.series?.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
-                        langCode: langCode,
-                        enText: recent.series?.title ?? "",
-                        bnText: recent.series?.titleBn ?? "",
-                        hiText: recent.series?.titleHi ?? "",
-                        arText: recent.series?.titleAr ?? "",
-                      ),
+                      title: recent.series?.title ?? "",
                       subText: recent.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: recent.series?.slug ?? "",
+                          slug: recent.season?.series?.slug ?? "",
                         ));
                       },
                     );
@@ -157,14 +132,3 @@ class _HomeSectionRecentWidgetState extends State<HomeSectionRecentWidget> {
     });
   }
 }
-
-// if(movie.type == 'movie'){
-//   return ListView.builder(
-//     itemCount: movie.trailers?.length ?? 0,
-//     physics: const NeverScrollableScrollPhysics(),
-//     shrinkWrap: true,
-//     itemBuilder: (ctx, index) {
-//
-//     },
-//   );
-// }

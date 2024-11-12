@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../domain/local/preferences/local_storage.dart';
 import '../../../../../domain/local/preferences/local_storage_keys.dart';
-import '../../../../../global/utils/show_toast.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../../home/view/widget/home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../../../../home/view/widget/movie_menu_bar_widget.dart';
 import '../../../controller/video_details_controller.dart';
-import '../video_player_details_widget.dart';
+import '../../episode_video_details_screen.dart';
 import 'series_section_menu_widget.dart';
 
 class SeriesDetailsSeriesMenuScreen extends StatefulWidget {
@@ -63,39 +62,13 @@ class _SeriesDetailsSeriesMenuScreenState extends State<SeriesDetailsSeriesMenuS
                               hiText: episode.titleHi ?? "",
                               arText: episode.titleAr ?? "",
                             ),
-                            seriesVideoDetailsSeasons: seriesVideoDetailsData.seasons ?? [],
+                            subText: episode.videoAccess == true ? "Premium" : "Free",
+                            // seriesVideoDetailsSeasons: seriesVideoDetailsData.seasons ?? [],
                             onTap: () {
-                              final dubbedList = episode.dubbed?.where((dubbed) => dubbed.language?.code.toString() == langCode).toList();
-                              if (dubbedList != null && dubbedList.isNotEmpty) {
-                                showDialog(
-                                    context: context,
-                                    builder: (ctx) {
-                                      return Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          ListView.builder(
-                                            itemCount: dubbedList.length,
-                                            physics: const NeverScrollableScrollPhysics(),
-                                            shrinkWrap: true,
-                                            itemBuilder: (ctx, index) {
-                                              final dubbed = dubbedList[index];
-                                              return Material(
-                                                child: VideoPlayerDetailsWidget(
-                                                  videoSrc: dubbed.video ?? "",
-                                                  initImg: episode.thumbnail ?? "",
-                                                  isBack: false,
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        ],
-                                      );
-                                    }
-                                );
-                              } else {
-                                showCustomSnackBar("No trailer available in the selected language.", icon: Icons.info);
-                              }
-
+                              Get.to(()=> EpisodeVideoDetailsScreen(
+                                episode: episode,
+                                initImg: episode.thumbnail ?? ""
+                              ));
                             },
                           );
                         }).toList() ?? [],
@@ -109,3 +82,52 @@ class _SeriesDetailsSeriesMenuScreenState extends State<SeriesDetailsSeriesMenuS
     });
   }
 }
+
+// final dubbedList = episode.dubbed?.where((dubbed) => dubbed.language?.code.toString() == langCode).toList();
+//
+// if (dubbedList != null && dubbedList.isNotEmpty) {
+//
+//
+// // if (dubbedList != null && dubbedList.isNotEmpty) {
+// //   Get.to(()=> ListView.builder(
+// //     itemCount: dubbedList.length,
+// //     physics: const NeverScrollableScrollPhysics(),
+// //     shrinkWrap: true,
+// //     itemBuilder: (ctx, index) {
+// //       final dubbed = dubbedList[index];
+// //       return EpisodeVideoDetailsScreen(
+// //         videoSrc: dubbed.video ?? "",
+// //         initImg: episode.thumbnail ?? "",
+// //         isBack: false,
+// //       );
+// //     },
+// //   ));
+//
+//   // showDialog(
+//   //     context: context,
+//   //     builder: (ctx) {
+//   //       return Column(
+//   //         mainAxisAlignment: MainAxisAlignment.center,
+//   //         children: [
+//   //           ListView.builder(
+//   //             itemCount: dubbedList.length,
+//   //             physics: const NeverScrollableScrollPhysics(),
+//   //             shrinkWrap: true,
+//   //             itemBuilder: (ctx, index) {
+//   //               final dubbed = dubbedList[index];
+//   //               return Material(
+//   //                 child: VideoPlayerDetailsWidget(
+//   //                   videoSrc: dubbed.video ?? "",
+//   //                   initImg: episode.thumbnail ?? "",
+//   //                   isBack: false,
+//   //                 ),
+//   //               );
+//   //             },
+//   //           ),
+//   //         ],
+//   //       );
+//   //     }
+//   // );
+// } else {
+//   showCustomSnackBar("No trailer available in the selected language.", icon: Icons.info);
+// }

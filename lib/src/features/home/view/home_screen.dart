@@ -41,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
           height: size(context).height,
           width: size(context).width,
           color: ColorRes.appBackColor,
-          child: const HomeViewScreen()
+          child: const HomeViewScreen(),
+
           // Stack(
           //   children: [
           //
@@ -50,10 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
           //         : IndexedStack(
           //       index: homePageController.tabBarIndex,
           //       children: [
-          //         // const MovieTabViewScreen(),
-          //         // const SeriesTabViewScreen(),
-          //         // const FreeTabViewScreen(),
-          //         // Scaffold(body: Center(child: Container(height: double.infinity, width: double.infinity, color: ColorRes.appBackColor, child: const Center(child: Text("Free", style: TextStyle(color: Colors.white)))))),
+          //         const MovieTabViewScreen(),
+          //         const SeriesTabViewScreen(),
+          //         const FreeTabViewScreen(),
+          //         Scaffold(body: Center(child: Container(height: double.infinity, width: double.infinity, color: ColorRes.appBackColor, child: const Center(child: Text("Free", style: TextStyle(color: Colors.white)))))),
           //       ],
           //     ),
           //

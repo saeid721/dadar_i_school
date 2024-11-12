@@ -12,7 +12,7 @@ import '../../../model/home_section_model.dart';
 import '../../components/home_section_see_all/home_section_all_movie_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionAllMovieWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -33,7 +33,7 @@ class _HomeSectionAllMovieWidgetState extends State<HomeSectionAllMovieWidget> {
     return GetBuilder<HomePageController>(builder: (homePageController){
       return homePageController.homeSectionAllMovieModel != null ? Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: homePageController.homeSectionAllMovieModel?.data?.result?.isNotEmpty ?? false ? Column(
+        child: homePageController.homeSectionAllMovieModel?.data?.isNotEmpty ?? false ? Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -56,10 +56,10 @@ class _HomeSectionAllMovieWidgetState extends State<HomeSectionAllMovieWidget> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.homeSectionAllMovieModel?.data?.result?.map((movie) {
-                  return MovieMenuWidget(
+                children: homePageController.homeSectionAllMovieModel?.data?.map((movie) {
+                  return BasicEnglishCourseMenuWidget(
                     img: "${movie.thumbnail}",
-                    text: LanguageCheck.checkLanguage(
+                    title: LanguageCheck.checkLanguage(
                       langCode: langCode,
                       enText: movie.title ?? "",
                       bnText: movie.titleBn ?? "",

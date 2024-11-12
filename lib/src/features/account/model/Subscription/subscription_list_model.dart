@@ -1,17 +1,21 @@
-class AllSubscriptionPaginationModel {
+class SubscriptionListModel {
   int? code;
   String? status;
   String? message;
-  PaginationData? data;
+  List<Data>? data;
 
-  AllSubscriptionPaginationModel(
-      {this.code, this.status, this.message, this.data});
+  SubscriptionListModel({this.code, this.status, this.message, this.data});
 
-  AllSubscriptionPaginationModel.fromJson(Map<String, dynamic> json) {
+  SubscriptionListModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? PaginationData.fromJson(json['data']) : null;
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(Data.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -20,43 +24,13 @@ class AllSubscriptionPaginationModel {
     data['status'] = status;
     data['message'] = message;
     if (this.data != null) {
-      data['data'] = this.data!.toJson();
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class PaginationData {
-  List<Result>? result;
-  Pagination? pagination;
-
-  PaginationData({this.result, this.pagination});
-
-  PaginationData.fromJson(Map<String, dynamic> json) {
-    if (json['result'] != null) {
-      result = <Result>[];
-      json['result'].forEach((v) {
-        result!.add(Result.fromJson(v));
-      });
-    }
-    pagination = json['pagination'] != null
-        ? Pagination.fromJson(json['pagination'])
-        : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (result != null) {
-      data['result'] = result!.map((v) => v.toJson()).toList();
-    }
-    if (pagination != null) {
-      data['pagination'] = pagination!.toJson();
-    }
-    return data;
-  }
-}
-
-class Result {
+class Data {
   int? id;
   int? subscriberId;
   int? planId;
@@ -70,9 +44,8 @@ class Result {
   String? createdAt;
   String? updatedAt;
   Plan? plan;
-  Subscriber? subscriber;
 
-  Result(
+  Data(
       {this.id,
         this.subscriberId,
         this.planId,
@@ -85,26 +58,22 @@ class Result {
         this.status,
         this.createdAt,
         this.updatedAt,
-        this.plan,
-        this.subscriber});
+        this.plan});
 
-  Result.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     subscriberId = json['subscriber_id'];
     planId = json['plan_id'];
     endDate = json['end_date'];
     note = json['note'];
     isOfferApplied = json['is_offer_applied'];
-    grandTotal = json['grand_total'];
+    grandTotal = json['grand_total'].toDouble();
     paymentStatus = json['payment_status'];
     paymentMethod = json['payment_method'];
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     plan = json['plan'] != null ? Plan.fromJson(json['plan']) : null;
-    subscriber = json['subscriber'] != null
-        ? Subscriber.fromJson(json['subscriber'])
-        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -123,9 +92,6 @@ class Result {
     data['updated_at'] = updatedAt;
     if (plan != null) {
       data['plan'] = plan!.toJson();
-    }
-    if (subscriber != null) {
-      data['subscriber'] = subscriber!.toJson();
     }
     return data;
   }
@@ -177,7 +143,7 @@ class Plan {
     descriptionBn = json['description_bn'];
     descriptionHi = json['description_hi'];
     descriptionAr = json['description_ar'];
-    price = json['price'];
+    price = json['price'].toDouble();
     durationType = json['duration_type'];
     duration = json['duration'];
     deviceLimit = json['device_limit'];
@@ -204,104 +170,6 @@ class Plan {
     data['status'] = status;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
-    return data;
-  }
-}
-
-class Subscriber {
-  int? id;
-  String? firstName;
-  String? lastName;
-  String? email;
-  String? phone;
-  String? address;
-  int? planId;
-  String? dateOfBirth;
-  String? profile;
-  bool? isSocial;
-  bool? status;
-  String? createdAt;
-  String? updatedAt;
-
-  Subscriber(
-      {this.id,
-        this.firstName,
-        this.lastName,
-        this.email,
-        this.phone,
-        this.address,
-        this.planId,
-        this.dateOfBirth,
-        this.profile,
-        this.isSocial,
-        this.status,
-        this.createdAt,
-        this.updatedAt});
-
-  Subscriber.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    firstName = json['first_name'];
-    lastName = json['last_name'];
-    email = json['email'];
-    phone = json['phone'];
-    address = json['address'];
-    planId = json['plan_id'];
-    dateOfBirth = json['date_of_birth'];
-    profile = json['profile'];
-    isSocial = json['is_social'];
-    status = json['status'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['first_name'] = firstName;
-    data['last_name'] = lastName;
-    data['email'] = email;
-    data['phone'] = phone;
-    data['address'] = address;
-    data['plan_id'] = planId;
-    data['date_of_birth'] = dateOfBirth;
-    data['profile'] = profile;
-    data['is_social'] = isSocial;
-    data['status'] = status;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    return data;
-  }
-}
-
-class Pagination {
-  int? total;
-  int? totalPage;
-  int? currentPage;
-  int? pageLimit;
-  int? nextPage;
-
-  Pagination(
-      {this.total,
-        this.totalPage,
-        this.currentPage,
-        this.pageLimit,
-        this.nextPage});
-
-  Pagination.fromJson(Map<String, dynamic> json) {
-    total = json['total'];
-    totalPage = json['total_page'];
-    currentPage = json['current_page'];
-    pageLimit = json['page_limit'];
-    nextPage = json['next_page'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['total'] = total;
-    data['total_page'] = totalPage;
-    data['current_page'] = currentPage;
-    data['page_limit'] = pageLimit;
-    data['next_page'] = nextPage;
     return data;
   }
 }

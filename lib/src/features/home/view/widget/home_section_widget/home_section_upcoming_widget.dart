@@ -13,7 +13,7 @@ import '../../../model/home_section_model.dart';
 import '../../components/home_section_see_all/home_section_upcoming_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionUpComingWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -56,72 +56,72 @@ class _HomeSectionUpComingWidgetState extends State<HomeSectionUpComingWidget> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.homeSectionUpComingModel?.data?.map((upcomment) {
-                  if(upcomment.type == "movie"){
-                    return MovieMenuWidget(
-                      img: "${upcomment.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
+                children: homePageController.homeSectionUpComingModel?.data?.map((upcoming) {
+                  if(upcoming.type == "movie"){
+                    return BasicEnglishCourseMenuWidget(
+                      img: "${upcoming.thumbnail}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
-                        enText: upcomment.title ?? "",
-                        bnText: upcomment.titleBn ?? "",
-                        hiText: upcomment.titleHi ?? "",
-                        arText: upcomment.titleAr ?? "",
+                        enText: upcoming.title ?? "",
+                        bnText: upcoming.titleBn ?? "",
+                        hiText: upcoming.titleHi ?? "",
+                        arText: upcoming.titleAr ?? "",
                       ),
-                      subText: upcomment.videoAccess == true ? "Premium" : "Free",
+                      subText: upcoming.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> MovieVideoDetailsScreen(
-                          slug: upcomment.slug ?? "",
+                          slug: upcoming.slug ?? "",
                         ));
                       },
                     );
-                  } else if(upcomment.type == "series"){
-                    return MovieMenuWidget(
-                      img: "${upcomment.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
+                  } else if(upcoming.type == "series"){
+                    return BasicEnglishCourseMenuWidget(
+                      img: "${upcoming.thumbnail}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
-                        enText: upcomment.title ?? "",
-                        bnText: upcomment.titleBn ?? "",
-                        hiText: upcomment.titleHi ?? "",
-                        arText: upcomment.titleAr ?? "",
+                        enText: upcoming.title ?? "",
+                        bnText: upcoming.titleBn ?? "",
+                        hiText: upcoming.titleHi ?? "",
+                        arText: upcoming.titleAr ?? "",
                       ),
-                      subText: upcomment.videoAccess == true ? "Premium" : "Free",
+                      subText: upcoming.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: upcomment.slug ?? "",
+                          slug: upcoming.slug ?? "",
                         ));
                       },
                     );
-                  } else if(upcomment.type == "season"){
-                    return MovieMenuWidget(
-                      img: "${upcomment.series?.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
+                  } else if(upcoming.type == "season"){
+                    return BasicEnglishCourseMenuWidget(
+                      img: "${upcoming.series?.thumbnail}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
-                        enText: upcomment.series?.title ?? "",
-                        bnText: upcomment.series?.titleBn ?? "",
-                        hiText: upcomment.series?.titleHi ?? "",
-                        arText: upcomment.series?.titleAr ?? "",
+                        enText: upcoming.series?.title ?? "",
+                        bnText: upcoming.series?.titleBn ?? "",
+                        hiText: upcoming.series?.titleHi ?? "",
+                        arText: upcoming.series?.titleAr ?? "",
                       ),
-                      subText: upcomment.videoAccess == true ? "Premium" : "Free",
+                      subText: upcoming.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: upcomment.series?.slug ?? "",
+                          slug: upcoming.series?.slug ?? "",
                         ));
                       },
                     );
-                  } else if(upcomment.type == "episode"){
-                    return MovieMenuWidget(
-                      img: "${upcomment.series?.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
+                  } else if(upcoming.type == "episode"){
+                    return BasicEnglishCourseMenuWidget(
+                      img: "${upcoming.series?.thumbnail}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
-                        enText: upcomment.series?.title ?? "",
-                        bnText: upcomment.series?.titleBn ?? "",
-                        hiText: upcomment.series?.titleHi ?? "",
-                        arText: upcomment.series?.titleAr ?? "",
+                        enText: upcoming.series?.title ?? "",
+                        bnText: upcoming.series?.titleBn ?? "",
+                        hiText: upcoming.series?.titleHi ?? "",
+                        arText: upcoming.series?.titleAr ?? "",
                       ),
-                      subText: upcomment.videoAccess == true ? "Premium" : "Free",
+                      subText: upcoming.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: upcomment.series?.slug ?? "",
+                          slug: upcoming.series?.slug ?? "",
                         ));
                       },
                     );

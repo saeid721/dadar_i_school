@@ -9,6 +9,7 @@ import '../../../../../domain/local/preferences/local_storage.dart';
 import '../../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
+import '../../../../video_details/view/movie_video_details_screen.dart';
 import '../../../controller/home_controller.dart';
 import '../../../../../global/widget/global_appbar.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
@@ -33,7 +34,7 @@ class _HomeSectionAllMovieSeeAllScreenState extends State<HomeSectionAllMovieSee
     scrollController.addListener(scrollListener);
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      homePageController.getHomeSectionAllMovie(limit: '$pageSize', page: '$currentPage', order: 'desc');
+      homePageController.getHomeSectionAllMovieSeeAll(limit: '$pageSize', page: '$currentPage', order: 'desc');
     });
 
   }
@@ -44,7 +45,7 @@ class _HomeSectionAllMovieSeeAllScreenState extends State<HomeSectionAllMovieSee
         currentPage++;
         pageSize = 2 * currentPage;
       });
-      HomePageController.current.getHomeSectionAllMovie(limit: '$pageSize', page: '1', order: 'desc');
+      HomePageController.current.getHomeSectionAllMovieSeeAll(limit: '$pageSize', page: '1', order: 'desc');
     }
   }
 
@@ -88,7 +89,11 @@ class _HomeSectionAllMovieSeeAllScreenState extends State<HomeSectionAllMovieSee
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
                       subText: "Free",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=> MovieVideoDetailsScreen(
+                          slug: homePageRecentData?.slug ?? "",
+                        ));
+                      },
                     );
                   },
                 ),

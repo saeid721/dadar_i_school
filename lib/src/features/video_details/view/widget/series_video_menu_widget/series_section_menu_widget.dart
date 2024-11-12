@@ -4,33 +4,34 @@ import '../../../../../global/constants/colors_resources.dart';
 import '../../../../../global/constants/enum.dart';
 import '../../../../../global/widget/global_image_loader.dart';
 import '../../../../../global/widget/global_text.dart';
-import '../../../model/series_video_details_model.dart';
 
 class SeriesDetailsSeriesMenuWidget extends StatelessWidget {
   final String img;
   final String text;
-  final List<SeriesVideoDetailsSeasons> seriesVideoDetailsSeasons;
+  final String subText;
+  // final List<SeriesVideoDetailsSeasons> seriesVideoDetailsSeasons;
   final Function() onTap;
   const SeriesDetailsSeriesMenuWidget({
     super.key,
     required this.img,
     required this.text,
-    required this.seriesVideoDetailsSeasons,
+    required this.subText,
+    // required this.seriesVideoDetailsSeasons,
     required this.onTap,
   });
 
-  bool _checkIfSeasonHasPremium(SeriesVideoDetailsSeasons season) {
-    if (season.episodes == null || season.episodes!.isEmpty) return false;
-    return season.episodes!.any((episode) => episode.videoAccess == true);
-  }
-
-  bool _checkIfAnySeasonIsPremium() {
-    return seriesVideoDetailsSeasons.any((season) => _checkIfSeasonHasPremium(season));
-  }
+  // bool _checkIfSeasonHasPremium(SeriesVideoDetailsSeasons season) {
+  //   if (season.episodes == null || season.episodes!.isEmpty) return false;
+  //   return season.episodes!.any((episode) => episode.videoAccess == true);
+  // }
+  //
+  // bool _checkIfAnySeasonIsPremium() {
+  //   return seriesVideoDetailsSeasons.any((season) => _checkIfSeasonHasPremium(season));
+  // }
 
   @override
   Widget build(BuildContext context) {
-    final bool isSeriesPremium = _checkIfAnySeasonIsPremium();
+    // final bool isSeriesPremium = _checkIfAnySeasonIsPremium();
 
     return GestureDetector(
       onTap: onTap,
@@ -66,7 +67,7 @@ class SeriesDetailsSeriesMenuWidget extends StatelessWidget {
                     ),
                     child: Center(
                       child: GlobalText(
-                        str: isSeriesPremium ? "Premium" : "Free",
+                        str: subText,
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
                       ),

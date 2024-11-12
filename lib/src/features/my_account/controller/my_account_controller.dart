@@ -1,6 +1,7 @@
 
 import 'dart:developer';
 import 'package:get/get.dart';
+import 'package:dadar_i_school/src/features/account/controller/account_controller.dart';
 import '../../../domain/local/preferences/local_storage.dart';
 import '../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../initializer.dart';
@@ -13,6 +14,7 @@ class MyAccountController extends GetxController implements GetxService {
   static MyAccountController get current => Get.find();
   final MyAccountRepository repository = MyAccountRepository();
   final videoDetailsController = VideoDetailsController.current;
+  final accountController = AccountController.current;
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
@@ -23,7 +25,9 @@ class MyAccountController extends GetxController implements GetxService {
   // =/@ User Profile Method
   SubscriberMeModel? subscriberMeModel;
 
-  Future getSubscribersMe() async {
+  Future getSubscribersMe({
+    bool? isVideoAccess,
+  }) async {
     try {
       _isLoading = true;
       _hasError = false;
@@ -40,6 +44,12 @@ class MyAccountController extends GetxController implements GetxService {
       log("Subscribers Id Log: $subscribersId");
       if(subscribersId != null){
         videoDetailsController.getWatchList(subscriberId: subscribersId);
+      }
+
+      if(isVideoAccess == true){
+        if(subscriberMeModel?.data?.planId != null){
+          accountController.getSubscriptionVideoAccess(planId: subscriberMeModel?.data?.planId);
+        }
       }
 
       _isLoading = false;
@@ -94,3 +104,16 @@ class MyAccountController extends GetxController implements GetxService {
 
 
 }
+
+
+// accessToken == null
+//     ? showDialog(
+//     context: context,
+//     builder: (ctx){
+//       return const AuthScreen();
+//     })
+//     : movieVideoDetailsData?.videoAccess == true
+//     ? accountController.subscriptionVideoAccessModel?.data?.accessGranted == true
+//     ? showCustomSnackBar("Download Working Process.. 1")
+//     : Get.to(()=> const SubscribeNowScreen())
+//     : showCustomSnackBar("Download Working Process.. 2");

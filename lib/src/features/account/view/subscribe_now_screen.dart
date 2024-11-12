@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:dadar_i_school/src/domain/local/preferences/local_storage.dart';
 import 'package:dadar_i_school/src/domain/local/preferences/local_storage_keys.dart';
 import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
+import 'package:dadar_i_school/src/global/utils/show_toast.dart';
 import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import 'package:dadar_i_school/src/global/widget/global_text.dart';
@@ -25,13 +27,17 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  int selectPlan = 0;
+  int selectPlan = -1;
+  int? plansValue;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    AccountController.current.getSubscriptionsPlanList();
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      AccountController.current.getSubscriptionsPlanList();
+    });
+
   }
 
   @override
@@ -85,11 +91,11 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                   shrinkWrap: true,
                                   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10, top: 10),
                                   physics: const NeverScrollableScrollPhysics(),
-                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     mainAxisSpacing: 10,
                                     crossAxisSpacing: 10,
-                                    childAspectRatio: size(context).height < 700 ? 0.6 : 0.9,
+                                    mainAxisExtent: 160,
                                   ),
                                   itemBuilder: (ctx, index){
                                     final subscribePlan = accountController.subscriptionsPlanListModel?.data?[index];
@@ -100,6 +106,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                             setState(() {
                                               selectPlan = index;
                                             });
+                                            plansValue = subscribePlan?.id;
                                           },
                                           child: Container(
                                             width: 200,
@@ -239,7 +246,16 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                           buttomColor: ColorRes.appRedColor,
                           textSize: 13,
                           onTap: () async{
-                            await accountController.postSubscriptionEnroll(planId: '1');
+                            if(plansValue != null){
+                              await accountController.postSubscriptionEnroll(
+                                  planId: plansValue,
+                                  onChange: (){
+                                    Navigator.pop(context);
+                                  }
+                              );
+                            } else{
+                              showCustomSnackBar("Please Select a Subscription Plans", icon: Icons.info);
+                            }
                           },
                         ),
                       ),

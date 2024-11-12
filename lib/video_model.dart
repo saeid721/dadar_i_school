@@ -32,4 +32,15 @@ class BasicEnglishCourseModel {
       shortDescription: map['shortDescription'],
     );
   }
+
+  // Adding fromJson method
+  factory BasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
+    return BasicEnglishCourseModel(
+      id: json['id'],
+      title: json['title'],
+      videoUrl: json['videoUrl'],
+      thumbnail: json['thumbnail'],
+      shortDescription: json['shortDescription'],
+    );
+  }
 }

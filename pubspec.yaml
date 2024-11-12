@@ -17,6 +17,11 @@ dependencies:
   dio: ^5.5.0+1 # Network handling
   shared_preferences: ^2.2.2 # Local Storage!
 
+  # Download!
+  path_provider: ^2.1.5
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
   # Localization!
   intl: ^0.19.0
   #  app_links: ^6.3.2

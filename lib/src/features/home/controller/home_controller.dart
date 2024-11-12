@@ -6,17 +6,23 @@ import 'package:dadar_i_school/src/features/home/model/footer_model/footer_compa
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_explore_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_movies_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_series_model.dart';
+import '../../../../video_model.dart';
+import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
+import '../model/home_section/home_section_all_movie_see_all_model.dart';
 import '../model/home_section/home_section_all_series_model.dart';
+import '../model/home_section/home_section_all_series_see_all_model.dart';
 import '../model/home_section/home_section_application_features_model.dart';
 import '../model/home_section/home_section_blogs_model.dart';
 import '../model/home_section/home_section_favorite_model.dart';
 import '../model/home_section/home_section_genres_model.dart';
+import '../model/home_section/home_section_genres_see_all_model.dart';
 import '../model/home_section/home_section_poster_slider_movie_model.dart';
 import '../model/home_section/home_section_poster_slider_series_model.dart';
 import '../model/home_section/home_section_recent_model.dart';
 import '../model/home_section/home_section_selected_movie_model.dart';
 import '../model/home_section/home_section_selected_series_model.dart';
+import '../model/home_section/home_section_single_blogs_model.dart';
 import '../model/home_section/home_section_top_movie_model.dart';
 import '../model/home_section/home_section_top_series_model.dart';
 import '../model/home_section_model.dart';
@@ -74,6 +80,35 @@ class HomePageController extends GetxController implements GetxService {
     "Series",
     "Free"
   ];
+
+
+  // =/@ BasicEnglishCourseModel
+  BasicEnglishCourseModel? basicEnglishCourseModel;
+
+  Future getBasicEnglishCourseList() async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getBasicEnglishCourseList();
+      basicEnglishCourseModel = response;
+
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+
+
+
+
+
 
   // =/@ Home Slider List
   HomeSlidersModel? homeSlidersModel;
@@ -193,6 +228,37 @@ class HomePageController extends GetxController implements GetxService {
     }
   }
 
+  HomeSectionGenresSeeAllModel? homeSectionGenresSeeAllModel;
+  Future getHomeSectionGenresSeeAll({
+    required String genreId,
+    required String limit,
+    required String page
+  }) async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getHomeSectionGenresSeeAll(
+          genreId: genreId,
+          limit: limit,
+          page: page
+      );
+
+      if(response.code == 200){
+        homeSectionGenresSeeAllModel = response;
+      }
+
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
   // =/@ Home Section UpComing
   HomeSectionUpComingModel? homeSectionUpComingModel;
   HomeSectionUpComingModel? homeSectionUpComingSeeAllModel;
@@ -228,9 +294,35 @@ class HomePageController extends GetxController implements GetxService {
 
   // =/@ Home Section All Movie
   HomeSectionAllMovieModel? homeSectionAllMovieModel;
-  HomeSectionAllMovieModel? homeSectionAllMovieSeeAllModel;
+  HomeSectionAllMovieSeeAllModel? homeSectionAllMovieSeeAllModel;
 
   Future getHomeSectionAllMovie({
+    required String limit
+  }) async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getHomeSectionAllMovie(
+          limit: limit
+      );
+
+      if(response.code == 200){
+        homeSectionAllMovieModel = response;
+      }
+
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  Future getHomeSectionAllMovieSeeAll({
     required String limit,
     required String order,
     required String page,
@@ -241,18 +333,14 @@ class HomePageController extends GetxController implements GetxService {
       _hasError = false;
       update();
 
-      final response = await repository.getHomeSectionAllMovie(
+      final response = await repository.getHomeSectionAllMovieSeeAll(
           limit: limit,
           order: order,
           page: page
       );
 
       if(response.code == 200){
-        if(sectionType == "all_movies"){
-          homeSectionAllMovieModel = response;
-        } else{
-          homeSectionAllMovieSeeAllModel = response;
-        }
+        homeSectionAllMovieSeeAllModel = response;
       }
 
       _isLoading = false;
@@ -267,9 +355,36 @@ class HomePageController extends GetxController implements GetxService {
 
   // =/@ Home Section All Series
   HomeSectionAllSeriesModel? homeSectionAllSeriesModel;
-  HomeSectionAllSeriesModel? homeSectionAllSeriesSeeAllModel;
+  HomeSectionAllSeriesSeeAllModel? homeSectionAllSeriesSeeAllModel;
 
   Future getHomeSectionAllSeries({
+    required String limit,
+    String? sectionType
+  }) async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getHomeSectionAllSeries(
+          limit: limit,
+      );
+
+      if(response.code == 200){
+        homeSectionAllSeriesModel = response;
+      }
+
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  Future getHomeSectionAllSeriesSeeAll({
     required String limit,
     required String order,
     required String page,
@@ -280,18 +395,14 @@ class HomePageController extends GetxController implements GetxService {
       _hasError = false;
       update();
 
-      final response = await repository.getHomeSectionAllSeries(
+      final response = await repository.getHomeSectionAllSeriesSeeAll(
           limit: limit,
           order: order,
           page: page
       );
 
       if(response.code == 200){
-        if(sectionType == "all_series"){
-          homeSectionAllSeriesModel = response;
-        } else{
-          homeSectionAllSeriesSeeAllModel = response;
-        }
+        homeSectionAllSeriesSeeAllModel = response;
       }
 
       _isLoading = false;
@@ -588,8 +699,36 @@ class HomePageController extends GetxController implements GetxService {
     }
   }
 
+  HomeSectionSingleBlogsModel? homeSectionSingleBlogsModel;
+
+  Future getHomeSectionSingleBlogs({
+    required String blogId,
+  }) async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getHomeSectionSingleBlogs(
+          blogId: blogId
+      );
+
+      if(response.code == 200){
+        homeSectionSingleBlogsModel = response;
+      }
+
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
   // =@ Footer Company Model
-FooterCompanyModel? footerCompanyModel;
+  FooterCompanyModel? footerCompanyModel;
   Future getFooterCompany() async {
     try {
       _isLoading = true;
@@ -668,6 +807,38 @@ FooterCompanyModel? footerCompanyModel;
       log('Error: ', error: e, stackTrace: s);
     }
   }
+
+  // =/@ Home Section All Genres Model
+  HomeSectionAllGenresModel? homeSectionAllGenresModel;
+
+  Future getHomeSectionAllGenres({
+    required String limit,
+    required String genreId,
+    required String page
+  }) async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getHomeSectionAllGenres(
+          limit: limit,
+          genreId: genreId,
+          page: page,
+      );
+      homeSectionAllGenresModel = response;
+
+
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
 
 
 }

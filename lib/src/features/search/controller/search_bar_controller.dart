@@ -1,7 +1,7 @@
 
 import 'dart:developer';
 import 'package:get/get.dart';
-import '../model/search_model.dart';
+import '../model/search_list_model.dart';
 import '../model/search_popular_model.dart';
 import 'search_bar_repo.dart';
 
@@ -16,9 +16,8 @@ class SearchBarController extends GetxController implements GetxService {
   bool get hasError => _hasError;
 
   // =/@ SearchModel
-  SearchModel? searchModel;
-
-  Future getSearch({
+  SearchListModel? searchModel;
+  Future getSearchList({
     required String limit,
     required String order,
     required String page,
@@ -29,7 +28,7 @@ class SearchBarController extends GetxController implements GetxService {
       _hasError = false;
       update();
 
-      final response =  await repository.getSearch(
+      final response =  await repository.getSearchList(
           limit: limit,
           order: order,
           page: page,

@@ -8,7 +8,7 @@ import '../../../../initializer.dart';
 import '../../../../service/language_check/language_check.dart';
 import '../../../home/view/widget/home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../../../home/view/widget/movie_menu_bar_widget.dart';
-import '../../../home/view/widget/movie_menu_widget.dart';
+import '../../../home/view/widget/basic_english_course_enu_widget.dart';
 import '../../../video_details/view/series_video_details_screen.dart';
 import '../../controller/tab_view_controller.dart';
 import '../../model/genres_model.dart';
@@ -60,7 +60,7 @@ class _SeriesThrillerWidgetState extends State<SeriesThrillerWidget> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: thrillerData.data?.result?.map((series) {
-                    return HomeAllSeriesMenuWidget(
+                    return HomeAllSeriesMenuTabBarWidget(
                       img: "${series.thumbnail}",
                       text: LanguageCheck.checkLanguage(
                         langCode: langCode,
@@ -69,7 +69,7 @@ class _SeriesThrillerWidgetState extends State<SeriesThrillerWidget> {
                         hiText: series.titleHi ?? "",
                         arText: series.titleAr ?? "",
                       ),
-                      homeSectionAllSeriesSeasons: series.seasons ?? [],
+                      subText: series.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         Get.to(()=> SeriesVideoDetailsScreen(
                           slug: series.slug ?? "",

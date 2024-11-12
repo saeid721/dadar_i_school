@@ -12,9 +12,11 @@ class DateTimeFormatter{
   static  DateFormat showDateTimeWithMonth = DateFormat("dd MMM yyyy hh:mm a"); // e.g: 12 Sep 2023 12:30 PM
   static  DateFormat parsedTime = DateFormat.yMd();
 
-  //
   static  DateFormat dbFormatDateOnly = DateFormat("yyyy-MM-dd");
   static  DateFormat dbFormatDateTime = DateFormat("yyyy-MM-dd hh:mm");
+
+  // New format for "7 October 2024"
+  static DateFormat showDayMonthYear = DateFormat("d MMMM yyyy");
 
 
 }

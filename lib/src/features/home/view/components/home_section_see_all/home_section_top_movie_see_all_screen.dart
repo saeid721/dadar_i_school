@@ -10,6 +10,7 @@ import '../../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../../../global/widget/global_appbar.dart';
+import '../../../../video_details/view/movie_video_details_screen.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
 import '../../../controller/home_controller.dart';
 
@@ -75,7 +76,11 @@ class _HomeSectionTopMovieSeeAllScreenState extends State<HomeSectionTopMovieSee
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
                       subText: "Free",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=> MovieVideoDetailsScreen(
+                          slug: homePageRecentData?.slug ?? "",
+                        ));
+                      },
                     );
                   },
                 ),

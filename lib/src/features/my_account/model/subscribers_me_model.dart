@@ -32,7 +32,7 @@ class Data {
   String? email;
   String? phone;
   String? address;
-  int? subscriptionId;
+  int? planId;
   String? dateOfBirth;
   String? profile;
   bool? isSocial;
@@ -47,7 +47,7 @@ class Data {
         this.email,
         this.phone,
         this.address,
-        this.subscriptionId,
+        this.planId,
         this.dateOfBirth,
         this.profile,
         this.isSocial,
@@ -63,7 +63,7 @@ class Data {
     email = json['email'];
     phone = json['phone'];
     address = json['address'];
-    subscriptionId = json['subscription_id'];
+    planId = json['plan_id'];
     dateOfBirth = json['date_of_birth'];
     profile = json['profile'];
     isSocial = json['is_social'];
@@ -80,7 +80,7 @@ class Data {
     data['email'] = email;
     data['phone'] = phone;
     data['address'] = address;
-    data['subscription_id'] = subscriptionId;
+    data['plan_id'] = planId;
     data['date_of_birth'] = dateOfBirth;
     data['profile'] = profile;
     data['is_social'] = isSocial;

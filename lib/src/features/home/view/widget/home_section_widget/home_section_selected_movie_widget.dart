@@ -12,7 +12,7 @@ import '../../../model/home_section_model.dart';
 import '../../components/home_section_see_all/home_section_selected_movie_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionSelectedMovieWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -56,9 +56,9 @@ class _HomeSectionSelectedMovieWidgetState extends State<HomeSectionSelectedMovi
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: homePageController.homeSectionSelectedMovieModel?.data?.map((movie) {
-                  return MovieMenuWidget(
+                  return BasicEnglishCourseMenuWidget(
                     img: "${movie.thumbnail}",
-                    text: LanguageCheck.checkLanguage(
+                    title: LanguageCheck.checkLanguage(
                       langCode: langCode,
                       enText: movie.title ?? "",
                       bnText: movie.titleBn ?? "",

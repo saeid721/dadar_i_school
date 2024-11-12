@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:dadar_i_school/src/global/widget/global_text.dart';
 import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_sized_box.dart';
+import '../../../account/view/subscribe_now_screen.dart';
 import '../../controller/home_controller.dart';
 
 class DashboardAppbar extends StatefulWidget {
@@ -68,20 +69,25 @@ class _DashboardAppbarState extends State<DashboardAppbar> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: ColorRes.appRedColor
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 8
-                        ),
-                        child: const Center(
-                          child: GlobalText(
-                            str: "SUBSCRIBE",
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> const SubscribeNowScreen());
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: ColorRes.appRedColor
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 8
+                          ),
+                          child: const Center(
+                            child: GlobalText(
+                              str: "SUBSCRIBE",
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

@@ -12,7 +12,7 @@ import '../../../model/home_section_model.dart';
 import '../../components/home_section_see_all/home_section_all_series_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionAllSeriesWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -33,7 +33,7 @@ class _HomeSectionAllSeriesWidgetState extends State<HomeSectionAllSeriesWidget>
     return GetBuilder<HomePageController>(builder: (homePageController){
       return homePageController.homeSectionAllSeriesModel != null ? Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: homePageController.homeSectionAllSeriesModel?.data?.result?.isNotEmpty ?? false ? Column(
+        child: homePageController.homeSectionAllSeriesModel?.data?.isNotEmpty ?? false ? Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -55,7 +55,7 @@ class _HomeSectionAllSeriesWidgetState extends State<HomeSectionAllSeriesWidget>
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.homeSectionAllSeriesModel?.data?.result?.map((series) {
+                children: homePageController.homeSectionAllSeriesModel?.data?.map((series) {
                   return HomeAllSeriesMenuWidget(
                     img: "${series.thumbnail}",
                     text: LanguageCheck.checkLanguage(
@@ -65,7 +65,7 @@ class _HomeSectionAllSeriesWidgetState extends State<HomeSectionAllSeriesWidget>
                       hiText: series.titleHi ?? "",
                       arText: series.titleAr ?? "",
                     ),
-                    homeSectionAllSeriesSeasons: series.seasons ?? [],
+                    subText: series.videoAccess == true ? "Premium" : "Free",
                     onTap: () {
                       Get.to(()=> SeriesVideoDetailsScreen(
                         slug: series.slug ?? "",

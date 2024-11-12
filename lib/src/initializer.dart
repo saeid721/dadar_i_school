@@ -8,6 +8,7 @@ import 'domain/local/preferences/storage_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
 import 'features/account/controller/account_controller.dart';
 import 'features/dashboard_bottom_navigation_bar/controller/dashboard_buttom_controller.dart';
+import 'features/download/controller/download_controller.dart';
 import 'features/home/controller/home_controller.dart';
 import 'features/my_account/controller/my_account_controller.dart';
 import 'features/search/controller/search_bar_controller.dart';
@@ -35,6 +36,7 @@ Future<void> init(LocalStorage localStorage) async {
   Get.lazyPut(() => MyAccountController(), fenix: true);
   Get.lazyPut(() => TabViewController(), fenix: true);
   Get.lazyPut(() => LocationController(), fenix: true);
+  Get.lazyPut(() => DownloadController(), fenix: true);
 
   // ==# Register GetIt services within GetX for further access
   Get.lazyPut(() => locator<RequestHandler>(), fenix: true);

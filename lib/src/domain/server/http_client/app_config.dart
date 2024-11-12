@@ -14,13 +14,17 @@ enum AppConfig {
   homeSectionUrl,
   homeSectionRecentUrl,
   homeSectionGenresUrl,
+  homeSectionGenresSeeAllUrl,
   homeSectionUpComingUrl,
   homeSectionAllMovieUrl,
+  homeSectionAllMovieSeeAllUrl,
   homeSectionAllSeriesUrl,
+  homeSectionAllSeriesSeeAllUrl,
   homeSectionTopMovieUrl,
   homeSectionTopSeriesUrl,
   homeSectionApplicationFeaturesUrl,
   homeSectionBlogsUrl,
+  HomeSectionAllGenresUrl,
 
   footerExploreUrl,
   footerPopularSeriesUrl,
@@ -32,14 +36,9 @@ enum AppConfig {
   watchListUrl,
   watchHistoryUrl,
   homeUpComingUrl,
-  subscriptionUrl,
-  allSubscriptionUrl,
-  allSubscriptionPaginationUrl,
   subscriptionPlanListUrl,
-  subscriberListUrl,
-  subscriberPaginationUrl,
-  subscriberUrl,
   subscriptionEnrollMeUrl,
+  subscriptionVideoAccessUrl,
 
   /// ==========/@ Tab Controller @/==========
   genresListUrl,
@@ -103,11 +102,17 @@ extension AppUrlExtention on AppConfig {
         return '/home-section-details/recent';
       case AppConfig.homeSectionGenresUrl:
         return '/home-section-details/client';
+      case AppConfig.homeSectionGenresSeeAllUrl:
+        return '/genres/client/movies-series';
       case AppConfig.homeSectionUpComingUrl:
         return '/home-section-details/upcoming';
       case AppConfig.homeSectionAllMovieUrl:
+        return '/home-section-details/all_movies';
+      case AppConfig.homeSectionAllMovieSeeAllUrl:
         return '/movies/client';
       case AppConfig.homeSectionAllSeriesUrl:
+        return '/home-section-details/all_series';
+      case AppConfig.homeSectionAllSeriesSeeAllUrl:
         return '/series/client';
       case AppConfig.homeSectionTopMovieUrl:
         return '/home-section-details/top_movies';
@@ -117,6 +122,8 @@ extension AppUrlExtention on AppConfig {
         return '/application-features/client';
       case AppConfig.homeSectionBlogsUrl:
         return '/blogs/client/pages';
+      case AppConfig.HomeSectionAllGenresUrl:
+        return '/genres/client';
 
       case AppConfig.footerExploreUrl:
         return'/footer/footer-type/explore';
@@ -134,22 +141,12 @@ extension AppUrlExtention on AppConfig {
         return '/watch-list';
       case AppConfig.watchHistoryUrl:
         return '/watch-history/1';
-      case AppConfig.subscriptionUrl:
-        return'/subscriptions';
-      case AppConfig.allSubscriptionUrl:
-        return'/subscriptions';
-      case AppConfig.allSubscriptionPaginationUrl:
-        return'/subscriptions/pagination';
       case AppConfig.subscriptionPlanListUrl:
         return'/plans/client';
-      case AppConfig.subscriberListUrl:
-        return'/subscribers';
-      case AppConfig.subscriberPaginationUrl:
-        return'/subscribers/pagination';
-      case AppConfig.subscriberUrl:
-        return'/subscribers/12';
       case AppConfig.subscriptionEnrollMeUrl:
         return'/subscriptions/me';
+      case AppConfig.subscriptionVideoAccessUrl:
+        return'/subscriptions/video-access/me';
 
 
     /// ==========/@ Tab Controller @/==========

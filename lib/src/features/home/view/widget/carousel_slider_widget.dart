@@ -11,7 +11,7 @@ class CarouselSliderWidget extends StatelessWidget {
   final String img;
   final String text;
   final String subText;
-  final int? imdbRating;
+  final int imdbRating;
   final Function() onTap;
   final Function() watchTrailerOnTap;
   const CarouselSliderWidget({
@@ -19,7 +19,7 @@ class CarouselSliderWidget extends StatelessWidget {
     required this.img,
     required this.text,
     required this.subText,
-    this.imdbRating,
+    required this.imdbRating,
     required this.onTap,
     required this.watchTrailerOnTap,
   });
@@ -79,15 +79,15 @@ class CarouselSliderWidget extends StatelessWidget {
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
-                              // Row(
-                              //   children: starList.asMap().entries.map((item){
-                              //     return Icon(
-                              //       Icons.star,
-                              //       color: item.key < imdbRating ? ColorRes.appRedColor : ColorRes.grey,
-                              //       size: 12,
-                              //     );
-                              //   }).toList(),
-                              // ),
+                              Row(
+                                children: starList.asMap().entries.map((item){
+                                  return Icon(
+                                    Icons.star,
+                                    color: item.key < imdbRating ? ColorRes.appRedColor : ColorRes.grey,
+                                    size: 12,
+                                  );
+                                }).toList(),
+                              ),
                             ],
                           ),
                         ),

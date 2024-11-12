@@ -2,7 +2,7 @@ class SubscriptionPlanListModel {
   int? code;
   String? status;
   String? message;
-  List<SubscriptionPlanListData>? data;
+  List<Data>? data;
 
   SubscriptionPlanListModel({this.code, this.status, this.message, this.data});
 
@@ -11,9 +11,9 @@ class SubscriptionPlanListModel {
     status = json['status'];
     message = json['message'];
     if (json['data'] != null) {
-      data = <SubscriptionPlanListData>[];
+      data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(SubscriptionPlanListData.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
@@ -30,7 +30,7 @@ class SubscriptionPlanListModel {
   }
 }
 
-class SubscriptionPlanListData {
+class Data {
   int? id;
   String? name;
   String? nameBn;
@@ -48,7 +48,7 @@ class SubscriptionPlanListData {
   String? createdAt;
   String? updatedAt;
 
-  SubscriptionPlanListData(
+  Data(
       {this.id,
         this.name,
         this.nameBn,
@@ -66,7 +66,7 @@ class SubscriptionPlanListData {
         this.createdAt,
         this.updatedAt});
 
-  SubscriptionPlanListData.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     nameBn = json['name_bn'];
@@ -76,7 +76,7 @@ class SubscriptionPlanListData {
     descriptionBn = json['description_bn'];
     descriptionHi = json['description_hi'];
     descriptionAr = json['description_ar'];
-    price = json['price'];
+    price = json['price'].toDouble();
     durationType = json['duration_type'];
     duration = json['duration'];
     deviceLimit = json['device_limit'];

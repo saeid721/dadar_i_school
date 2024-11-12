@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:dadar_i_school/src/domain/local/preferences/local_storage.dart';
 import 'package:dadar_i_school/src/domain/local/preferences/local_storage_keys.dart';
+import 'package:dadar_i_school/src/features/account/controller/account_controller.dart';
 import 'package:dadar_i_school/src/features/video_details/controller/video_details_controller.dart';
 import '../../../features/dashboard_bottom_navigation_bar/dashboard_bottom_navigation_bar.dart';
 import '../../../features/my_account/controller/my_account_controller.dart';
@@ -17,6 +18,7 @@ class AuthController extends GetxController implements GetxService {
   final AuthRepository repository = AuthRepository();
   final myAccountController = MyAccountController.current;
   final videoDetailsController = VideoDetailsController.current;
+  final accountController = AccountController.current;
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
@@ -57,9 +59,11 @@ class AuthController extends GetxController implements GetxService {
       final String? accessToken = locator<LocalStorage>().getString(key: StorageKeys.accessToken);
 
       log("Access Token: $accessToken");
-      if(accessToken != null){
-        myAccountController.getSubscribersMe();
-      }
+
+      myAccountController.getSubscribersMe(isVideoAccess: true);
+      // if(accessToken != null){
+      //   myAccountController.getSubscribersMe();
+      // }
 
       _isLoading = false;
       update();
@@ -120,6 +124,8 @@ class AuthController extends GetxController implements GetxService {
         logOutModel = response;
         final String? token = locator<LocalStorage>().getString(key: StorageKeys.accessToken);
         log("===/@ User Token: $token");
+        accountController.subscriptionVideoAccessModel = null;
+
         await locator<LocalStorage>().clearLocalStorage()?.whenComplete((){
           Get.offAll(()=> const DashboardBottomNavigationBar());
         });

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:dadar_i_school/src/global/constants/enum.dart';
 import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import '../../../../global/constants/colors_resources.dart';
@@ -44,46 +45,29 @@ class DownloadMenuWidget extends StatelessWidget {
                 imagePath: img,
                 height: 180,
                 width: Get.width,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
+                imageFor: ImageFor.local,
               ),
             ),
             sizedBoxW(5),
             Padding(
-              padding: const EdgeInsets.only(top: 5, left: 10, right: 10, bottom: 5),
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
               child: Row(
                 children: [
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        GlobalText(
-                          str: text,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        // GlobalText(
-                        //   str: subText,
-                        //   fontSize: 9,
-                        //   fontWeight: FontWeight.w300,
-                        //   maxLines: 2,
-                        //   overflow: TextOverflow.ellipsis,
-                        // ),
-                        const GlobalText(
-                          str: '2.5M Views',
-                          fontSize: 9,
-                          fontWeight: FontWeight.w300,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                    child: GlobalText(
+                      str: text,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  SizedBox(
-                    width: 30,
-                    child: GestureDetector(
-                      onTap: moreVertOnTap,
+                  GestureDetector(
+                    onTap: moreVertOnTap,
+                    child: Container(
+                      color: Colors.transparent,
+                      width: 20,
                       child: const Icon(
                         Icons.more_vert_outlined,
                         size: 20,

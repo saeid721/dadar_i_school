@@ -9,14 +9,12 @@ import '../../../../../global/utils/show_toast.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../../video_details/view/movie_video_details_screen.dart';
-import '../../../model/data.dart';
 import '../../../model/home_slider_model.dart';
-import '../../../model/video_model.dart';
 import '../../widget/carousel_slider_widget.dart';
 import '../../widget/video_player_widget.dart';
 
 class MovieCarouselSliderWidget extends StatefulWidget {
-  final BasicEnglishCourseModel slider;
+  final HomeSlidersData slider;
   const MovieCarouselSliderWidget({
     super.key,
     required this.slider
@@ -32,13 +30,26 @@ class _MovieCarouselSliderWidgetState extends State<MovieCarouselSliderWidget> {
     final langCode = locator<LocalStorage>().getString(key: StorageKeys.langCode);
 
     return CarouselSliderWidget(
-      img: "${widget.slider.thumbnail}",
-      text: "${widget.slider.title}",
-      subText: "${widget.slider.shortDescription}",
+      img: "${widget.slider.movie?.thumbnail}",
+      text: LanguageCheck.checkLanguage(
+        langCode: langCode,
+        enText: widget.slider.movie?.title ?? "",
+        bnText: widget.slider.movie?.titleBn ?? "",
+        hiText: widget.slider.movie?.titleHi ?? "",
+        arText: widget.slider.movie?.titleAr ?? "",
+      ),
+      subText: LanguageCheck.checkLanguage(
+        langCode: langCode,
+        enText: widget.slider.movie?.description ?? "",
+        bnText: widget.slider.movie?.descriptionBn ?? "",
+        hiText: widget.slider.movie?.descriptionHi ?? "",
+        arText: widget.slider.movie?.descriptionAr ?? "",
+      ),
+      imdbRating: widget.slider.movie?.imdbRating ?? 0,
       onTap: (){
-        log("Video Details Slug: ${widget.slider.title}");
+        log("Video Details Slug: ${widget.slider.movie?.slug}");
         Get.to(()=> MovieVideoDetailsScreen(
-          slug: widget.slider.title ?? "",
+          slug: widget.slider.movie?.slug ?? "",
         ));
       },
       watchTrailerOnTap: (){
@@ -52,15 +63,15 @@ class _MovieCarouselSliderWidgetState extends State<MovieCarouselSliderWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ListView.builder(
-                      itemCount: basicEnglishCourseData.length,
+                      itemCount: trailerList.length,
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: (ctx, index) {
-                        final trailer = basicEnglishCourseData[index];
-                        //log("Video Url: ${AppConfig.base.url}${trailer.url}");
+                        final trailer = trailerList[index];
+                        log("Video Url: ${AppConfig.base.url}${trailer.url}");
                         return VideoPlayerWidget(
-                          videoSrc: trailer.videoUrl,
-                          initImg: trailer.thumbnail,
+                          videoSrc: "${AppConfig.base.url}${trailer.url}",
+                          initImg: "${widget.slider.movie?.thumbnail}",
                           close: true,
                         );
                       },

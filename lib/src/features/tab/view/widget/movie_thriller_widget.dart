@@ -8,7 +8,7 @@ import '../../../../initializer.dart';
 import '../../../../service/language_check/language_check.dart';
 import '../../../home/view/widget/home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../../../home/view/widget/movie_menu_bar_widget.dart';
-import '../../../home/view/widget/movie_menu_widget.dart';
+import '../../../home/view/widget/basic_english_course_enu_widget.dart';
 import '../../../video_details/view/movie_video_details_screen.dart';
 import '../../controller/tab_view_controller.dart';
 import '../../model/genres_model.dart';
@@ -60,9 +60,9 @@ class _MovieThrillerWidgetState extends State<MovieThrillerWidget> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: thrillerData.data?.result?.map((movie) {
-                  return MovieMenuWidget(
+                  return BasicEnglishCourseMenuWidget(
                     img: "${movie.thumbnail}",
-                    text: LanguageCheck.checkLanguage(
+                    title: LanguageCheck.checkLanguage(
                       langCode: langCode,
                       enText: movie.title ?? "",
                       bnText: movie.titleBn ?? "",

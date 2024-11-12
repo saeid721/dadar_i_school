@@ -8,10 +8,11 @@ import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../controller/home_controller.dart';
 import '../../../model/home_section_model.dart';
+import '../../components/home_section_blogs_details_screen.dart';
 import '../../components/home_section_see_all/home_section_blogs_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_genres_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionBlogsWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -63,7 +64,11 @@ class _HomeSectionBlogsWidgetState extends State<HomeSectionBlogsWidget> {
                       hiText: movie.titleHi ?? "",
                       arText: movie.titleAr ?? "",
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(()=> HomeSectionBlogsDetailsScreen(
+                        blogId: movie.id.toString()
+                      ));
+                    },
                   );
                 }).toList() ?? [],
               )

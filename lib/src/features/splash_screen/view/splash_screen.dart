@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: const Center(
           child: GlobalImageLoader(
             imagePath: Images.appLogo,
-            width: 130,
+            width: 160,
             fit: BoxFit.fill,
           ),
         ),

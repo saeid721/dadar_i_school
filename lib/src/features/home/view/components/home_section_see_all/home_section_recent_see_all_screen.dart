@@ -10,6 +10,8 @@ import '../../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../../../global/widget/global_appbar.dart';
+import '../../../../video_details/view/movie_video_details_screen.dart';
+import '../../../../video_details/view/series_video_details_screen.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
 import '../../../controller/home_controller.dart';
 
@@ -75,7 +77,27 @@ class _HomeSectionRecentSeeAllScreenState extends State<HomeSectionRecentSeeAllS
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
                       subText: "Free",
-                      onTap: () {},
+                      onTap: () {
+                        if(homePageRecentData?.type == "movie"){
+                          Get.to(()=> MovieVideoDetailsScreen(
+                            slug: homePageRecentData?.slug ?? "",
+                          ));
+                        } else if(homePageRecentData?.type == "series"){
+                          Get.to(()=> SeriesVideoDetailsScreen(
+                            slug: homePageRecentData?.slug ?? "",
+                          ));
+                        } else if(homePageRecentData?.type == "season"){
+                          Get.to(()=> SeriesVideoDetailsScreen(
+                            slug: homePageRecentData?.series?.slug ?? "",
+                          ));
+                        } else if(homePageRecentData?.type == "episode"){
+                          Get.to(()=> SeriesVideoDetailsScreen(
+                            slug: homePageRecentData?.season?.series?.slug ?? "",
+                          ));
+                        } else{
+
+                        }
+                      },
                     );
                   },
                 ),

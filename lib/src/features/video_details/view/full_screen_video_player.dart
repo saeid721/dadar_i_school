@@ -4,20 +4,30 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import '../../../global/constants/colors_resources.dart';
+import '../../../global/constants/enum.dart';
 import '../../../global/constants/images.dart';
 import '../../../global/widget/global_image_loader.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
 import '../controller/video_details_controller.dart';
+import 'components/video_details_setting_screen.dart';
 
 class FullScreenVideoPlayer extends StatefulWidget {
   final VideoPlayerController controller;
   final bool initialMute;
+  final String videoText;
+  final String initImg;
+  final bool? isLocal;
+  final Function(double) onSpeedSelected;
 
   const FullScreenVideoPlayer({
     super.key,
     required this.controller,
     required this.initialMute,
+    required this.videoText,
+    required this.initImg,
+    this.isLocal = false,
+    required this.onSpeedSelected
   });
 
   @override
@@ -87,9 +97,10 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
                         // Display image when the video is paused or hasn't started
                         if (!_controller.value.isPlaying)
                           Positioned.fill(
-                            child: Image.asset(
-                              videoDetailsController.initImg,
+                            child: GlobalImageLoader(
+                              imagePath: widget.initImg,
                               fit: BoxFit.cover,
+                              imageFor: widget.isLocal == true ? ImageFor.local : ImageFor.network,
                             ),
                           ),
                       ],
@@ -261,12 +272,42 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
                         ),
 
                         sizedBoxW(10),
-                        const GlobalText(
-                          str: "Jack Reacher: Never Go Back",
+                        GlobalText(
+                          str: widget.videoText,
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
                         )
                       ],
+                    ),
+                  ),
+                ),
+
+              if (_controlsVisible)
+                Positioned(
+                  top: 30,
+                  right: 10,
+                  child: GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          builder: (ctx){
+                            return VideoDetailsSettingsScreen(
+                              controller: _controller,
+                              onSpeedSelected: widget.onSpeedSelected,
+                            );
+                          }
+                      );
+                    },
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      color: Colors.transparent,
+                      child: const Icon(
+                        Icons.settings_outlined,
+                        color: ColorRes.white,
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),

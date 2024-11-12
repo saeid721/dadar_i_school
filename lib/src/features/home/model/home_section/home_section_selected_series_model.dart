@@ -42,6 +42,7 @@ class HomeSectionSelectedSeriesData {
   int? imdbRating;
   int? imdbVotes;
   bool? upcoming;
+  bool? videoAccess;
   String? description;
   String? descriptionBn;
   String? descriptionHi;
@@ -71,6 +72,7 @@ class HomeSectionSelectedSeriesData {
         this.imdbRating,
         this.imdbVotes,
         this.upcoming,
+        this.videoAccess,
         this.description,
         this.descriptionBn,
         this.descriptionHi,
@@ -100,6 +102,7 @@ class HomeSectionSelectedSeriesData {
     imdbRating = json['imdb_rating'];
     imdbVotes = json['imdb_votes'];
     upcoming = json['upcoming'];
+    videoAccess = json['video_access'];
     description = json['description'];
     descriptionBn = json['description_bn'];
     descriptionHi = json['description_hi'];
@@ -141,6 +144,7 @@ class HomeSectionSelectedSeriesData {
     data['imdb_rating'] = imdbRating;
     data['imdb_votes'] = imdbVotes;
     data['upcoming'] = upcoming;
+    data['video_access'] = videoAccess;
     data['description'] = description;
     data['description_bn'] = descriptionBn;
     data['description_hi'] = descriptionHi;
@@ -202,6 +206,7 @@ class HomeSectionSelectedSeriesSeasons {
   int? imdbRating;
   int? imdbVotes;
   bool? upcoming;
+  bool? videoAccess;
   String? thumbnail;
   String? cover;
   String? contentRating;
@@ -222,6 +227,7 @@ class HomeSectionSelectedSeriesSeasons {
         this.imdbRating,
         this.imdbVotes,
         this.upcoming,
+        this.videoAccess,
         this.thumbnail,
         this.cover,
         this.contentRating,
@@ -242,6 +248,7 @@ class HomeSectionSelectedSeriesSeasons {
     imdbRating = json['imdb_rating'];
     imdbVotes = json['imdb_votes'];
     upcoming = json['upcoming'];
+    videoAccess = json['video_access'];
     thumbnail = json['thumbnail'];
     cover = json['cover'];
     contentRating = json['content_rating'];
@@ -289,6 +296,7 @@ class HomeSectionSelectedSeriesSeasons {
     data['imdb_rating'] = imdbRating;
     data['imdb_votes'] = imdbVotes;
     data['upcoming'] = upcoming;
+    data['video_access'] = videoAccess;
     data['thumbnail'] = thumbnail;
     data['cover'] = cover;
     data['content_rating'] = contentRating;

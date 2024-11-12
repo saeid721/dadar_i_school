@@ -1,15 +1,12 @@
 
 import 'dart:developer';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/features/account/model/subscriber/subscriber_list_model.dart';
-import 'package:dadar_i_school/src/features/account/model/subscriber/subscriber_model.dart';
 import 'package:dadar_i_school/src/features/account/model/watch_history_model.dart';
 import '../model/Subscription/subscription_enroll_me_model.dart';
 import '../model/language_model.dart';
-import '../model/subscription_plan/all_subscription_model.dart';
-import '../model/subscription_plan/all_subscription_pagination_model.dart';
-import '../model/subscription_plan/subscription_model.dart';
-import '../model/subscription_plan/subscription_plan_list_model.dart';
+import '../model/Subscription/subscription_plan_list_model.dart';
+import '../model/subscription/subscription_list_model.dart';
+import '../model/subscription/subscription_video_access_model.dart';
 import 'account_repo.dart';
 
 class AccountController extends GetxController implements GetxService {
@@ -67,72 +64,7 @@ class AccountController extends GetxController implements GetxService {
     }
   }
 
-// =@ Subscription Model
-  SubscriptionModel? subscriptionModel;
-  Future getSubscription() async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getSubscription();
-      subscriptionModel = response;
-
-      _isLoading = false;
-      update();
-    } catch(e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
-  // =@ All Subscription Model
-  AllSubscriptionModel? allSubscriptionsModel;
-  Future getAllSubscriptions() async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getAllSubscription();
-      allSubscriptionsModel = response;
-
-      _isLoading = false;
-      update();
-
-    } catch(e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError =  true;
-      update();
-    }
-  }
-
-  // =@ All Subscription Pagination Model
-  AllSubscriptionPaginationModel? allSubscriptionPaginationModel;
-  Future getAllSubscriptionPagination() async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getAllSubscriptionPagination();
-      allSubscriptionPaginationModel = response;
-
-      _isLoading = false;
-      update();
-
-    } catch(e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError =  true;
-      update();
-    }
-  }
-
-// =@ Subscription Plan List Model
+  // =@ Subscription Plan List Model
   SubscriptionPlanListModel? subscriptionsPlanListModel;
   Future getSubscriptionsPlanList() async {
     try {
@@ -153,53 +85,12 @@ class AccountController extends GetxController implements GetxService {
     }
   }
 
-  // =@ Subscriber List Model
-SubscriberListModel? subscriberListModel;
-  Future getSubscriberList() async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response =  await repository.getSubscriberList();
-      subscriberListModel = response;
-
-      _isLoading = false;
-      update();
-    } catch(e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
-  // =@ Subscriber Model
-SubscriberModel? subscriberModel;
-  Future getSubscriber() async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getSubscriber();
-      subscriberModel = response;
-
-      _isLoading = false;
-      update();
-    } catch(e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
   // =@ Subscription Enroll Me Model
   SubscriptionEnrollMeModel? subscriptionEnrollMeModel;
   Future postSubscriptionEnroll({
-    required String? planId,
-}) async {
+    required int? planId,
+    required Function() onChange,
+  }) async {
     try {
       _isLoading = true;
       _hasError = false;
@@ -208,13 +99,57 @@ SubscriberModel? subscriberModel;
       final response = await repository.reqSubscriptionEnroll(
         planId: planId,
       );
-      if (response.code == 201) {
-        subscriptionEnrollMeModel = response;
-      }
+
+      subscriptionEnrollMeModel = response;
+      onChange();
 
       _isLoading = false;
       update();
     } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  // =@ Subscription List Model
+  SubscriptionListModel? subscriptionListModel;
+  Future getSubscriptionList() async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getSubscriptionList();
+      subscriptionListModel = response;
+
+      _isLoading = false;
+      update();
+    } catch(e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  // =@ Subscription Video Access Model
+  SubscriptionVideoAccessModel? subscriptionVideoAccessModel;
+  Future getSubscriptionVideoAccess({
+    required int? planId,
+  }) async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getSubscriptionVideoAccess(planId: planId);
+      subscriptionVideoAccessModel = response;
+
+      _isLoading = false;
+      update();
+    } catch(e, s) {
       log('Error: ', error: e, stackTrace: s);
       _isLoading = false;
       _hasError = true;

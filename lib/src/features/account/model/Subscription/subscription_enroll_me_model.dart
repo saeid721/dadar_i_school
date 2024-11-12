@@ -60,7 +60,7 @@ class SubscriptionEnrollMeData {
     endDate = json['end_date'];
     note = json['note'];
     isOfferApplied = json['is_offer_applied'];
-    grandTotal = json['grand_total'];
+    grandTotal = json['grand_total'].toDouble();
     paymentStatus = json['payment_status'];
     paymentMethod = json['payment_method'];
     status = json['status'];

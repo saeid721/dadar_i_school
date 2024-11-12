@@ -23,11 +23,17 @@ class VideoDetailsRepository extends ApiHelper {
   Future<CreateWatchListModel> reqWatchList({
     required String? subscriberId,
     required String? movieId,
+    required String? seriesId,
+    required String? seasonId,
+    required String? episodeId,
   }) async {
 
     Map<String, dynamic> params = {};
     params['subscriber_id'] = subscriberId;
     params['movie_id'] = movieId;
+    params['series_id'] = seriesId;
+    params['season_id'] = seasonId;
+    params['episode_id'] = episodeId;
 
     final response = await requestHandler.post(AppConfig.createWatchListUrl.url, params);
 

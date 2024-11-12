@@ -2,8 +2,8 @@
 import 'package:dadar_i_school/src/domain/server/http_client/api_helper.dart';
 import 'package:dadar_i_school/src/domain/server/http_client/app_config.dart';
 import 'package:dadar_i_school/src/features/tab/model/free_tab_view_see_all_model.dart';
-import '../../home/model/home_section/home_section_all_movie_model.dart';
-import '../../home/model/home_section/home_section_all_series_model.dart';
+import '../../home/model/home_section/home_section_all_movie_see_all_model.dart';
+import '../../home/model/home_section/home_section_all_series_see_all_model.dart';
 import '../model/free_tab_view_model.dart';
 import '../model/genres_model.dart';
 import '../model/movie_tab_view_industries_model.dart';
@@ -18,7 +18,7 @@ class TabViewRepository extends ApiHelper {
     return GenresListModel.fromJson(await requestHandler.get(AppConfig.genresListUrl.url, queryParams: params));
   }
 
-  Future<HomeSectionAllMovieModel> getMovieList({
+  Future<HomeSectionAllMovieSeeAllModel> getMovieList({
     required String limit,
     required String order,
     required String page,
@@ -30,10 +30,10 @@ class TabViewRepository extends ApiHelper {
     params['page'] = page;
     params['genre_slug'] = genreSlug;
 
-    return HomeSectionAllMovieModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllMovieUrl.url, queryParams: params));
+    return HomeSectionAllMovieSeeAllModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllMovieSeeAllUrl.url, queryParams: params));
   }
 
-  Future<HomeSectionAllSeriesModel> getSeriesTabList({
+  Future<HomeSectionAllSeriesSeeAllModel> getSeriesTabList({
     required String limit,
     required String order,
     required String page,
@@ -45,7 +45,7 @@ class TabViewRepository extends ApiHelper {
     params['page'] = page;
     params['genre_slug'] = genreSlug;
 
-    return HomeSectionAllSeriesModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllSeriesUrl.url, queryParams: params));
+    return HomeSectionAllSeriesSeeAllModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllSeriesSeeAllUrl.url, queryParams: params));
   }
 
   Future<MovieTabViewIndustriesModel> getMovieTabViewIndustries() async {

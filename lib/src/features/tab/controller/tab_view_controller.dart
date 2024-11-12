@@ -1,8 +1,8 @@
 
 import 'dart:developer';
 import 'package:get/get.dart';
-import '../../home/model/home_section/home_section_all_movie_model.dart';
-import '../../home/model/home_section/home_section_all_series_model.dart';
+import '../../home/model/home_section/home_section_all_movie_see_all_model.dart';
+import '../../home/model/home_section/home_section_all_series_see_all_model.dart';
 import '../model/free_tab_view_model.dart';
 import '../model/genres_model.dart';
 import '../model/movie_tab_view_industries_model.dart';
@@ -55,8 +55,8 @@ class TabViewController extends GetxController implements GetxService {
   /// =========/@ Movie Tab @/============
 
   // =/@ Home Movie Tab List
-  Map<String, HomeSectionAllMovieModel?> movieTabListDataByGenre = {};
-  Map<String, HomeSectionAllMovieModel?> movieTabListDataByGenreSeeAll = {};
+  Map<String, HomeSectionAllMovieSeeAllModel?> movieTabListDataByGenre = {};
+  Map<String, HomeSectionAllMovieSeeAllModel?> movieTabListDataByGenreSeeAll = {};
 
   Future getMovieTabList({
     required String limit,
@@ -97,8 +97,8 @@ class TabViewController extends GetxController implements GetxService {
   }
 
   // =/@ Home Series Tab List
-  Map<String, HomeSectionAllSeriesModel?> seriesTabListDataByGenre = {};
-  Map<String, HomeSectionAllSeriesModel?> seriesTabListDataByGenreSeeAll = {};
+  Map<String, HomeSectionAllSeriesSeeAllModel?> seriesTabListDataByGenre = {};
+  Map<String, HomeSectionAllSeriesSeeAllModel?> seriesTabListDataByGenreSeeAll = {};
 
   Future getSeriesTabList({
     required String limit,

@@ -2,7 +2,7 @@ class FreeTabViewModel {
   int? code;
   String? status;
   String? message;
-  FreeTabViewData? data;
+  Data? data;
 
   FreeTabViewModel({this.code, this.status, this.message, this.data});
 
@@ -10,7 +10,7 @@ class FreeTabViewModel {
     code = json['code'];
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? FreeTabViewData.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -25,37 +25,37 @@ class FreeTabViewModel {
   }
 }
 
-class FreeTabViewData {
-  List<Movies>? movies;
-  List<Series>? series;
-  List<Seasons>? seasons;
-  List<Episodes>? episodes;
+class Data {
+  List<FreeMovies>? movies;
+  List<FreeSeries>? series;
+  List<FreeSeasons>? seasons;
+  List<FreeEpisodes>? episodes;
 
-  FreeTabViewData({this.movies, this.series, this.seasons, this.episodes});
+  Data({this.movies, this.series, this.seasons, this.episodes});
 
-  FreeTabViewData.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     if (json['movies'] != null) {
-      movies = <Movies>[];
+      movies = <FreeMovies>[];
       json['movies'].forEach((v) {
-        movies!.add(Movies.fromJson(v));
+        movies!.add(FreeMovies.fromJson(v));
       });
     }
     if (json['series'] != null) {
-      series = <Series>[];
+      series = <FreeSeries>[];
       json['series'].forEach((v) {
-        series!.add(Series.fromJson(v));
+        series!.add(FreeSeries.fromJson(v));
       });
     }
     if (json['seasons'] != null) {
-      seasons = <Seasons>[];
+      seasons = <FreeSeasons>[];
       json['seasons'].forEach((v) {
-        seasons!.add(Seasons.fromJson(v));
+        seasons!.add(FreeSeasons.fromJson(v));
       });
     }
     if (json['episodes'] != null) {
-      episodes = <Episodes>[];
+      episodes = <FreeEpisodes>[];
       json['episodes'].forEach((v) {
-        episodes!.add(Episodes.fromJson(v));
+        episodes!.add(FreeEpisodes.fromJson(v));
       });
     }
   }
@@ -78,7 +78,7 @@ class FreeTabViewData {
   }
 }
 
-class Movies {
+class FreeMovies {
   int? id;
   String? movieUid;
   String? slug;
@@ -107,14 +107,14 @@ class Movies {
   bool? status;
   String? createdAt;
   String? updatedAt;
-  List<SeriesGenres>? genres;
+  List<Genres>? genres;
   List<Languages>? languages;
   List<Casts>? casts;
   List<Directors>? directors;
   List<Trailers>? trailers;
   String? type;
 
-  Movies(
+  FreeMovies(
       {this.id,
         this.movieUid,
         this.slug,
@@ -150,7 +150,7 @@ class Movies {
         this.trailers,
         this.type});
 
-  Movies.fromJson(Map<String, dynamic> json) {
+  FreeMovies.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     movieUid = json['movie_uid'];
     slug = json['slug'];
@@ -180,9 +180,9 @@ class Movies {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     if (json['genres'] != null) {
-      genres = <SeriesGenres>[];
+      genres = <Genres>[];
       json['genres'].forEach((v) {
-        genres!.add(SeriesGenres.fromJson(v));
+        genres!.add(Genres.fromJson(v));
       });
     }
     if (json['languages'] != null) {
@@ -262,16 +262,16 @@ class Movies {
   }
 }
 
-class SeriesGenres {
+class Genres {
   int? id;
   String? name;
   String? nameBn;
   String? nameHi;
   String? nameAr;
 
-  SeriesGenres({this.id, this.name, this.nameBn, this.nameHi, this.nameAr});
+  Genres({this.id, this.name, this.nameBn, this.nameHi, this.nameAr});
 
-  SeriesGenres.fromJson(Map<String, dynamic> json) {
+  Genres.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     nameBn = json['name_bn'];
@@ -290,21 +290,21 @@ class SeriesGenres {
   }
 }
 
-class SeriesTags {
+class Tags {
   int? id;
   String? name;
   String? nameBn;
   String? nameHi;
   String? nameAr;
 
-  SeriesTags(
+  Tags(
       {this.id,
         this.name,
         this.nameBn,
         this.nameHi,
         this.nameAr});
 
-  SeriesTags.fromJson(Map<String, dynamic> json) {
+  Tags.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     nameBn = json['name_bn'];
@@ -338,34 +338,6 @@ class Languages {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
-    return data;
-  }
-}
-
-class Casts {
-  int? id;
-  String? name;
-  String? nameBn;
-  String? nameHi;
-  String? nameAr;
-
-  Casts({this.id, this.name, this.nameBn, this.nameHi, this.nameAr});
-
-  Casts.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    nameBn = json['name_bn'];
-    nameHi = json['name_hi'];
-    nameAr = json['name_ar'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['name_bn'] = nameBn;
-    data['name_hi'] = nameHi;
-    data['name_ar'] = nameAr;
     return data;
   }
 }
@@ -415,41 +387,7 @@ class Language {
   }
 }
 
-class Directors {
-  int? id;
-  String? name;
-  String? nameBn;
-  String? nameHi;
-  String? nameAr;
-
-  Directors(
-      {this.id,
-        this.name,
-        this.nameBn,
-        this.nameHi,
-        this.nameAr});
-
-  Directors.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    nameBn = json['name_bn'];
-    nameHi = json['name_hi'];
-    nameAr = json['name_ar'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['name_bn'] = nameBn;
-    data['name_hi'] = nameHi;
-    data['name_ar'] = nameAr;
-    return data;
-  }
-}
-
-
-class Series {
+class FreeSeries {
   int? id;
   String? seriesUid;
   String? slug;
@@ -475,12 +413,12 @@ class Series {
   bool? status;
   String? createdAt;
   String? updatedAt;
-  List<SeriesGenres>? genres;
-  List<SeriesTags>? tags;
-  List<Seasons>? seasons;
+  List<Genres>? genres;
+  List<Tags>? tags;
+  List<SeriesSeasons>? seasons;
   String? type;
 
-  Series(
+  FreeSeries(
       {this.id,
         this.seriesUid,
         this.slug,
@@ -511,7 +449,7 @@ class Series {
         this.seasons,
         this.type});
 
-  Series.fromJson(Map<String, dynamic> json) {
+  FreeSeries.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     seriesUid = json['series_uid'];
     slug = json['slug'];
@@ -538,21 +476,21 @@ class Series {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     if (json['genres'] != null) {
-      genres = <SeriesGenres>[];
+      genres = <Genres>[];
       json['genres'].forEach((v) {
-        genres!.add(SeriesGenres.fromJson(v));
+        genres!.add(Genres.fromJson(v));
       });
     }
     if (json['tags'] != null) {
-      tags = <SeriesTags>[];
+      tags = <Tags>[];
       json['tags'].forEach((v) {
-        tags!.add(SeriesTags.fromJson(v));
+        tags!.add(Tags.fromJson(v));
       });
     }
     if (json['seasons'] != null) {
-      seasons = <Seasons>[];
+      seasons = <SeriesSeasons>[];
       json['seasons'].forEach((v) {
-        seasons!.add(Seasons.fromJson(v));
+        seasons!.add(SeriesSeasons.fromJson(v));
       });
     }
     type = json['type'];
@@ -616,8 +554,8 @@ class SeriesSeasons {
   String? updatedAt;
   List<Casts>? casts;
   List<Directors>? directors;
-  List<Languages>? languages;
-  List<Episodes>? episodes;
+  List<Language>? languages;
+  List<SeasonEpisodes>? episodes;
   List<Trailers>? trailers;
 
   SeriesSeasons(
@@ -669,15 +607,15 @@ class SeriesSeasons {
       });
     }
     if (json['languages'] != null) {
-      languages = <Languages>[];
+      languages = <Language>[];
       json['languages'].forEach((v) {
-        languages!.add(Languages.fromJson(v));
+        languages!.add(Language.fromJson(v));
       });
     }
     if (json['episodes'] != null) {
-      episodes = <Episodes>[];
+      episodes = <SeasonEpisodes>[];
       json['episodes'].forEach((v) {
-        episodes!.add(Episodes.fromJson(v));
+        episodes!.add(SeasonEpisodes.fromJson(v));
       });
     }
     if (json['trailers'] != null) {
@@ -723,7 +661,68 @@ class SeriesSeasons {
   }
 }
 
-class SeasonEpisodes {
+class Casts {
+  int? id;
+  String? name;
+  String? nameBn;
+  String? nameHi;
+  String? nameAr;
+
+  Casts({this.id, this.name, this.nameBn, this.nameHi, this.nameAr});
+
+  Casts.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    nameBn = json['name_bn'];
+    nameHi = json['name_hi'];
+    nameAr = json['name_ar'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['name_bn'] = nameBn;
+    data['name_hi'] = nameHi;
+    data['name_ar'] = nameAr;
+    return data;
+  }
+}
+
+class Directors {
+  int? id;
+  String? name;
+  String? nameBn;
+  String? nameHi;
+  String? nameAr;
+
+  Directors(
+      {this.id,
+        this.name,
+        this.nameBn,
+        this.nameHi,
+        this.nameAr});
+
+  Directors.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    nameBn = json['name_bn'];
+    nameHi = json['name_hi'];
+    nameAr = json['name_ar'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['name_bn'] = nameBn;
+    data['name_hi'] = nameHi;
+    data['name_ar'] = nameAr;
+    return data;
+  }
+}
+
+class Episodes {
   int? id;
   String? title;
   String? titleBn;
@@ -734,7 +733,7 @@ class SeasonEpisodes {
   String? releaseDate;
   List<Dubbed>? dubbed;
 
-  SeasonEpisodes(
+  Episodes(
       {this.id,
         this.title,
         this.titleBn,
@@ -745,7 +744,7 @@ class SeasonEpisodes {
         this.releaseDate,
         this.dubbed});
 
-  SeasonEpisodes.fromJson(Map<String, dynamic> json) {
+  Episodes.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     titleBn = json['title_bn'];
@@ -832,7 +831,7 @@ class Dubbed {
   }
 }
 
-class Seasons {
+class FreeSeasons {
   int? id;
   int? seriesId;
   int? seasonNumber;
@@ -850,12 +849,12 @@ class Seasons {
   Series? series;
   List<Casts>? casts;
   List<Directors>? directors;
-  List<Languages>? languages;
+  List<Language>? languages;
   List<Episodes>? episodes;
   List<Trailers>? trailers;
   String? type;
 
-  Seasons(
+  FreeSeasons(
       {this.id,
         this.seriesId,
         this.seasonNumber,
@@ -878,7 +877,7 @@ class Seasons {
         this.trailers,
         this.type});
 
-  Seasons.fromJson(Map<String, dynamic> json) {
+  FreeSeasons.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     seriesId = json['series_id'];
     seasonNumber = json['season_number'];
@@ -908,9 +907,9 @@ class Seasons {
       });
     }
     if (json['languages'] != null) {
-      languages = <Languages>[];
+      languages = <Language>[];
       json['languages'].forEach((v) {
-        languages!.add(Languages.fromJson(v));
+        languages!.add(Language.fromJson(v));
       });
     }
     if (json['episodes'] != null) {
@@ -967,7 +966,198 @@ class Seasons {
   }
 }
 
-class Episodes {
+class Series {
+  int? id;
+  String? seriesUid;
+  String? slug;
+  String? title;
+  String? titleBn;
+  String? titleHi;
+  String? titleAr;
+  int? imdbRating;
+  int? imdbVotes;
+  bool? upcoming;
+  bool? videoAccess;
+  String? description;
+  String? descriptionBn;
+  String? descriptionHi;
+  String? descriptionAr;
+  String? thumbnail;
+  String? cover;
+  String? contentRating;
+  int? industryId;
+  String? metaTitle;
+  String? metaDescription;
+  String? metaKeywords;
+  bool? status;
+  String? createdAt;
+  String? updatedAt;
+  List<Genres>? genres;
+  List<Tags>? tags;
+
+  Series(
+      {this.id,
+        this.seriesUid,
+        this.slug,
+        this.title,
+        this.titleBn,
+        this.titleHi,
+        this.titleAr,
+        this.imdbRating,
+        this.imdbVotes,
+        this.upcoming,
+        this.videoAccess,
+        this.description,
+        this.descriptionBn,
+        this.descriptionHi,
+        this.descriptionAr,
+        this.thumbnail,
+        this.cover,
+        this.contentRating,
+        this.industryId,
+        this.metaTitle,
+        this.metaDescription,
+        this.metaKeywords,
+        this.status,
+        this.createdAt,
+        this.updatedAt,
+        this.genres,
+        this.tags});
+
+  Series.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    seriesUid = json['series_uid'];
+    slug = json['slug'];
+    title = json['title'];
+    titleBn = json['title_bn'];
+    titleHi = json['title_hi'];
+    titleAr = json['title_ar'];
+    imdbRating = json['imdb_rating'];
+    imdbVotes = json['imdb_votes'];
+    upcoming = json['upcoming'];
+    videoAccess = json['video_access'];
+    description = json['description'];
+    descriptionBn = json['description_bn'];
+    descriptionHi = json['description_hi'];
+    descriptionAr = json['description_ar'];
+    thumbnail = json['thumbnail'];
+    cover = json['cover'];
+    contentRating = json['content_rating'];
+    industryId = json['industry_id'];
+    metaTitle = json['meta_title'];
+    metaDescription = json['meta_description'];
+    metaKeywords = json['meta_keywords'];
+    status = json['status'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    if (json['genres'] != null) {
+      genres = <Genres>[];
+      json['genres'].forEach((v) {
+        genres!.add(Genres.fromJson(v));
+      });
+    }
+    if (json['tags'] != null) {
+      tags = <Tags>[];
+      json['tags'].forEach((v) {
+        tags!.add(Tags.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['series_uid'] = seriesUid;
+    data['slug'] = slug;
+    data['title'] = title;
+    data['title_bn'] = titleBn;
+    data['title_hi'] = titleHi;
+    data['title_ar'] = titleAr;
+    data['imdb_rating'] = imdbRating;
+    data['imdb_votes'] = imdbVotes;
+    data['upcoming'] = upcoming;
+    data['video_access'] = videoAccess;
+    data['description'] = description;
+    data['description_bn'] = descriptionBn;
+    data['description_hi'] = descriptionHi;
+    data['description_ar'] = descriptionAr;
+    data['thumbnail'] = thumbnail;
+    data['cover'] = cover;
+    data['content_rating'] = contentRating;
+    data['industry_id'] = industryId;
+    data['meta_title'] = metaTitle;
+    data['meta_description'] = metaDescription;
+    data['meta_keywords'] = metaKeywords;
+    data['status'] = status;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    if (genres != null) {
+      data['genres'] = genres!.map((v) => v.toJson()).toList();
+    }
+    if (tags != null) {
+      data['tags'] = tags!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class SeasonEpisodes {
+  int? id;
+  String? title;
+  String? titleBn;
+  String? titleHi;
+  String? titleAr;
+  int? episodeNumber;
+  String? thumbnail;
+  String? releaseDate;
+  List<Dubbed>? dubbed;
+
+  SeasonEpisodes(
+      {this.id,
+        this.title,
+        this.titleBn,
+        this.titleHi,
+        this.titleAr,
+        this.episodeNumber,
+        this.thumbnail,
+        this.releaseDate,
+        this.dubbed});
+
+  SeasonEpisodes.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    titleBn = json['title_bn'];
+    titleHi = json['title_hi'];
+    titleAr = json['title_ar'];
+    episodeNumber = json['episode_number'];
+    thumbnail = json['thumbnail'];
+    releaseDate = json['release_date'];
+    if (json['dubbed'] != null) {
+      dubbed = <Dubbed>[];
+      json['dubbed'].forEach((v) {
+        dubbed!.add(Dubbed.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['title_bn'] = titleBn;
+    data['title_hi'] = titleHi;
+    data['title_ar'] = titleAr;
+    data['episode_number'] = episodeNumber;
+    data['thumbnail'] = thumbnail;
+    data['release_date'] = releaseDate;
+    if (dubbed != null) {
+      data['dubbed'] = dubbed!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class FreeEpisodes {
   int? id;
   int? seasonId;
   int? episodeNumber;
@@ -999,7 +1189,7 @@ class Episodes {
   Season? season;
   String? type;
 
-  Episodes(
+  FreeEpisodes(
       {this.id,
         this.seasonId,
         this.episodeNumber,
@@ -1031,7 +1221,7 @@ class Episodes {
         this.season,
         this.type});
 
-  Episodes.fromJson(Map<String, dynamic> json) {
+  FreeEpisodes.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     seasonId = json['season_id'];
     episodeNumber = json['episode_number'];
@@ -1128,7 +1318,7 @@ class Season {
   Series? series;
   List<Casts>? casts;
   List<Directors>? directors;
-  List<Languages>? languages;
+  List<Language>? languages;
   List<Trailers>? trailers;
 
   Season(
@@ -1182,9 +1372,9 @@ class Season {
       });
     }
     if (json['languages'] != null) {
-      languages = <Languages>[];
+      languages = <Language>[];
       json['languages'].forEach((v) {
-        languages!.add(Languages.fromJson(v));
+        languages!.add(Language.fromJson(v));
       });
     }
     if (json['trailers'] != null) {

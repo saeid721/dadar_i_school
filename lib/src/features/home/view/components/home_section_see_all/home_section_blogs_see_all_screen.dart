@@ -12,6 +12,7 @@ import '../../../../../service/language_check/language_check.dart';
 import '../../../../../global/widget/global_appbar.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
 import '../../../controller/home_controller.dart';
+import '../home_section_blogs_details_screen.dart';
 
 class HomeSectionBlogsSeeAllScreen extends StatefulWidget {
   const HomeSectionBlogsSeeAllScreen({super.key,});
@@ -86,7 +87,11 @@ class _HomeSectionBlogsSeeAllScreenState extends State<HomeSectionBlogsSeeAllScr
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
                       subText: "Free",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=> HomeSectionBlogsDetailsScreen(
+                            blogId: homePageRecentData?.id.toString() ?? ""
+                        ));
+                      },
                     );
                   },
                 ),

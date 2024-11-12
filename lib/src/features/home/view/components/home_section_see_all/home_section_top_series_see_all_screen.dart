@@ -10,11 +10,16 @@ import '../../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../../../global/widget/global_appbar.dart';
+import '../../../../video_details/view/series_video_details_screen.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
 import '../../../controller/home_controller.dart';
 
 class HomeSectionTopSeriesSeeAllScreen extends StatefulWidget {
-  const HomeSectionTopSeriesSeeAllScreen({super.key,});
+  final String sectionId;
+  const HomeSectionTopSeriesSeeAllScreen({
+    super.key,
+    required this.sectionId
+  });
   @override
   State<HomeSectionTopSeriesSeeAllScreen> createState() => _HomeSectionTopSeriesSeeAllScreenState();
 }
@@ -28,7 +33,7 @@ class _HomeSectionTopSeriesSeeAllScreenState extends State<HomeSectionTopSeriesS
     final homePageController = HomePageController.current;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      homePageController.getHomeSectionTopSeries(limit: '50', sectionId: '10');
+      homePageController.getHomeSectionTopSeries(limit: '50', sectionId: widget.sectionId);
     });
 
   }
@@ -71,7 +76,11 @@ class _HomeSectionTopSeriesSeeAllScreenState extends State<HomeSectionTopSeriesS
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
                       subText: "Free",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=> SeriesVideoDetailsScreen(
+                          slug: homePageRecentData?.slug ?? "",
+                        ));
+                      },
                     );
                   },
                 ),

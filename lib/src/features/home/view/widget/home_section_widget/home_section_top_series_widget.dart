@@ -9,9 +9,10 @@ import '../../../../../service/language_check/language_check.dart';
 import '../../../../video_details/view/series_video_details_screen.dart';
 import '../../../controller/home_controller.dart';
 import '../../../model/home_section_model.dart';
+import '../../components/home_section_see_all/home_section_top_series_see_all_screen.dart';
 import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../movie_menu_bar_widget.dart';
-import '../movie_menu_widget.dart';
+import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionTopSeriesWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;
@@ -45,7 +46,10 @@ class _HomeSectionTopSeriesWidgetState extends State<HomeSectionTopSeriesWidget>
                   hiText: widget.homeSectionData?.titleHi ?? "",
                   arText: widget.homeSectionData?.titleAr ?? "",
                 ),
-                seeAllOnTap: (){}
+                seeAllOnTap: (){
+                  Get.to(()=> HomeSectionTopSeriesSeeAllScreen(sectionId: widget.homeSectionData?.id.toString() ?? ""));
+
+                }
             ),
 
             sizedBoxH(5),
@@ -62,7 +66,7 @@ class _HomeSectionTopSeriesWidgetState extends State<HomeSectionTopSeriesWidget>
                       hiText: series.titleHi ?? "",
                       arText: series.titleAr ?? "",
                     ),
-                    homeSectionAllSeriesSeasons: series.seasons ?? [],
+                    subText: series.videoAccess == true ? "Premium" : "Free",
                     onTap: () {
                       Get.to(()=> SeriesVideoDetailsScreen(
                         slug: series.slug ?? "",

@@ -13,10 +13,16 @@ import '../../../video_details/controller/video_details_controller.dart';
 import '../widget/watch_option_menu_widget.dart';
 
 class WatchMoreVertScreen extends StatefulWidget {
-  final String movieId;
+  final String? movieId;
+  final String? seriesId;
+  final String? seasonId;
+  final String? episodeId;
   const WatchMoreVertScreen({
     super.key,
-    required this.movieId
+    this.movieId,
+    this.seriesId,
+    this.seasonId,
+    this.episodeId,
   });
 
   @override
@@ -78,10 +84,30 @@ class _WatchMoreVertScreenState extends State<WatchMoreVertScreen> {
                       title: "Delete from download",
                       onTap: (){
                         if(subscribersId != null){
-                          videoDetailsController.reqWatchList(
-                              subscriberId: subscribersId,
-                              movieId: widget.movieId
-                          );
+                          if(widget.movieId != null){
+                            videoDetailsController.reqWatchList(
+                                subscriberId: subscribersId,
+                                movieId: widget.movieId
+                            );
+                          } else if(widget.seriesId != null){
+                            videoDetailsController.reqWatchList(
+                                subscriberId: subscribersId,
+                                seriesId: widget.seriesId
+                            );
+                          } else if(widget.seasonId != null){
+                            videoDetailsController.reqWatchList(
+                                subscriberId: subscribersId,
+                                seasonId: widget.seasonId
+                            );
+                          } else if(widget.episodeId != null){
+                            videoDetailsController.reqWatchList(
+                                subscriberId: subscribersId,
+                                episodeId: widget.episodeId
+                            );
+                          } else{
+
+                          }
+
                           Get.back();
                         } else{
                           showDialog(

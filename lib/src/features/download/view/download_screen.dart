@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:dadar_i_school/src/features/download/controller/download_controller.dart';
 import 'package:dadar_i_school/src/features/download/view/widget/download_widget.dart';
 import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
 import 'package:dadar_i_school/src/global/constants/images.dart';
@@ -9,7 +10,6 @@ import 'package:dadar_i_school/src/global/widget/global_image_loader.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import 'package:dadar_i_school/src/global/widget/global_text.dart';
 import '../../../global/widget/global_textform_field.dart';
-import '../../account/controller/account_controller.dart';
 import 'download_more_vert_screen.dart';
 
 class DownloadScreen extends StatefulWidget {
@@ -24,8 +24,16 @@ class _DownloadScreenState extends State<DownloadScreen> {
   TextEditingController emailCon = TextEditingController();
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final downloadController = DownloadController.current;
+    downloadController.loadDownloadedVideos();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GetBuilder<AccountController>(builder: (accountController){
+    return GetBuilder<DownloadController>(builder: (downloadController){
       return Scaffold(
         key: scaffoldKey,
         body: GlobalContainer(
@@ -90,15 +98,17 @@ class _DownloadScreenState extends State<DownloadScreen> {
               sizedBoxH(10),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 30,
+                  itemCount: downloadController.downloadedVideos.length,
                   padding: const EdgeInsets.only(bottom: 100),
                   shrinkWrap: true,
                   itemBuilder: (ctx, index) {
+                    final downloadedVideos = downloadController.downloadedVideos[index];
                     return DownloadMenuWidget(
-                      img: Images.justiceLeagueImg,
-                      text: "Best Of Tagore Song | Rabindra Sangeet Juke Box | Trissha Chatterjee | Bob Sn",
-                      //subText: "Trisha Chatterjje",
-                      onTap: (){},
+                      img: downloadedVideos.initImg,
+                      text: downloadedVideos.videoName,
+                      onTap: (){
+                        downloadController.getVideoPlayer(index: index);
+                      },
                       moreVertOnTap: (){
                         showModalBottomSheet(
                             context: context,

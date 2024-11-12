@@ -2,7 +2,7 @@ class FooterExploreModel {
   int? code;
   String? status;
   String? message;
-  List<Data>? data;
+  List<FooterExploreData>? data;
 
   FooterExploreModel({this.code, this.status, this.message, this.data});
 
@@ -11,9 +11,9 @@ class FooterExploreModel {
     status = json['status'];
     message = json['message'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <FooterExploreData>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(FooterExploreData.fromJson(v));
       });
     }
   }
@@ -30,7 +30,7 @@ class FooterExploreModel {
   }
 }
 
-class Data {
+class FooterExploreData {
   int? id;
   String? slug;
   int? sortOrder;
@@ -55,7 +55,7 @@ class Data {
   String? createdAt;
   String? updatedAt;
 
-  Data(
+  FooterExploreData(
       {this.id,
         this.slug,
         this.sortOrder,
@@ -80,7 +80,7 @@ class Data {
         this.createdAt,
         this.updatedAt});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  FooterExploreData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     slug = json['slug'];
     sortOrder = json['sort_order'];

@@ -28,7 +28,7 @@ class _DownloadMoreVertScreenState extends State<DownloadMoreVertScreen> {
     return StatefulBuilder(
         builder: (ctx, buildSetState){
           return Container(
-            height: 200,
+            height: 120,
             width: size(context).width,
             margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             decoration: BoxDecoration(
@@ -60,18 +60,6 @@ class _DownloadMoreVertScreenState extends State<DownloadMoreVertScreen> {
                 ),
 
                 sizedBoxH(10),
-                DownloadOptionMenuWidget(
-                    img: Images.watchListLaterIc,
-                    title: "Save to Watch Later",
-                    onTap: (){}
-                ),
-
-                DownloadOptionMenuWidget(
-                    img: Images.shareIc,
-                    title: "Share",
-                    onTap: (){}
-                ),
-
                 DownloadOptionMenuWidget(
                     img: Images.deleteIc,
                     title: "Delete from download",

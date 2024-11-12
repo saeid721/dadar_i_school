@@ -27,8 +27,9 @@ class VideoDetailsController extends GetxController implements GetxService {
   bool _hasError = false;
   bool get hasError => _hasError;
 
-  final String videoSrc = "https://api.softwarezoneltd.com/api/storage/movie_tailers/trailer_c91a00ad-acea-43ad-b890-d3603b41dd92_1.mp4";
-  final String initImg = Images.justiceLeagueImg;
+  // final String videoSrc = "https://api.softwarezoneltd.com/api/storage/movie_tailers/trailer_c91a00ad-acea-43ad-b890-d3603b41dd92_1.mp4";
+  // String? initImg;
+  // String videoText;
   List<String> shimmerList = ["", "", "", "", ""];
 
   /// ==# Selected Video Quantity..
@@ -298,7 +299,10 @@ class VideoDetailsController extends GetxController implements GetxService {
 
   Future reqWatchList({
     required String? subscriberId,
-    required String? movieId,
+    String? movieId,
+    String? seriesId,
+    String? seasonId,
+    String? episodeId,
   }) async {
     try {
       _isLoading = true;
@@ -307,7 +311,10 @@ class VideoDetailsController extends GetxController implements GetxService {
 
       final response = await repository.reqWatchList(
           subscriberId: subscriberId,
-          movieId: movieId
+          movieId: movieId,
+          seriesId: seriesId,
+          seasonId: seasonId,
+          episodeId: episodeId
       );
 
       if(response.code == 200){

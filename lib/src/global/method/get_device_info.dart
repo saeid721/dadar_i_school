@@ -30,9 +30,14 @@ class GetDeviceInfo {
 
       // Get IP Address
       var connectivityResults = await Connectivity().checkConnectivity();
-      if (connectivityResults == ConnectivityResult.mobile || connectivityResults == ConnectivityResult.wifi) {
+      // if (connectivityResults == ConnectivityResult.mobile || connectivityResults == ConnectivityResult.wifi) {
+      //   _ipAddress = await _getIpAddress();
+      // }
+      // Check if any of the connectivity results are either mobile or wifi
+      if (connectivityResults.contains(ConnectivityResult.mobile) || connectivityResults.contains(ConnectivityResult.wifi)) {
         _ipAddress = await _getIpAddress();
       }
+
 
       if (kIsWeb) {
         // Web specific device info

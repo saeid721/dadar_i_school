@@ -1,21 +1,27 @@
 
+import '../../../../video_model.dart';
 import '../../../domain/server/http_client/api_helper.dart';
 import '../../../domain/server/http_client/app_config.dart';
 import '../model/footer_model/footer_company_model.dart';
 import '../model/footer_model/footer_explore_model.dart';
 import '../model/footer_model/footer_popular_movies_model.dart';
 import '../model/footer_model/footer_popular_series_model.dart';
+import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
+import '../model/home_section/home_section_all_movie_see_all_model.dart';
 import '../model/home_section/home_section_all_series_model.dart';
+import '../model/home_section/home_section_all_series_see_all_model.dart';
 import '../model/home_section/home_section_application_features_model.dart';
 import '../model/home_section/home_section_blogs_model.dart';
 import '../model/home_section/home_section_favorite_model.dart';
 import '../model/home_section/home_section_genres_model.dart';
+import '../model/home_section/home_section_genres_see_all_model.dart';
 import '../model/home_section/home_section_poster_slider_movie_model.dart';
 import '../model/home_section/home_section_poster_slider_series_model.dart';
 import '../model/home_section/home_section_recent_model.dart';
 import '../model/home_section/home_section_selected_movie_model.dart';
 import '../model/home_section/home_section_selected_series_model.dart';
+import '../model/home_section/home_section_single_blogs_model.dart';
 import '../model/home_section/home_section_top_movie_model.dart';
 import '../model/home_section/home_section_top_series_model.dart';
 import '../model/home_section_model.dart';
@@ -23,6 +29,17 @@ import '../model/home_slider_model.dart';
 import '../model/home_section/home_section_up_coming_model.dart';
 
 class HomeRepository extends ApiHelper {
+
+
+  Future<BasicEnglishCourseModel> getBasicEnglishCourseList() async {
+    return BasicEnglishCourseModel.fromJson(await requestHandler.get(AppConfig.homeSlidersUrl.url));
+  }
+
+
+
+
+
+
 
   Future<HomeSlidersModel> getHomeSliderList() async {
     return HomeSlidersModel.fromJson(await requestHandler.get(AppConfig.homeSlidersUrl.url));
@@ -52,6 +69,19 @@ class HomeRepository extends ApiHelper {
     return HomeSectionGenresModel.fromJson( await requestHandler.get(AppConfig.homeSectionGenresUrl.url, queryParams: params));
   }
 
+  Future<HomeSectionGenresSeeAllModel> getHomeSectionGenresSeeAll({
+    required String genreId,
+    required String limit,
+    required String page,
+  }) async {
+    Map<String, dynamic> params = {};
+    params['genreId'] = genreId;
+    params['limit'] = limit;
+    params['page'] = page;
+
+    return HomeSectionGenresSeeAllModel.fromJson(await requestHandler.get(AppConfig.homeSectionGenresSeeAllUrl.url, queryParams: params));
+  }
+
   Future<HomeSectionUpComingModel> getHomeSectionUpComing({
     required String limit
   }) async {
@@ -62,18 +92,14 @@ class HomeRepository extends ApiHelper {
 
   Future<HomeSectionAllMovieModel> getHomeSectionAllMovie({
     required String limit,
-    required String order,
-    required String page,
   }) async {
     Map<String, dynamic> params = {};
     params['limit'] = limit;
-    params['order'] = order;
-    params['page'] = page;
 
     return HomeSectionAllMovieModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllMovieUrl.url, queryParams: params));
   }
 
-  Future<HomeSectionAllSeriesModel> getHomeSectionAllSeries({
+  Future<HomeSectionAllMovieSeeAllModel> getHomeSectionAllMovieSeeAll({
     required String limit,
     required String order,
     required String page,
@@ -83,7 +109,28 @@ class HomeRepository extends ApiHelper {
     params['order'] = order;
     params['page'] = page;
 
+    return HomeSectionAllMovieSeeAllModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllMovieSeeAllUrl.url, queryParams: params));
+  }
+
+  Future<HomeSectionAllSeriesModel> getHomeSectionAllSeries({
+    required String limit,
+  }) async {
+    Map<String, dynamic> params = {};
+    params['limit'] = limit;
     return HomeSectionAllSeriesModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllSeriesUrl.url, queryParams: params));
+  }
+
+  Future<HomeSectionAllSeriesSeeAllModel> getHomeSectionAllSeriesSeeAll({
+    required String limit,
+    required String order,
+    required String page,
+  }) async {
+    Map<String, dynamic> params = {};
+    params['limit'] = limit;
+    params['order'] = order;
+    params['page'] = page;
+
+    return HomeSectionAllSeriesSeeAllModel.fromJson(await requestHandler.get(AppConfig.homeSectionAllSeriesSeeAllUrl.url, queryParams: params));
   }
 
   Future<HomeSectionTopMovieModel> getHomeSectionTopMovie({
@@ -183,6 +230,15 @@ class HomeRepository extends ApiHelper {
     return HomeSectionBlogsModel.fromJson(response);
   }
 
+  Future<HomeSectionSingleBlogsModel> getHomeSectionSingleBlogs({
+    required String blogId,
+  }) async {
+
+    final response = await requestHandler.get("/blogs/$blogId/client");
+
+    return HomeSectionSingleBlogsModel.fromJson(response);
+  }
+
   Future<FooterExploreModel> getFooterExplore() async {
     return FooterExploreModel.fromJson(await requestHandler.get(AppConfig.footerExploreUrl.url));
   }
@@ -194,6 +250,19 @@ class HomeRepository extends ApiHelper {
   }
   Future<FooterCompanyModel> getFooterCompany() async {
     return FooterCompanyModel.fromJson(await requestHandler.get(AppConfig.footerCompanyUrl.url));
+  }
+
+  Future<HomeSectionAllGenresModel> getHomeSectionAllGenres({
+    required String limit,
+    required String genreId,
+    required String page,
+  }) async {
+    Map<String, dynamic> params = {};
+    params['limit'] = limit;
+    params['genreId'] = genreId;
+    params['page'] = page;
+
+    return HomeSectionAllGenresModel.fromJson(await requestHandler.get(AppConfig.HomeSectionAllGenresUrl.url, queryParams: params));
   }
 
 }

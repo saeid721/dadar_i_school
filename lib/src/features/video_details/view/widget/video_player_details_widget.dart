@@ -1,5 +1,6 @@
 
 import 'dart:developer';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dadar_i_school/src/features/video_details/controller/video_details_controller.dart';
@@ -10,18 +11,23 @@ import 'package:dadar_i_school/src/global/widget/global_image_loader.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../domain/server/http_client/app_config.dart';
 import '../../../../global/widget/global_sized_box.dart';
+import '../../../account/controller/account_controller.dart';
 import '../full_screen_video_player.dart';
 import '../components/video_details_setting_screen.dart';
 
 class VideoPlayerDetailsWidget extends StatefulWidget {
   final String videoSrc;
   final String initImg;
+  final String videoText;
+  final bool? isLocal;
   final bool? isBack;
   const VideoPlayerDetailsWidget({
     super.key,
     required this.videoSrc,
     required this.initImg,
+    required this.videoText,
     this.isBack = true,
+    this.isLocal = false,
   });
 
   @override
@@ -33,17 +39,30 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
   bool _controlsVisible = true;
 
   final videoDetailsController = Get.find<VideoDetailsController>();
+  final accountController = Get.find<AccountController>();
 
   @override
   void initState() {
     super.initState();
 
     log("Video Details Src2: ${AppConfig.base.url}${widget.videoSrc}");
-    _controller = VideoPlayerController.networkUrl(Uri.parse("${AppConfig.base.url}${widget.videoSrc}"))
-      ..initialize().then((_) {
-        setState(() {});
-      });
-    videoDetailsController.fetchHlsQualities("${AppConfig.base.url}${widget.videoSrc}");
+
+
+    if(widget.isLocal == true){
+      log("Local Video Details Src2: ${widget.videoSrc}");
+
+      _controller = VideoPlayerController.file(File(widget.videoSrc))
+        ..initialize().then((_) {
+          setState(() {});
+        });
+    } else{
+      _controller = VideoPlayerController.networkUrl(Uri.parse("${AppConfig.base.url}${widget.videoSrc}"))
+        ..initialize().then((_) {
+          setState(() {});
+        });
+      videoDetailsController.fetchHlsQualities(widget.videoSrc);
+    }
+
     log("Video Resolution: ${videoDetailsController.qualityList.map((qualities)=> qualities.resolution)}");
 
     // Add listener to handle video end event
@@ -121,7 +140,7 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
                           child: GlobalImageLoader(
                             imagePath: widget.initImg,
                             fit: BoxFit.cover,
-                            imageFor: ImageFor.network,
+                            imageFor: widget.isLocal == true ? ImageFor.local : ImageFor.network,
                           ),
                         ),
                     ],
@@ -352,6 +371,10 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
                             Get.to(()=> FullScreenVideoPlayer(
                               controller: _controller,
                               initialMute: _isMuted,
+                              videoText: widget.videoText,
+                              initImg: widget.initImg,
+                              isLocal: widget.isLocal,
+                              onSpeedSelected: _setPlaybackSpeed,
                             ));
                           },
                           child: const Icon(Icons.fullscreen,

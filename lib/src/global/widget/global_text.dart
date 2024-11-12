@@ -17,7 +17,7 @@ class GlobalText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow? overflow;
   final TextAlign? textAlign;
-  final bool? softwrap;
+  final bool? softWrap;
   final double? height;
   final String? fontFamily;
 
@@ -33,7 +33,7 @@ class GlobalText extends StatelessWidget {
     this.maxLines,
     this.textAlign,
     this.overflow,
-    this.softwrap,
+    this.softWrap,
     this.height,
     this.fontFamily,
   });
@@ -48,7 +48,7 @@ class GlobalText extends StatelessWidget {
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
-      softWrap: softwrap,
+      softWrap: softWrap,
       style: GoogleFonts.roboto(
         color: color ?? ColorRes.white,
         fontSize: fontSize,
@@ -74,7 +74,7 @@ class GlobalImageText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow? overflow;
   final TextAlign? textAlign;
-  final bool? softwrap;
+  final bool? softWrap;
   final double? height;
   final String? fontFamily;
 
@@ -90,7 +90,7 @@ class GlobalImageText extends StatelessWidget {
     this.maxLines,
     this.textAlign,
     this.overflow,
-    this.softwrap,
+    this.softWrap,
     this.height,
     this.fontFamily,
   });
@@ -102,15 +102,20 @@ class GlobalImageText extends StatelessWidget {
     final double fontHeight = h * fw;
 
     return FutureBuilder<ui.Image>(
-      future: _loadUiImage(Images.textUre), // Load the texture image as ui.Image
+      future: _loadUiImage(Images.textUre), // Replace with your image path
       builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          // Display a placeholder or empty container until the image loads
+          return const SizedBox();
+        }
+
         return ShaderMask(
           shaderCallback: (Rect bounds) {
             return ImageShader(
               snapshot.data!,
               TileMode.repeated,
               TileMode.repeated,
-              Matrix4.identity().storage, // Removed scaling
+              Matrix4.identity().storage,
             );
           },
           blendMode: BlendMode.srcIn,
@@ -119,9 +124,9 @@ class GlobalImageText extends StatelessWidget {
             maxLines: maxLines,
             overflow: overflow,
             textAlign: textAlign,
-            softWrap: softwrap,
+            softWrap: softWrap,
             style: GoogleFonts.roboto(
-              color: color, // This color will be overridden by the image texture
+              color: color,
               fontSize: fontSize,
               fontWeight: fontWeight,
               letterSpacing: letterSpacing,

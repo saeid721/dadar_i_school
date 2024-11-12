@@ -10,6 +10,7 @@ import '../../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../../initializer.dart';
 import '../../../../../service/language_check/language_check.dart';
 import '../../../../../global/widget/global_appbar.dart';
+import '../../../../video_details/view/series_video_details_screen.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
 import '../../../controller/home_controller.dart';
 
@@ -33,7 +34,7 @@ class _HomeSectionAllSeriesSeeAllScreenState extends State<HomeSectionAllSeriesS
     scrollController.addListener(scrollListener);
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      homePageController.getHomeSectionAllSeries(limit: '$pageSize', page: '$currentPage', order: 'desc');
+      homePageController.getHomeSectionAllSeriesSeeAll(limit: '$pageSize', page: '$currentPage', order: 'desc');
     });
 
   }
@@ -44,7 +45,7 @@ class _HomeSectionAllSeriesSeeAllScreenState extends State<HomeSectionAllSeriesS
         currentPage++;
         pageSize = 2 * currentPage;
       });
-      HomePageController.current.getHomeSectionAllSeries(limit: '$pageSize', page: '1', order: 'desc');
+      HomePageController.current.getHomeSectionAllSeriesSeeAll(limit: '$pageSize', page: '1', order: 'desc');
     }
   }
 
@@ -88,7 +89,11 @@ class _HomeSectionAllSeriesSeeAllScreenState extends State<HomeSectionAllSeriesS
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
                       subText: "Free",
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(()=> SeriesVideoDetailsScreen(
+                          slug: homePageRecentData?.slug ?? "",
+                        ));
+                      },
                     );
                   },
                 ),

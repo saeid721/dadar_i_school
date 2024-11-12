@@ -15,6 +15,7 @@ import '../../../global/widget/global_textform_field.dart';
 import '../../../service/empty_data/empty_data_widget.dart';
 import '../../video_details/controller/video_details_controller.dart';
 import '../../video_details/view/movie_video_details_screen.dart';
+import '../../video_details/view/series_video_details_screen.dart';
 import 'components/watch_more_vert_screen.dart';
 import 'widget/watch_list_menu_widget.dart';
 
@@ -157,36 +158,134 @@ class _WatchListScreenState extends State<WatchListScreen> {
                             itemBuilder: (ctx, index) {
                               final reversedIndex = (videoDetailsController.watchListModel?.data?.length ?? 0) - 1 - index;
                               final watchListData = videoDetailsController.watchListModel?.data?[reversedIndex];
-                              return WatchListMenuWidget(
-                                img: "${watchListData?.movie?.thumbnail}",
-                                text: LanguageCheck.checkLanguage(
-                                    langCode: langCode,
-                                    enText: watchListData?.movie?.title ?? "",
-                                    bnText: watchListData?.movie?.titleBn ?? "",
-                                    hiText: watchListData?.movie?.titleHi ?? "",
-                                    arText: watchListData?.movie?.titleAr ?? ""
-                                ),
-                                viewText: "${watchListData?.movie?.views}",
-                                timeText: watchListData?.updatedAt != null
-                                    ? formatTimeDifference(parseDate(watchListData?.updatedAt))
-                                    : '',
-                                onTap: (){
-                                  Get.to(()=> MovieVideoDetailsScreen(
-                                    slug: watchListData?.movie?.slug ?? "",
-                                  ));
-                                },
-                                moreVertOnTap: (){
-                                  showModalBottomSheet(
-                                      context: context,
-                                      backgroundColor: Colors.transparent,
-                                      builder: (ctx){
-                                        return WatchMoreVertScreen(
-                                          movieId: watchListData?.movie?.id.toString() ?? "",
-                                        );
-                                      }
-                                  );
-                                },
-                              );
+                              if(watchListData?.movieId != null){
+                                return WatchListMenuWidget(
+                                  img: "${watchListData?.movie?.thumbnail}",
+                                  text: LanguageCheck.checkLanguage(
+                                      langCode: langCode,
+                                      enText: watchListData?.movie?.title ?? "",
+                                      bnText: watchListData?.movie?.titleBn ?? "",
+                                      hiText: watchListData?.movie?.titleHi ?? "",
+                                      arText: watchListData?.movie?.titleAr ?? ""
+                                  ),
+                                  viewText: "${watchListData?.movie?.views}",
+                                  timeText: watchListData?.updatedAt != null
+                                      ? formatTimeDifference(parseDate(watchListData?.updatedAt))
+                                      : '',
+                                  onTap: (){
+                                    Get.to(()=> MovieVideoDetailsScreen(
+                                      slug: watchListData?.movie?.slug ?? "",
+                                    ));
+                                  },
+                                  moreVertOnTap: (){
+                                    showModalBottomSheet(
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (ctx){
+                                          return WatchMoreVertScreen(
+                                            movieId: watchListData?.movie?.id.toString() ?? "",
+                                          );
+                                        }
+                                    );
+                                  },
+                                );
+                              } else if(watchListData?.seriesId != null){
+                                return WatchListMenuWidget(
+                                  img: "${watchListData?.series?.thumbnail}",
+                                  text: LanguageCheck.checkLanguage(
+                                      langCode: langCode,
+                                      enText: watchListData?.series?.title ?? "",
+                                      bnText: watchListData?.series?.titleBn ?? "",
+                                      hiText: watchListData?.series?.titleHi ?? "",
+                                      arText: watchListData?.series?.titleAr ?? ""
+                                  ),
+                                  viewText: "",
+                                  timeText: watchListData?.updatedAt != null
+                                      ? formatTimeDifference(parseDate(watchListData?.updatedAt))
+                                      : '',
+                                  onTap: (){
+                                    Get.to(()=> SeriesVideoDetailsScreen(
+                                      slug: watchListData?.series?.slug ?? "",
+                                    ));
+                                  },
+                                  moreVertOnTap: (){
+                                    showModalBottomSheet(
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (ctx){
+                                          return WatchMoreVertScreen(
+                                            seriesId: watchListData?.series?.id.toString() ?? "",
+                                          );
+                                        }
+                                    );
+                                  },
+                                );
+                              } else if(watchListData?.seasonId != null){
+                                return WatchListMenuWidget(
+                                  img: "${watchListData?.season?.thumbnail}",
+                                  text: LanguageCheck.checkLanguage(
+                                      langCode: langCode,
+                                      enText: watchListData?.season?.series?.title ?? "",
+                                      bnText: watchListData?.season?.series?.titleBn ?? "",
+                                      hiText: watchListData?.season?.series?.titleHi ?? "",
+                                      arText: watchListData?.season?.series?.titleAr ?? ""
+                                  ),
+                                  viewText: "${watchListData?.movie?.views}",
+                                  timeText: watchListData?.updatedAt != null
+                                      ? formatTimeDifference(parseDate(watchListData?.updatedAt))
+                                      : '',
+                                  onTap: (){
+                                    Get.to(()=> SeriesVideoDetailsScreen(
+                                      slug: watchListData?.season?.series?.slug ?? "",
+                                    ));
+                                  },
+                                  moreVertOnTap: (){
+                                    showModalBottomSheet(
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (ctx){
+                                          return WatchMoreVertScreen(
+                                            seasonId: watchListData?.season?.id.toString() ?? "",
+                                          );
+                                        }
+                                    );
+                                  },
+                                );
+                              } else if(watchListData?.episodeId != null){
+                                return WatchListMenuWidget(
+                                  img: "${watchListData?.episode?.thumbnail}",
+                                  text: LanguageCheck.checkLanguage(
+                                      langCode: langCode,
+                                      enText: watchListData?.episode?.title ?? "",
+                                      bnText: watchListData?.episode?.titleBn ?? "",
+                                      hiText: watchListData?.episode?.titleHi ?? "",
+                                      arText: watchListData?.episode?.titleAr ?? ""
+                                  ),
+                                  viewText: "${watchListData?.episode?.views}",
+                                  timeText: watchListData?.updatedAt != null
+                                      ? formatTimeDifference(parseDate(watchListData?.updatedAt))
+                                      : '',
+                                  onTap: (){
+                                    Get.to(()=> SeriesVideoDetailsScreen(
+                                      slug: watchListData?.episode?.season?.series?.slug ?? "",
+                                    ));
+                                  },
+                                  moreVertOnTap: (){
+                                    showModalBottomSheet(
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (ctx){
+                                          return WatchMoreVertScreen(
+                                            episodeId: watchListData?.episode?.id.toString() ?? "",
+                                          );
+                                        }
+                                    );
+                                  },
+                                );
+                              } else{
+                                return const SizedBox.shrink();
+                              }
+
                             },
                           ) : const EmptyDataWidget()
                         )
