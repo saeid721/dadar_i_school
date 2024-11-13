@@ -1,4 +1,4 @@
-import '../data.dart';
+import 'data.dart';
 
 class BasicEnglishCourseModel {
   final int? id;

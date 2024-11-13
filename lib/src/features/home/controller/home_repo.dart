@@ -1,5 +1,5 @@
 
-import '../../../../video_model.dart';
+import '../model/video_model.dart';
 import '../../../domain/server/http_client/api_helper.dart';
 import '../../../domain/server/http_client/app_config.dart';
 import '../model/footer_model/footer_company_model.dart';

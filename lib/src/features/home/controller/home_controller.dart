@@ -6,8 +6,8 @@ import 'package:dadar_i_school/src/features/home/model/footer_model/footer_compa
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_explore_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_movies_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_series_model.dart';
-import '../../../../data.dart';
-import '../../../../video_model.dart';
+import '../model/data.dart';
+import '../model/video_model.dart';
 import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
 import '../model/home_section/home_section_all_movie_see_all_model.dart';

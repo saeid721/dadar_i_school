@@ -32,15 +32,15 @@ class HomeViewScreen extends StatelessWidget {
                   itemBuilder: (ctx, index) {
                     final sectionData = controller.sections[index];
                     switch (sectionData.sectionType) {
-                      case "recent":
+                      case "hundred_days_spoken_english":
                         return HundredDaysSpokenEnglishPracticeWidget(id: sectionData.id, );
-                      case "genres":
+                      case "hundred_days_basic_english":
                         return HundredDaysBasicEnglishCourseWidget(id: sectionData.id);
-                      case "upcoming":
+                      case "spoken_english_practice":
                         return SpokenEnglishPracticeWidget(id: sectionData.id);
-                      case "all_movies":
+                      case "beginner_spoken_english":
                         return BeginnerSpokenEnglishWidget(id: sectionData.id);
-                      case "all_series":
+                      case "english_grammar_course":
                         return EnglishGrammarCourseWidget(id: sectionData.id);
                       default:
                         return const SizedBox.shrink();

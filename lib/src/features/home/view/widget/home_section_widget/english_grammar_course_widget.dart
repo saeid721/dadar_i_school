@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../data.dart';
+import '../../../model/data.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
 import '../../components/home_section_see_all/home_section_recent_see_all_screen.dart';
@@ -34,7 +34,7 @@ class _EnglishGrammarCourseWidgetState
         children: [
           sizedBoxH(10),
           MovieMenuBarWidget(
-            text: "100 Days Spoken English Practice",
+            text: "English Grammar Course",
             seeAllOnTap: () {
               Get.to(() => const HomeSectionRecentSeeAllScreen(sectionId: "static-section-id"));
             },

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import '../../../../data.dart';
+import '../../home/model/data.dart';
 import '../../../global/constants/colors_resources.dart';
 import '../../../global/widget/global_bottom_widget.dart';
 import '../../../global/widget/global_container.dart';
