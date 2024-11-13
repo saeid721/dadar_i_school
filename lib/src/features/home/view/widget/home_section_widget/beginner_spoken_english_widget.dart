@@ -7,7 +7,8 @@ import '../movie_menu_bar_widget.dart';
 import '../basic_english_course_enu_widget.dart';
 
 class BeginnerSpokenEnglishWidget extends StatefulWidget {
-  const BeginnerSpokenEnglishWidget({super.key});
+  final String id;
+  const BeginnerSpokenEnglishWidget({super.key, required this.id,});
 
   @override
   State<BeginnerSpokenEnglishWidget> createState() => _BeginnerSpokenEnglishWidgetState();
@@ -72,9 +73,9 @@ class _BeginnerSpokenEnglishWidgetState extends State<BeginnerSpokenEnglishWidge
                 return BasicEnglishCourseMenuWidget(
                   img: recent["thumbnail"],
                   title: recent["title"],
-                  subText: recent[""],
+                  //subText: recent[""],
                   onTap: () {
-                    Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(slug: recent["slug"]));
+                    //Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(id: widget.id, youtubeLink: '',));
                   },
                 );
               }).toList(),

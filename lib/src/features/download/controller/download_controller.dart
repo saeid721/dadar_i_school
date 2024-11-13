@@ -105,11 +105,11 @@ class DownloadController extends GetxController implements GetxService {
         log("Image Path 1: $imgFilePath");
         update();
 
-        Get.to(() => LocalMovieVideoDetailsScreen(
-          videoSrc: videoFilePath!,
-          initImg: imgFilePath!,
-          isLocal: true,
-        ));
+        // Get.to(() => LocalMovieVideoDetailsScreen(
+        //   videoSrc: videoFilePath!,
+        //   initImg: imgFilePath!,
+        //   isLocal: true,
+        // ));
       } else {
         log("Error: Video file not found at ${video.videoSrc}");
         showCustomSnackBar("Error: Video file not found.");
@@ -158,100 +158,3 @@ class LocalMovieVideoModel {
     );
   }
 }
-
-
-// Future<void> downloadAndSaveVideo({
-//   required String videoUrl
-// }) async{
-//   try{
-//     Directory appDocDir = await getApplicationDocumentsDirectory();
-//     // String savePath = '${appDocDir.path}$videoUrl';
-//     String savePath = '${appDocDir.path}/videos/${videoUrl.split('/').last}';
-//
-//
-//     log("Video Url: $videoUrl");
-//
-//     final response = await repository.requestHandler.dio.download(
-//         "${AppConfig.base.url}$videoUrl",
-//         savePath,
-//         onReceiveProgress: (received, total){
-//           if(total != -1){
-//             double progressData = (received / total * 100);
-//             progress = progressData;
-//             update();
-//           }
-//         }
-//     );
-//
-//     log("Video Download Response: Status: ${response.statusCode} Data: ${response.data}");
-//
-//     videoFilePath = savePath;
-//     update();
-//
-//     // Save the file path to Hive
-//     final box = await Hive.openBox<String>('videos');
-//     box.put('video_path', savePath);
-//     showCustomSnackBar("Video Download & Saved Successfully");
-//
-//   } catch(e, s){
-//     if (e is DioException) {
-//       log("DioError occurred: ${e.message}", error: e, stackTrace: s);
-//       showCustomSnackBar("Error downloading and saving video: ${e.message}");
-//     } else {
-//       log("Download Failed!", error: e, stackTrace: s);
-//       showCustomSnackBar("Error downloading and saving video");
-//     }
-//
-//   }
-// }
-
-// Future<void> getVideoPlayer() async {
-//   final box = await Hive.openBox<String>('videos');
-//   String? videoPath = box.get('video_path');
-//
-//   log("Get Download Video Src $videoPath");
-//
-//   if (videoPath != null) {
-//
-//     String localVideoPath = 'file://$videoPath';
-//     videoFilePath = localVideoPath;
-//     update();
-//
-//     Get.to(() => VideoPlayerDetailsWidget(
-//       videoSrc: localVideoPath, // Pass modified path with 'file://' prefix
-//       initImg: "",
-//       isLocal: true,
-//     ));
-//   } else {
-//     log("Error: Video path not found in Hive.");
-//     showCustomSnackBar("Error: Video file not found.");
-//   }
-// }
-
-
-// Future<void> getVideoPlayer() async {
-//   final box = await Hive.openBox<String>('videos');
-//   String? videoPath = box.get('video_path');
-//
-//   log("Video Download Url 3: $videoPath");
-//
-//   try {
-//     if (videoPath != null) {
-//       // Ensure it's recognized as a local file
-//       videoFilePath = Uri.file(videoPath).toString();
-//       update();
-//
-//       Get.to(() => VideoPlayerDetailsWidget(
-//         videoSrc: videoFilePath!, // Use local path
-//         initImg: "",
-//         isLocal: true,
-//       ));
-//     } else {
-//       log("Error: Video path not found in Hive.");
-//       showCustomSnackBar("Error: Video file not found.");
-//     }
-//     update();
-//   } catch (e, s) {
-//     log("Error Get Download Video: $e", error: e, stackTrace: s);
-//   }
-// }

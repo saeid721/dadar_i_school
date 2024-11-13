@@ -20,7 +20,7 @@ class AccountController extends GetxController implements GetxService {
   bool get hasError => _hasError;
 
   // =/@ User Profile Method
-  LanguageModel? languageModel;
+  //LanguageModel? languageModel;
 
   Future getLanguageList() async {
     try {
@@ -28,8 +28,8 @@ class AccountController extends GetxController implements GetxService {
       _hasError = false;
       update();
 
-      final response = await repository.getLanguageList();
-      languageModel = response;
+      //final response = await repository.getLanguageList();
+      //languageModel = response;
 
       _isLoading = false;
       update();

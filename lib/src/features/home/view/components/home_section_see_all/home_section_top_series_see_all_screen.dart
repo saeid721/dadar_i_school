@@ -77,9 +77,9 @@ class _HomeSectionTopSeriesSeeAllScreenState extends State<HomeSectionTopSeriesS
                       ),
                       subText: "Free",
                       onTap: () {
-                        Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: homePageRecentData?.slug ?? "",
-                        ));
+                        // Get.to(()=> SeriesVideoDetailsScreen(
+                        //   slug: homePageRecentData?.slug ?? "",
+                        // ));
                       },
                     );
                   },

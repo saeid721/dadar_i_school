@@ -82,11 +82,11 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                               hiText: movie.titleHi ?? "",
                               arText: movie.titleAr ?? "",
                             ),
-                            subText: movie.videoAccess == true ? "Premium" : "Free",
+                            //subText: movie.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
-                              Get.to(()=> MovieVideoDetailsScreen(
-                                slug: movie.slug ?? "",
-                              ));
+                              // Get.to(()=> MovieVideoDetailsScreen(
+                              //   slug: movie.slug ?? "",
+                              // ));
                             },
                           );
                         }).toList() ?? []
@@ -117,11 +117,11 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                               hiText: series.titleHi ?? "",
                               arText: series.titleAr ?? "",
                             ),
-                            subText: series.videoAccess == true ? "Premium" : "Free",
+                            //subText: series.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
-                              Get.to(()=> SeriesVideoDetailsScreen(
-                                slug: series.slug ?? "",
-                              ));
+                              // Get.to(()=> SeriesVideoDetailsScreen(
+                              //   slug: series.slug ?? "",
+                              // ));
                             },
                           );
                         }).toList() ?? []
@@ -152,11 +152,11 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                               hiText: episode.titleHi ?? "",
                               arText: episode.titleAr ?? "",
                             ),
-                            subText: episode.videoAccess == true ? "Premium" : "Free",
+                            //subText: episode.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
-                              Get.to(()=> SeriesVideoDetailsScreen(
-                                slug: episode.season?.series?.slug ?? "",
-                              ));
+                              // Get.to(()=> SeriesVideoDetailsScreen(
+                              //   slug: episode.season?.series?.slug ?? "",
+                              // ));
                             },
                           );
                         }).toList() ?? []
@@ -188,11 +188,11 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                               hiText: season.series?.titleHi ?? "",
                               arText: season.series?.titleAr ?? "",
                             ),
-                            subText: season.videoAccess == true ? "Premium" : "Free",
+                            //subText: season.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
-                              Get.to(()=> SeriesVideoDetailsScreen(
-                                slug: season.series?.slug ?? "",
-                              ));
+                              // Get.to(()=> SeriesVideoDetailsScreen(
+                              //   slug: season.series?.slug ?? "",
+                              // ));
                             },
                           );
                         }).toList() ?? []

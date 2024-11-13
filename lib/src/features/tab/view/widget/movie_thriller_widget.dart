@@ -69,9 +69,9 @@ class _MovieThrillerWidgetState extends State<MovieThrillerWidget> {
                       hiText: movie.titleHi ?? "",
                       arText: movie.titleAr ?? "",
                     ),
-                    subText: movie.videoAccess == true ? "Premium" : "Free",
+                    //subText: movie.videoAccess == true ? "Premium" : "Free",
                     onTap: () {
-                      Get.to(() => MovieVideoDetailsScreen(slug: movie.slug ?? ""));
+                     // Get.to(() => MovieVideoDetailsScreen(slug: movie.slug ?? ""));
                     },
                   );
                 }).toList() ?? [],

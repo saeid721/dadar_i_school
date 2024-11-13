@@ -1,16 +1,17 @@
+import '../data.dart';
+
 class BasicEnglishCourseModel {
   final int? id;
   final String title;
-  final String videoUrl;
+  final String youtubeLink;
   final String thumbnail;
   final String shortDescription;
-  bool isLoading = true;
-  dynamic controller;
+  List<BasicEnglishCourseData>? data;
 
   BasicEnglishCourseModel({
     this.id,
     required this.title,
-    required this.videoUrl,
+    required this.youtubeLink,
     required this.thumbnail,
     required this.shortDescription,
   });
@@ -19,7 +20,7 @@ class BasicEnglishCourseModel {
     return {
       'id': id,
       'title': title,
-      'videoUrl': videoUrl,
+      'youtubeLink': youtubeLink,
       'thumbnail': thumbnail,
       'shortDescription': shortDescription,
     };
@@ -29,7 +30,7 @@ class BasicEnglishCourseModel {
     return BasicEnglishCourseModel(
       id: map['id'],
       title: map['title'],
-      videoUrl: map['videoUrl'],
+      youtubeLink: map['youtubeLink'],
       thumbnail: map['thumbnail'],
       shortDescription: map['shortDescription'],
     );
@@ -40,7 +41,7 @@ class BasicEnglishCourseModel {
     return BasicEnglishCourseModel(
       id: json['id'],
       title: json['title'],
-      videoUrl: json['videoUrl'],
+      youtubeLink: json['youtubeLink'],
       thumbnail: json['thumbnail'],
       shortDescription: json['shortDescription'],
     );

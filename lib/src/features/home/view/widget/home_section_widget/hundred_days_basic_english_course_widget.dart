@@ -7,7 +7,8 @@ import '../movie_menu_bar_widget.dart';
 import '../basic_english_course_enu_widget.dart';
 
 class HundredDaysBasicEnglishCourseWidget extends StatefulWidget {
-  const HundredDaysBasicEnglishCourseWidget({super.key});
+  final String id;
+  const HundredDaysBasicEnglishCourseWidget({super.key, required this.id,});
 
   @override
   State<HundredDaysBasicEnglishCourseWidget> createState() => _HundredDaysBasicEnglishCourseWidgetState();
@@ -78,9 +79,14 @@ class _HundredDaysBasicEnglishCourseWidgetState extends State<HundredDaysBasicEn
                 return BasicEnglishCourseMenuWidget(
                   img: recent["thumbnail"],
                   title: recent["title"],
-                  subText: recent[""],
+                 // subText: recent[""],
                   onTap: () {
-                    Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(slug: recent["slug"] ?? "default-slug"));
+                    // Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(
+                    //   id: recent.id,
+                    //   title: recent.title,
+                    //   shortDescription: recent.shortDescription,
+                    //   youtubeLink: recent.youtubeLink,
+                    // ));
                   },
 
                 );

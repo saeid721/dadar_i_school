@@ -90,9 +90,9 @@ class _HomeSectionAllMovieSeeAllScreenState extends State<HomeSectionAllMovieSee
                       ),
                       subText: "Free",
                       onTap: () {
-                        Get.to(()=> MovieVideoDetailsScreen(
-                          slug: homePageRecentData?.slug ?? "",
-                        ));
+                        // Get.to(()=> MovieVideoDetailsScreen(
+                        //   slug: homePageRecentData?.slug ?? "",
+                        // ));
                       },
                     );
                   },

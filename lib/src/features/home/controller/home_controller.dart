@@ -6,6 +6,7 @@ import 'package:dadar_i_school/src/features/home/model/footer_model/footer_compa
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_explore_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_movies_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_series_model.dart';
+import '../../../../data.dart';
 import '../../../../video_model.dart';
 import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
@@ -81,10 +82,28 @@ class HomePageController extends GetxController implements GetxService {
     "Free"
   ];
 
+  List<SectionData> sections = [];
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadLocalSections();
+  }
+
+  void loadLocalSections() {
+    sections = [
+      SectionData(id: "1", sectionType: "recent", title: "100 Days Spoken English Practice"),
+      SectionData(id: "2", sectionType: "genres", title: "100 Days Basic English Course"),
+      SectionData(id: "3", sectionType: "upcoming", title: "Spoken English Practice"),
+      SectionData(id: "4", sectionType: "all_movies", title: "Beginner Spoken English"),
+      SectionData(id: "5", sectionType: "all_series", title: "English Grammar Course"),
+    ];
+    update(); // Notify the UI to update with new data
+  }
 
   // =/@ BasicEnglishCourseModel
   BasicEnglishCourseModel? basicEnglishCourseModel;
-
+  List<BasicEnglishCourseData> basicEnglishCourseData = [];
   Future getBasicEnglishCourseList() async {
     try {
       _isLoading = true;

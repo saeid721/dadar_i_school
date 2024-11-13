@@ -71,9 +71,9 @@ class _SeriesThrillerWidgetState extends State<SeriesThrillerWidget> {
                       ),
                       subText: series.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
-                        Get.to(()=> SeriesVideoDetailsScreen(
-                          slug: series.slug ?? "",
-                        ));
+                        // Get.to(()=> SeriesVideoDetailsScreen(
+                        //   slug: series.slug ?? "",
+                        // ));
                       },
                     );
                   }).toList() ?? [],

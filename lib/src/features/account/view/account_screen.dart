@@ -25,16 +25,16 @@ import 'language_select_screen.dart';
 import 'subscribe_now_screen.dart';
 import 'watch_list_screen.dart';
 
-class AccountScreen extends StatefulWidget {
-  const AccountScreen({
+class MenuScreen extends StatefulWidget {
+  const MenuScreen({
     super.key
   });
 
   @override
-  State<AccountScreen> createState() => _AccountScreenState();
+  State<MenuScreen> createState() => _MenuScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _MenuScreenState extends State<MenuScreen> {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -80,7 +80,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   const Padding(
                     padding: EdgeInsets.only(left: 5),
                     child: GlobalText(
-                      str: "Account",
+                      str: "Dadar i School",
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -179,20 +179,20 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: Column(
                       children: [
 
-                        AccountMenuWidget(
-                            img: Images.languageIc,
-                            title: "App Language",
-                            subTitle: langCodeName ?? 'English',
-                            onTap: (){
-                              showModalBottomSheet(
-                                  context: context,
-                                  backgroundColor: Colors.transparent,
-                                  builder: (ctx){
-                                    return const LanguageSelectScreen();
-                                  }
-                              );
-                            }
-                        ),
+                        // AccountMenuWidget(
+                        //     img: Images.languageIc,
+                        //     title: "App Language",
+                        //     subTitle: langCodeName ?? 'English',
+                        //     onTap: (){
+                        //       showModalBottomSheet(
+                        //           context: context,
+                        //           backgroundColor: Colors.transparent,
+                        //           builder: (ctx){
+                        //             return const LanguageSelectScreen();
+                        //           }
+                        //       );
+                        //     }
+                        // ),
 
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -202,13 +202,13 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                         ),
 
-                        AccountMenuWidget(
-                            img: Images.watchIc,
-                            title: "Watch List",
-                            onTap: (){
-                              Get.to(()=> const WatchListScreen());
-                            }
-                        ),
+                        // AccountMenuWidget(
+                        //     img: Images.watchIc,
+                        //     title: "Watch List",
+                        //     onTap: (){
+                        //       //Get.to(()=> const WatchListScreen());
+                        //     }
+                        // ),
 
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -218,13 +218,13 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                         ),
 
-                        AccountMenuWidget(
-                            img: Images.downloadIc,
-                            title: "Download",
-                            onTap: (){
-                              dashboardBottomController.onItemTapped(2);
-                            }
-                        ),
+                        // AccountMenuWidget(
+                        //     img: Images.downloadIc,
+                        //     title: "Download",
+                        //     onTap: (){
+                        //       dashboardBottomController.onItemTapped(2);
+                        //     }
+                        // ),
                         sizedBoxH(5)
 
                       ],
@@ -240,19 +240,19 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: Column(
                       children: [
 
-                        AccountMenuWidget(
-                            img: Images.billingHistoryIc,
-                            title: "Billing History",
-                            onTap: (){
-                              accessToken == null
-                                  ? showDialog(
-                                  context: context,
-                                  builder: (ctx){
-                                    return const AuthScreen();
-                                  })
-                                  : showCustomSnackBar("Billing History", icon: Icons.info);
-                            }
-                        ),
+                        // AccountMenuWidget(
+                        //     img: Images.billingHistoryIc,
+                        //     title: "Billing History",
+                        //     onTap: (){
+                        //       accessToken == null
+                        //           ? showDialog(
+                        //           context: context,
+                        //           builder: (ctx){
+                        //             return const AuthScreen();
+                        //           })
+                        //           : showCustomSnackBar("Billing History", icon: Icons.info);
+                        //     }
+                        // ),
 
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -262,19 +262,19 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                         ),
 
-                        AccountMenuWidget(
-                            img: Images.activatedTvIc,
-                            title: "Activate TV",
-                            onTap: (){
-                              accessToken == null
-                                  ? showDialog(
-                                  context: context,
-                                  builder: (ctx){
-                                    return const AuthScreen();
-                                  })
-                                  : showCustomSnackBar("Activate TV", icon: Icons.info);
-                            }
-                        ),
+                        // AccountMenuWidget(
+                        //     img: Images.activatedTvIc,
+                        //     title: "Activate TV",
+                        //     onTap: (){
+                        //       accessToken == null
+                        //           ? showDialog(
+                        //           context: context,
+                        //           builder: (ctx){
+                        //             return const AuthScreen();
+                        //           })
+                        //           : showCustomSnackBar("Activate TV", icon: Icons.info);
+                        //     }
+                        // ),
 
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -284,20 +284,20 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                         ),
 
-                        AccountMenuWidget(
-                            img: Images.deviceManagementIc,
-                            title: "Device Management",
-                            subTitle: "View All Registered Device",
-                            onTap: (){
-                              accessToken == null
-                                  ? showDialog(
-                                  context: context,
-                                  builder: (ctx){
-                                    return const AuthScreen();
-                                  })
-                                  : showCustomSnackBar("Device Management", icon: Icons.info);
-                            }
-                        ),
+                        // AccountMenuWidget(
+                        //     img: Images.deviceManagementIc,
+                        //     title: "Device Management",
+                        //     subTitle: "View All Registered Device",
+                        //     onTap: (){
+                        //       accessToken == null
+                        //           ? showDialog(
+                        //           context: context,
+                        //           builder: (ctx){
+                        //             return const AuthScreen();
+                        //           })
+                        //           : showCustomSnackBar("Device Management", icon: Icons.info);
+                        //     }
+                        // ),
 
                         sizedBoxH(5),
 

@@ -48,7 +48,7 @@ class _MovieTabViewScreenState extends State<MovieTabViewScreen> {
             sizedBoxH(70),
 
             /// ==# All Movie
-            const HomeSectionAllMovieWidget(),
+            // const HomeSectionAllMovieWidget(),
 
             ListView.builder(
                 itemCount: tabViewController.genresMovieListModel?.data?.length ?? 0,

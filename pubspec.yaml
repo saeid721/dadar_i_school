@@ -31,6 +31,8 @@ dependencies:
   flutter_hls_parser: ^2.0.1
   flutter_localization: ^0.2.0
   flutter_image_compress: ^2.1.0
+  chewie: ^1.8.5
+  youtube_player_flutter: ^9.1.1
 
   # UI Helpers!
   shimmer: ^3.0.0

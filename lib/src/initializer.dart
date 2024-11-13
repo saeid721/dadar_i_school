@@ -31,7 +31,7 @@ Future<void> init(LocalStorage localStorage) async {
   Get.lazyPut(() => AccountController(), fenix: true);
   Get.lazyPut(() => HomePageController(), fenix: true);
   Get.lazyPut(() => DashboardBottomController(), fenix: true);
-  Get.lazyPut(() => SearchBarController(), fenix: true);
+  //Get.lazyPut(() => SearchBarController(), fenix: true);
   Get.lazyPut(() => VideoDetailsController(), fenix: true);
   Get.lazyPut(() => MyAccountController(), fenix: true);
   Get.lazyPut(() => TabViewController(), fenix: true);

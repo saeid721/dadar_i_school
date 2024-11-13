@@ -1,16 +1,10 @@
-
 import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/global/constants/images.dart';
 import 'package:video_player/video_player.dart';
 import '../../account/controller/account_controller.dart';
-import '../model/create_watch_list_model.dart';
-import '../model/movie_video_details_model.dart';
-import '../model/series_video_details_model.dart';
-import '../model/watch_list_model.dart';
 import '../view/mini_screen_video_player.dart';
 import '../view/components/video_details_play_back_speed_screen.dart';
 import 'video_deatils_repo.dart';
@@ -22,14 +16,13 @@ class VideoDetailsController extends GetxController implements GetxService {
   final accountController = AccountController.current;
 
   bool _isLoading = false;
+
   bool get isLoading => _isLoading;
 
   bool _hasError = false;
+
   bool get hasError => _hasError;
 
-  // final String videoSrc = "https://api.softwarezoneltd.com/api/storage/movie_tailers/trailer_c91a00ad-acea-43ad-b890-d3603b41dd92_1.mp4";
-  // String? initImg;
-  // String videoText;
   List<String> shimmerList = ["", "", "", "", ""];
 
   /// ==# Selected Video Quantity..
@@ -59,11 +52,7 @@ class VideoDetailsController extends GetxController implements GetxService {
             final url = _extractUrl(line, playlistUrl); // Handle relative URLs
 
             log("Video Quality: Resolution - $resolution, URL - $url");
-            qualityList.add(VideoQuality(
-                bitrate: bitrate,
-                resolution: resolution,
-                url: url
-            ));
+            qualityList.add(VideoQuality(bitrate: bitrate, resolution: resolution, url: url));
           }
         }
 
@@ -77,19 +66,12 @@ class VideoDetailsController extends GetxController implements GetxService {
     }
   }
 
-
-  // String _extractResolution(String line) {
-  //   // Extract resolution from the line, e.g., 1280x720
-  //   return line.split('RESOLUTION=')[1].split(',')[0];
-  // }
-
   String _extractResolution(String line) {
     // Extract the resolution from the line, e.g., 1280x720, and return only the height with "p"
     String resolution = line.split('RESOLUTION=')[1].split(',')[0];
     String height = resolution.split('x')[1]; // Extract the second part (height)
     return '${height}p'; // Return it with the "p" suffix
   }
-
 
   int _extractBitrate(String line) {
     // Extract bitrate from the line, e.g., 1200000
@@ -105,33 +87,11 @@ class VideoDetailsController extends GetxController implements GetxService {
     }
   }
 
-  // =@ Change the Video Quality
-
-  // void changeVideoQuantity(String newUrl, VideoPlayerController? videoPlayerController){
-  //   // if (videoPlayerController != null) {
-  //   //   // Dispose of the current video controller
-  //   //   videoPlayerController.dispose();
-  //   // }
-  //
-  //   // Create a new VideoPlayerController with the new URL
-  //   videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(newUrl))
-  //     ..initialize().then((_) {
-  //
-  //       videoPlayerController!.play();
-  //       update();
-  //     });
-  // }
-
-
   /// ==================== /@ Business Logic @/ ====================
 
   OverlayEntry? _miniPlayerOverlay;
 
-  void showMiniPlayerOverlay({
-    required BuildContext context,
-    required VideoPlayerController controller
-  }) {
-
+  void showMiniPlayerOverlay({required BuildContext context, required VideoPlayerController controller}) {
     if (_miniPlayerOverlay == null) {
       _miniPlayerOverlay = OverlayEntry(
         builder: (context) => Stack(
@@ -160,7 +120,7 @@ class VideoDetailsController extends GetxController implements GetxService {
   Timer? _clickTimer;
 
   // Update this method to handle click counts
-  void handleClick(bool isNext){
+  void handleClick(bool isNext) {
     clickCount++;
     _showMessageWithCount(isNext);
 
@@ -184,10 +144,10 @@ class VideoDetailsController extends GetxController implements GetxService {
     isMessageVisible = true;
     update();
 
-    Future.delayed(const Duration(seconds: 1), (){
+    Future.delayed(const Duration(seconds: 1), () {
       isMessageVisible = false;
       update();
-      Future.delayed(const Duration(seconds: 1), (){
+      Future.delayed(const Duration(seconds: 1), () {
         displayMessage = '';
         update();
       });
@@ -233,133 +193,6 @@ class VideoDetailsController extends GetxController implements GetxService {
 
     update();
   }
-
-  /// ==================== /@ UI Api Han @/ ====================
-
-  // =/@ Movie Video Details
-  MovieVideoDetailsModel? movieVideoDetailsModel;
-
-  Future getMovieVideoDetails({
-    required String slug
-  }) async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getMovieVideoDetails(
-        slug: slug
-      );
-
-      if(response.code == 200){
-        movieVideoDetailsModel = response;
-      }
-
-      _isLoading = false;
-      update();
-    } catch (e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
-  // =/@ Series Video Details
-  SeriesVideoDetailsModel? seriesVideoDetailsModel;
-
-  Future getSeriesVideoDetails({
-    required String slug
-  }) async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getSeriesVideoDetails(
-          slug: slug
-      );
-
-      if(response.code == 200){
-        seriesVideoDetailsModel = response;
-      }
-
-      _isLoading = false;
-      update();
-    } catch (e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
-  // =/@ Crate Watch List
-  CreateWatchListModel? createWatchListModel;
-
-  Future reqWatchList({
-    required String? subscriberId,
-    String? movieId,
-    String? seriesId,
-    String? seasonId,
-    String? episodeId,
-  }) async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.reqWatchList(
-          subscriberId: subscriberId,
-          movieId: movieId,
-          seriesId: seriesId,
-          seasonId: seasonId,
-          episodeId: episodeId
-      );
-
-      if(response.code == 200){
-        createWatchListModel = response;
-
-        // ==/@ Fetch Watch List
-        getWatchList(subscriberId: subscriberId);
-      }
-
-      _isLoading = false;
-      update();
-    } catch (e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
-  // =/@ Watch List Model
-  WatchListModel? watchListModel;
-
-  Future getWatchList({
-    required String? subscriberId,
-  }) async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
-
-      final response = await repository.getWatchList(
-          subscriberId: subscriberId
-      );
-      watchListModel = response;
-
-      _isLoading = false;
-      update();
-    } catch (e, s) {
-      log('Error: ', error: e, stackTrace: s);
-      _isLoading = false;
-      _hasError = true;
-      update();
-    }
-  }
-
 }
 
 class VideoQuality {

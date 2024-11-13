@@ -79,21 +79,21 @@ class _HomeSectionRecentSeeAllScreenState extends State<HomeSectionRecentSeeAllS
                       subText: "Free",
                       onTap: () {
                         if(homePageRecentData?.type == "movie"){
-                          Get.to(()=> MovieVideoDetailsScreen(
-                            slug: homePageRecentData?.slug ?? "",
-                          ));
+                          // Get.to(()=> MovieVideoDetailsScreen(
+                          //   slug: homePageRecentData?.slug ?? "",
+                          // ));
                         } else if(homePageRecentData?.type == "series"){
-                          Get.to(()=> SeriesVideoDetailsScreen(
-                            slug: homePageRecentData?.slug ?? "",
-                          ));
+                          // Get.to(()=> SeriesVideoDetailsScreen(
+                          //   slug: homePageRecentData?.slug ?? "",
+                          // ));
                         } else if(homePageRecentData?.type == "season"){
-                          Get.to(()=> SeriesVideoDetailsScreen(
-                            slug: homePageRecentData?.series?.slug ?? "",
-                          ));
+                          // Get.to(()=> SeriesVideoDetailsScreen(
+                          //   slug: homePageRecentData?.series?.slug ?? "",
+                          // ));
                         } else if(homePageRecentData?.type == "episode"){
-                          Get.to(()=> SeriesVideoDetailsScreen(
-                            slug: homePageRecentData?.season?.series?.slug ?? "",
-                          ));
+                          // Get.to(()=> SeriesVideoDetailsScreen(
+                          //   slug: homePageRecentData?.season?.series?.slug ?? "",
+                          // ));
                         } else{
 
                         }

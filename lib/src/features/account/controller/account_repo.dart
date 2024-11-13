@@ -10,9 +10,9 @@ import '../model/subscription/subscription_video_access_model.dart';
 
 class AccountRepository extends ApiHelper {
 
-  Future<LanguageModel> getLanguageList() async {
-    return LanguageModel.fromJson(await requestHandler.get(AppConfig.languageListUrl.url));
-  }
+  // Future<LanguageModel> getLanguageList() async {
+  //   return LanguageModel.fromJson(await requestHandler.get(AppConfig.languageListUrl.url));
+  // }
 
   Future<WatchHistoryModel> getWatchHistory() async {
     return WatchHistoryModel.fromJson(await requestHandler.get(AppConfig.watchHistoryUrl.url));

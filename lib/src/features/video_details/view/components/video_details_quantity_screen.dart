@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,19 +25,9 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     videoPlayerController = widget.controller;
   }
-
-  // void displayVideoResolution() {
-  //   if (videoPlayerController.value.isInitialized) {
-  //     final int videoWidth = videoPlayerController.value.size.width.toInt();
-  //     final int videoHeight = videoPlayerController.value.size.height.toInt();
-  //     log('Current video resolution: ${videoWidth}x$videoHeight');
-  //   }
-  // }
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +77,6 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
                           return GestureDetector(
                             onTap: () {
                               buildSetState(() {
-
                                 try{
                                   videoPlayerDetailsController.selectQuantity = index;
                                   final selectedQuality = videoPlayerDetailsController.qualityList[index];
@@ -96,8 +84,8 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
 
                                   videoPlayerController.pause();
 
-                                  // Initialize the new controller
-                                  videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(selectedQuality.url))
+                                  // Initialize the new controller with the selected URL
+                                  videoPlayerController = VideoPlayerController.network(selectedQuality.url)
                                     ..initialize().then((_) {
                                       videoPlayerController.play();
                                       log("Playing video at resolution: ${selectedQuality.resolution}");
@@ -107,34 +95,8 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
                                 } catch(e, s){
                                   log("Video Quality Error: ", error: e, stackTrace: s);
                                 }
-
                               });
                             },
-
-                            // onTap: () {
-                            //   buildSetState(() {
-                            //     videoPlayerDetailsController.selectQuantity = index;
-                            //     // Change the video quality to the selected one
-                            //     final selectedQuality = videoPlayerDetailsController.qualityList[index];
-                            //     log("Selected Video Quality: Resolution - ${selectedQuality.resolution}, URL - ${selectedQuality.url}");
-                            //
-                            //     // Update the video player with the selected quality's URL
-                            //     videoPlayerController.pause(); // Pause the current video if playing
-                            //     videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(selectedQuality.url))
-                            //       ..initialize().then((_) {
-                            //         videoPlayerController.play(); // Play the new video source
-                            //         log("Playing video at resolution: ${selectedQuality.resolution}");
-                            //         videoPlayerDetailsController.update(); // Trigger GetX update
-                            //         Get.back();
-                            //       });
-                            //   });
-                            // },
-
-                            // onTap: (){
-                            //   buildSetState(() {
-                            //     videoPlayerDetailsController.selectQuantity = index;
-                            //   });
-                            // },
                             child: Container(
                               color: Colors.transparent,
                               padding: const EdgeInsets.symmetric(
@@ -189,20 +151,6 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
                   ),
 
                   sizedBoxH(10),
-                  // Save button
-                  // GlobalButtonWidget(
-                  //   str: "Save",
-                  //   height: 45,
-                  //   buttomColor: ColorRes.appRedColor,
-                  //   textSize: 13,
-                  //   onTap: () {
-                  //     final selectedQuality = videoPlayerDetailsController.qualityList[videoPlayerDetailsController.selectQuantity ?? 0];
-                  //     videoPlayerDetailsController.changeVideoQuantity(selectedQuality.url, widget.controller);
-                  //     Get.back(); // Close the bottom sheet
-                  //   },
-                  // ),
-                  // sizedBoxH(10),
-
                 ],
               ),
             );
@@ -210,14 +158,4 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
       );
     });
   }
-}
-
-class PlayBackSpeedModel{
-  final String playBackName;
-  final double playBackValue;
-
-  PlayBackSpeedModel({
-    required this.playBackName,
-    required this.playBackValue
-  });
 }

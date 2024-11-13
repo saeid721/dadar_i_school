@@ -13,7 +13,7 @@ import 'my_account_repo.dart';
 class MyAccountController extends GetxController implements GetxService {
   static MyAccountController get current => Get.find();
   final MyAccountRepository repository = MyAccountRepository();
-  final videoDetailsController = VideoDetailsController.current;
+  //final videoDetailsController = VideoDetailsController.current;
   final accountController = AccountController.current;
 
   bool _isLoading = false;
@@ -43,7 +43,7 @@ class MyAccountController extends GetxController implements GetxService {
 
       log("Subscribers Id Log: $subscribersId");
       if(subscribersId != null){
-        videoDetailsController.getWatchList(subscriberId: subscribersId);
+        //videoDetailsController.getWatchList(subscriberId: subscribersId);
       }
 
       if(isVideoAccess == true){

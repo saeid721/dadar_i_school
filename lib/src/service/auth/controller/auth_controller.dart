@@ -17,7 +17,7 @@ class AuthController extends GetxController implements GetxService {
   static AuthController get current => Get.find();
   final AuthRepository repository = AuthRepository();
   final myAccountController = MyAccountController.current;
-  final videoDetailsController = VideoDetailsController.current;
+  //final videoDetailsController = VideoDetailsController.current;
   final accountController = AccountController.current;
 
   bool _isLoading = false;

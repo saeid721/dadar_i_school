@@ -14,16 +14,16 @@ List<NavItemModel> navItemList = [
       title: "Home",
       img: "assets/app_src/icon/home_ic.png"
   ),
-  NavItemModel(
-      title: "Search",
-      img: "assets/app_src/icon/search_ic.png"
-  ),
+  // NavItemModel(
+  //     title: "Search",
+  //     img: "assets/app_src/icon/search_ic.png"
+  // ),
   NavItemModel(
       title: "Download",
       img: "assets/app_src/icon/download_ic.png"
   ),
   NavItemModel(
-      title: "Account",
+      title: "Menu",
       img: "assets/app_src/icon/account_ic.png"
   ),
 

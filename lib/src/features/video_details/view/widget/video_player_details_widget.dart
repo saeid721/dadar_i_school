@@ -16,15 +16,15 @@ import '../full_screen_video_player.dart';
 import '../components/video_details_setting_screen.dart';
 
 class VideoPlayerDetailsWidget extends StatefulWidget {
-  final String videoSrc;
-  final String initImg;
+  final String youtubeLink;
+  final String thumbnail;
   final String videoText;
   final bool? isLocal;
   final bool? isBack;
   const VideoPlayerDetailsWidget({
     super.key,
-    required this.videoSrc,
-    required this.initImg,
+    required this.youtubeLink,
+    required this.thumbnail,
     required this.videoText,
     this.isBack = true,
     this.isLocal = false,
@@ -39,31 +39,28 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
   bool _controlsVisible = true;
 
   final videoDetailsController = Get.find<VideoDetailsController>();
-  final accountController = Get.find<AccountController>();
 
   @override
   void initState() {
     super.initState();
 
-    log("Video Details Src2: ${AppConfig.base.url}${widget.videoSrc}");
+    log("Video Details Src2: ${widget.youtubeLink}");
 
 
     if(widget.isLocal == true){
-      log("Local Video Details Src2: ${widget.videoSrc}");
+      log("Local Video Details Src2: ${widget.youtubeLink}");
 
-      _controller = VideoPlayerController.file(File(widget.videoSrc))
+      _controller = VideoPlayerController.file(File(widget.youtubeLink))
         ..initialize().then((_) {
           setState(() {});
         });
     } else{
-      _controller = VideoPlayerController.networkUrl(Uri.parse("${AppConfig.base.url}${widget.videoSrc}"))
+      _controller = VideoPlayerController.networkUrl(Uri.parse(widget.youtubeLink))
         ..initialize().then((_) {
           setState(() {});
         });
-      videoDetailsController.fetchHlsQualities(widget.videoSrc);
     }
 
-    log("Video Resolution: ${videoDetailsController.qualityList.map((qualities)=> qualities.resolution)}");
 
     // Add listener to handle video end event
     _controller.addListener(_videoListener);
@@ -88,8 +85,6 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
       context: context,
       controller: _controller,
     );
-    // await Future.delayed(const Duration(milliseconds: 200));  // Delay transition
-    // Get.back();  // Navigate back after showing the mini player
   }
 
   void _setPlaybackSpeed(double speed) {
@@ -138,7 +133,7 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
                       if (!_controller.value.isPlaying)
                         Positioned.fill(
                           child: GlobalImageLoader(
-                            imagePath: widget.initImg,
+                            imagePath: widget.thumbnail,
                             fit: BoxFit.cover,
                             imageFor: widget.isLocal == true ? ImageFor.local : ImageFor.network,
                           ),
@@ -372,7 +367,7 @@ class _VideoPlayerDetailsWidgetState extends State<VideoPlayerDetailsWidget> {
                               controller: _controller,
                               initialMute: _isMuted,
                               videoText: widget.videoText,
-                              initImg: widget.initImg,
+                              initImg: widget.thumbnail,
                               isLocal: widget.isLocal,
                               onSpeedSelected: _setPlaybackSpeed,
                             ));

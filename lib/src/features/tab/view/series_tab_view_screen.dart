@@ -48,7 +48,7 @@ class _SeriesTabViewScreenState extends State<SeriesTabViewScreen> {
             sizedBoxH(70),
 
             // /// ==# All Movie
-            const HomeSectionAllSeriesWidget(),
+            // const HomeSectionAllSeriesWidget(),
 
             ListView.builder(
                 itemCount: tabViewController.genresSeriesListModel?.data?.length ?? 0,

@@ -8,13 +8,13 @@ import '../../../../global/widget/global_text.dart';
 class BasicEnglishCourseMenuWidget extends StatelessWidget {
   final String img;
   final String title;
-  final String subText;
+  //final String subText;
   final Function() onTap;
   const BasicEnglishCourseMenuWidget({
     super.key,
     required this.img,
     required this.title,
-    required this.subText,
+    //required this.subText,
     required this.onTap,
   });
 
@@ -41,24 +41,24 @@ class BasicEnglishCourseMenuWidget extends StatelessWidget {
                     imageFor: ImageFor.asset,
                   ),
                 ),
-                Positioned(
-                  top: 10,
-                  child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                      decoration: const BoxDecoration(
-                          color: ColorRes.appRedColor,
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(5),
-                              bottomRight: Radius.circular(5)
-                          )
-                      ),
-                      child: GlobalText(
-                        str: subText,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      )
-                  ),
-                )
+                // Positioned(
+                //   top: 10,
+                //   child: Container(
+                //       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                //       decoration: const BoxDecoration(
+                //           color: ColorRes.appRedColor,
+                //           borderRadius: BorderRadius.only(
+                //               topRight: Radius.circular(5),
+                //               bottomRight: Radius.circular(5)
+                //           )
+                //       ),
+                //       child: GlobalText(
+                //         str: subText,
+                //         fontSize: 13,
+                //         fontWeight: FontWeight.bold,
+                //       )
+                //   ),
+                // )
               ],
             ),
             GlobalText(

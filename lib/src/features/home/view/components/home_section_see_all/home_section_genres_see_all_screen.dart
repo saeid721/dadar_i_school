@@ -96,13 +96,13 @@ class _HomeSectionGenresSeeAllScreenState extends State<HomeSectionGenresSeeAllS
                       subText: "Free",
                       onTap: () {
                         if(homePageRecentData?.type == "movie"){
-                          Get.to(()=> MovieVideoDetailsScreen(
-                            slug: homePageRecentData?.slug ?? "",
-                          ));
+                          // Get.to(()=> MovieVideoDetailsScreen(
+                          //   slug: homePageRecentData?.slug ?? "",
+                          // ));
                         } else{
-                          Get.to(()=> SeriesVideoDetailsScreen(
-                            slug: homePageRecentData?.slug ?? "",
-                          ));
+                          // Get.to(()=> SeriesVideoDetailsScreen(
+                          //   slug: homePageRecentData?.slug ?? "",
+                          // ));
                         }
                       },
                     );
