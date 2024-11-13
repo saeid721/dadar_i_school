@@ -1,60 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../../data.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
 import '../../components/home_section_see_all/home_section_recent_see_all_screen.dart';
+import '../basic_english_course_menu_widget.dart';
 import '../movie_menu_bar_widget.dart';
-import '../basic_english_course_enu_widget.dart';
+
 
 class HundredDaysBasicEnglishCourseWidget extends StatefulWidget {
   final String id;
-  const HundredDaysBasicEnglishCourseWidget({super.key, required this.id,});
+
+  const HundredDaysBasicEnglishCourseWidget({
+    super.key,
+    required this.id,
+  });
 
   @override
-  State<HundredDaysBasicEnglishCourseWidget> createState() => _HundredDaysBasicEnglishCourseWidgetState();
+  State<HundredDaysBasicEnglishCourseWidget> createState() =>
+      _HundredDaysBasicEnglishCourseWidgetState();
 }
 
-class _HundredDaysBasicEnglishCourseWidgetState extends State<HundredDaysBasicEnglishCourseWidget> {
-  // Sample static data list
-  final List<Map<String, dynamic>> staticData = [
-    {
-      "type": "movie",
-      "thumbnail": "assets/dummy_img/course-1024x576.png",
-      "title": "100 Days Basic English Course",
-      "videoAccess": true,
-      "slug": "basic-english-course",
-    },
-    {
-      "type": "series",
-      "thumbnail": "assets/dummy_img/course-1024x576.png",
-      "title": "100 Days Spoken English Practice",
-      "videoAccess": false,
-      "slug": "spoken-english-practice",
-    },
-    {
-      "type": "series",
-      "thumbnail": "assets/dummy_img/course-1024x576.png",
-      "title": "Beginner Spoken English",
-      "videoAccess": false,
-      "slug": "beginner-spoken-english",
-    },
-    {
-      "type": "series",
-      "thumbnail": "assets/dummy_img/course-1024x576.png",
-      "title": "Spoken English Practice",
-      "videoAccess": false,
-      "slug": "spoken-english-practice",
-    },
-    {
-      "type": "series",
-      "thumbnail": "assets/dummy_img/course-1024x576.png",
-      "title": "English Grammar Course",
-      "videoAccess": false,
-      "slug": "english-grammar-course",
-    },
-    // Add more static items as needed
-  ];
-
+class _HundredDaysBasicEnglishCourseWidgetState
+    extends State<HundredDaysBasicEnglishCourseWidget> {
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +34,7 @@ class _HundredDaysBasicEnglishCourseWidgetState extends State<HundredDaysBasicEn
         children: [
           sizedBoxH(10),
           MovieMenuBarWidget(
-            text: "100 Days Basic English Course",
+            text: "100 Days Spoken English Practice",
             seeAllOnTap: () {
               Get.to(() => const HomeSectionRecentSeeAllScreen(sectionId: "static-section-id"));
             },
@@ -75,20 +43,19 @@ class _HundredDaysBasicEnglishCourseWidgetState extends State<HundredDaysBasicEn
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: staticData.map((recent) {
+              children: basicEnglishCourseData.map((recent) {
                 return BasicEnglishCourseMenuWidget(
-                  img: recent["thumbnail"],
-                  title: recent["title"],
-                 // subText: recent[""],
+                  img: recent.thumbnail,
+                  title: recent.title,
                   onTap: () {
-                    // Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(
-                    //   id: recent.id,
-                    //   title: recent.title,
-                    //   shortDescription: recent.shortDescription,
-                    //   youtubeLink: recent.youtubeLink,
-                    // ));
+                    Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(
+                      id: recent.id,
+                      title: recent.title,
+                      shortDescription: recent.shortDescription,
+                      thumbnail: recent.thumbnail,
+                      youtubeLink: recent.youtubeLink,
+                    ));
                   },
-
                 );
               }).toList(),
             ),

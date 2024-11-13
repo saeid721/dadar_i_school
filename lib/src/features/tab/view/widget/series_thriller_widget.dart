@@ -5,11 +5,9 @@ import '../../../../domain/local/preferences/local_storage.dart';
 import '../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../../../../initializer.dart';
-import '../../../../service/language_check/language_check.dart';
+import '../../../home/view/widget/basic_english_course_menu_widget.dart';
 import '../../../home/view/widget/home_shimmer_widget/home_section_recent_shimmer.dart';
 import '../../../home/view/widget/movie_menu_bar_widget.dart';
-import '../../../home/view/widget/basic_english_course_enu_widget.dart';
-import '../../../video_details/view/series_video_details_screen.dart';
 import '../../controller/tab_view_controller.dart';
 import '../../model/genres_model.dart';
 import '../components/series_trailer_see_all_screen.dart';
@@ -41,13 +39,7 @@ class _SeriesThrillerWidgetState extends State<SeriesThrillerWidget> {
             children: [
               sizedBoxH(10),
               MovieMenuBarWidget(
-                  text: LanguageCheck.checkLanguage(
-                    langCode: langCode,
-                    enText: widget.genresListData?.name ?? "",
-                    bnText: widget.genresListData?.nameBn ?? "",
-                    hiText: widget.genresListData?.nameHi ?? "",
-                    arText: widget.genresListData?.nameAr ?? "",
-                  ),
+                  text: widget.genresListData?.name ?? "",
                   seeAllOnTap: (){
                     Get.to(()=> SeriesTrailerSeeAllScreen(
                         genresListData: widget.genresListData
@@ -62,13 +54,7 @@ class _SeriesThrillerWidgetState extends State<SeriesThrillerWidget> {
                   children: thrillerData.data?.result?.map((series) {
                     return HomeAllSeriesMenuTabBarWidget(
                       img: "${series.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
-                        langCode: langCode,
-                        enText: series.title ?? "",
-                        bnText: series.titleBn ?? "",
-                        hiText: series.titleHi ?? "",
-                        arText: series.titleAr ?? "",
-                      ),
+                      text: series.title ?? "",
                       subText: series.videoAccess == true ? "Premium" : "Free",
                       onTap: () {
                         // Get.to(()=> SeriesVideoDetailsScreen(

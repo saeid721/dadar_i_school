@@ -10,8 +10,8 @@ import '../../../../../service/language_check/language_check.dart';
 import '../../../controller/home_controller.dart';
 import '../../../model/home_section_model.dart';
 import '../../components/home_section_see_all/home_section_genres_see_all_screen.dart';
+import '../basic_english_course_menu_widget.dart';
 import '../home_shimmer_widget/home_section_genres_shimmer.dart';
-import '../basic_english_course_enu_widget.dart';
 
 class HomeSectionGenresWidget extends StatefulWidget {
   final HomeSectionData? homeSectionData;

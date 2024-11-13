@@ -4,8 +4,8 @@ import '../../../../../../data.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
 import '../../components/home_section_see_all/home_section_recent_see_all_screen.dart';
+import '../basic_english_course_menu_widget.dart';
 import '../movie_menu_bar_widget.dart';
-import '../basic_english_course_enu_widget.dart';
 
 class HundredDaysSpokenEnglishPracticeWidget extends StatefulWidget {
   final String id;

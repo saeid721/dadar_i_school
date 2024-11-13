@@ -6,11 +6,8 @@ import '../../../domain/local/preferences/local_storage.dart';
 import '../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../../../initializer.dart';
-import '../../../service/language_check/language_check.dart';
+import '../../home/view/widget/basic_english_course_menu_widget.dart';
 import '../../home/view/widget/movie_menu_bar_widget.dart';
-import '../../home/view/widget/basic_english_course_enu_widget.dart';
-import '../../video_details/view/movie_video_details_screen.dart';
-import '../../video_details/view/series_video_details_screen.dart';
 import '../controller/tab_view_controller.dart';
 import 'components/free_tab_list_see_all_screen.dart';
 
@@ -45,10 +42,8 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final langCode = locator<LocalStorage>().getString(key: StorageKeys.langCode);
     return GetBuilder<TabViewController>(builder: (tabViewController){
       return SingleChildScrollView(
-        // controller: homePageController.scrollController,
         child: tabViewController.freeTabViewModel != null ? Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -75,13 +70,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                         children: tabViewController.freeTabViewModel?.data?.movies?.map((movie){
                           return BasicEnglishCourseMenuWidget(
                             img: "${movie.thumbnail}",
-                            title: LanguageCheck.checkLanguage(
-                              langCode: langCode,
-                              enText: movie.title ?? "",
-                              bnText: movie.titleBn ?? "",
-                              hiText: movie.titleHi ?? "",
-                              arText: movie.titleAr ?? "",
-                            ),
+                            title: movie.title ?? "",
                             //subText: movie.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
                               // Get.to(()=> MovieVideoDetailsScreen(
@@ -110,13 +99,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                         children: tabViewController.freeTabViewModel?.data?.series?.map((series){
                           return BasicEnglishCourseMenuWidget(
                             img: "${series.thumbnail}",
-                            title: LanguageCheck.checkLanguage(
-                              langCode: langCode,
-                              enText: series.title ?? "",
-                              bnText: series.titleBn ?? "",
-                              hiText: series.titleHi ?? "",
-                              arText: series.titleAr ?? "",
-                            ),
+                            title: series.title ?? "",
                             //subText: series.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
                               // Get.to(()=> SeriesVideoDetailsScreen(
@@ -145,13 +128,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                         children: tabViewController.freeTabViewModel?.data?.episodes?.map((episode){
                           return BasicEnglishCourseMenuWidget(
                             img: "${episode.thumbnail}",
-                            title: LanguageCheck.checkLanguage(
-                              langCode: langCode,
-                              enText: episode.title ?? "",
-                              bnText: episode.titleBn ?? "",
-                              hiText: episode.titleHi ?? "",
-                              arText: episode.titleAr ?? "",
-                            ),
+                            title: episode.title ?? "",
                             //subText: episode.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
                               // Get.to(()=> SeriesVideoDetailsScreen(
@@ -181,13 +158,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                         children: tabViewController.freeTabViewModel?.data?.seasons?.map((season){
                           return BasicEnglishCourseMenuWidget(
                             img: "${season.thumbnail}",
-                            title: LanguageCheck.checkLanguage(
-                              langCode: langCode,
-                              enText: season.series?.title ?? "",
-                              bnText: season.series?.titleBn ?? "",
-                              hiText: season.series?.titleHi ?? "",
-                              arText: season.series?.titleAr ?? "",
-                            ),
+                            title: season.series?.title ?? "",
                             //subText: season.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
                               // Get.to(()=> SeriesVideoDetailsScreen(
