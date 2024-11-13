@@ -75,12 +75,12 @@ class HomePageController extends GetxController implements GetxService {
     tabBarIndex = -1;
     update();
   }
-
-  List tabBarList = [
-    "Movie",
-    "Series",
-    "Free"
-  ];
+  //
+  // List tabBarList = [
+  //   "Movie",
+  //   "Series",
+  //   "Free"
+  // ];
 
   List<SectionData> sections = [];
 
