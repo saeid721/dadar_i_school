@@ -69,7 +69,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                     child: Row(
                         children: tabViewController.freeTabViewModel?.data?.movies?.map((movie){
                           return BasicEnglishCourseMenuWidget(
-                            img: "${movie.thumbnail}",
+                            thumbnail: "${movie.thumbnail}",
                             title: movie.title ?? "",
                             //subText: movie.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
@@ -98,7 +98,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                     child: Row(
                         children: tabViewController.freeTabViewModel?.data?.series?.map((series){
                           return BasicEnglishCourseMenuWidget(
-                            img: "${series.thumbnail}",
+                            thumbnail: "${series.thumbnail}",
                             title: series.title ?? "",
                             //subText: series.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
@@ -127,7 +127,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                     child: Row(
                         children: tabViewController.freeTabViewModel?.data?.episodes?.map((episode){
                           return BasicEnglishCourseMenuWidget(
-                            img: "${episode.thumbnail}",
+                            thumbnail: "${episode.thumbnail}",
                             title: episode.title ?? "",
                             //subText: episode.videoAccess == true ? "Premium" : "Free",
                             onTap: () {
@@ -157,7 +157,7 @@ class _FreeTabViewScreenState extends State<FreeTabViewScreen> {
                     child: Row(
                         children: tabViewController.freeTabViewModel?.data?.seasons?.map((season){
                           return BasicEnglishCourseMenuWidget(
-                            img: "${season.thumbnail}",
+                            thumbnail: "${season.thumbnail}",
                             title: season.series?.title ?? "",
                             //subText: season.videoAccess == true ? "Premium" : "Free",
                             onTap: () {

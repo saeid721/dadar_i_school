@@ -53,7 +53,7 @@ class _MovieThrillerWidgetState extends State<MovieThrillerWidget> {
               child: Row(
                 children: thrillerData.data?.result?.map((movie) {
                   return BasicEnglishCourseMenuWidget(
-                    img: "${movie.thumbnail}",
+                    thumbnail: "${movie.thumbnail}",
                     title: movie.title ?? "",
                     //subText: movie.videoAccess == true ? "Premium" : "Free",
                     onTap: () {

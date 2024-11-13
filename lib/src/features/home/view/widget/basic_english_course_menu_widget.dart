@@ -6,15 +6,13 @@ import '../../../../global/widget/global_image_loader.dart';
 import '../../../../global/widget/global_text.dart';
 
 class BasicEnglishCourseMenuWidget extends StatelessWidget {
-  final String img;
+  final String thumbnail;
   final String title;
-  //final String subText;
   final Function() onTap;
   const BasicEnglishCourseMenuWidget({
     super.key,
-    required this.img,
+    required this.thumbnail,
     required this.title,
-    //required this.subText,
     required this.onTap,
   });
 
@@ -34,36 +32,18 @@ class BasicEnglishCourseMenuWidget extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: GlobalImageLoader(
-                    imagePath: img,
+                    imagePath: thumbnail,
                     height: 160,
                     width: 115,
                     fit: BoxFit.fill,
                     imageFor: ImageFor.asset,
                   ),
                 ),
-                // Positioned(
-                //   top: 10,
-                //   child: Container(
-                //       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                //       decoration: const BoxDecoration(
-                //           color: ColorRes.appRedColor,
-                //           borderRadius: BorderRadius.only(
-                //               topRight: Radius.circular(5),
-                //               bottomRight: Radius.circular(5)
-                //           )
-                //       ),
-                //       child: GlobalText(
-                //         str: subText,
-                //         fontSize: 13,
-                //         fontWeight: FontWeight.bold,
-                //       )
-                //   ),
-                // )
               ],
             ),
             GlobalText(
               str: title,
-              fontSize: 13,
+              fontSize: 14,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.bold,
@@ -126,7 +106,6 @@ class GenresMenuWidget extends StatelessWidget {
     );
   }
 }
-
 
 class HomeAllSeriesMenuWidget extends StatelessWidget {
   final String img;
@@ -200,8 +179,6 @@ class HomeAllSeriesMenuWidget extends StatelessWidget {
   }
 }
 
-
-
 class HomeAllSeriesMenuTabBarWidget extends StatelessWidget {
   final String img;
   final String text;
@@ -273,7 +250,6 @@ class HomeAllSeriesMenuTabBarWidget extends StatelessWidget {
     );
   }
 }
-
 
 class HomeTopSeriesMenuWidget extends StatelessWidget {
   final String img;

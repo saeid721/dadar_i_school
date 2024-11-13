@@ -45,7 +45,7 @@ class _HundredDaysBasicEnglishCourseWidgetState
             child: Row(
               children: basicEnglishCourseData.map((recent) {
                 return BasicEnglishCourseMenuWidget(
-                  img: recent.thumbnail,
+                  thumbnail: recent.thumbnail,
                   title: recent.title,
                   onTap: () {
                     Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(
