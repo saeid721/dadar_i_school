@@ -92,11 +92,11 @@ class HomePageController extends GetxController implements GetxService {
 
   void loadLocalSections() {
     sections = [
-      SectionData(id: "1", sectionType: "recent", title: "100 Days Spoken English Practice"),
-      SectionData(id: "2", sectionType: "genres", title: "100 Days Basic English Course"),
-      SectionData(id: "3", sectionType: "upcoming", title: "Spoken English Practice"),
-      SectionData(id: "4", sectionType: "all_movies", title: "Beginner Spoken English"),
-      SectionData(id: "5", sectionType: "all_series", title: "English Grammar Course"),
+      SectionData(id: "1", sectionType: "hundred_days_spoken_english", title: "100 Days Spoken English Practice"),
+      SectionData(id: "2", sectionType: "hundred_days_basic_english", title: "100 Days Basic English Course"),
+      SectionData(id: "3", sectionType: "beginner_spoken_english", title: "Beginner Spoken English"),
+      SectionData(id: "4", sectionType: "spoken_english_practice", title: "Spoken English Practice"),
+      SectionData(id: "5", sectionType: "english_grammar_course", title: "English Grammar Course"),
     ];
     update(); // Notify the UI to update with new data
   }
