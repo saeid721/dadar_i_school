@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:video_player/video_player.dart';
-import '../../home/model/data.dart';
+
+import '../../home/data/hundred_days_basic_english_course_data.dart';
 
 class VideoController extends GetxController {
   int currentPlayingIndex = -1; // No video playing initially

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../model/data.dart';
+import '../../../data/english_grammar_course_data.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
 import '../../components/home_section_see_all/home_section_recent_see_all_screen.dart';

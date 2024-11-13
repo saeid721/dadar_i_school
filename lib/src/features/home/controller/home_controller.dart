@@ -6,7 +6,8 @@ import 'package:dadar_i_school/src/features/home/model/footer_model/footer_compa
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_explore_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_movies_model.dart';
 import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_series_model.dart';
-import '../model/data.dart';
+import '../data/hundred_days_basic_english_course_data.dart';
+import '../model/video_home_model.dart';
 import '../model/video_model.dart';
 import '../model/home_section/home_section_all_genres_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';

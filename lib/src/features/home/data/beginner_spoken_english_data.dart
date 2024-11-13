@@ -57,15 +57,3 @@ final List<BasicEnglishCourseData> basicEnglishCourseData = [
     shortDescription: """The meaning of DESCRIPTION is an act of describing; specifically.""",
   ),
 ];
-
-class SectionData {
-  final String id;
-  final String sectionType;
-  final String title;
-
-  SectionData({
-    required this.id,
-    required this.sectionType,
-    required this.title,
-  });
-}

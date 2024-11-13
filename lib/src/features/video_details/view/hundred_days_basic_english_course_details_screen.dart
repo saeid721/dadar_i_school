@@ -1,20 +1,15 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import '../../home/model/data.dart';
 import '../../../global/constants/colors_resources.dart';
 import '../../../global/widget/global_bottom_widget.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
-import '../../download/controller/download_controller.dart';
 import '../controller/video_controller.dart';
-import '../controller/video_details_controller.dart';
-import 'widget/video_player_details_widget.dart';
 
 class HundredDaysBasicEnglishCourseVideoDetailsScreen extends StatefulWidget {
   final String id;
