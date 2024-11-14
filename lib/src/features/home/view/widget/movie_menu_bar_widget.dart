@@ -31,7 +31,7 @@ class MovieMenuBarWidget extends StatelessWidget {
             str: "See All",
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: ColorRes.appRedColor,
+            color: ColorRes.appCeruleanColor,
           ),
         ) : const SizedBox.shrink()
       ],

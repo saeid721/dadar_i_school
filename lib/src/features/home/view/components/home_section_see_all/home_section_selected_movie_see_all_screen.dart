@@ -46,7 +46,7 @@ class _HomeSectionSelectedMovieSeeAllScreenState extends State<HomeSectionSelect
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -67,15 +67,14 @@ class _HomeSectionSelectedMovieSeeAllScreenState extends State<HomeSectionSelect
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.homeSectionSelectedMovieModel?.data?[index];
                     return HomeSectionSeeAllMenuWidget(
-                      img: "${homePageRecentData?.thumbnail}",
-                      text: LanguageCheck.checkLanguage(
+                      thumbnail: "${homePageRecentData?.thumbnail}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
                         enText: homePageRecentData?.title ?? "",
                         bnText: homePageRecentData?.titleBn ?? "",
                         hiText: homePageRecentData?.titleHi ?? "",
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
-                      subText: "Free",
                       onTap: () {
                         // Get.to(()=> MovieVideoDetailsScreen(
                         //   slug: homePageRecentData?.slug ?? "",

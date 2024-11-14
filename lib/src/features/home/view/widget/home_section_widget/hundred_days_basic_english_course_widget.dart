@@ -36,14 +36,14 @@ class _HundredDaysBasicEnglishCourseWidgetState
           MovieMenuBarWidget(
             text: "100 Days Basic English Course",
             seeAllOnTap: () {
-              Get.to(() => const HomeSectionRecentSeeAllScreen(sectionId: "static-section-id"));
+              Get.to(() => const HomeSectionRecentSeeAllScreen());
             },
           ),
           sizedBoxH(5),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: basicEnglishCourseData.map((recent) {
+              children: hundredDaysBasicEnglishCourseData.map((recent) {
                 return BasicEnglishCourseMenuWidget(
                   thumbnail: recent.thumbnail,
                   title: recent.title,

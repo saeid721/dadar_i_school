@@ -35,14 +35,14 @@ class _HundredDaysSpokenEnglishPracticeWidgetState
           MovieMenuBarWidget(
             text: "100 Days Spoken English Practice",
             seeAllOnTap: () {
-              Get.to(() => const HomeSectionRecentSeeAllScreen(sectionId: "static-section-id"));
+              Get.to(() => const HomeSectionRecentSeeAllScreen());
             },
           ),
           sizedBoxH(5),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: basicEnglishCourseData.map((recent) {
+              children: hundredDaysSpokenEnglishPracticeData.map((recent) {
                 return BasicEnglishCourseMenuWidget(
                   thumbnail: recent.thumbnail,
                   title: recent.title,

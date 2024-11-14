@@ -44,7 +44,7 @@ class _HomeSectionFavoriteSeeAllScreenState extends State<HomeSectionFavoriteSee
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -65,15 +65,14 @@ class _HomeSectionFavoriteSeeAllScreenState extends State<HomeSectionFavoriteSee
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.homeSectionFavoriteModel?.data?[index];
                     return HomeSectionSeeAllMenuWidget(
-                      img: "${homePageRecentData?.image}",
-                      text: LanguageCheck.checkLanguage(
+                      thumbnail: "${homePageRecentData?.image}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
                         enText: homePageRecentData?.name ?? "",
                         bnText: homePageRecentData?.nameBn ?? "",
                         hiText: homePageRecentData?.nameHi ?? "",
                         arText: homePageRecentData?.nameAr ?? "",
                       ),
-                      subText: "Free",
                       onTap: () {},
                     );
                   },

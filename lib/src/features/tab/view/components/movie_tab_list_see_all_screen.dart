@@ -63,7 +63,7 @@ class _MovieTrailerSeeAllScreenState extends State<MovieTrailerSeeAllScreen> {
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -92,15 +92,14 @@ class _MovieTrailerSeeAllScreenState extends State<MovieTrailerSeeAllScreen> {
                   itemBuilder: (ctx, index) {
                     final movie = thrillerData?.data?.result?[index];
                     return HomeSectionSeeAllMenuWidget(
-                      img: movie?.thumbnail ?? '',
-                      text: LanguageCheck.checkLanguage(
+                      thumbnail: movie?.thumbnail ?? '',
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
                         enText: movie?.title ?? "",
                         bnText: movie?.titleBn ?? "",
                         hiText: movie?.titleHi ?? "",
                         arText: movie?.titleAr ?? "",
                       ),
-                      subText: "Free",
                       onTap: () {},
                     );
                   },

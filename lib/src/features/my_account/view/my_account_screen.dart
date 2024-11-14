@@ -50,7 +50,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             child: GlobalContainer(
               height: size(context).height,
               width: size(context).width,
-              color: ColorRes.appBackColor,
+              color: ColorRes.appNavyColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -155,7 +155,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                                             );
                                           },
                                           child: const Icon(Icons.edit,
-                                              color: ColorRes.appRedColor,
+                                              color: ColorRes.appCeruleanColor,
                                               size: 22
                                           ),
                                         ),
@@ -271,7 +271,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                       img: Images.logOutIc,
                       height: 45,
                       textSize: 13,
-                      buttomColor: ColorRes.appRedColor,
+                      buttomColor: ColorRes.appCeruleanColor,
                       imgColor: ColorRes.white,
                       onTap: () async{
                         await authController.reqLogOut();

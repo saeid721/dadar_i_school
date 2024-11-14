@@ -49,7 +49,7 @@ class _HomeSectionApplicationFeaturesWidgetState extends State<HomeSectionApplic
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
                       margin: const EdgeInsets.only(right: 10),
                       decoration: BoxDecoration(
-                          color: ColorRes.appBackColor,
+                          color: ColorRes.appNavyColor,
                           borderRadius: BorderRadius.circular(5)
                       ),
                       child: Column(

@@ -34,7 +34,7 @@ class CoupleTextButton extends StatelessWidget {
           TextSpan(
             text: secondText,
             style: const TextStyle(
-              color: ColorRes.appRedColor,
+              color: ColorRes.appCeruleanColor,
               fontSize: 12,
               fontWeight: FontWeight.w700,
             ),

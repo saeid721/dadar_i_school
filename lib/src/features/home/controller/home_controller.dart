@@ -76,12 +76,6 @@ class HomePageController extends GetxController implements GetxService {
     tabBarIndex = -1;
     update();
   }
-  //
-  // List tabBarList = [
-  //   "Movie",
-  //   "Series",
-  //   "Free"
-  // ];
 
   List<SectionData> sections = [];
 
@@ -103,16 +97,16 @@ class HomePageController extends GetxController implements GetxService {
   }
 
   // =/@ BasicEnglishCourseModel
-  BasicEnglishCourseModel? basicEnglishCourseModel;
-  List<BasicEnglishCourseData> basicEnglishCourseData = [];
-  Future getBasicEnglishCourseList() async {
+  HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
+  List<HundredDaysBasicEnglishCourseData> hundredDaysBasicEnglishCourseData = [];
+  Future getHundredDaysBasicEnglishCourseList() async {
     try {
       _isLoading = true;
       _hasError = false;
       update();
 
-      final response = await repository.getBasicEnglishCourseList();
-      basicEnglishCourseModel = response;
+      final response = await repository.getHundredDaysBasicEnglishCourseList();
+      hundredDaysBasicEnglishCourseModel = response;
 
       _isLoading = false;
       update();

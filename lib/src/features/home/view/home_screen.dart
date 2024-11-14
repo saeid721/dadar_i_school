@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Container(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: const HomeViewScreen(),
         ),
       );

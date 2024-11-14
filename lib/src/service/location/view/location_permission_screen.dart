@@ -39,7 +39,7 @@ Future<void> dialogOpenLocationSettings(BuildContext context) async {
 Future<void> dialogOpenAppSettings(BuildContext context) async {
   return Get.dialog(
       AlertDialog(
-        backgroundColor: ColorRes.appBackColor.withOpacity(0.9),
+        backgroundColor: ColorRes.appNavyColor.withOpacity(0.9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -97,7 +97,7 @@ Future<void> dialogOpenAppSettings(BuildContext context) async {
                           child: GlobalButtonWidget(
                             str: "Go To Settings",
                             height: 40,
-                            buttomColor: ColorRes.appRedColor,
+                            buttomColor: ColorRes.appCeruleanColor,
                             radius: 5,
                             textSize: 13,
                             onTap: () async{

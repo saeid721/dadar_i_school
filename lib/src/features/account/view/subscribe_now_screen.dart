@@ -50,7 +50,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             children: [
 
@@ -118,7 +118,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                             decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.circular(10),
                                                 color: selectPlan == index
-                                                    ? ColorRes.appRedColor
+                                                    ? ColorRes.appCeruleanColor
                                                     : ColorRes.white
                                             ),
                                             child: Container(
@@ -131,7 +131,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                                           : 1,
                                                       color: selectPlan == index
                                                           ? ColorRes.white
-                                                          : ColorRes.appRedColor
+                                                          : ColorRes.appCeruleanColor
                                                   )
                                               ),
                                               child: Column(
@@ -150,7 +150,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                                     fontWeight: FontWeight.bold,
                                                     color: selectPlan == index
                                                         ? ColorRes.white
-                                                        : ColorRes.appRedColor
+                                                        : ColorRes.appCeruleanColor
                                                   ),
 
                                                   sizedBoxH(10),
@@ -165,12 +165,12 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                                             borderRadius: BorderRadius.circular(50),
                                                             color: selectPlan == index
                                                                 ? ColorRes.white
-                                                                : ColorRes.appRedColor
+                                                                : ColorRes.appCeruleanColor
                                                         ),
                                                         child: Icon(
                                                           Icons.check,
                                                           color: selectPlan == index
-                                                              ? ColorRes.appRedColor
+                                                              ? ColorRes.appCeruleanColor
                                                               : ColorRes.white,
                                                           size: 10,
                                                         ),
@@ -191,7 +191,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                                               fontWeight: FontWeight.w400,
                                                               color: selectPlan == index
                                                                   ? ColorRes.white
-                                                                  : ColorRes.appRedColor
+                                                                  : ColorRes.appCeruleanColor
                                                           ),
                                                         ),
                                                       ),
@@ -215,12 +215,12 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                                               borderRadius: BorderRadius.circular(5),
                                                 color: selectPlan == index
                                                     ? ColorRes.white
-                                                    : ColorRes.appRedColor
+                                                    : ColorRes.appCeruleanColor
                                             ),
                                             child: GlobalText(
                                               str: "Price: ${subscribePlan?.price}",
                                               color: selectPlan == index
-                                                  ? ColorRes.appRedColor
+                                                  ? ColorRes.appCeruleanColor
                                                   : ColorRes.white,
                                               fontSize: 11,
                                               fontWeight: FontWeight.bold,
@@ -243,7 +243,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
                         child: GlobalButtonWidget(
                           str: "Continue With Standard Plan",
                           height: 45,
-                          buttomColor: ColorRes.appRedColor,
+                          buttomColor: ColorRes.appCeruleanColor,
                           textSize: 13,
                           onTap: () async{
                             if(plansValue != null){

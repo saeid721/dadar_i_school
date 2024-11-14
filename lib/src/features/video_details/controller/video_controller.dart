@@ -14,7 +14,7 @@ class VideoController extends GetxController {
     if (currentPlayingIndex != index) {
       _disposeControllers();
       currentPlayingIndex = index;
-      var video = basicEnglishCourseData[index];
+      var video = hundredDaysBasicEnglishCourseData[index];
 
       // Check if the video is a YouTube video
       if (video.youtubeLink != null &&

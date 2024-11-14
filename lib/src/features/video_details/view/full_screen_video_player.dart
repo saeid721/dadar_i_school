@@ -238,7 +238,7 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
                         _controller,
                         allowScrubbing: true,
                         colors: const VideoProgressColors(
-                          playedColor: ColorRes.appRedColor,
+                          playedColor: ColorRes.appCeruleanColor,
                           backgroundColor: ColorRes.grey,
                           bufferedColor: ColorRes.white,
                         ),

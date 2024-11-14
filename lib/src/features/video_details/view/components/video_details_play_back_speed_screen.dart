@@ -45,7 +45,7 @@ class _VideoDetailsPlayBackSpeedScreenState extends State<VideoDetailsPlayBackSp
               width: size(context).width,
               margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               decoration: BoxDecoration(
-                  color: ColorRes.appBackColor,
+                  color: ColorRes.appNavyColor,
                   borderRadius: BorderRadius.circular(10)
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -101,7 +101,7 @@ class _VideoDetailsPlayBackSpeedScreenState extends State<VideoDetailsPlayBackSp
                                     width: 22,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
-                                        color: ColorRes.appRedColor
+                                        color: ColorRes.appCeruleanColor
                                     ),
                                     child: const Icon(
                                       Icons.check,
@@ -115,7 +115,7 @@ class _VideoDetailsPlayBackSpeedScreenState extends State<VideoDetailsPlayBackSp
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
-                                            color: ColorRes.appRedColor,
+                                            color: ColorRes.appCeruleanColor,
                                             width: 1
                                         )
                                     ),
@@ -144,7 +144,7 @@ class _VideoDetailsPlayBackSpeedScreenState extends State<VideoDetailsPlayBackSp
                   GlobalButtonWidget(
                     str: "Save",
                     height: 45,
-                    buttomColor: ColorRes.appRedColor,
+                    buttomColor: ColorRes.appCeruleanColor,
                     textSize: 13,
                     onTap: () {
                       widget.onSpeedSelected(videoPlayerDetailsController.playSpeedList[videoPlayerDetailsController.selectPlaySpeed ?? 2].playBackValue);

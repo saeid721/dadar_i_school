@@ -52,7 +52,7 @@ class CarouselSliderWidget extends StatelessWidget {
               gradient: LinearGradient(
                 colors: [
                   Colors.transparent,
-                  ColorRes.appBackColor,
+                  ColorRes.appNavyColor,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -83,7 +83,7 @@ class CarouselSliderWidget extends StatelessWidget {
                                 children: starList.asMap().entries.map((item){
                                   return Icon(
                                     Icons.star,
-                                    color: item.key < imdbRating ? ColorRes.appRedColor : ColorRes.grey,
+                                    color: item.key < imdbRating ? ColorRes.appCeruleanColor : ColorRes.grey,
                                     size: 12,
                                   );
                                 }).toList(),
@@ -98,7 +98,7 @@ class CarouselSliderWidget extends StatelessWidget {
                             imagePath: Images.playBuIc,
                             height: 25,
                             width: 25,
-                            color: ColorRes.appRedColor,
+                            color: ColorRes.appCeruleanColor,
                           ),
                         ),
 

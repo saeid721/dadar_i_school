@@ -10,7 +10,7 @@ enum AppConfig {
   logOutUrl,
 
   /// ==========/@ Home Controller @/==========
-  homeSlidersUrl,
+  hundredDaysBasicEnglishUrl,
   homeSectionUrl,
   homeSectionRecentUrl,
   homeSectionGenresUrl,
@@ -94,8 +94,8 @@ extension AppUrlExtention on AppConfig {
         return '/subscribers/logout';
 
     /// ==========/@ Home Controller @/==========
-      case AppConfig.homeSlidersUrl:
-        return '/sliders/client';
+      case AppConfig.hundredDaysBasicEnglishUrl:
+        return 'https://www.youtube.com/playlist?list=PLY6ZzoZt9su1glsqm4cMHI838BCts-Omy';
       case AppConfig.homeSectionUrl:
         return '/home-sections/client';
       case AppConfig.homeSectionRecentUrl:

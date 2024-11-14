@@ -41,7 +41,7 @@ class _HomeSectionFooterDetailsScreenState extends State<HomeSectionFooterDetail
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             children: [
               const GlobalAppbarWidget(
@@ -153,7 +153,7 @@ class _HomeSectionFooterMovieDetailsScreenState extends State<HomeSectionFooterM
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             children: [
               const GlobalAppbarWidget(
@@ -265,7 +265,7 @@ class _HomeSectionFooterSeriesDetailsScreenState extends State<HomeSectionFooter
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             children: [
               const GlobalAppbarWidget(
@@ -377,7 +377,7 @@ class _HomeSectionFooterExploreDetailsScreenState extends State<HomeSectionFoote
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             children: [
               const GlobalAppbarWidget(

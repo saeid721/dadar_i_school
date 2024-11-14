@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         imagePath: Images.close,
                         height: 22,
                         width: 22,
-                        color: ColorRes.appRedColor,
+                        color: ColorRes.appCeruleanColor,
                       ),
                     ),
                   )
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
               alignment: Alignment.centerRight,
               child: GlobalText(
                 str: "Forget Password?",
-                color: ColorRes.appRedColor,
+                color: ColorRes.appCeruleanColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
               ),
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
             GlobalButtonWidget(
               str: "Log In",
               height: 40,
-              buttomColor: ColorRes.appRedColor,
+              buttomColor: ColorRes.appCeruleanColor,
               radius: 8,
               textSize: 13,
               onTap: () async{

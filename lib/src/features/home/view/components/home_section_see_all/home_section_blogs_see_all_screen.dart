@@ -56,7 +56,7 @@ class _HomeSectionBlogsSeeAllScreenState extends State<HomeSectionBlogsSeeAllScr
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,15 +78,14 @@ class _HomeSectionBlogsSeeAllScreenState extends State<HomeSectionBlogsSeeAllScr
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.homeSectionBlogsSeeAllModel?.data?.result?[index];
                     return HomeSectionSeeAllMenuWidget(
-                      img: "${homePageRecentData?.banner}",
-                      text: LanguageCheck.checkLanguage(
+                      thumbnail: "${homePageRecentData?.banner}",
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
                         enText: homePageRecentData?.title ?? "",
                         bnText: homePageRecentData?.titleBn ?? "",
                         hiText: homePageRecentData?.titleHi ?? "",
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
-                      subText: "Free",
                       onTap: () {
                         Get.to(()=> HomeSectionBlogsDetailsScreen(
                             blogId: homePageRecentData?.id.toString() ?? ""

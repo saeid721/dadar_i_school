@@ -1,4 +1,4 @@
-class BasicEnglishCourseModel {
+class HundredDaysBasicEnglishCourseModel {
   final int? id;
   final String title;
   final String videoUrl;
@@ -7,7 +7,7 @@ class BasicEnglishCourseModel {
   bool isLoading = true;
   dynamic controller;
 
-  BasicEnglishCourseModel({
+  HundredDaysBasicEnglishCourseModel({
     this.id,
     required this.title,
     required this.videoUrl,
@@ -25,8 +25,8 @@ class BasicEnglishCourseModel {
     };
   }
 
-  static BasicEnglishCourseModel fromMap(Map<String, dynamic> map) {
-    return BasicEnglishCourseModel(
+  static HundredDaysBasicEnglishCourseModel fromMap(Map<String, dynamic> map) {
+    return HundredDaysBasicEnglishCourseModel(
       id: map['id'],
       title: map['title'],
       videoUrl: map['videoUrl'],
@@ -36,8 +36,8 @@ class BasicEnglishCourseModel {
   }
 
   // Adding fromJson method
-  factory BasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
-    return BasicEnglishCourseModel(
+  factory HundredDaysBasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
+    return HundredDaysBasicEnglishCourseModel(
       id: json['id'],
       title: json['title'],
       videoUrl: json['videoUrl'],

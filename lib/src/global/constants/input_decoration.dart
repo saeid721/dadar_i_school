@@ -121,14 +121,14 @@ InputDecoration dateInputDecoration = InputDecoration(
   errorBorder: OutlineInputBorder(
     borderSide: const BorderSide(
       width: 1,
-      color: ColorRes.appRedColor,
+      color: ColorRes.appCeruleanColor,
     ),
     borderRadius: BorderRadius.circular(8),
   ),
   focusedErrorBorder: OutlineInputBorder(
     borderSide: const BorderSide(
       width: 1,
-      color: ColorRes.appRedColor,
+      color: ColorRes.appCeruleanColor,
     ),
     borderRadius: BorderRadius.circular(8),
   ),

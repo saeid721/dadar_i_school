@@ -187,7 +187,7 @@ class _ExpandableDescriptionState extends State<ExpandableDescription> {
               padding: const EdgeInsets.only(right: 5),
               child: GlobalText(
                 str: isExpanded ? "See less" : "See more",
-                color: ColorRes.appRedColor,
+                color: ColorRes.appCeruleanColor,
                 fontSize: 12,
               ),
             ),

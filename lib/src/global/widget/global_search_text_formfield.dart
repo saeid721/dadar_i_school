@@ -62,7 +62,7 @@ class GlobalSearchTextFormField extends StatelessWidget {
               sizedBoxW(2),
               const Text("*",
                 style: TextStyle(
-                    color: ColorRes.appRedColor,
+                    color: ColorRes.appCeruleanColor,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Rubik'

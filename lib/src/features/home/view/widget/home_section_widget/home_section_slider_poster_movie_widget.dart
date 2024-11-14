@@ -74,7 +74,7 @@ class HomeSectionPosterMovieCarouselSliderWidget extends StatelessWidget {
                           str: "Genres: ",
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: ColorRes.appRedColor,
+                          color: ColorRes.appCeruleanColor,
                         ),
 
                         Row(
@@ -120,7 +120,7 @@ class HomeSectionPosterMovieCarouselSliderWidget extends StatelessWidget {
                           children: starList.asMap().entries.map((item){
                             return Icon(
                               Icons.star,
-                              color: item.key < imdbRating ? ColorRes.appRedColor : ColorRes.grey,
+                              color: item.key < imdbRating ? ColorRes.appCeruleanColor : ColorRes.grey,
                               size: 12,
                             );
                           }).toList(),
@@ -159,7 +159,7 @@ class HomeSectionPosterMovieCarouselSliderWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(3),
-                            color: ColorRes.appRedColor
+                            color: ColorRes.appCeruleanColor
                         ),
                         child: const GlobalText(
                           str: "Stream Now",

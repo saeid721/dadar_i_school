@@ -27,7 +27,7 @@ void showCustomSnackBar(String message, {
   Get.showSnackbar(
 
       GetSnackBar(
-        backgroundColor: isError ? ColorRes.appRedColor : ColorRes.bottomColor,
+        backgroundColor: isError ? ColorRes.appCeruleanColor : ColorRes.bottomColor,
         message: message,
         maxWidth: 1170,
         duration: duration != null ? Duration(seconds: duration.toInt()) : const Duration(seconds: 3),
@@ -59,14 +59,14 @@ class OverlayLoadingIndicator extends StatelessWidget {
           width: 120,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: ColorRes.appBackColor,
+            color: ColorRes.appNavyColor,
             borderRadius: BorderRadius.circular(6),
           ),
           child: const Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircularProgressIndicator(
-                color: ColorRes.appRedColor
+                color: ColorRes.appCeruleanColor
               ),
               GlobalText(
                 str: 'Loading..',

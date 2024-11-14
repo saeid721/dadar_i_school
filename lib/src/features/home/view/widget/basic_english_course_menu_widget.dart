@@ -148,7 +148,7 @@ class HomeAllSeriesMenuWidget extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                     decoration: const BoxDecoration(
-                        color: ColorRes.appRedColor,
+                        color: ColorRes.appCeruleanColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(5),
                             bottomRight: Radius.circular(5)
@@ -220,7 +220,7 @@ class HomeAllSeriesMenuTabBarWidget extends StatelessWidget {
                   child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                       decoration: const BoxDecoration(
-                          color: ColorRes.appRedColor,
+                          color: ColorRes.appCeruleanColor,
                           borderRadius: BorderRadius.only(
                               topRight: Radius.circular(5),
                               bottomRight: Radius.circular(5)
@@ -292,7 +292,7 @@ class HomeTopSeriesMenuWidget extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                     decoration: const BoxDecoration(
-                        color: ColorRes.appRedColor,
+                        color: ColorRes.appCeruleanColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(5),
                             bottomRight: Radius.circular(5)
@@ -364,7 +364,7 @@ class HomeSelectedSeriesMenuWidget extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                     decoration: const BoxDecoration(
-                        color: ColorRes.appRedColor,
+                        color: ColorRes.appCeruleanColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(5),
                             bottomRight: Radius.circular(5)

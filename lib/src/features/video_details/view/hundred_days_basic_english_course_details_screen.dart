@@ -122,7 +122,7 @@ class _HundredDaysBasicEnglishCourseVideoDetailsScreenState
       body: GlobalContainer(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        color: ColorRes.appBackColor,
+        color: ColorRes.appNavyColor,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -161,7 +161,7 @@ class _HundredDaysBasicEnglishCourseVideoDetailsScreenState
                           str: "Download",
                           height: 30,
                           width: 70,
-                          buttomColor: ColorRes.appRedColor,
+                          buttomColor: ColorRes.appCeruleanColor,
                           textSize: 11,
                           onTap: () => log('Download tapped'),
                         ),

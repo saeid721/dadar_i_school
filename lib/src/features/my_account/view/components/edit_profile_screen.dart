@@ -46,7 +46,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<MyAccountController>(builder: (myAccountController){
       return AlertDialog(
-        backgroundColor: ColorRes.appBackColor.withOpacity(0.9),
+        backgroundColor: ColorRes.appNavyColor.withOpacity(0.9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -85,7 +85,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               imagePath: Images.close,
                               height: 22,
                               width: 22,
-                              color: ColorRes.appRedColor,
+                              color: ColorRes.appCeruleanColor,
                             ),
                           ),
                         )
@@ -160,7 +160,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   GlobalButtonWidget(
                     str: "Update",
                     height: 40,
-                    buttomColor: ColorRes.appRedColor,
+                    buttomColor: ColorRes.appCeruleanColor,
                     radius: 8,
                     textSize: 13,
                     onTap: () async{

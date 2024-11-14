@@ -92,7 +92,7 @@ class _GlobalDropDownFormFieldState extends State<GlobalDropDownFormField> {
               sizedBoxW(2),
               const Text("*",
                 style: TextStyle(
-                    color: ColorRes.appRedColor,
+                    color: ColorRes.appCeruleanColor,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Rubik'

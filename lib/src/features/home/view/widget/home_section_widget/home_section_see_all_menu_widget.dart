@@ -7,15 +7,13 @@ import '../../../../../global/widget/global_image_loader.dart';
 import '../../../../../global/widget/global_text.dart';
 
 class HomeSectionSeeAllMenuWidget extends StatelessWidget {
-  final String img;
-  final String text;
-  final String subText;
+  final String thumbnail;
+  final String title;
   final Function() onTap;
   const HomeSectionSeeAllMenuWidget({
     super.key,
-    required this.img,
-    required this.text,
-    required this.subText,
+    required this.thumbnail,
+    required this.title,
     required this.onTap,
   });
 
@@ -38,7 +36,7 @@ class HomeSectionSeeAllMenuWidget extends StatelessWidget {
                   topRight: Radius.circular(5)
               ),
               child: GlobalImageLoader(
-                imagePath: img,
+                imagePath: thumbnail,
                 height: 100,
                 width: size(context).width,
                 fit: BoxFit.fill,
@@ -49,7 +47,7 @@ class HomeSectionSeeAllMenuWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 5),
               child: GlobalText(
-                str: text,
+                str: title,
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
                 maxLines: 2,

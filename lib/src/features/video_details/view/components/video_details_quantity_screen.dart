@@ -38,7 +38,7 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
               width: size(context).width,
               margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               decoration: BoxDecoration(
-                  color: ColorRes.appBackColor,
+                  color: ColorRes.appNavyColor,
                   borderRadius: BorderRadius.circular(10)
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -112,7 +112,7 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
                                     width: 22,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
-                                        color: ColorRes.appRedColor
+                                        color: ColorRes.appCeruleanColor
                                     ),
                                     child: const Icon(
                                       Icons.check,
@@ -126,7 +126,7 @@ class _VideoDetailsQualityScreenState extends State<VideoDetailsQualityScreen> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
-                                            color: ColorRes.appRedColor,
+                                            color: ColorRes.appCeruleanColor,
                                             width: 1
                                         )
                                     ),

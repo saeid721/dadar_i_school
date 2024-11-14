@@ -85,7 +85,7 @@ class _HomeSectionMoviePosterWidgetState extends State<HomeSectionMoviePosterWid
                         str: "Genres: ",
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: ColorRes.appRedColor,
+                        color: ColorRes.appCeruleanColor,
                       ),
 
                       Expanded(

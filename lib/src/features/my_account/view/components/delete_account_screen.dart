@@ -40,7 +40,7 @@ class _DeleteYourAccountScreenState extends State<DeleteYourAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: ColorRes.appBackColor.withOpacity(0.9),
+      backgroundColor: ColorRes.appNavyColor.withOpacity(0.9),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
@@ -82,7 +82,7 @@ class _DeleteYourAccountScreenState extends State<DeleteYourAccountScreen> {
                   str: "DELETE",
                   height: 40,
                   textSize: 13,
-                  buttomColor: isDeleteEnabled ? ColorRes.appRedColor : ColorRes.grey,
+                  buttomColor: isDeleteEnabled ? ColorRes.appCeruleanColor : ColorRes.grey,
                   imgColor: ColorRes.white,
                   onTap: (){},
                 ),

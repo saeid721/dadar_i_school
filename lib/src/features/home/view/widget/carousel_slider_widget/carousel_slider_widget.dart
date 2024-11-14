@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../global/constants/colors_resources.dart';
 import '../../../../../global/widget/global_container.dart';
 
@@ -26,7 +27,7 @@ Widget buildCarouselSlider() {
                 child: Image.asset(
                   item,
                   fit: BoxFit.fill,
-                  width: 1000.0,
+                  width: Get.width,
                   height: 550,
 
                 ),

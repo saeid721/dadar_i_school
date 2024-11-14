@@ -31,8 +31,8 @@ import '../model/home_section/home_section_up_coming_model.dart';
 class HomeRepository extends ApiHelper {
 
 
-  Future<BasicEnglishCourseModel> getBasicEnglishCourseList() async {
-    return BasicEnglishCourseModel.fromJson(await requestHandler.get(AppConfig.homeSlidersUrl.url));
+  Future<HundredDaysBasicEnglishCourseModel> getHundredDaysBasicEnglishCourseList() async {
+    return HundredDaysBasicEnglishCourseModel.fromJson(await requestHandler.get(AppConfig.hundredDaysBasicEnglishUrl.url));
   }
 
 
@@ -42,7 +42,7 @@ class HomeRepository extends ApiHelper {
 
 
   Future<HomeSlidersModel> getHomeSliderList() async {
-    return HomeSlidersModel.fromJson(await requestHandler.get(AppConfig.homeSlidersUrl.url));
+    return HomeSlidersModel.fromJson(await requestHandler.get(AppConfig.hundredDaysBasicEnglishUrl.url));
   }
 
   Future<HomeSectionModel> getHomeSections() async {

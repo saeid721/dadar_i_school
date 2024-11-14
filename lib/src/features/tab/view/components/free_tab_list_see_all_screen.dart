@@ -76,7 +76,7 @@ class _FreeTabListSeeAllSeeAllScreenState extends State<FreeTabListSeeAllSeeAllS
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appBackColor,
+          color: ColorRes.appNavyColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -99,15 +99,14 @@ class _FreeTabListSeeAllSeeAllScreenState extends State<FreeTabListSeeAllSeeAllS
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.freeTabViewSeeAllModel?.data?.result?[index];
                     return HomeSectionSeeAllMenuWidget(
-                      img: homePageRecentData?.thumbnail ?? '',
-                      text: LanguageCheck.checkLanguage(
+                      thumbnail: homePageRecentData?.thumbnail ?? '',
+                      title: LanguageCheck.checkLanguage(
                         langCode: langCode,
                         enText: homePageRecentData?.title ?? "",
                         bnText: homePageRecentData?.titleBn ?? "",
                         hiText: homePageRecentData?.titleHi ?? "",
                         arText: homePageRecentData?.titleAr ?? "",
                       ),
-                      subText: "Free",
                       onTap: () {},
                     );
                   },

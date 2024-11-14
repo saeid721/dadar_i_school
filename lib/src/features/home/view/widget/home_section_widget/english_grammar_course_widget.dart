@@ -36,14 +36,14 @@ class _EnglishGrammarCourseWidgetState
           MovieMenuBarWidget(
             text: "English Grammar Course",
             seeAllOnTap: () {
-              Get.to(() => const HomeSectionRecentSeeAllScreen(sectionId: "static-section-id"));
+              Get.to(() => const HomeSectionRecentSeeAllScreen());
             },
           ),
           sizedBoxH(5),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: basicEnglishCourseData.map((recent) {
+              children: englishGrammarCourseData.map((recent) {
                 return BasicEnglishCourseMenuWidget(
                   thumbnail: recent.thumbnail,
                   title: recent.title,

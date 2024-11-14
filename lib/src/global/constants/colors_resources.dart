@@ -68,16 +68,14 @@ class ColorRes {
 
   // ==/@ App Color @/==
 
-  static const Color appColor = Color(0xFF0E1424);
-  static const Color appBackColor = Color(0xFF15161A);
-  static const Color appRedColor = Color(0xFFD20820);
-  static const Color textColor = Color(0xFF2A3256);
-  static const Color bottomColor = Color(0xFF2C2C2E);
-  static const Color listTileBackColor = Color(0xFF1C1C1E);
+  static const Color appColor = Color(0xFF000000);
+  static const Color appNavyColor = Color(0xFF0E1424);
+  static const Color appCeruleanColor = Color(0xFF028391);
+  static const Color textColor = Color(0xFFFEAE6F);
+  static const Color bottomColor = Color(0xFF01204E);
+  static const Color listTileBackColor = Color(0xFFF6DCAC);
 
   static const List<Color> splashColor = [
-    // Color(0xFF009FE3), // #009FE3
-    // Color(0xFFD9D9D9), // #D9D9D9
     Color(0xFF7BC7E9), // #7BC7E9
     Color(0xFFFFFFFF), // #FFFFFF
     Color(0xFFF3EFEF), // #F3EFEF
@@ -85,8 +83,6 @@ class ColorRes {
   ];
 
   static const List<Color> visaCard = [
-    // Color(0xFF009FE3), // #009FE3
-    // Color(0xFFD9D9D9), // #D9D9D9
     Color(0xFF009EE4), // #009EE4
     Color(0xFF96DDFC), // #96DDFC
     Color(0xFF51BCEC), // #51BCEC

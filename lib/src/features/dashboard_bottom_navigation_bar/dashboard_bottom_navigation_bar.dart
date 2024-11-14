@@ -33,7 +33,7 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                 width: size(context).width,
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 decoration: BoxDecoration(
-                    color: ColorRes.black,
+                    color: ColorRes.bottomColor,
                     borderRadius: const BorderRadius.all(Radius.circular(24)),
                     boxShadow: [
                       BoxShadow(
@@ -61,7 +61,7 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                               children: [
                                 GlobalImageLoader(
                                   imagePath: navItemList[index].img,
-                                  color: dashboardBottomController.selectedIndex == index ? ColorRes.appRedColor : ColorRes.white,
+                                  color: dashboardBottomController.selectedIndex == index ? ColorRes.appCeruleanColor : ColorRes.white,
                                   height: 20,
                                   width: 20,
                                 ),
@@ -69,7 +69,7 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                                 Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    color: dashboardBottomController.selectedIndex == index ? ColorRes.appRedColor : Colors.transparent,
+                                    color: dashboardBottomController.selectedIndex == index ? ColorRes.appCeruleanColor : Colors.transparent,
                                   ),
                                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                                   child: GlobalText(
