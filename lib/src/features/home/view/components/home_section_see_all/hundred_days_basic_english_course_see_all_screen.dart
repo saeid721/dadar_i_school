@@ -38,7 +38,7 @@ class _HundredDaysBasicEnglishCourseSeeAllScreenState extends State<HundredDaysB
               ),
               Expanded(
                 child: GridView.builder(
-                  itemCount: hundredDaysBasicEnglishCourseData.length,
+                  itemCount: homePageController.hundredDaysBasicEnglishCourseModel?.data?.length,
                   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10, top: 10),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -47,17 +47,17 @@ class _HundredDaysBasicEnglishCourseSeeAllScreenState extends State<HundredDaysB
                     childAspectRatio: 1.04,
                   ),
                   itemBuilder: (ctx, index) {
-                    final courseData = hundredDaysBasicEnglishCourseData[index];
+                    final courseData = homePageController.hundredDaysBasicEnglishCourseModel?.data?[index];
                     return HundredDaysBasicEnglishCourseSeeAllMenuWidget(
-                      thumbnail: courseData.thumbnail,
-                      title: courseData.title,
+                      thumbnail: courseData?.thumbnail ?? "",
+                      title: courseData?.title ?? "",
                       onTap: () {
                         Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(
-                          id: courseData.id,
-                          title: courseData.title,
-                          shortDescription: courseData.shortDescription,
-                          thumbnail: courseData.thumbnail,
-                          youtubeLink: courseData.youtubeLink,
+                          id: courseData?.id.toString() ?? "",
+                          title: courseData?.title ?? "",
+                          shortDescription: courseData?.shortDescription ?? "",
+                          thumbnail: courseData?.thumbnail ?? "",
+                          youtubeLink: courseData?.youtubeLink ?? "",
                         ));
                       },
                     );

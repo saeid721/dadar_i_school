@@ -1,5 +1,6 @@
-
-import '../model/hundred_days_basic_english_course_model.dart';
+import 'dart:convert';
+import 'dart:developer';
+import '../../../domain/server/http_client/response_wrapper.dart';
 import '../../../domain/server/http_client/api_helper.dart';
 import '../../../domain/server/http_client/app_config.dart';
 import '../model/footer_model/footer_company_model.dart';
@@ -27,8 +28,48 @@ import '../model/home_section/home_section_top_series_model.dart';
 import '../model/home_section_model.dart';
 import '../model/home_slider_model.dart';
 import '../model/home_section/home_section_up_coming_model.dart';
+import 'package:flutter/services.dart' as rootBundle;
+
+import '../model/hundred_days_basic_english_course_model.dart';
+
 
 class HomeRepository extends ApiHelper {
+
+
+  /// * HundredDaysBasicEnglishCourseModel * //
+  Future<HundredDaysBasicEnglishCourseModel?> getHundredDaysBasicEnglishCourseList() async {
+    // final response = await requestHandler.get("");
+    try {
+      //* ==@ Load the JSON file from assets
+      final String response = await rootBundle.rootBundle.loadString('assets/json/hundred_days_basic_english_course_response.json');
+      //* ==@ Parse the JSON
+      final Map<String, dynamic> addressDemoResponse = json.decode(response);
+
+      //* ==@ Create a ResponseWrapper instance (assuming you have a ResponseWrapper model)
+      ResponseWrapper resWrap = ResponseWrapper.fromJson(addressDemoResponse);
+      if (resWrap.status == 200) {
+        return HundredDaysBasicEnglishCourseModel.fromJson(resWrap.data ?? {});
+      }
+    } catch (e) {
+      log("Error loading address data: $e");
+    }
+    return null;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //
   // Future<HundredDaysBasicEnglishCourseModel> getHundredDaysBasicEnglishCourseList() async {

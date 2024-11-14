@@ -6,7 +6,7 @@ class HomeCourseModel {
   final String youtubeLink;
   final String thumbnail;
   final String shortDescription;
-  List<HundredDaysBasicEnglishCourseData>? data;
+  List<HundredDaysBasicEnglishCourseData>? hundredDaysBasicEnglishCourseData;
 
   HomeCourseModel({
     this.id,

@@ -6,15 +6,11 @@ import 'package:dadar_i_school/src/service/auth/controller/auth_controller.dart'
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/storage_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
-import 'features/account/controller/account_controller.dart';
 import 'features/dashboard_bottom_navigation_bar/controller/dashboard_buttom_controller.dart';
 import 'features/download/controller/download_controller.dart';
 import 'features/home/controller/home_controller.dart';
 import 'features/my_account/controller/my_account_controller.dart';
-import 'features/search/controller/search_bar_controller.dart';
-import 'features/tab/controller/tab_view_controller.dart';
 import 'features/video_details/controller/video_details_controller.dart';
-import 'service/location/controller/location_controller.dart';
 
 final locator = GetIt.instance;
 
@@ -28,15 +24,11 @@ Future<void> init(LocalStorage localStorage) async {
 
   // ==# UI Controllers using GetX lazyPut for screen management
   Get.lazyPut(() => AuthController(), fenix: true);
-  Get.lazyPut(() => AccountController(), fenix: true);
   Get.lazyPut(() => HomePageController(), fenix: true);
+  Get.lazyPut(() => DownloadController(), fenix: true);
   Get.lazyPut(() => DashboardBottomController(), fenix: true);
-  //Get.lazyPut(() => SearchBarController(), fenix: true);
   Get.lazyPut(() => VideoDetailsController(), fenix: true);
   Get.lazyPut(() => MyAccountController(), fenix: true);
-  Get.lazyPut(() => TabViewController(), fenix: true);
-  Get.lazyPut(() => LocationController(), fenix: true);
-  Get.lazyPut(() => DownloadController(), fenix: true);
 
   // ==# Register GetIt services within GetX for further access
   Get.lazyPut(() => locator<RequestHandler>(), fenix: true);

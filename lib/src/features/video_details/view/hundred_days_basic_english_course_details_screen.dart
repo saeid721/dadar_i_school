@@ -19,13 +19,13 @@ class HundredDaysBasicEnglishCourseVideoDetailsScreen extends StatefulWidget {
   final String shortDescription;
 
   const HundredDaysBasicEnglishCourseVideoDetailsScreen({
-    Key? key,
+    super.key,
     required this.id,
     required this.youtubeLink,
     required this.title,
     required this.thumbnail,
     required this.shortDescription,
-  }) : super(key: key);
+  });
 
   @override
   State<HundredDaysBasicEnglishCourseVideoDetailsScreen> createState() =>

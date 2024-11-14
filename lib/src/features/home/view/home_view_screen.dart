@@ -1,5 +1,6 @@
 import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
 import '../../../global/widget/global_sized_box.dart';
@@ -11,14 +12,29 @@ import 'widget/home_section_widget/hundred_days_basic_english_course_widget.dart
 import 'widget/home_section_widget/hundred_days_spoken_english_practice_widget.dart';
 import 'widget/home_section_widget/spoken_english_practice_widget.dart';
 
-class HomeViewScreen extends StatelessWidget {
+class HomeViewScreen extends StatefulWidget {
   const HomeViewScreen({super.key});
 
   @override
+  State<HomeViewScreen> createState() => _HomeViewScreenState();
+}
+
+class _HomeViewScreenState extends State<HomeViewScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    final homePageController = HomePageController.current;
+
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await homePageController.getHundredDaysBasicEnglishCourseList();
+
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomePageController>(
-      init: HomePageController(),
-      builder: (controller) {
+    return GetBuilder<HomePageController>(builder: (homePageController){
         return Scaffold(
           body: GlobalContainer(
             color: ColorRes.appNavyColor,
@@ -33,11 +49,11 @@ class HomeViewScreen extends StatelessWidget {
 
                   // List of Sections
                   ListView.builder(
-                    itemCount: controller.sections.length,
+                    itemCount: homePageController.sections.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (ctx, index) {
-                      final sectionData = controller.sections[index];
+                      final sectionData = homePageController.sections[index];
                       switch (sectionData.sectionType) {
                         // case "hundred_days_spoken_english":
                         //   return HundredDaysSpokenEnglishPracticeWidget(id: sectionData.id, );

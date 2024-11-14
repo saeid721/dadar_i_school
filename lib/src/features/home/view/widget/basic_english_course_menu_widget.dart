@@ -36,7 +36,7 @@ class BasicEnglishCourseMenuWidget extends StatelessWidget {
                     height: 120,
                     width: 180,
                     fit: BoxFit.fill,
-                    imageFor: ImageFor.asset,
+                    imageFor: ImageFor.network,
                   ),
                 ),
               ],

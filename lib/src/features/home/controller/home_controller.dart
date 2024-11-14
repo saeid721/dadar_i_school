@@ -2,34 +2,10 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/features/home/model/footer_model/footer_company_model.dart';
-import 'package:dadar_i_school/src/features/home/model/footer_model/footer_explore_model.dart';
-import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_movies_model.dart';
-import 'package:dadar_i_school/src/features/home/model/footer_model/footer_popular_series_model.dart';
-import '../data/hundred_days_basic_english_course_data.dart';
-import '../model/video_home_model.dart';
 import '../model/hundred_days_basic_english_course_model.dart';
-import '../model/home_section/home_section_all_genres_model.dart';
+import '../model/section_data_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
 import '../model/home_section/home_section_all_movie_see_all_model.dart';
-import '../model/home_section/home_section_all_series_model.dart';
-import '../model/home_section/home_section_all_series_see_all_model.dart';
-import '../model/home_section/home_section_application_features_model.dart';
-import '../model/home_section/home_section_blogs_model.dart';
-import '../model/home_section/home_section_favorite_model.dart';
-import '../model/home_section/home_section_genres_model.dart';
-import '../model/home_section/home_section_genres_see_all_model.dart';
-import '../model/home_section/home_section_poster_slider_movie_model.dart';
-import '../model/home_section/home_section_poster_slider_series_model.dart';
-import '../model/home_section/home_section_recent_model.dart';
-import '../model/home_section/home_section_selected_movie_model.dart';
-import '../model/home_section/home_section_selected_series_model.dart';
-import '../model/home_section/home_section_single_blogs_model.dart';
-import '../model/home_section/home_section_top_movie_model.dart';
-import '../model/home_section/home_section_top_series_model.dart';
-import '../model/home_section_model.dart';
-import '../model/home_slider_model.dart';
-import '../model/home_section/home_section_up_coming_model.dart';
 import 'home_repo.dart';
 
 class HomePageController extends GetxController implements GetxService {
@@ -96,27 +72,48 @@ class HomePageController extends GetxController implements GetxService {
     update();
   }
 
-  // =/@ BasicEnglishCourseModel
-  HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
-  List<HundredDaysBasicEnglishCourseData> hundredDaysBasicEnglishCourseData = [];
-  void getHundredDaysBasicEnglishCourseList() {
-    _isLoading = true;
-    _hasError = false;
-    update();
 
+  /// * HundredDaysBasicEnglishCourseModel * //
+  HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
+  Future getHundredDaysBasicEnglishCourseList() async {
     try {
-      // Loading the local static data
-      hundredDaysBasicEnglishCourseData = hundredDaysBasicEnglishCourseData;
-      //log('hundredDaysBasicEnglishCourseData');
-      _isLoading = false;
-      update();
-    } catch (e, s) {
-      _isLoading = false;
-      _hasError = true;
-      update();
+      final res = await repository.getHundredDaysBasicEnglishCourseList();
+
+      if (res != null) {
+        hundredDaysBasicEnglishCourseModel = res;
+        //log("message ${hundredDaysBasicEnglishCourseModel?.data}");
+        update();
+      }
+    } on Exception catch (e) {
+      log(e.toString());
     }
   }
 
+
+
+
+  //
+  // // =/@ BasicEnglishCourseModel
+  // HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
+  // List<HundredDaysBasicEnglishCourseData> hundredDaysBasicEnglishCourseData = [];
+  // void getHundredDaysBasicEnglishCourseList() {
+  //   _isLoading = true;
+  //   _hasError = false;
+  //   update();
+  //
+  //   try {
+  //     // Loading the local static data
+  //     hundredDaysBasicEnglishCourseData = hundredDaysBasicEnglishCourseData;
+  //     //log('hundredDaysBasicEnglishCourseData');
+  //     _isLoading = false;
+  //     update();
+  //   } catch (e, s) {
+  //     _isLoading = false;
+  //     _hasError = true;
+  //     update();
+  //   }
+  // }
+  //
 
 
 

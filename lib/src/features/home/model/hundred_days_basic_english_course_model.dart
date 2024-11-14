@@ -1,50 +1,77 @@
 class HundredDaysBasicEnglishCourseModel {
-  final int? id;
-  final String title;
-  final String videoUrl;
-  final String thumbnail;
-  final String shortDescription;
-  bool isLoading = true;
-  dynamic controller;
+  int? status;
+  String? message;
+  List<HundredDaysBasicEnglishCourseData>? data;
 
-  HundredDaysBasicEnglishCourseModel({
-    this.id,
-    required this.title,
-    required this.videoUrl,
-    required this.thumbnail,
-    required this.shortDescription,
-  });
+  HundredDaysBasicEnglishCourseModel({this.status, this.message, this.data});
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'videoUrl': videoUrl,
-      'thumbnail': thumbnail,
-      'shortDescription': shortDescription,
-    };
+  HundredDaysBasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    message = json['message'];
+    if (json['data'] != null) {
+      data = <HundredDaysBasicEnglishCourseData>[];
+      json['data'].forEach((v) {
+        data!.add(HundredDaysBasicEnglishCourseData.fromJson(v));
+      });
+    }
   }
 
-  static HundredDaysBasicEnglishCourseModel fromMap(Map<String, dynamic> map) {
-    return HundredDaysBasicEnglishCourseModel(
-      id: map['id'],
-      title: map['title'],
-      videoUrl: map['videoUrl'],
-      thumbnail: map['thumbnail'],
-      shortDescription: map['shortDescription'],
-    );
-  }
-
-  // Adding fromJson method
-  factory HundredDaysBasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
-    return HundredDaysBasicEnglishCourseModel(
-      id: json['id'],
-      title: json['title'],
-      videoUrl: json['videoUrl'],
-      thumbnail: json['thumbnail'],
-      shortDescription: json['shortDescription'],
-    );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
+    return data;
   }
 }
 
+class HundredDaysBasicEnglishCourseData {
+  int? id;
+  String? title;
+  String? thumbnail;
+  String? youtubeLink;
+  String? shortDescription;
+  String? description;
+  String? streamedLiveOn;
+  int? totalViews;
+  String? status;
 
+  HundredDaysBasicEnglishCourseData(
+      {this.id,
+        this.title,
+        this.thumbnail,
+        this.youtubeLink,
+        this.shortDescription,
+        this.description,
+        this.streamedLiveOn,
+        this.totalViews,
+        this.status});
+
+  HundredDaysBasicEnglishCourseData.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    thumbnail = json['thumbnail'];
+    youtubeLink = json['youtubeLink'];
+    shortDescription = json['shortDescription'];
+    description = json['description'];
+    streamedLiveOn = json['streamedLiveOn'];
+    totalViews = json['totalViews'];
+    status = json['status'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['thumbnail'] = thumbnail;
+    data['youtubeLink'] = youtubeLink;
+    data['shortDescription'] = shortDescription;
+    data['description'] = description;
+    data['streamedLiveOn'] = streamedLiveOn;
+    data['totalViews'] = totalViews;
+    data['status'] = status;
+    return data;
+  }
+}

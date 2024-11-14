@@ -39,7 +39,7 @@ class HundredDaysBasicEnglishCourseSeeAllMenuWidget extends StatelessWidget {
                 height: 120,
                 width: size(context).width,
                 fit: BoxFit.fill,
-                imageFor: ImageFor.asset,
+                imageFor: ImageFor.network,
               ),
             ),
             sizedBoxH(3),
