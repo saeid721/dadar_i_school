@@ -51,7 +51,6 @@ class _HundredDaysBasicEnglishCourseVideoDetailsScreenState
         );
       }
     } else {
-      // Initialize Chewie for non-YouTube video playback
       VideoPlayerController videoPlayerController =
       VideoPlayerController.network(widget.youtubeLink);
 

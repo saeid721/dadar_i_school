@@ -63,9 +63,9 @@ class HomePageController extends GetxController implements GetxService {
 
   void loadLocalSections() {
     sections = [
-      SectionData(id: "1", sectionType: "hundred_days_spoken_english", title: "100 Days Spoken English Practice"),
-      SectionData(id: "2", sectionType: "hundred_days_basic_english", title: "100 Days Basic English Course"),
-      SectionData(id: "3", sectionType: "beginner_spoken_english", title: "Beginner Spoken English"),
+      SectionData(id: "1", sectionType: "hundred_days_basic_english", title: "100 Days Basic English Course"),
+      SectionData(id: "2", sectionType: "beginner_spoken_english", title: "Beginner Spoken English"),
+      SectionData(id: "3", sectionType: "hundred_days_spoken_english", title: "100 Days Spoken English Practice"),
       SectionData(id: "4", sectionType: "spoken_english_practice", title: "Spoken English Practice"),
       SectionData(id: "5", sectionType: "english_grammar_course", title: "English Grammar Course"),
     ];

@@ -12,7 +12,7 @@
 // import '../../components/home_section_see_all/home_section_selected_movie_see_all_screen.dart';
 // import '../home_shimmer_widget/home_section_recent_shimmer.dart';
 // import '../movie_menu_bar_widget.dart';
-// import '../basic_english_course_menu_widget.dart';
+// import '../english_course_menu_widget.dart';
 //
 // class HomeSectionSelectedMovieWidget extends StatefulWidget {
 //   final HomeSectionData? homeSectionData;

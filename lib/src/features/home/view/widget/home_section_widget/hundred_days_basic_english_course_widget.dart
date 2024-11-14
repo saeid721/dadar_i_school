@@ -4,7 +4,7 @@ import '../../../controller/home_controller.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
 import '../../components/home_section_see_all/hundred_days_basic_english_course_see_all_screen.dart';
-import '../basic_english_course_menu_widget.dart';
+import '../english_course_menu_widget.dart';
 import '../movie_menu_bar_widget.dart';
 
 

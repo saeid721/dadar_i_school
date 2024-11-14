@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/features/home/controller/home_controller.dart';
-import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
-import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
+import '../../../global/constants/colors_resources.dart';
+import '../../../global/widget/global_sized_box.dart';
+import '../controller/home_controller.dart';
 import 'home_view_screen.dart';
 
 class HomeScreen extends StatefulWidget {

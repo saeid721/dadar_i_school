@@ -1,5 +1,5 @@
-
 import 'dart:async';
+import 'package:dadar_i_school/src/global/constants/enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -17,7 +17,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -31,28 +30,26 @@ class _SplashScreenState extends State<SplashScreen> {
     ]);
   }
 
-  void route(){
+  void route() {
     Timer(const Duration(seconds: 3), () {
-      Get.offAll(()=> const DashboardBottomNavigationBar());
+      Get.offAll(() => const DashboardBottomNavigationBar());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Container(
         height: size(context).height,
         width: size(context).width,
         padding: const EdgeInsets.symmetric(horizontal: 60),
-        decoration: const BoxDecoration(
-            color: ColorRes.appColor
-        ),
+        decoration: const BoxDecoration(color: ColorRes.appColor),
         child: const Center(
           child: GlobalImageLoader(
             imagePath: Images.appLogo,
             width: 160,
             fit: BoxFit.fill,
+            imageFor: ImageFor.asset,
           ),
         ),
       ),
