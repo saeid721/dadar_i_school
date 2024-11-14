@@ -10,17 +10,17 @@ import '../../../data/hundred_days_spoken_english_practice_data.dart';
 import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
 import '../../../controller/home_controller.dart';
 
-class HomeSectionRecentSeeAllScreen extends StatefulWidget {
+class HundredDaysBasicEnglishCourseSeeAllScreen extends StatefulWidget {
 
-  const HomeSectionRecentSeeAllScreen({
+  const HundredDaysBasicEnglishCourseSeeAllScreen({
     super.key,
   });
 
   @override
-  State<HomeSectionRecentSeeAllScreen> createState() => _HomeSectionRecentSeeAllScreenState();
+  State<HundredDaysBasicEnglishCourseSeeAllScreen> createState() => _HundredDaysBasicEnglishCourseSeeAllScreenState();
 }
 
-class _HomeSectionRecentSeeAllScreenState extends State<HomeSectionRecentSeeAllScreen> {
+class _HundredDaysBasicEnglishCourseSeeAllScreenState extends State<HundredDaysBasicEnglishCourseSeeAllScreen> {
 
 
   @override
@@ -39,7 +39,7 @@ class _HomeSectionRecentSeeAllScreenState extends State<HomeSectionRecentSeeAllS
               ),
               Expanded(
                 child: GridView.builder(
-                  itemCount: homePageController.hundredDaysSpokenEnglishPracticeData.length,
+                  itemCount: homePageController.hundredDaysBasicEnglishCourseModel?.hundredDaysBasicEnglishCourseData.length,
                   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10, top: 10),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -48,7 +48,7 @@ class _HomeSectionRecentSeeAllScreenState extends State<HomeSectionRecentSeeAllS
                     childAspectRatio: size(context).height < 700 ? 1.1 : 1.4,
                   ),
                   itemBuilder: (ctx, index) {
-                    final courseData = homePageController.hundredDaysSpokenEnglishPracticeData[index];
+                    final courseData = homePageController.hundredDaysBasicEnglishCourseModel?.hundredDaysBasicEnglishCourseData[index];
                     return HomeSectionSeeAllMenuWidget(
                       thumbnail: courseData.thumbnail,
                       title: courseData.title,

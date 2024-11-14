@@ -30,10 +30,10 @@ import '../model/home_section/home_section_up_coming_model.dart';
 
 class HomeRepository extends ApiHelper {
 
-
-  Future<HundredDaysBasicEnglishCourseModel> getHundredDaysBasicEnglishCourseList() async {
-    return HundredDaysBasicEnglishCourseModel.fromJson(await requestHandler.get(AppConfig.hundredDaysBasicEnglishUrl.url));
-  }
+  //
+  // Future<HundredDaysBasicEnglishCourseModel> getHundredDaysBasicEnglishCourseList() async {
+  //   return HundredDaysBasicEnglishCourseModel.fromJson(await requestHandler.get(AppConfig.hundredDaysBasicEnglishUrl.url));
+  // }
 
 
 

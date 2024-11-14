@@ -12,7 +12,7 @@ import 'widget/home_section_widget/hundred_days_spoken_english_practice_widget.d
 import 'widget/home_section_widget/spoken_english_practice_widget.dart';
 
 class HomeViewScreen extends StatelessWidget {
-  const HomeViewScreen({Key? key}) : super(key: key);
+  const HomeViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

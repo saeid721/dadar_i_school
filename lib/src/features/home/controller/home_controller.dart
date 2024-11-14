@@ -93,25 +93,24 @@ class HomePageController extends GetxController implements GetxService {
       SectionData(id: "4", sectionType: "spoken_english_practice", title: "Spoken English Practice"),
       SectionData(id: "5", sectionType: "english_grammar_course", title: "English Grammar Course"),
     ];
-    update(); // Notify the UI to update with new data
+    update();
   }
 
   // =/@ BasicEnglishCourseModel
   HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
   List<HundredDaysBasicEnglishCourseData> hundredDaysBasicEnglishCourseData = [];
-  Future getHundredDaysBasicEnglishCourseList() async {
-    try {
-      _isLoading = true;
-      _hasError = false;
-      update();
+  void getHundredDaysBasicEnglishCourseList() {
+    _isLoading = true;
+    _hasError = false;
+    update();
 
-      final response = await repository.getHundredDaysBasicEnglishCourseList();
-      hundredDaysBasicEnglishCourseModel = response;
+    try {
+      // Loading the local static data
+      hundredDaysBasicEnglishCourseData = hundredDaysBasicEnglishCourseData;
 
       _isLoading = false;
       update();
     } catch (e, s) {
-      log('Error: ', error: e, stackTrace: s);
       _isLoading = false;
       _hasError = true;
       update();
@@ -120,6 +119,32 @@ class HomePageController extends GetxController implements GetxService {
 
 
 
+
+
+
+
+  //
+  // // =/@ BasicEnglishCourseModel
+  // HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
+  // List<HundredDaysBasicEnglishCourseData> hundredDaysBasicEnglishCourseData = [];
+  // Future getHundredDaysBasicEnglishCourseList() async {
+  //   try {
+  //     _isLoading = true;
+  //     _hasError = false;
+  //     update();
+  //
+  //     final response = await repository.getHundredDaysBasicEnglishCourseList();
+  //     hundredDaysBasicEnglishCourseModel = response;
+  //
+  //     _isLoading = false;
+  //     update();
+  //   } catch (e, s) {
+  //     log('Error: ', error: e, stackTrace: s);
+  //     _isLoading = false;
+  //     _hasError = true;
+  //     update();
+  //   }
+  // }
 
 
 
