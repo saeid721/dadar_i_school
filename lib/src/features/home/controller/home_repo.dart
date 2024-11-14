@@ -1,5 +1,5 @@
 
-import '../model/video_model.dart';
+import '../model/hundred_days_basic_english_course_model.dart';
 import '../../../domain/server/http_client/api_helper.dart';
 import '../../../domain/server/http_client/app_config.dart';
 import '../model/footer_model/footer_company_model.dart';

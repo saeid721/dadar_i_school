@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/widget/global_sized_box.dart';
-import '../../home/view/widget/home_section_widget/home_section_all_series_widget.dart';
 import '../controller/tab_view_controller.dart';
 import 'widget/series_thriller_widget.dart';
 

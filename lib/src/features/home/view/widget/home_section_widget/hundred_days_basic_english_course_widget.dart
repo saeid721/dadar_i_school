@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/home_controller.dart';
-import '../../../data/hundred_days_basic_english_course_data.dart';
 import '../../../../../global/widget/global_sized_box.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
+import '../../../data/hundred_days_basic_english_course_data.dart';
 import '../../../data/hundred_days_basic_english_course_data.dart';
 import '../../components/home_section_see_all/hundred_days_basic_english_course_see_all_screen.dart';
 import '../basic_english_course_menu_widget.dart';
@@ -46,7 +46,7 @@ class _HundredDaysBasicEnglishCourseWidgetState
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: homePageController.hundredDaysBasicEnglishCourseModel?.hundredDaysBasicEnglishCourseData.map((recent) {
+                  children: hundredDaysBasicEnglishCourseData.map((recent) {
                     return BasicEnglishCourseMenuWidget(
                       thumbnail: recent.thumbnail,
                       title: recent.title,

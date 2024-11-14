@@ -21,7 +21,7 @@ class BasicEnglishCourseMenuWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 115,
+        width: 180,
         margin: const EdgeInsets.only(right: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -33,8 +33,8 @@ class BasicEnglishCourseMenuWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                   child: GlobalImageLoader(
                     imagePath: thumbnail,
-                    height: 160,
-                    width: 115,
+                    height: 120,
+                    width: 180,
                     fit: BoxFit.fill,
                     imageFor: ImageFor.asset,
                   ),
@@ -43,10 +43,10 @@ class BasicEnglishCourseMenuWidget extends StatelessWidget {
             ),
             GlobalText(
               str: title,
-              fontSize: 14,
+              fontSize: 12,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
             )
           ],
         ),

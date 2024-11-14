@@ -11,7 +11,7 @@ import '../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../global/widget/global_appbar.dart';
 import '../../../../initializer.dart';
 import '../../../../service/language_check/language_check.dart';
-import '../../../home/view/widget/home_section_widget/home_section_see_all_menu_widget.dart';
+import '../../../home/view/widget/home_section_widget/hundred_days_basic_english_course_see_all_widget.dart';
 import '../../controller/tab_view_controller.dart';
 
 class FreeTabListSeeAllSeeAllScreen extends StatefulWidget {
@@ -98,7 +98,7 @@ class _FreeTabListSeeAllSeeAllScreenState extends State<FreeTabListSeeAllSeeAllS
                   ),
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.freeTabViewSeeAllModel?.data?.result?[index];
-                    return HomeSectionSeeAllMenuWidget(
+                    return HundredDaysBasicEnglishCourseSeeAllMenuWidget(
                       thumbnail: homePageRecentData?.thumbnail ?? '',
                       title: LanguageCheck.checkLanguage(
                         langCode: langCode,

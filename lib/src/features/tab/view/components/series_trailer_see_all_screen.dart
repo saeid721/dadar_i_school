@@ -10,7 +10,7 @@ import '../../../../domain/local/preferences/local_storage_keys.dart';
 import '../../../../global/widget/global_appbar.dart';
 import '../../../../initializer.dart';
 import '../../../../service/language_check/language_check.dart';
-import '../../../home/view/widget/home_section_widget/home_section_see_all_menu_widget.dart';
+import '../../../home/view/widget/home_section_widget/hundred_days_basic_english_course_see_all_widget.dart';
 import '../../controller/tab_view_controller.dart';
 import '../../model/genres_model.dart';
 
@@ -91,7 +91,7 @@ class _SeriesTrailerSeeAllScreenState extends State<SeriesTrailerSeeAllScreen> {
                   ),
                   itemBuilder: (ctx, index) {
                     final series = thrillerData?.data?.result?[index];
-                    return HomeSectionSeeAllMenuWidget(
+                    return HundredDaysBasicEnglishCourseSeeAllMenuWidget(
                       thumbnail: series?.thumbnail ?? '',
                       title: LanguageCheck.checkLanguage(
                         langCode: langCode,

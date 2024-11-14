@@ -5,9 +5,8 @@ import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import '../../../../../global/widget/global_appbar.dart';
 import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
-import '../../../data/hundred_days_spoken_english_practice_data.dart';
-import '../../../data/hundred_days_spoken_english_practice_data.dart';
-import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
+import '../../../data/hundred_days_basic_english_course_data.dart';
+import '../../widget/home_section_widget/hundred_days_basic_english_course_see_all_widget.dart';
 import '../../../controller/home_controller.dart';
 
 class HundredDaysBasicEnglishCourseSeeAllScreen extends StatefulWidget {
@@ -35,21 +34,21 @@ class _HundredDaysBasicEnglishCourseSeeAllScreenState extends State<HundredDaysB
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const GlobalAppbarWidget(
-                title: "100 Days Spoken English Practice",
+                title: "100 Days Basic English Course",
               ),
               Expanded(
                 child: GridView.builder(
-                  itemCount: homePageController.hundredDaysBasicEnglishCourseModel?.hundredDaysBasicEnglishCourseData.length,
+                  itemCount: hundredDaysBasicEnglishCourseData.length,
                   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10, top: 10),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: size(context).height < 700 ? 1.1 : 1.4,
+                    childAspectRatio: 1.04,
                   ),
                   itemBuilder: (ctx, index) {
-                    final courseData = homePageController.hundredDaysBasicEnglishCourseModel?.hundredDaysBasicEnglishCourseData[index];
-                    return HomeSectionSeeAllMenuWidget(
+                    final courseData = hundredDaysBasicEnglishCourseData[index];
+                    return HundredDaysBasicEnglishCourseSeeAllMenuWidget(
                       thumbnail: courseData.thumbnail,
                       title: courseData.title,
                       onTap: () {

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:dadar_i_school/src/global/constants/enum.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
@@ -6,11 +5,11 @@ import '../../../../../global/constants/colors_resources.dart';
 import '../../../../../global/widget/global_image_loader.dart';
 import '../../../../../global/widget/global_text.dart';
 
-class HomeSectionSeeAllMenuWidget extends StatelessWidget {
+class HundredDaysBasicEnglishCourseSeeAllMenuWidget extends StatelessWidget {
   final String thumbnail;
   final String title;
   final Function() onTap;
-  const HomeSectionSeeAllMenuWidget({
+  const HundredDaysBasicEnglishCourseSeeAllMenuWidget({
     super.key,
     required this.thumbnail,
     required this.title,
@@ -37,10 +36,10 @@ class HomeSectionSeeAllMenuWidget extends StatelessWidget {
               ),
               child: GlobalImageLoader(
                 imagePath: thumbnail,
-                height: 100,
+                height: 120,
                 width: size(context).width,
                 fit: BoxFit.fill,
-                imageFor: ImageFor.network,
+                imageFor: ImageFor.asset,
               ),
             ),
             sizedBoxH(3),
@@ -49,8 +48,8 @@ class HomeSectionSeeAllMenuWidget extends StatelessWidget {
               child: GlobalText(
                 str: title,
                 fontSize: 13,
-                fontWeight: FontWeight.bold,
-                maxLines: 2,
+                fontWeight: FontWeight.w500,
+                maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
             )

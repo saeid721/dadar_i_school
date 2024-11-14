@@ -12,7 +12,7 @@ import '../../../../../service/language_check/language_check.dart';
 import '../../../../video_details/view/movie_video_details_screen.dart';
 import '../../../controller/home_controller.dart';
 import '../../../../../global/widget/global_appbar.dart';
-import '../../widget/home_section_widget/home_section_see_all_menu_widget.dart';
+import '../../widget/home_section_widget/hundred_days_basic_english_course_see_all_widget.dart';
 
 class HomeSectionAllMovieSeeAllScreen extends StatefulWidget {
   const HomeSectionAllMovieSeeAllScreen({super.key,});
@@ -79,7 +79,7 @@ class _HomeSectionAllMovieSeeAllScreenState extends State<HomeSectionAllMovieSee
                   ),
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.homeSectionAllMovieSeeAllModel?.data?.result?[index];
-                    return HomeSectionSeeAllMenuWidget(
+                    return HundredDaysBasicEnglishCourseSeeAllMenuWidget(
                       thumbnail: homePageRecentData?.thumbnail ?? '',
                       title: LanguageCheck.checkLanguage(
                         langCode: langCode,
