@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/home_controller.dart';
 import '../../../../../global/widget/global_sized_box.dart';
-import '../../../../video_details/view/hundred_days_basic_english_course_details_screen.dart';
+import '../../../../video_details/view/hundred_days_basic_english_details_screen.dart';
 import '../../components/home_section_see_all/hundred_days_basic_english_course_see_all_screen.dart';
 import '../english_course_menu_widget.dart';
 import '../movie_menu_bar_widget.dart';
 
 
-class HundredDaysBasicEnglishCourseWidget extends StatefulWidget {
+class HundredDaysBasicEnglishWidget extends StatefulWidget {
   final String id;
 
-  const HundredDaysBasicEnglishCourseWidget({
+  const HundredDaysBasicEnglishWidget({
     super.key,
     required this.id,
   });
 
   @override
-  State<HundredDaysBasicEnglishCourseWidget> createState() =>
-      _HundredDaysBasicEnglishCourseWidgetState();
+  State<HundredDaysBasicEnglishWidget> createState() =>
+      _HundredDaysBasicEnglishWidgetState();
 }
 
-class _HundredDaysBasicEnglishCourseWidgetState
-    extends State<HundredDaysBasicEnglishCourseWidget> {
+class _HundredDaysBasicEnglishWidgetState
+    extends State<HundredDaysBasicEnglishWidget> {
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class _HundredDaysBasicEnglishCourseWidgetState
                       thumbnail: recent.thumbnail ?? "",
                       title: recent.title ?? "",
                       onTap: () {
-                        Get.to(() => HundredDaysBasicEnglishCourseVideoDetailsScreen(
+                        Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
                           id: recent.id.toString() ?? "",
                           title: recent.title ?? "",
                           shortDescription: recent.shortDescription ?? "",

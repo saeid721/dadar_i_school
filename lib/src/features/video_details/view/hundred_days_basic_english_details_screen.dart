@@ -11,14 +11,14 @@ import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
 import '../controller/video_controller.dart';
 
-class HundredDaysBasicEnglishCourseVideoDetailsScreen extends StatefulWidget {
+class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
   final String id;
   final String youtubeLink;
   final String title;
   final String thumbnail;
   final String shortDescription;
 
-  const HundredDaysBasicEnglishCourseVideoDetailsScreen({
+  const HundredDaysBasicEnglishVideoDetailsScreen({
     super.key,
     required this.id,
     required this.youtubeLink,
@@ -28,12 +28,12 @@ class HundredDaysBasicEnglishCourseVideoDetailsScreen extends StatefulWidget {
   });
 
   @override
-  State<HundredDaysBasicEnglishCourseVideoDetailsScreen> createState() =>
-      _HundredDaysBasicEnglishCourseVideoDetailsScreenState();
+  State<HundredDaysBasicEnglishVideoDetailsScreen> createState() =>
+      _HundredDaysBasicEnglishVideoDetailsScreenState();
 }
 
-class _HundredDaysBasicEnglishCourseVideoDetailsScreenState
-    extends State<HundredDaysBasicEnglishCourseVideoDetailsScreen> {
+class _HundredDaysBasicEnglishVideoDetailsScreenState
+    extends State<HundredDaysBasicEnglishVideoDetailsScreen> {
   final VideoController controller = Get.put(VideoController());
   YoutubePlayerController? youtubePlayerController;
 

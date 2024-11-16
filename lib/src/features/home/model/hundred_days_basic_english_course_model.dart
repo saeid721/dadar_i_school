@@ -1,11 +1,13 @@
 class HundredDaysBasicEnglishCourseModel {
-  int? status;
+  int? code;
+  String? status;
   String? message;
   List<HundredDaysBasicEnglishCourseData>? data;
 
-  HundredDaysBasicEnglishCourseModel({this.status, this.message, this.data});
+  HundredDaysBasicEnglishCourseModel({this.code, this.status, this.message, this.data});
 
   HundredDaysBasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
     status = json['status'];
     message = json['message'];
     if (json['data'] != null) {
@@ -18,6 +20,7 @@ class HundredDaysBasicEnglishCourseModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
     data['status'] = status;
     data['message'] = message;
     if (this.data != null) {

@@ -55,11 +55,11 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                       final sectionData = homePageController.sections[index];
                       switch (sectionData.sectionType) {
                         case "hundred_days_basic_english":
-                          return HundredDaysBasicEnglishCourseWidget(id: sectionData.id);
+                          return HundredDaysBasicEnglishWidget(id: sectionData.id);
                         case "beginner_spoken_english":
                           return BeginnerSpokenEnglishWidget(id: sectionData.id);
                         case "hundred_days_spoken_english":
-                          return HundredDaysSpokenEnglishPracticeWidget(
+                          return HundredDaysSpokenEnglishWidget(
                             id: sectionData.id,
                           );
                         case "spoken_english_practice":

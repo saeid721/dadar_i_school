@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,11 +32,11 @@ class HomePageController extends GetxController implements GetxService {
     update();
   }
 
-  initAddListener(){
+  initAddListener() {
     scrollController.addListener(scrollListener);
   }
 
-  disposeListener(){
+  disposeListener() {
     scrollController.dispose();
   }
 
@@ -58,36 +57,60 @@ class HomePageController extends GetxController implements GetxService {
   @override
   void onInit() {
     super.onInit();
-    loadLocalSections();
+    loadHomeSections();
   }
 
-  void loadLocalSections() {
+  void loadHomeSections() {
     sections = [
-      SectionData(id: "1", sectionType: "hundred_days_basic_english", title: "100 Days Basic English Course"),
-      SectionData(id: "2", sectionType: "beginner_spoken_english", title: "Beginner Spoken English"),
-      SectionData(id: "3", sectionType: "hundred_days_spoken_english", title: "100 Days Spoken English Practice"),
-      SectionData(id: "4", sectionType: "spoken_english_practice", title: "Spoken English Practice"),
-      SectionData(id: "5", sectionType: "english_grammar_course", title: "English Grammar Course"),
+      SectionData(
+          id: "1",
+          sectionType: "hundred_days_basic_english",
+          title: "100 Days Basic English Course"),
+      SectionData(
+          id: "2",
+          sectionType: "beginner_spoken_english",
+          title: "Beginner Spoken English"),
+      SectionData(
+          id: "3",
+          sectionType: "hundred_days_spoken_english",
+          title: "100 Days Spoken English Practice"),
+      SectionData(
+          id: "4",
+          sectionType: "spoken_english_practice",
+          title: "Spoken English Practice"),
+      SectionData(
+          id: "5",
+          sectionType: "english_grammar_course",
+          title: "English Grammar Course"),
     ];
     update();
   }
-
 
   /// * HundredDaysBasicEnglishCourseModel * //
   HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
   Future getHundredDaysBasicEnglishCourseList() async {
     try {
-      final res = await repository.getHundredDaysBasicEnglishCourseList();
+      _isLoading = true;
+      _hasError = false;
+      update();
+      final response = await repository.getHundredDaysBasicEnglishCourseList();
 
-      if (res != null) {
-        hundredDaysBasicEnglishCourseModel = res;
+      if (response?.code == 200) {
+        hundredDaysBasicEnglishCourseModel = response;
         //log("message ${hundredDaysBasicEnglishCourseModel?.data}");
-        update();
       }
-    } on Exception catch (e) {
-      log(e.toString());
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
     }
   }
+
+
+
 
 
 
@@ -115,11 +138,6 @@ class HomePageController extends GetxController implements GetxService {
   // }
   //
 
-
-
-
-
-
   //
   // // =/@ BasicEnglishCourseModel
   // HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
@@ -143,26 +161,19 @@ class HomePageController extends GetxController implements GetxService {
   //   }
   // }
 
-
-
-
   // =/@ Home Section All Movie
   HomeSectionAllMovieModel? homeSectionAllMovieModel;
   HomeSectionAllMovieSeeAllModel? homeSectionAllMovieSeeAllModel;
 
-  Future getHomeSectionAllMovie({
-    required String limit
-  }) async {
+  Future getHomeSectionAllMovie({required String limit}) async {
     try {
       _isLoading = true;
       _hasError = false;
       update();
 
-      final response = await repository.getHomeSectionAllMovie(
-          limit: limit
-      );
+      final response = await repository.getHomeSectionAllMovie(limit: limit);
 
-      if(response.code == 200){
+      if (response.code == 200) {
         homeSectionAllMovieModel = response;
       }
 
@@ -176,24 +187,20 @@ class HomePageController extends GetxController implements GetxService {
     }
   }
 
-  Future getHomeSectionAllMovieSeeAll({
-    required String limit,
-    required String order,
-    required String page,
-    String? sectionType
-  }) async {
+  Future getHomeSectionAllMovieSeeAll(
+      {required String limit,
+      required String order,
+      required String page,
+      String? sectionType}) async {
     try {
       _isLoading = true;
       _hasError = false;
       update();
 
       final response = await repository.getHomeSectionAllMovieSeeAll(
-          limit: limit,
-          order: order,
-          page: page
-      );
+          limit: limit, order: order, page: page);
 
-      if(response.code == 200){
+      if (response.code == 200) {
         homeSectionAllMovieSeeAllModel = response;
       }
 
@@ -206,8 +213,4 @@ class HomePageController extends GetxController implements GetxService {
       update();
     }
   }
-
-
-
-
 }
