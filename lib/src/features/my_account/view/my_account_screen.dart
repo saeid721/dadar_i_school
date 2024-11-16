@@ -39,7 +39,6 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AuthController>(builder: (authController){
       return GetBuilder<MyAccountController>(builder: (myAccountController){
         final subscriberMeData = myAccountController.subscriberMeModel?.data;
         return Scaffold(
@@ -274,7 +273,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                       buttomColor: ColorRes.appCeruleanColor,
                       imgColor: ColorRes.white,
                       onTap: () async{
-                        await authController.reqLogOut();
+                        //await authController.reqLogOut();
                       },
                     ),
                   ),
@@ -286,6 +285,5 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
           ),
         );
       });
-    });
-  }
+    }
 }

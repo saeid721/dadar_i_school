@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     AppUrlExtention.setUrl(UrlLink.isDev);
     await localStorage.initLocalStorage();
     await init(localStorage);
-    await GetDeviceInfo.getDeviceInfo();
+    // await GetDeviceInfo.getDeviceInfo();
   }
 
   @override

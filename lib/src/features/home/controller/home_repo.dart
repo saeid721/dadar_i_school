@@ -41,7 +41,7 @@ class HomeRepository extends ApiHelper {
     // final response = await requestHandler.get("");
     try {
       //* ==@ Load the JSON file from assets
-      final String response = await rootBundle.rootBundle.loadString('assets/json/hundred_days_basic_english_course_response.json');
+      final String response = await rootBundle.rootBundle.loadString('assets/json/hundred_days_basic_english_response.json');
       //* ==@ Parse the JSON
       final Map<String, dynamic> addressDemoResponse = json.decode(response);
 

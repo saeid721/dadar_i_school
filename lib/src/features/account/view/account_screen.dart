@@ -60,7 +60,6 @@ class _MenuScreenState extends State<MenuScreen> {
 
     log("Access Token: $accessToken");
     log("Saved Lang Name: $langCodeName");
-    return GetBuilder<AuthController>(builder: (authController){
       return GetBuilder<DashboardBottomController>(builder: (dashboardBottomController){
         return GetBuilder<MyAccountController>(builder: (myAccountController){
           final subscriberMeData = myAccountController.subscriberMeModel?.data;
@@ -161,12 +160,12 @@ class _MenuScreenState extends State<MenuScreen> {
                     height: 50,
                     textSize: 13,
                     onTap: (){
-                      showDialog(
-                          context: context,
-                          builder: (ctx){
-                            return const AuthScreen();
-                          }
-                      );
+                      // showDialog(
+                      //     context: context,
+                      //     builder: (ctx){
+                      //       return const AuthScreen();
+                      //     }
+                      // );
                     },
                   ) : const SizedBox.shrink(),
 
@@ -312,6 +311,5 @@ class _MenuScreenState extends State<MenuScreen> {
           );
         });
       });
-    });
-  }
+    }
 }

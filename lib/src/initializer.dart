@@ -23,7 +23,7 @@ Future<void> init(LocalStorage localStorage) async {
   locator.registerLazySingleton<StorageController>(() => StorageController(prefs: prefs));
 
   // ==# UI Controllers using GetX lazyPut for screen management
-  Get.lazyPut(() => AuthController(), fenix: true);
+  // Get.lazyPut(() => AuthController(), fenix: true);
   Get.lazyPut(() => HomePageController(), fenix: true);
   Get.lazyPut(() => DownloadController(), fenix: true);
   Get.lazyPut(() => DashboardBottomController(), fenix: true);
