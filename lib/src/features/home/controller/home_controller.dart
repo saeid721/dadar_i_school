@@ -93,6 +93,7 @@ class HomePageController extends GetxController implements GetxService {
       _isLoading = true;
       _hasError = false;
       update();
+
       final response = await repository.getHundredDaysBasicEnglishCourseList();
 
       if (response?.code == 200) {
@@ -101,6 +102,7 @@ class HomePageController extends GetxController implements GetxService {
       }
       _isLoading = false;
       update();
+
     } catch (e, s) {
       log('Error: ', error: e, stackTrace: s);
       _isLoading = false;
@@ -108,9 +110,6 @@ class HomePageController extends GetxController implements GetxService {
       update();
     }
   }
-
-
-
 
 
 
