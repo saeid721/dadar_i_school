@@ -47,7 +47,7 @@ class _BeginnerSpokenEnglishWidgetState extends State<BeginnerSpokenEnglishWidge
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",
                         onTap: () {
-                          Get.to(() => VideoDetailsScreen(
+                          Get.to(() => BeginnerSpokenEnglishVideoDetailsScreen(
                                 id: recent.id.toString(),
                                 title: recent.title ?? "",
                                 shortDescription: recent.shortDescription ?? "",

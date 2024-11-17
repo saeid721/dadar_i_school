@@ -1,13 +1,13 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:video_player/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
-import '../../../global/widget/global_bottom_widget.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
+import '../../home/controller/home_controller.dart';
+import '../../home/view/widget/see_all_vertical_widget.dart';
+import '../controller/video_controller.dart';
 
 class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
   final String id;
@@ -30,148 +30,115 @@ class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
 }
 
 class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysBasicEnglishVideoDetailsScreen> {
-  //final VideoController controller = Get.put(VideoController());
-  YoutubePlayerController? youtubePlayerController;
+  final VideoController videoController = Get.put(VideoController());
 
   @override
   void initState() {
     super.initState();
 
-    // Check if the video is a YouTube video
     if (widget.youtubeLink.contains('youtube.com') || widget.youtubeLink.contains('youtu.be')) {
-      String? videoId = YoutubePlayer.convertUrlToId(widget.youtubeLink);
-      if (videoId != null) {
-        youtubePlayerController = YoutubePlayerController(
-          initialVideoId: videoId,
-          flags: const YoutubePlayerFlags(autoPlay: true, mute: false),
-        );
-      }
+      videoController.initializeYoutubeController(widget.youtubeLink);
     } else {
-      VideoPlayerController videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.youtubeLink));
+      videoController.initializeVideoPlayerController(widget.youtubeLink);
     }
 
     // Lock the orientation to portrait
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
-  Widget _buildVideoPlayer() {
-    if (youtubePlayerController != null) {
-      return YoutubePlayer(controller: youtubePlayerController!);
-    } else {
-      return _buildSubscriptionMessage();
-    }
-  }
-
-  Widget _buildSubscriptionMessage() {
-    return Center(
-      child: Container(
-        height: 210,
-        width: double.infinity,
-        decoration: const BoxDecoration(color: ColorRes.black),
-        child: Stack(
-          children: [
-            Positioned(
-              top: 8,
-              left: 5,
-              child: GestureDetector(
-                onTap: () => Navigator.of(context).pop(),
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  color: Colors.transparent,
-                  child: const Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    color: ColorRes.grey,
-                    size: 18,
-                  ),
-                ),
-              ),
-            ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  "Oops! This video is part of our premium collection. Subscribe now to enjoy it!",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GlobalContainer(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: ColorRes.appNavyColor,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              sizedBoxH(27),
-              _buildVideoPlayer(),
-              sizedBoxH(10),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+      body: GetBuilder<HomePageController>(
+        builder: (homePageController) {
+          return GlobalContainer(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: ColorRes.appNavyColor,
+            child: SingleChildScrollView(
+              // Scrollable widget to handle overflow
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  sizedBoxH(27),
+                  videoController.buildYoutubePlayer(),
+                  sizedBoxH(10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              GlobalText(
-                                str: widget.id,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              sizedBoxH(3),
-                              GlobalText(
-                                str: widget.title,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ],
-                          ),
+                        GlobalText(
+                          str: widget.title,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                         ),
-                        sizedBoxW(10),
-                        GlobalButtonWidget(
-                          str: "Download",
-                          height: 30,
-                          width: 70,
-                          buttomColor: ColorRes.appCeruleanColor,
-                          textSize: 11,
-                          onTap: () => log('Download tapped'),
+                        sizedBoxH(5),
+                        ExpandableDescription(
+                          description: widget.shortDescription,
+                        ),
+                        sizedBoxH(20),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: GlobalText(
+                            str: "100 Days Basic English Course",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ],
                     ),
-                    sizedBoxH(5),
-                    ExpandableDescription(
-                      description: widget.shortDescription,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList != null
+                            ? ListView.builder(
+                          shrinkWrap: true, // Prevents infinite height error
+                          physics: const NeverScrollableScrollPhysics(), // Avoids nested scroll conflicts
+                          itemCount: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.length ?? 0,
+                          itemBuilder: (ctx, index) {
+                            final courseData = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?[index];
+                            return SeeAllMenuVerticalWidget(
+                              thumbnail: courseData?.thumbnail ?? "",
+                              title: courseData?.title ?? "",
+                              onTap: () {
+                                Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
+                                  id: courseData?.id.toString() ?? "",
+                                  title: courseData?.title ?? "",
+                                  shortDescription: courseData?.shortDescription ?? "",
+                                  thumbnail: courseData?.thumbnail ?? "",
+                                  youtubeLink: courseData?.youtubeLink ?? "",
+                                ));
+                              },
+                            );
+                          },
+                        )
+                            : Center(
+                          child: GlobalText(
+                            str: "No data available",
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 80),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 80),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
 
   @override
   void dispose() {
-    youtubePlayerController?.dispose();
+    videoController.dispose();
     super.dispose();
   }
 }
