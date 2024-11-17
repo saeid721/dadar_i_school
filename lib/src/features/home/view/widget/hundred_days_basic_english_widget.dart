@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/widget/global_sized_box.dart';
-import '../../../video_details/view/video_details_screen.dart';
+import '../../../video_details/view/hundred_days_basic_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../components/hundred_days_basic_english_see_all_screen.dart';
 import 'english_course_menu_widget.dart';
@@ -45,7 +45,7 @@ class _HundredDaysBasicEnglishWidgetState extends State<HundredDaysBasicEnglishW
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",
                         onTap: () {
-                          Get.to(() => VideoDetailsScreen(
+                          Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
                                 id: recent.id.toString(),
                                 title: recent.title ?? "",
                                 shortDescription: recent.shortDescription ?? "",

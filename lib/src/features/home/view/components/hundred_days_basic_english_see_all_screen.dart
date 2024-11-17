@@ -4,7 +4,7 @@ import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
 import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import '../../../../global/widget/global_appbar.dart';
-import '../../../video_details/view/video_details_screen.dart';
+import '../../../video_details/view/hundred_days_basic_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../widget/hundred_days_basic_english_see_all_widget.dart';
 
@@ -51,7 +51,7 @@ class _HundredDaysBasicEnglishSeeAllScreenState extends State<HundredDaysBasicEn
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {
-                        Get.to(() => VideoDetailsScreen(
+                        Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
                           id: courseData?.id.toString() ?? "",
                           title: courseData?.title ?? "",
                           shortDescription: courseData?.shortDescription ?? "",
