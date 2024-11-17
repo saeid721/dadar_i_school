@@ -69,5 +69,5 @@ flutter:
     - assets/dummy_img/
     - assets/app_src/icon/
     - assets/app_src/icon/social_ic/
-    - assets/json/
+    - assets/json/beginner_spoken_english_response.json
 

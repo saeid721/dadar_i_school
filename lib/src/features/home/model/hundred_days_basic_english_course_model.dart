@@ -1,36 +1,28 @@
-class HundredDaysBasicEnglishCourseModel {
-  int? code;
-  String? status;
-  String? message;
-  List<HundredDaysBasicEnglishCourseData>? data;
+class HundredDaysBasicEnglishModel {
+  List<BeginnerList>? beginnerList;
 
-  HundredDaysBasicEnglishCourseModel({this.code, this.status, this.message, this.data});
+  HundredDaysBasicEnglishModel({this.beginnerList});
 
-  HundredDaysBasicEnglishCourseModel.fromJson(Map<String, dynamic> json) {
-    code = json['code'];
-    status = json['status'];
-    message = json['message'];
-    if (json['data'] != null) {
-      data = <HundredDaysBasicEnglishCourseData>[];
-      json['data'].forEach((v) {
-        data!.add(HundredDaysBasicEnglishCourseData.fromJson(v));
+  HundredDaysBasicEnglishModel.fromJson(Map<String, dynamic> json) {
+    if (json['beginner_list'] != null) {
+      beginnerList = <BeginnerList>[];
+      json['beginner_list'].forEach((v) {
+        beginnerList!.add(BeginnerList.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['code'] = code;
-    data['status'] = status;
-    data['message'] = message;
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    if (beginnerList != null) {
+      data['beginner_list'] =
+          beginnerList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class HundredDaysBasicEnglishCourseData {
+class BeginnerList {
   int? id;
   String? title;
   String? thumbnail;
@@ -41,7 +33,7 @@ class HundredDaysBasicEnglishCourseData {
   int? totalViews;
   String? status;
 
-  HundredDaysBasicEnglishCourseData(
+  BeginnerList(
       {this.id,
         this.title,
         this.thumbnail,
@@ -52,7 +44,7 @@ class HundredDaysBasicEnglishCourseData {
         this.totalViews,
         this.status});
 
-  HundredDaysBasicEnglishCourseData.fromJson(Map<String, dynamic> json) {
+  BeginnerList.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     thumbnail = json['thumbnail'];
@@ -78,3 +70,55 @@ class HundredDaysBasicEnglishCourseData {
     return data;
   }
 }
+
+
+
+
+// class HundredDaysBasicEnglishCourseData {
+//   int? id;
+//   String? title;
+//   String? thumbnail;
+//   String? youtubeLink;
+//   String? shortDescription;
+//   String? description;
+//   String? streamedLiveOn;
+//   int? totalViews;
+//   String? status;
+//
+//   HundredDaysBasicEnglishCourseData(
+//       {this.id,
+//         this.title,
+//         this.thumbnail,
+//         this.youtubeLink,
+//         this.shortDescription,
+//         this.description,
+//         this.streamedLiveOn,
+//         this.totalViews,
+//         this.status});
+//
+//   HundredDaysBasicEnglishCourseData.fromJson(Map<String, dynamic> json) {
+//     id = json['id'];
+//     title = json['title'];
+//     thumbnail = json['thumbnail'];
+//     youtubeLink = json['youtubeLink'];
+//     shortDescription = json['shortDescription'];
+//     description = json['description'];
+//     streamedLiveOn = json['streamedLiveOn'];
+//     totalViews = json['totalViews'];
+//     status = json['status'];
+//   }
+//
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = <String, dynamic>{};
+//     data['id'] = id;
+//     data['title'] = title;
+//     data['thumbnail'] = thumbnail;
+//     data['youtubeLink'] = youtubeLink;
+//     data['shortDescription'] = shortDescription;
+//     data['description'] = description;
+//     data['streamedLiveOn'] = streamedLiveOn;
+//     data['totalViews'] = totalViews;
+//     data['status'] = status;
+//     return data;
+//   }
+// }

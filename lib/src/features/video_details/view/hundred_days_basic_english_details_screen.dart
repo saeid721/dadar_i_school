@@ -28,12 +28,10 @@ class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
   });
 
   @override
-  State<HundredDaysBasicEnglishVideoDetailsScreen> createState() =>
-      _HundredDaysBasicEnglishVideoDetailsScreenState();
+  State<HundredDaysBasicEnglishVideoDetailsScreen> createState() => _HundredDaysBasicEnglishVideoDetailsScreenState();
 }
 
-class _HundredDaysBasicEnglishVideoDetailsScreenState
-    extends State<HundredDaysBasicEnglishVideoDetailsScreen> {
+class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysBasicEnglishVideoDetailsScreen> {
   final VideoController controller = Get.put(VideoController());
   YoutubePlayerController? youtubePlayerController;
 
@@ -51,19 +49,11 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState
         );
       }
     } else {
-      VideoPlayerController videoPlayerController =
-      VideoPlayerController.network(widget.youtubeLink);
-
+      VideoPlayerController videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.youtubeLink));
     }
 
     // Lock the orientation to portrait
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
-  @override
-  void dispose() {
-    youtubePlayerController?.dispose();
-    super.dispose();
   }
 
   Widget _buildVideoPlayer() {
@@ -180,6 +170,10 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState
       ),
     );
   }
+
+  @override
+  void dispose() {
+    youtubePlayerController?.dispose();
+    super.dispose();
+  }
 }
-
-

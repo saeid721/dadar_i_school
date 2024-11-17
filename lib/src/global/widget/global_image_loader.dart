@@ -2,7 +2,6 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import '../../domain/server/http_client/app_config.dart';
 import '../constants/enum.dart';
 
 class GlobalImageLoader extends StatelessWidget {
@@ -28,7 +27,7 @@ class GlobalImageLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     if (imageFor == ImageFor.network) {
       return Image.network(
-        "${AppConfig.base.url}$imagePath",
+        imagePath,
         height: height,
         width: width,
         fit: fit,

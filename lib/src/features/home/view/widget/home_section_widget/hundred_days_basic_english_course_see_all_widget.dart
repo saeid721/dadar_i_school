@@ -5,11 +5,11 @@ import '../../../../../global/constants/colors_resources.dart';
 import '../../../../../global/widget/global_image_loader.dart';
 import '../../../../../global/widget/global_text.dart';
 
-class HundredDaysBasicEnglishCourseSeeAllMenuWidget extends StatelessWidget {
+class HundredDaysBasicEnglishSeeAllMenuWidget extends StatelessWidget {
   final String thumbnail;
   final String title;
   final Function() onTap;
-  const HundredDaysBasicEnglishCourseSeeAllMenuWidget({
+  const HundredDaysBasicEnglishSeeAllMenuWidget({
     super.key,
     required this.thumbnail,
     required this.title,

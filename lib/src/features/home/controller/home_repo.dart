@@ -32,23 +32,21 @@ import 'package:flutter/services.dart' as rootBundle;
 
 import '../model/hundred_days_basic_english_course_model.dart';
 
-
 class HomeRepository extends ApiHelper {
 
-
   /// * HundredDaysBasicEnglishCourseModel * //
-  Future<HundredDaysBasicEnglishCourseModel?> getHundredDaysBasicEnglishCourseList() async {
+  Future<HundredDaysBasicEnglishModel?> getHundredDaysBasicEnglishList() async {
     // final response = await requestHandler.get("");
     try {
       //* ==@ Load the JSON file from assets
-      final String response = await rootBundle.rootBundle.loadString('assets/json/hundred_days_basic_english_response.json');
+      final String response = await rootBundle.rootBundle.loadString('assets/json/beginner_spoken_english_response.json');
       //* ==@ Parse the JSON
       final Map<String, dynamic> addressDemoResponse = json.decode(response);
 
       //* ==@ Create a ResponseWrapper instance (assuming you have a ResponseWrapper model)
       ResponseWrapper resWrap = ResponseWrapper.fromJson(addressDemoResponse);
       if (resWrap.status == 200) {
-        return HundredDaysBasicEnglishCourseModel.fromJson(resWrap.data ?? {});
+        return HundredDaysBasicEnglishModel.fromJson(resWrap.data ?? {});
       }
     } catch (e) {
       log("Error loading address data: $e");

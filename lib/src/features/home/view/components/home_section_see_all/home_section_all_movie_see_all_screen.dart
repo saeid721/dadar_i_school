@@ -79,7 +79,7 @@ class _HomeSectionAllMovieSeeAllScreenState extends State<HomeSectionAllMovieSee
                   ),
                   itemBuilder: (ctx, index) {
                     final homePageRecentData = homePageController.homeSectionAllMovieSeeAllModel?.data?.result?[index];
-                    return HundredDaysBasicEnglishCourseSeeAllMenuWidget(
+                    return HundredDaysBasicEnglishSeeAllMenuWidget(
                       thumbnail: homePageRecentData?.thumbnail ?? '',
                       title: LanguageCheck.checkLanguage(
                         langCode: langCode,

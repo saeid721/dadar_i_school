@@ -87,19 +87,16 @@ class HomePageController extends GetxController implements GetxService {
   }
 
   /// * HundredDaysBasicEnglishCourseModel * //
-  HundredDaysBasicEnglishCourseModel? hundredDaysBasicEnglishCourseModel;
-  Future getHundredDaysBasicEnglishCourseList() async {
+  HundredDaysBasicEnglishModel? hundredDaysBasicEnglishModel;
+  Future getHundredDaysBasicEnglishList() async {
     try {
       _isLoading = true;
       _hasError = false;
       update();
 
-      final response = await repository.getHundredDaysBasicEnglishCourseList();
+      final response = await repository.getHundredDaysBasicEnglishList();
 
-      if (response?.code == 200) {
-        hundredDaysBasicEnglishCourseModel = response;
-        //log("message ${hundredDaysBasicEnglishCourseModel?.data}");
-      }
+      hundredDaysBasicEnglishModel = response;
       _isLoading = false;
       update();
 

@@ -26,7 +26,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
     final homePageController = HomePageController.current;
 
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await homePageController.getHundredDaysBasicEnglishCourseList();
+      await homePageController.getHundredDaysBasicEnglishList();
     });
   }
 
