@@ -27,6 +27,10 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
 
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await homePageController.getHundredDaysBasicEnglishList();
+      await homePageController.getBeginnerSpokenEnglishList();
+      await homePageController.getHundredDaysSpokenEnglishList();
+      await homePageController.getSpokenEnglishPracticeList();
+      await homePageController.getEnglishGrammarCourseList();
     });
   }
 
