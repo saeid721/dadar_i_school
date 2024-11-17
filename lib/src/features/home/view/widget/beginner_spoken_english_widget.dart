@@ -31,7 +31,7 @@ class _BeginnerSpokenEnglishWidgetState extends State<BeginnerSpokenEnglishWidge
           children: [
             sizedBoxH(10),
             MovieMenuBarWidget(
-              text: "100 Days Basic English Course",
+              text: "Beginner Spoken English Course",
               seeAllOnTap: () {
                 Get.to(() => const BeginnerSpokenEnglishSeeAllScreen());
               },
