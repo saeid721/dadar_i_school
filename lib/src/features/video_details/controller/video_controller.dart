@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoController {
+class VideoController extends ChangeNotifier {
   YoutubePlayerController? youtubePlayerController;
   VideoPlayerController? videoPlayerController;
 
@@ -17,7 +17,12 @@ class VideoController {
   }
 
   void initializeVideoPlayerController(String videoLink) {
-    videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(videoLink));
+    videoPlayerController?.dispose(); // Dispose previous instance
+    videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(videoLink))
+      ..initialize().then((_) {
+        videoPlayerController!.play();
+        notifyListeners();
+      });
   }
 
   Widget buildYoutubePlayer() {
@@ -33,9 +38,8 @@ class VideoController {
     }
   }
 
-  void dispose() {
+  void disposeControllers() {
     youtubePlayerController?.dispose();
     videoPlayerController?.dispose();
   }
 }
-
