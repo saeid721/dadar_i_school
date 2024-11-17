@@ -82,7 +82,7 @@ class _HundredDaysSpokenEnglishVideoDetailsScreenState extends State<HundredDays
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: GlobalText(
-                            str: "100 Days Spoken English Practice",
+                            str: "100 Days Spoken English Course",
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),

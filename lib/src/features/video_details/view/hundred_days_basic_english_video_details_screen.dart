@@ -81,7 +81,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: GlobalText(
-                            str: "100 Days Basic English Course",
+                            str: "Beginner Spoken English Course",
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
