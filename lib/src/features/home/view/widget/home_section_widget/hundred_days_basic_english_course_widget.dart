@@ -40,7 +40,7 @@ class _HundredDaysBasicEnglishWidgetState extends State<HundredDaysBasicEnglishW
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.hundredDaysBasicEnglishModel?.beginnerList?.map((recent) {
+                children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
                       return BasicEnglishCourseMenuWidget(
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",

@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../model/hundred_days_basic_english_course_model.dart';
+import '../model/hundred_days_basic_english_model.dart';
 import '../model/section_data_model.dart';
 import '../model/home_section/home_section_all_movie_model.dart';
 import '../model/home_section/home_section_all_movie_see_all_model.dart';

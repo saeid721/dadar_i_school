@@ -29,7 +29,7 @@ import '../model/home_section_model.dart';
 import '../model/home_slider_model.dart';
 import '../model/home_section/home_section_up_coming_model.dart';
 import 'package:flutter/services.dart' as root_bundle;
-import '../model/hundred_days_basic_english_course_model.dart';
+import '../model/hundred_days_basic_english_model.dart';
 
 class HomeRepository extends ApiHelper {
 

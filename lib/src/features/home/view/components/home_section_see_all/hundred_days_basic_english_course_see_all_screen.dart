@@ -37,7 +37,7 @@ class _HundredDaysBasicEnglishCourseSeeAllScreenState extends State<HundredDaysB
               ),
               Expanded(
                 child: GridView.builder(
-                  itemCount: homePageController.hundredDaysBasicEnglishModel?.beginnerList?.length,
+                  itemCount: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.length,
                   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10, top: 10),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -46,7 +46,7 @@ class _HundredDaysBasicEnglishCourseSeeAllScreenState extends State<HundredDaysB
                     childAspectRatio: 1.04,
                   ),
                   itemBuilder: (ctx, index) {
-                    final courseData = homePageController.hundredDaysBasicEnglishModel?.beginnerList?[index];
+                    final courseData = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?[index];
                     return HundredDaysBasicEnglishSeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",

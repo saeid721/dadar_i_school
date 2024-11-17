@@ -70,4 +70,8 @@ flutter:
     - assets/app_src/icon/
     - assets/app_src/icon/social_ic/
     - assets/json/beginner_spoken_english_response.json
+    - assets/json/english_grammar_course_response.json
+    - assets/json/hundred_days_basic_english_response.json
+    - assets/json/hundred_days_spoken_english_response.json
+    - assets/json/spoken_english_practice_response.json
 

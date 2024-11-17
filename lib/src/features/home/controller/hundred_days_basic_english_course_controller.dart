@@ -1,7 +1,7 @@
 // import 'dart:developer';
 // import 'package:get/get.dart';
 // import 'package:flutter/material.dart';
-// import '../model/hundred_days_basic_english_course_model.dart';
+// import '../model/hundred_days_basic_english_model.dart';
 // import '../model/section_data_model.dart';
 // import 'hundred_days_basic_english_course_repository.dart';
 //

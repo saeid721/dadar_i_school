@@ -4,7 +4,7 @@
 // import 'package:dadar_i_school/src/domain/server/http_client/response_wrapper.dart';
 // import 'package:flutter/services.dart' as rootBundle;
 //
-// import '../model/hundred_days_basic_english_course_model.dart';
+// import '../model/hundred_days_basic_english_model.dart';
 //
 // class HundredDaysBasicEnglishCourseRepo extends ApiHelper {
 //
