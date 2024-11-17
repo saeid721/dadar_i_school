@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../../global/constants/colors_resources.dart';
@@ -9,7 +8,6 @@ import '../../../global/widget/global_bottom_widget.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
-import '../controller/video_controller.dart';
 
 class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
   final String id;
@@ -32,7 +30,7 @@ class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
 }
 
 class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysBasicEnglishVideoDetailsScreen> {
-  final VideoController controller = Get.put(VideoController());
+  //final VideoController controller = Get.put(VideoController());
   YoutubePlayerController? youtubePlayerController;
 
   @override

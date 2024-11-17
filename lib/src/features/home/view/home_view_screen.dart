@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_sized_box.dart';
-import '../controller/home_controller.dart';
+import '../controller/hundred_days_basic_english_controller.dart';
+import 'widget/beginner_spoken_english_widget.dart';
 import 'widget/carousel_slider_widget/carousel_slider_widget.dart';
-import 'widget/home_section_widget/beginner_spoken_english_widget.dart';
-import 'widget/home_section_widget/english_grammar_course_widget.dart';
-import 'widget/home_section_widget/hundred_days_basic_english_course_widget.dart';
-import 'widget/home_section_widget/hundred_days_spoken_english_practice_widget.dart';
-import 'widget/home_section_widget/spoken_english_practice_widget.dart';
+import 'widget/english_grammar_course_widget.dart';
+import 'widget/hundred_days_basic_english_widget.dart';
+import 'widget/hundred_days_spoken_english_widget.dart';
+import 'widget/spoken_english_practice_english_widget.dart';
 
 class HomeViewScreen extends StatefulWidget {
   const HomeViewScreen({super.key});

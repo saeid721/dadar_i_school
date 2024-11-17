@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../account/view/account_screen.dart';
 import '../../download/view/download_screen.dart';
-import '../../home/controller/home_controller.dart';
+import '../../home/controller/hundred_days_basic_english_controller.dart';
 import '../../home/view/home_screen.dart';
 import '../../search/view/search_screen.dart';
 

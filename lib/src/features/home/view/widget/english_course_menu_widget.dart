@@ -3,11 +3,11 @@ import '../../../../global/constants/enum.dart';
 import '../../../../global/widget/global_image_loader.dart';
 import '../../../../global/widget/global_text.dart';
 
-class BasicEnglishCourseMenuWidget extends StatelessWidget {
+class HundredDaysBasicEnglishMenuWidget extends StatelessWidget {
   final String thumbnail;
   final String title;
   final Function() onTap;
-  const BasicEnglishCourseMenuWidget({
+  const HundredDaysBasicEnglishMenuWidget({
     super.key,
     required this.thumbnail,
     required this.title,
@@ -103,11 +103,11 @@ class BeginnerSpokenEnglishMenuWidget extends StatelessWidget {
   }
 }
 
-class HundredDaysSpokenEnglishPracticeMenuWidget extends StatelessWidget {
+class HundredDaysSpokenEnglishMenuWidget extends StatelessWidget {
   final String thumbnail;
   final String title;
   final Function() onTap;
-  const HundredDaysSpokenEnglishPracticeMenuWidget({
+  const HundredDaysSpokenEnglishMenuWidget({
     super.key,
     required this.thumbnail,
     required this.title,
