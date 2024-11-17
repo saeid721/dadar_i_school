@@ -5,7 +5,7 @@ import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import '../../../../global/widget/global_appbar.dart';
 import '../../../video_details/view/hundred_days_basic_english_details_screen.dart';
-import '../../controller/hundred_days_basic_english_controller.dart';
+import '../../controller/home_controller.dart';
 import '../widget/hundred_days_basic_english_see_all_widget.dart';
 
 class HundredDaysBasicEnglishSeeAllScreen extends StatefulWidget {

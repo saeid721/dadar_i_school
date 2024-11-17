@@ -5,7 +5,7 @@ import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import '../../../../global/widget/global_appbar.dart';
 import '../../../video_details/view/hundred_days_basic_english_details_screen.dart';
-import '../../controller/hundred_days_basic_english_controller.dart';
+import '../../controller/home_controller.dart';
 import '../widget/hundred_days_basic_english_see_all_widget.dart';
 
 class BeginnerSpokenEnglishSeeAllScreen extends StatefulWidget {
@@ -37,7 +37,7 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
               ),
               Expanded(
                 child: GridView.builder(
-                  itemCount: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.length,
+                  itemCount: homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList?.length,
                   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10, top: 10),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -46,7 +46,7 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
                     childAspectRatio: 1.04,
                   ),
                   itemBuilder: (ctx, index) {
-                    final courseData = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?[index];
+                    final courseData = homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList?[index];
                     return HundredDaysBasicEnglishSeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",

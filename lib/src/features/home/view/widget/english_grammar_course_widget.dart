@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../video_details/view/hundred_days_basic_english_details_screen.dart';
-import '../../controller/hundred_days_basic_english_controller.dart';
+import '../../controller/home_controller.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../components/english_grammar_course_see_all_screen.dart';
-import '../components/hundred_days_spoken_english_see_all_screen.dart';
 import 'english_course_menu_widget.dart';
-import 'english_grammar_course_see_all_widget.dart';
 import 'movie_menu_bar_widget.dart';
 
 class EnglishGrammarCourseWidget extends StatefulWidget {
@@ -42,7 +40,7 @@ class _EnglishGrammarCourseWidgetState extends State<EnglishGrammarCourseWidget>
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
+                children: homePageController.englishGrammarCourseModel?.englishGrammarCourseList?.map((recent) {
                       return EnglishGrammarCourseMenuWidget(
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",

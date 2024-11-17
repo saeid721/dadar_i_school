@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../video_details/view/hundred_days_basic_english_details_screen.dart';
-import '../../controller/hundred_days_basic_english_controller.dart';
+import '../../controller/home_controller.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../components/hundred_days_spoken_english_see_all_screen.dart';
 import 'english_course_menu_widget.dart';
@@ -31,7 +31,7 @@ class _HundredDaysSpokenEnglishWidgetState extends State<HundredDaysSpokenEnglis
           children: [
             sizedBoxH(10),
             MovieMenuBarWidget(
-              text: "100 Days Basic English Course",
+              text: "100 Days Spoken English Course",
               seeAllOnTap: () {
                 Get.to(() => const HundredDaysSpokenEnglishSeeAllScreen());
               },
@@ -40,7 +40,7 @@ class _HundredDaysSpokenEnglishWidgetState extends State<HundredDaysSpokenEnglis
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
+                children: homePageController.hundredDaysSpokenEnglishModel?.hundredDaysSpokenEnglishList?.map((recent) {
                       return HundredDaysSpokenEnglishMenuWidget(
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",

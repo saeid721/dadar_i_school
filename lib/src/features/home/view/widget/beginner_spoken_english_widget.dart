@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../video_details/view/hundred_days_basic_english_details_screen.dart';
-import '../../controller/hundred_days_basic_english_controller.dart';
+import '../../controller/home_controller.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../components/beginner_spoken_english_see_all_screen.dart';
 import 'english_course_menu_widget.dart';
@@ -40,7 +40,7 @@ class _BeginnerSpokenEnglishWidgetState extends State<BeginnerSpokenEnglishWidge
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
+                children: homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList?.map((recent) {
                       return BeginnerSpokenEnglishMenuWidget(
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",

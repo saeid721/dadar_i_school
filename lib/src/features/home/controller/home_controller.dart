@@ -1,9 +1,13 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../model/beginner_spoken_english_model.dart';
+import '../model/english_grammar_course_model.dart';
 import '../model/hundred_days_basic_english_model.dart';
 import '../model/home_section_data_model.dart';
-import 'hundred_days_basic_english_repository.dart';
+import '../model/hundred_days_spoken_english_model.dart';
+import '../model/spoken_english_practice_model.dart';
+import 'home_repository.dart';
 
 class HomePageController extends GetxController implements GetxService {
   static HomePageController get current => Get.find();
@@ -69,7 +73,7 @@ class HomePageController extends GetxController implements GetxService {
     update();
   }
 
-  /// * HundredDaysBasicEnglishCourseModel * //
+  /// * Hundred Days Basic English Model * //
   HundredDaysBasicEnglishModel? hundredDaysBasicEnglishModel;
   Future getHundredDaysBasicEnglishList() async {
     try {
@@ -80,6 +84,90 @@ class HomePageController extends GetxController implements GetxService {
       final response = await repository.getHundredDaysBasicEnglishList();
 
       hundredDaysBasicEnglishModel = response;
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  /// * Beginner Spoken English Model * //
+  BeginnerSpokenEnglishModel? beginnerSpokenEnglishModel;
+  Future getBeginnerSpokenEnglishList() async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getBeginnerSpokenEnglishList();
+
+      beginnerSpokenEnglishModel = response;
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  /// * Hundred Days Spoken English Model * //
+  HundredDaysSpokenEnglishModel? hundredDaysSpokenEnglishModel;
+  Future getHundredDaysSpokenEnglishList() async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getHundredDaysSpokenEnglishList();
+
+      hundredDaysSpokenEnglishModel = response;
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  /// * Spoken English Practice Model * //
+  SpokenEnglishPracticeModel? spokenEnglishPracticeModel;
+  Future getSpokenEnglishPracticeList() async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getSpokenEnglishPracticeList();
+
+      spokenEnglishPracticeModel = response;
+      _isLoading = false;
+      update();
+    } catch (e, s) {
+      log('Error: ', error: e, stackTrace: s);
+      _isLoading = false;
+      _hasError = true;
+      update();
+    }
+  }
+
+  /// * English Grammar Course Model * //
+  EnglishGrammarCourseModel? englishGrammarCourseModel;
+  Future getEnglishGrammarCourseList() async {
+    try {
+      _isLoading = true;
+      _hasError = false;
+      update();
+
+      final response = await repository.getEnglishGrammarCourseList();
+
+      englishGrammarCourseModel = response;
       _isLoading = false;
       update();
     } catch (e, s) {

@@ -8,7 +8,7 @@ import 'domain/local/preferences/storage_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
 import 'features/dashboard_bottom_navigation_bar/controller/dashboard_buttom_controller.dart';
 import 'features/download/controller/download_controller.dart';
-import 'features/home/controller/hundred_days_basic_english_controller.dart';
+import 'features/home/controller/home_controller.dart';
 import 'features/my_account/controller/my_account_controller.dart';
 import 'features/video_details/controller/video_details_controller.dart';
 
