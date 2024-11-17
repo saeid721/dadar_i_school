@@ -67,37 +67,10 @@ class _VideoDetailsScreenState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              GlobalText(
-                                str: widget.id,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              sizedBoxH(3),
-                              GlobalText(
-                                str: widget.title,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ],
-                          ),
-                        ),
-                        sizedBoxW(10),
-                        GlobalButtonWidget(
-                          str: "Download",
-                          height: 30,
-                          width: 70,
-                          buttomColor: ColorRes.appCeruleanColor,
-                          textSize: 11,
-                          onTap: () => log('Download tapped'),
-                        ),
-                      ],
+                    GlobalText(
+                      str: widget.title,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
                     ),
                     sizedBoxH(5),
                     ExpandableDescription(

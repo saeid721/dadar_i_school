@@ -2,12 +2,10 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
-import 'package:dadar_i_school/src/service/auth/controller/auth_controller.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/storage_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
 import 'features/dashboard_bottom_navigation_bar/controller/dashboard_buttom_controller.dart';
-import 'features/download/controller/download_controller.dart';
 import 'features/home/controller/home_controller.dart';
 import 'features/my_account/controller/my_account_controller.dart';
 import 'features/video_details/controller/video_details_controller.dart';
@@ -25,7 +23,7 @@ Future<void> init(LocalStorage localStorage) async {
   // ==# UI Controllers using GetX lazyPut for screen management
   // Get.lazyPut(() => AuthController(), fenix: true);
   Get.lazyPut(() => HomePageController(), fenix: true);
-  Get.lazyPut(() => DownloadController(), fenix: true);
+  // Get.lazyPut(() => DownloadController(), fenix: true);
   Get.lazyPut(() => DashboardBottomController(), fenix: true);
   Get.lazyPut(() => VideoDetailsController(), fenix: true);
   Get.lazyPut(() => MyAccountController(), fenix: true);

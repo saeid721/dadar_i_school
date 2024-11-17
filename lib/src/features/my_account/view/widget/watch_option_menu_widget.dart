@@ -5,12 +5,12 @@ import '../../../../global/widget/global_image_loader.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../../../../global/widget/global_text.dart';
 
-class DownloadOptionMenuWidget extends StatelessWidget {
+class WatchOptionMenuWidget extends StatelessWidget {
   final String img;
   final String title;
   final String? subTitle;
   final Function() onTap;
-  const DownloadOptionMenuWidget({
+  const WatchOptionMenuWidget({
     super.key,
     required this.img,
     required this.title,

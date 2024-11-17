@@ -14,9 +14,6 @@
 // import '../../../global/widget/global_textform_field.dart';
 // import '../../../service/empty_data/empty_data_widget.dart';
 // import '../../video_details/controller/video_details_controller.dart';
-// import '../../video_details/view/movie_video_details_screen.dart';
-// import '../../video_details/view/series_video_details_screen.dart';
-// import 'components/watch_more_vert_screen.dart';
 // import 'widget/watch_list_menu_widget.dart';
 //
 // class WatchListScreen extends StatefulWidget {
@@ -34,12 +31,6 @@
 //   void initState() {
 //     // TODO: implement initState
 //     super.initState();
-//     final subscriberId = locator<LocalStorage>().getString(key: StorageKeys.subscribersId);
-//     if(subscriberId != null){
-//       // VideoDetailsController.current.getWatchList(
-//       //     subscriberId: locator<LocalStorage>().getString(key: StorageKeys.subscribersId)
-//       // );
-//     }
 //
 //   }
 //
@@ -85,13 +76,12 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return GetBuilder<VideoDetailsController>(builder: (videoDetailsController){
-//       final langCode = locator<LocalStorage>().getString(key: StorageKeys.langCode);
 //       return Scaffold(
 //         key: scaffoldKey,
 //         body: GlobalContainer(
 //           height: size(context).height,
 //           width: size(context).width,
-//           color: ColorRes.appBackColor,
+//           color: ColorRes.appColor,
 //           child: Column(
 //             children: [
 //
@@ -109,58 +99,13 @@
 //                       children: [
 //
 //                         sizedBoxH(10),
-//                         GlobalTextFormField(
-//                           controller: searchCon,
-//                           hintText: "Search Movie & Series",
-//                           filled: true,
-//                           fillColor: ColorRes.bottomColor,
-//                           isDense: true,
-//                           prefixIcon: const Padding(
-//                             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-//                             child: GlobalImageLoader(
-//                               imagePath: Images.searchIc,
-//                               color: ColorRes.white200,
-//                               height: 20,
-//                               width: 20,
-//                               fit: BoxFit.fill,
-//                             ),
-//                           ),
-//                           sufixIcon: searchCon.text.isNotEmpty ? Padding(
-//                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-//                             child: GestureDetector(
-//                               onTap: (){
-//                                 setState(() {
-//                                   searchCon.clear();
-//                                 });
-//                               },
-//                               child: const GlobalImageLoader(
-//                                 imagePath: Images.close,
-//                                 color: ColorRes.white200,
-//                                 height: 20,
-//                                 width: 20,
-//                                 fit: BoxFit.fill,
-//                               ),
-//                             ),
-//                           ) : const SizedBox.shrink(),
-//                           onChanged: (val){
-//                             setState(() {
-//                               searchCon.text = val;
-//                             });
-//                           },
-//                         ),
-//
-//                         sizedBoxH(10),
 //                         Expanded(
-//                           child: videoDetailsController.watchListModel?.data?.isNotEmpty ?? false
-//                               ? ListView.builder(
-//                             itemCount: videoDetailsController.watchListModel?.data?.length ?? 0,
+//                           child:ListView.builder(
+//                             itemCount:50,
 //                             shrinkWrap: true,
 //                             itemBuilder: (ctx, index) {
-//                               final reversedIndex = (videoDetailsController.watchListModel?.data?.length ?? 0) - 1 - index;
-//                               final watchListData = videoDetailsController.watchListModel?.data?[reversedIndex];
-//                               if(watchListData?.movieId != null){
 //                                 return WatchListMenuWidget(
-//                                   img: "${watchListData?.movie?.thumbnail}",
+//                                   img: Images.logInIc,
 //                                   text: LanguageCheck.checkLanguage(
 //                                       langCode: langCode,
 //                                       enText: watchListData?.movie?.title ?? "",

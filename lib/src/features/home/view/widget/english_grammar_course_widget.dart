@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../video_details/view/english_grammar_course_video_details_screen.dart';
 import '../../../video_details/view/video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../../../../global/widget/global_sized_box.dart';

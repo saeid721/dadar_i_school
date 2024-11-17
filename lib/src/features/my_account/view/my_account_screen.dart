@@ -53,32 +53,6 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const GlobalAppbarWidget(
-                    title: "My Account",
-                    // action: [
-                    //   GestureDetector(
-                    //     onTap: (){
-                    //       showDialog(
-                    //         context: context,
-                    //         builder: (context) {
-                    //           return const DeleteYourAccountScreen();
-                    //         },
-                    //       );
-                    //     },
-                    //     child: Container(
-                    //       height: 40,
-                    //       width: 40,
-                    //       color: Colors.transparent,
-                    //       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 9),
-                    //       child: const GlobalImageLoader(
-                    //           imagePath: Images.deleteIc,
-                    //           color: ColorRes.appRedColor
-                    //       ),
-                    //     ),
-                    //   ),
-                    //   sizedBoxW(5)
-                    // ],
-                  ),
 
                   Expanded(
                     child: Container(
