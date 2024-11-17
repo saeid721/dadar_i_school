@@ -1,8 +1,8 @@
 {
     "status": 200,
-    "message": "Basic Spoken Practice fetched successfully",
+    "message": "Beginner Spoken English fetched successfully",
     "data": {
-        "beginner_list": [
+        "beginner_spoken_english_list": [
             {
                 "id": 1,
                 "title": "Day 1/100, Basic Spoken English Practice Class for Beginners",

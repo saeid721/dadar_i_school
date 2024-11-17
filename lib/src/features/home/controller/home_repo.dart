@@ -28,18 +28,17 @@ import '../model/home_section/home_section_top_series_model.dart';
 import '../model/home_section_model.dart';
 import '../model/home_slider_model.dart';
 import '../model/home_section/home_section_up_coming_model.dart';
-import 'package:flutter/services.dart' as rootBundle;
-
+import 'package:flutter/services.dart' as root_bundle;
 import '../model/hundred_days_basic_english_course_model.dart';
 
 class HomeRepository extends ApiHelper {
 
-  /// * HundredDaysBasicEnglishCourseModel * //
+  /// * Hundred Days Basic English Model * //
   Future<HundredDaysBasicEnglishModel?> getHundredDaysBasicEnglishList() async {
     // final response = await requestHandler.get("");
     try {
       //* ==@ Load the JSON file from assets
-      final String response = await rootBundle.rootBundle.loadString('assets/json/beginner_spoken_english_response.json');
+      final String response = await root_bundle.rootBundle.loadString('assets/json/hundred_days_basic_english_response.json');
       //* ==@ Parse the JSON
       final Map<String, dynamic> addressDemoResponse = json.decode(response);
 
