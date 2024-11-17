@@ -7,7 +7,7 @@
 // import '../../../../../initializer.dart';
 // import '../../../../../service/language_check/language_check.dart';
 // import '../../../../home/view/widget/home_shimmer_widget/home_section_recent_shimmer.dart';
-// import '../../../../home/view/widget/movie_menu_bar_widget.dart';
+// import '../../../../home/view/widget/english_course_bar_widget.dart';
 // import '../../../controller/video_details_controller.dart';
 // import '../../episode_video_details_screen.dart';
 // import 'series_section_menu_widget.dart';

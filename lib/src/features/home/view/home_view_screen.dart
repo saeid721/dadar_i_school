@@ -48,11 +48,11 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
 
                   // List of Sections
                   ListView.builder(
-                    itemCount: homePageController.sections.length,
+                    itemCount: homePageController.homeSectionList.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (ctx, index) {
-                      final sectionData = homePageController.sections[index];
+                      final sectionData = homePageController.homeSectionList[index];
                       switch (sectionData.sectionType) {
                         case "hundred_days_basic_english":
                           return HundredDaysBasicEnglishWidget(id: sectionData.id);

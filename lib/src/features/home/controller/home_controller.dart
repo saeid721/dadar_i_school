@@ -54,7 +54,7 @@ class HomePageController extends GetxController implements GetxService {
     update();
   }
 
-  List<HomeSectionDataModel> sections = [];
+  List<HomeSectionDataModel> homeSectionList = [];
 
   @override
   void onInit() {
@@ -63,7 +63,7 @@ class HomePageController extends GetxController implements GetxService {
   }
 
   void loadHomeSections() {
-    sections = [
+    homeSectionList = [
       HomeSectionDataModel(id: "1", sectionType: "hundred_days_basic_english", title: "100 Days Basic English Course"),
       HomeSectionDataModel(id: "2", sectionType: "beginner_spoken_english", title: "Beginner Spoken English"),
       HomeSectionDataModel(id: "3", sectionType: "hundred_days_spoken_english", title: "100 Days Spoken English Practice"),

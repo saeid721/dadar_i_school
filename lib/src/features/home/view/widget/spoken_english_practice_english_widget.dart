@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../video_details/view/hundred_days_basic_english_details_screen.dart';
+import '../../../video_details/view/video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../components/spoken_english_practice_see_all_screen.dart';
 import 'english_course_menu_widget.dart';
-import 'movie_menu_bar_widget.dart';
+import 'english_course_bar_widget.dart';
 
 class SpokenEnglishPracticeWidget extends StatefulWidget {
   final String id;
@@ -30,7 +30,7 @@ class _SpokenEnglishPracticeWidgetState extends State<SpokenEnglishPracticeWidge
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             sizedBoxH(10),
-            MovieMenuBarWidget(
+            EnglishCourseMenuBarWidget(
               text: "Spoken English Practice",
               seeAllOnTap: () {
                 Get.to(() => const SpokenEnglishPracticeSeeAllScreen());
@@ -45,7 +45,7 @@ class _SpokenEnglishPracticeWidgetState extends State<SpokenEnglishPracticeWidge
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",
                         onTap: () {
-                          Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
+                          Get.to(() => VideoDetailsScreen(
                                 id: recent.id.toString(),
                                 title: recent.title ?? "",
                                 shortDescription: recent.shortDescription ?? "",

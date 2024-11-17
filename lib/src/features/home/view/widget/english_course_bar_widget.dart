@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
 import '../../../../global/widget/global_text.dart';
 
-class MovieMenuBarWidget extends StatelessWidget {
+class EnglishCourseMenuBarWidget extends StatelessWidget {
   final String text;
   final bool? isSeeAll;
   final Function() seeAllOnTap;
-  const MovieMenuBarWidget({
+  const EnglishCourseMenuBarWidget({
     super.key,
     required this.text,
     this.isSeeAll = true,
