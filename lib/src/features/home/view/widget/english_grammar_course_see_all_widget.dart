@@ -48,9 +48,10 @@ class EnglishGrammarCourseSeeAllMenuWidget extends StatelessWidget {
               child: GlobalText(
                 str: title,
                 fontSize: 13,
-                fontWeight: FontWeight.w500,
-                maxLines: 3,
+                maxLines: 2,
+                color: ColorRes.appColor,
                 overflow: TextOverflow.ellipsis,
+                fontWeight: FontWeight.w500,
               ),
             )
           ],

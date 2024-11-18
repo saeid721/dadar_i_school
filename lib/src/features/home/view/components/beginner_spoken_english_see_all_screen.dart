@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
-import 'package:dadar_i_school/src/global/widget/global_container.dart';
-import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
+import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_appbar.dart';
-import '../../../video_details/view/hundred_days_basic_english_video_details_screen.dart';
+import '../../../../global/widget/global_container.dart';
+import '../../../../global/widget/global_sized_box.dart';
+import '../../../video_details/view/beginner_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/hundred_days_basic_english_see_all_widget.dart';
+import '../widget/english_course_menu_widget.dart';
 
 class BeginnerSpokenEnglishSeeAllScreen extends StatefulWidget {
 
@@ -43,15 +43,15 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 1.04,
+                    childAspectRatio: 1.15,
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList?[index];
-                    return HundredDaysBasicEnglishSeeAllMenuWidget(
+                    return BeginnerSpokenEnglishMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {
-                        Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
+                        Get.to(() => BeginnerSpokenEnglishVideoDetailsScreen(
                           id: courseData?.id.toString() ?? "",
                           title: courseData?.title ?? "",
                           shortDescription: courseData?.shortDescription ?? "",

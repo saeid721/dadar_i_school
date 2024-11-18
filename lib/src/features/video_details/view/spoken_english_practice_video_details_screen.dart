@@ -70,7 +70,8 @@ class _SpokenEnglishPracticeVideoDetailsScreenState extends State<SpokenEnglishP
                     children: [
                       GlobalText(
                         str: widget.title,
-                        fontSize: 14,
+                        fontSize: 16,
+                        color: ColorRes.textColor,
                         fontWeight: FontWeight.w500,
                       ),
                       sizedBoxH(5),
@@ -81,6 +82,7 @@ class _SpokenEnglishPracticeVideoDetailsScreenState extends State<SpokenEnglishP
                       GlobalText(
                         str: "Spoken English Practice",
                         fontSize: 16,
+                        color: ColorRes.appCeruleanColor ,
                         fontWeight: FontWeight.w500,
                       ),
                     ],

@@ -70,7 +70,8 @@ class _EnglishGrammarCourseVideoDetailsScreenState extends State<EnglishGrammarC
                     children: [
                       GlobalText(
                         str: widget.title,
-                        fontSize: 14,
+                        fontSize: 16,
+                        color: ColorRes.textColor,
                         fontWeight: FontWeight.w500,
                       ),
                       sizedBoxH(5),
@@ -81,6 +82,7 @@ class _EnglishGrammarCourseVideoDetailsScreenState extends State<EnglishGrammarC
                       GlobalText(
                         str: "English Grammar Course",
                         fontSize: 16,
+                        color: ColorRes.appCeruleanColor ,
                         fontWeight: FontWeight.w500,
                       ),
                     ],

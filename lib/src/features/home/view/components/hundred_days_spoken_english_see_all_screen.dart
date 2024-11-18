@@ -4,9 +4,9 @@ import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
 import 'package:dadar_i_school/src/global/widget/global_container.dart';
 import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
 import '../../../../global/widget/global_appbar.dart';
-import '../../../video_details/view/hundred_days_basic_english_video_details_screen.dart';
+import '../../../video_details/view/hundred_days_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/hundred_days_basic_english_see_all_widget.dart';
+import '../widget/hundred_days_spoken_english_see_all_widget.dart';
 
 class HundredDaysSpokenEnglishSeeAllScreen extends StatefulWidget {
 
@@ -43,15 +43,15 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 1.04,
+                    childAspectRatio: 1.15,
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.hundredDaysSpokenEnglishModel?.hundredDaysSpokenEnglishList?[index];
-                    return HundredDaysBasicEnglishSeeAllMenuWidget(
+                    return HundredDaysSpokenEnglishSeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {
-                        Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
+                        Get.to(() => HundredDaysSpokenEnglishVideoDetailsScreen(
                           id: courseData?.id.toString() ?? "",
                           title: courseData?.title ?? "",
                           shortDescription: courseData?.shortDescription ?? "",
