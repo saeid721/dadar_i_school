@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../video_details/view/spoken_english_practice_video_details_screen.dart';
-import '../../../video_details/view/video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../components/spoken_english_practice_see_all_screen.dart';
@@ -46,7 +45,7 @@ class _SpokenEnglishPracticeWidgetState extends State<SpokenEnglishPracticeWidge
                         thumbnail: recent.thumbnail ?? "",
                         title: recent.title ?? "",
                         onTap: () {
-                          Get.to(() => VideoDetailsScreen(
+                          Get.to(() => SpokenEnglishPracticeVideoDetailsScreen(
                                 id: recent.id.toString(),
                                 title: recent.title ?? "",
                                 shortDescription: recent.shortDescription ?? "",
