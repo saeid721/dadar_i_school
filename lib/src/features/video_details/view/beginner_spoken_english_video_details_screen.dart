@@ -1,18 +1,13 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:video_player/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../../global/constants/colors_resources.dart';
-import '../../../global/widget/global_bottom_widget.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
 import '../../home/controller/home_controller.dart';
 import '../../home/view/widget/see_all_vertical_widget.dart';
 import '../controller/video_controller.dart';
-import 'hundred_days_basic_english_video_details_screen.dart';
 
 class BeginnerSpokenEnglishVideoDetailsScreen extends StatefulWidget {
   final String id;
@@ -109,14 +104,9 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
                             return SeeAllMenuVerticalWidget(
                               thumbnail: courseData?.thumbnail ?? "",
                               title: courseData?.title ?? "",
+                              shortDescription: courseData?.shortDescription ?? "",
                               onTap: () {
-                                Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
-                                  id: courseData?.id.toString() ?? "",
-                                  title: courseData?.title ?? "",
-                                  shortDescription: courseData?.shortDescription ?? "",
-                                  thumbnail: courseData?.thumbnail ?? "",
-                                  youtubeLink: courseData?.youtubeLink ?? "",
-                                ));
+                                videoController.currentVideoIndex = index;
                               },
                             );
                           },

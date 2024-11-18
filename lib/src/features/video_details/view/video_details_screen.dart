@@ -105,6 +105,7 @@ class _VideoDetailsScreenState extends State<VideoDetailsScreen> {
                                   return SeeAllMenuVerticalWidget(
                                     thumbnail: courseData?.thumbnail ?? "",
                                     title: courseData?.title ?? "",
+                                    shortDescription: courseData?.shortDescription ?? "",
                                     onTap: () {
                                       Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
                                             id: courseData?.id.toString() ?? "",

@@ -6,9 +6,33 @@ class VideoController extends ChangeNotifier {
   YoutubePlayerController? youtubePlayerController;
   VideoPlayerController? videoPlayerController;
 
+  List<Map<String, String>> playlist = [];
+  int currentVideoIndex = 0;
+
+  // Set playlist from data
+  void setPlaylist(List<Map<String, String>> videos) {
+    playlist = videos;
+    currentVideoIndex = 0;
+    _loadVideo();
+  }
+
+  // Load current video
+  void _loadVideo() {
+    if (playlist.isNotEmpty) {
+      final videoLink = playlist[currentVideoIndex]['youtubeLink']!;
+      if (videoLink.contains('youtube.com') || videoLink.contains('youtu.be')) {
+        initializeYoutubeController(videoLink);
+      } else {
+        initializeVideoPlayerController(videoLink);
+      }
+      notifyListeners();
+    }
+  }
+
   void initializeYoutubeController(String youtubeLink) {
     String? videoId = YoutubePlayer.convertUrlToId(youtubeLink);
     if (videoId != null) {
+      youtubePlayerController?.dispose();
       youtubePlayerController = YoutubePlayerController(
         initialVideoId: videoId,
         flags: const YoutubePlayerFlags(autoPlay: true, mute: false),
@@ -17,12 +41,26 @@ class VideoController extends ChangeNotifier {
   }
 
   void initializeVideoPlayerController(String videoLink) {
-    videoPlayerController?.dispose(); // Dispose previous instance
+    videoPlayerController?.dispose();
     videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(videoLink))
       ..initialize().then((_) {
         videoPlayerController!.play();
         notifyListeners();
       });
+  }
+
+  void playNext() {
+    if (currentVideoIndex < playlist.length - 1) {
+      currentVideoIndex++;
+      _loadVideo();
+    }
+  }
+
+  void playPrevious() {
+    if (currentVideoIndex > 0) {
+      currentVideoIndex--;
+      _loadVideo();
+    }
   }
 
   Widget buildYoutubePlayer() {

@@ -8,11 +8,13 @@ import '../../../../global/widget/global_text.dart';
 class SeeAllMenuVerticalWidget extends StatelessWidget {
   final String thumbnail;
   final String title;
+  final String shortDescription;
   final Function() onTap;
   const SeeAllMenuVerticalWidget({
     super.key,
     required this.thumbnail,
     required this.title,
+    required this.shortDescription,
     required this.onTap,
   });
 
@@ -28,8 +30,7 @@ class SeeAllMenuVerticalWidget extends StatelessWidget {
           color: ColorRes.bottomColor.withOpacity(0.5),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               flex: 1,
@@ -52,12 +53,24 @@ class SeeAllMenuVerticalWidget extends StatelessWidget {
               flex: 3,
               child: Padding(
                 padding: const EdgeInsets.only(left: 5),
-                child: GlobalText(
-                  str: title,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GlobalText(
+                      str: title,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    GlobalText(
+                      str: shortDescription,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
               ),
             )

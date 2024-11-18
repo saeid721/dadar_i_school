@@ -104,14 +104,9 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                             return SeeAllMenuVerticalWidget(
                               thumbnail: courseData?.thumbnail ?? "",
                               title: courseData?.title ?? "",
+                              shortDescription: courseData?.shortDescription ?? "",
                               onTap: () {
-                                Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
-                                  id: courseData?.id.toString() ?? "",
-                                  title: courseData?.title ?? "",
-                                  shortDescription: courseData?.shortDescription ?? "",
-                                  thumbnail: courseData?.thumbnail ?? "",
-                                  youtubeLink: courseData?.youtubeLink ?? "",
-                                ));
+                                videoController.currentVideoIndex = index;
                               },
                             );
                           },
