@@ -38,7 +38,7 @@ Widget buildCarouselSlider() {
       autoPlay: true,
       enlargeCenterPage: true,
       viewportFraction: 1.0,
-      aspectRatio: 1.0,
+      aspectRatio: 1.2,
       initialPage: 0,
     ),
   );
