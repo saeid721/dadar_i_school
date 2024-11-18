@@ -31,6 +31,7 @@ class SeeAllMenuVerticalWidget extends StatelessWidget {
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
               flex: 1,

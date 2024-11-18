@@ -49,81 +49,84 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<HomePageController>(
-        builder: (homePageController) {
+      body: GetBuilder<HomePageController>(builder: (homePageController) {
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             color: ColorRes.appNavyColor,
-            child: SingleChildScrollView(
-              // Scrollable widget to handle overflow
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  sizedBoxH(27),
-                  videoController.buildYoutubePlayer(),
-                  sizedBoxH(10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        GlobalText(
-                          str: widget.title,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                sizedBoxH(30),
+                videoController.buildYoutubePlayer(), // Video player remains fixed
+                sizedBoxH(10),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      GlobalText(
+                        str: widget.title,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      sizedBoxH(5),
+                      ExpandableDescription(
+                        description: widget.shortDescription,
+                      ),
+                      sizedBoxH(20),
+                      GlobalText(
+                        str: "Beginner Spoken English Course",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: GlobalContainer(
+                        color: ColorRes.appNavyColor,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList != null
+                                ? ListView.builder(
+                              padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    physics: const NeverScrollableScrollPhysics(), // Prevent scroll conflict
+                                    itemCount: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.length ?? 0,
+                                    itemBuilder: (ctx, index) {
+                                      final courseData = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?[index];
+                                      return SeeAllMenuVerticalWidget(
+                                        thumbnail: courseData?.thumbnail ?? "",
+                                        title: courseData?.title ?? "",
+                                        shortDescription: courseData?.shortDescription ?? "",
+                                        onTap: () {
+                                          videoController.currentVideoIndex = index;
+                                        },
+                                      );
+                                    },
+                                  )
+                                : Center(
+                                    child: GlobalText(
+                                      str: "No data available",
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                            const SizedBox(height: 80),
+                          ],
                         ),
-                        sizedBoxH(5),
-                        ExpandableDescription(
-                          description: widget.shortDescription,
-                        ),
-                        sizedBoxH(20),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: GlobalText(
-                            str: "Beginner Spoken English Course",
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList != null
-                            ? ListView.builder(
-                          shrinkWrap: true, // Prevents infinite height error
-                          physics: const NeverScrollableScrollPhysics(), // Avoids nested scroll conflicts
-                          itemCount: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.length ?? 0,
-                          itemBuilder: (ctx, index) {
-                            final courseData = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?[index];
-                            return SeeAllMenuVerticalWidget(
-                              thumbnail: courseData?.thumbnail ?? "",
-                              title: courseData?.title ?? "",
-                              shortDescription: courseData?.shortDescription ?? "",
-                              onTap: () {
-                                videoController.currentVideoIndex = index;
-                              },
-                            );
-                          },
-                        )
-                            : Center(
-                          child: GlobalText(
-                            str: "No data available",
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 80),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },

@@ -33,10 +33,13 @@ class GlobalImageLoader extends StatelessWidget {
         fit: fit,
         color: color,
         errorBuilder: errorBuilder ?? (context, exception, stackTrace) => Center(
-            child: Image.asset("assets/app_src/place_holder_img.jpg",
-                height: height,
-                width: width,
-                fit: BoxFit.fill,
+            child: Opacity(
+              opacity: 0.3,
+              child: Image.asset("assets/app_src/dadar_i_school.png",
+                  height: height,
+                  width: width,
+                  fit: BoxFit.fill,
+              ),
             )
           )
       );
@@ -49,10 +52,13 @@ class GlobalImageLoader extends StatelessWidget {
         fit: fit,
         color: color,
         errorBuilder: errorBuilder ?? (context, exception, stackTrace) => Center(
-            child: Image.asset("assets/app_src/place_holder_img.jpg",
-              height: height,
-              width: width,
-              fit: BoxFit.fill,
+            child: Opacity(
+              opacity: 0.3,
+              child: Image.asset("assets/app_src/dadar_i_school.png",
+                height: height,
+                width: width,
+                fit: BoxFit.fill,
+              ),
             )
         ),
       );
@@ -64,10 +70,13 @@ class GlobalImageLoader extends StatelessWidget {
         fit: fit,
         color: color,
         errorBuilder: errorBuilder ?? (context, exception, stackTrace) => Center(
-            child: Image.asset("assets/app_src/place_holder_img.jpg",
+            child: Opacity(
+              opacity: 0.3,
+              child: Image.asset("assets/app_src/dadar_i_school.png",
                 height: height,
                 width: width,
-                fit: BoxFit.fill
+                fit: BoxFit.fill,
+              ),
             )
         ),
       );
