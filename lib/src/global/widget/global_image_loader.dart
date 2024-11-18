@@ -34,11 +34,19 @@ class GlobalImageLoader extends StatelessWidget {
         color: color,
         errorBuilder: errorBuilder ?? (context, exception, stackTrace) => Center(
             child: Opacity(
-              opacity: 0.3,
-              child: Image.asset("assets/app_src/dadar_i_school.png",
-                  height: height,
-                  width: width,
-                  fit: BoxFit.fill,
+              opacity: 0.1,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.white, // Border color
+                    width: 1.0,         // Border width
+                  ),
+                ),
+                child: Image.asset("assets/app_src/dadar_i_school.png",
+                    height: height,
+                    width: width,
+                    fit: BoxFit.fill,
+                ),
               ),
             )
           )
@@ -53,11 +61,19 @@ class GlobalImageLoader extends StatelessWidget {
         color: color,
         errorBuilder: errorBuilder ?? (context, exception, stackTrace) => Center(
             child: Opacity(
-              opacity: 0.3,
-              child: Image.asset("assets/app_src/dadar_i_school.png",
-                height: height,
-                width: width,
-                fit: BoxFit.fill,
+              opacity: 0.1,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.white, // Border color
+                    width: 1.0,         // Border width
+                  ),
+                ),
+                child: Image.asset("assets/app_src/dadar_i_school.png",
+                  height: height,
+                  width: width,
+                  fit: BoxFit.fill,
+                ),
               ),
             )
         ),
@@ -71,11 +87,19 @@ class GlobalImageLoader extends StatelessWidget {
         color: color,
         errorBuilder: errorBuilder ?? (context, exception, stackTrace) => Center(
             child: Opacity(
-              opacity: 0.3,
-              child: Image.asset("assets/app_src/dadar_i_school.png",
-                height: height,
-                width: width,
-                fit: BoxFit.fill,
+              opacity: 0.1,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.white, // Border color
+                    width: 1.0,         // Border width
+                  ),
+                ),
+                child: Image.asset("assets/app_src/dadar_i_school.png",
+                  height: height,
+                  width: width,
+                  fit: BoxFit.fill,
+                ),
               ),
             )
         ),
