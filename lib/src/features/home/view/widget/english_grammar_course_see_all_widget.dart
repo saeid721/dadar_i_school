@@ -24,7 +24,7 @@ class EnglishGrammarCourseSeeAllMenuWidget extends StatelessWidget {
         width: size(context).width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: ColorRes.bottomColor.withOpacity(0.5),
+          color: ColorRes.appSecondaryColor,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
