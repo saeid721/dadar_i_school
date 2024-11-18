@@ -49,7 +49,8 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<HomePageController>(builder: (homePageController) {
+      body: GetBuilder<HomePageController>(
+        builder: (homePageController) {
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -96,7 +97,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                           children: [
                             homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList != null
                                 ? ListView.builder(
-                              padding: EdgeInsets.zero,
+                                    padding: EdgeInsets.zero,
                                     shrinkWrap: true,
                                     physics: const NeverScrollableScrollPhysics(), // Prevent scroll conflict
                                     itemCount: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.length ?? 0,

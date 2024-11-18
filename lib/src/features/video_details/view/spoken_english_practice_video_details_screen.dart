@@ -49,7 +49,8 @@ class _SpokenEnglishPracticeVideoDetailsScreenState extends State<SpokenEnglishP
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<HomePageController>( builder: (homePageController) {
+      body: GetBuilder<HomePageController>(
+        builder: (homePageController) {
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -96,6 +97,7 @@ class _SpokenEnglishPracticeVideoDetailsScreenState extends State<SpokenEnglishP
                           children: [
                             homePageController.spokenEnglishPracticeModel?.spokenEnglishPracticeList != null
                                 ? ListView.builder(
+                                    padding: EdgeInsets.zero,
                                     shrinkWrap: true, // Prevents infinite height error
                                     physics: const NeverScrollableScrollPhysics(), // Avoids nested scroll conflicts
                                     itemCount: homePageController.spokenEnglishPracticeModel?.spokenEnglishPracticeList?.length ?? 0,

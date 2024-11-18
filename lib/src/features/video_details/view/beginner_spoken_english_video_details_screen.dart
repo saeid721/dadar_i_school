@@ -49,7 +49,8 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<HomePageController>( builder: (homePageController) {
+      body: GetBuilder<HomePageController>(
+        builder: (homePageController) {
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -96,6 +97,7 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
                           children: [
                             homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList != null
                                 ? ListView.builder(
+                                    padding: EdgeInsets.zero,
                                     shrinkWrap: true, // Prevents infinite height error
                                     physics: const NeverScrollableScrollPhysics(), // Avoids nested scroll conflicts
                                     itemCount: homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList?.length ?? 0,
