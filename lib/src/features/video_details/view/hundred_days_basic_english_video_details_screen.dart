@@ -78,7 +78,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                       ),
                       sizedBoxH(20),
                       GlobalText(
-                        str: "Beginner Spoken English Course",
+                        str: "100 Days Basic English Course",
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
