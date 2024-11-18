@@ -22,7 +22,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return GlobalContainer(
       height: Get.height,
       width: 130,
-      color: ColorRes.appNavyColor,
+      color: ColorRes.appBackgroundColor,
       margin: const EdgeInsets.only(top: 100, bottom: 200),
       borderRadius: const BorderRadius.only(
           topRight: Radius.circular(5),

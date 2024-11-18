@@ -28,7 +28,7 @@ class _HundredDaysBasicEnglishSeeAllVerticaleScreenState extends State<HundredDa
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appNavyColor,
+          color: ColorRes.appBackgroundColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

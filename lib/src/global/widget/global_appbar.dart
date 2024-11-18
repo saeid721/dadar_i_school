@@ -17,7 +17,7 @@ class GlobalAppbarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 30, bottom: 10),
-      color: ColorRes.black.withOpacity(0.5),
+      color: ColorRes.appColor,
       child: Row(
         children: [
           GestureDetector(

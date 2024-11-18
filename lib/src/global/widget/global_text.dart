@@ -173,7 +173,8 @@ class _ExpandableDescriptionState extends State<ExpandableDescription> {
           str: widget.description,
           maxLines: isExpanded ? null : widget.maxLines,
           overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
-          fontSize: 11,
+          fontSize: 12,
+          color: ColorRes.black,
         ),
         Align(
           alignment: Alignment.centerRight,
@@ -187,7 +188,7 @@ class _ExpandableDescriptionState extends State<ExpandableDescription> {
               padding: const EdgeInsets.only(right: 5),
               child: GlobalText(
                 str: isExpanded ? "See less" : "See more",
-                color: ColorRes.appCeruleanColor,
+                color: ColorRes.appColor,
                 fontSize: 12,
               ),
             ),

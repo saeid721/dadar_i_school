@@ -45,7 +45,7 @@ class _VideoDetailsPlayBackSpeedScreenState extends State<VideoDetailsPlayBackSp
               width: size(context).width,
               margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               decoration: BoxDecoration(
-                  color: ColorRes.appNavyColor,
+                  color: ColorRes.appBackgroundColor,
                   borderRadius: BorderRadius.circular(10)
               ),
               padding: const EdgeInsets.symmetric(horizontal: 10),

@@ -28,7 +28,7 @@ class _HundredDaysBasicEnglishSeeAllScreenState extends State<HundredDaysBasicEn
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appNavyColor,
+          color: ColorRes.appBackgroundColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -43,7 +43,7 @@ class _HundredDaysBasicEnglishSeeAllScreenState extends State<HundredDaysBasicEn
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 1.04,
+                    childAspectRatio: 1.15,
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?[index];

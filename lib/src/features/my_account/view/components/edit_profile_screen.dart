@@ -46,7 +46,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<MyAccountController>(builder: (myAccountController){
       return AlertDialog(
-        backgroundColor: ColorRes.appNavyColor.withOpacity(0.9),
+        backgroundColor: ColorRes.appBackgroundColor.withOpacity(0.9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),

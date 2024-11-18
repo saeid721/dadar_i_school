@@ -24,7 +24,7 @@ class HundredDaysBasicEnglishSeeAllMenuWidget extends StatelessWidget {
         width: size(context).width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: ColorRes.bottomColor.withOpacity(0.5),
+          color: ColorRes.appSecondaryColor,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,9 +48,10 @@ class HundredDaysBasicEnglishSeeAllMenuWidget extends StatelessWidget {
               child: GlobalText(
                 str: title,
                 fontSize: 13,
-                fontWeight: FontWeight.w500,
-                maxLines: 3,
+                maxLines: 2,
+                color: ColorRes.appColor,
                 overflow: TextOverflow.ellipsis,
+                fontWeight: FontWeight.w500,
               ),
             )
           ],

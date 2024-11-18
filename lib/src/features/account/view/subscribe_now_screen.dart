@@ -50,7 +50,7 @@ class _SubscribeNowScreenState extends State<SubscribeNowScreen> {
         body: GlobalContainer(
           height: size(context).height,
           width: size(context).width,
-          color: ColorRes.appNavyColor,
+          color: ColorRes.appBackgroundColor,
           child: Column(
             children: [
 

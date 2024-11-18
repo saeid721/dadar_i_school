@@ -24,7 +24,7 @@ class ShimmerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       baseColor: ColorRes.bottomColor,
-      highlightColor: ColorRes.appNavyColor,
+      highlightColor: ColorRes.appBackgroundColor,
       child: Container(
         height: height,
         width: width,

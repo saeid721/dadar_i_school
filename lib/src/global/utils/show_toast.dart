@@ -59,7 +59,7 @@ class OverlayLoadingIndicator extends StatelessWidget {
           width: 120,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: ColorRes.appNavyColor,
+            color: ColorRes.appBackgroundColor,
             borderRadius: BorderRadius.circular(6),
           ),
           child: const Column(

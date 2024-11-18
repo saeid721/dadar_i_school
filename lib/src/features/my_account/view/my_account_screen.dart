@@ -49,7 +49,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             child: GlobalContainer(
               height: size(context).height,
               width: size(context).width,
-              color: ColorRes.appNavyColor,
+              color: ColorRes.appBackgroundColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

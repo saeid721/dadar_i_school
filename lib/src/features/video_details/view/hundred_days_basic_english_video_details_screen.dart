@@ -54,7 +54,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: ColorRes.appNavyColor,
+            color: ColorRes.appBackgroundColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -70,7 +70,8 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                     children: [
                       GlobalText(
                         str: widget.title,
-                        fontSize: 14,
+                        fontSize: 16,
+                        color: ColorRes.textColor,
                         fontWeight: FontWeight.w500,
                       ),
                       sizedBoxH(5),
@@ -81,6 +82,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                       GlobalText(
                         str: "100 Days Basic English Course",
                         fontSize: 16,
+                        color: ColorRes.appCeruleanColor ,
                         fontWeight: FontWeight.w500,
                       ),
                     ],
@@ -91,7 +93,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: GlobalContainer(
-                        color: ColorRes.appNavyColor,
+                        color: ColorRes.appBackgroundColor,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

@@ -61,7 +61,7 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                               children: [
                                 GlobalImageLoader(
                                   imagePath: navItemList[index].img,
-                                  color: dashboardBottomController.selectedIndex == index ? ColorRes.appCeruleanColor : ColorRes.white,
+                                  color: dashboardBottomController.selectedIndex == index ? ColorRes.appCeruleanColor : ColorRes.listTileBackColor,
                                   height: 20,
                                   width: 20,
                                 ),
@@ -75,7 +75,7 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                                   child: GlobalText(
                                     str: navItemList[index].title,
                                     fontSize: 9,
-                                    color: ColorRes.white,
+                                    color: ColorRes.listTileBackColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 )

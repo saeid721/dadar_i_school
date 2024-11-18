@@ -55,7 +55,7 @@ class _VideoDetailsScreenState extends State<VideoDetailsScreen> {
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: ColorRes.appNavyColor,
+            color: ColorRes.appBackgroundColor,
             child: SingleChildScrollView(
               // Scrollable widget to handle overflow
               child: Column(

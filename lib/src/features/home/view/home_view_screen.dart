@@ -40,7 +40,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
       builder: (homePageController) {
         return Scaffold(
           body: GlobalContainer(
-            color: ColorRes.appNavyColor,
+            color: ColorRes.appBackgroundColor,
             height: size(context).height,
             width: size(context).width,
             child: SingleChildScrollView(

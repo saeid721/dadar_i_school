@@ -52,7 +52,7 @@ class CarouselSliderWidget extends StatelessWidget {
               gradient: LinearGradient(
                 colors: [
                   Colors.transparent,
-                  ColorRes.appNavyColor,
+                  ColorRes.appBackgroundColor,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,

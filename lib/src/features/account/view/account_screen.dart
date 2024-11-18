@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
-import 'package:dadar_i_school/src/global/constants/images.dart';
-import 'package:dadar_i_school/src/global/widget/global_container.dart';
-import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
+import '../../../global/constants/colors_resources.dart';
+import '../../../global/constants/images.dart';
 import '../../../global/widget/dotted/global_dotted_line_painter.dart';
+import '../../../global/widget/global_container.dart';
+import '../../../global/widget/global_sized_box.dart';
 import '../../../global/widget/global_text.dart';
 import '../../my_account/view/widget/account_menu_widget.dart';
 
@@ -25,7 +25,7 @@ class _MenuScreenState extends State<MenuScreen> {
       body: GlobalContainer(
         height: size(context).height,
         width: size(context).width,
-        color: ColorRes.appNavyColor,
+        color: ColorRes.appBackgroundColor,
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

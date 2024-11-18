@@ -68,12 +68,13 @@ class ColorRes {
 
   // ==/@ App Color @/==
 
-  static const Color appColor = Color(0xFF000000);
-  static const Color appNavyColor = Color(0xFF0E1424);
-  static const Color appCeruleanColor = Color(0xFF028391);
-  static const Color textColor = Color(0xFFFEAE6F);
-  static const Color bottomColor = Color(0xFF01204E);
-  static const Color listTileBackColor = Color(0xFFF6DCAC);
+  static const Color appColor = Color(0xFF0D1282);
+  static const Color appBackgroundColor = Color(0xFFEEEFFF);
+  static const Color appSecondaryColor = Color(0xFFCEE6F3);
+  static const Color appCeruleanColor = Color(0xFFD71313);
+  static const Color textColor = Color(0xFF0D1282);
+  static const Color bottomColor = Color(0xFF0D1282);
+  static const Color listTileBackColor = Color(0xFFEEEFFF);
 
   static const List<Color> splashColor = [
     Color(0xFF7BC7E9), // #7BC7E9

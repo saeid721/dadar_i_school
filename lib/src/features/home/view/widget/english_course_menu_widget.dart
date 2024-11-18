@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/constants/enum.dart';
 import '../../../../global/widget/global_image_loader.dart';
 import '../../../../global/widget/global_text.dart';
@@ -43,6 +44,7 @@ class HundredDaysBasicEnglishMenuWidget extends StatelessWidget {
               str: title,
               fontSize: 12,
               maxLines: 1,
+              color: ColorRes.appColor,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w500,
             )
@@ -93,6 +95,7 @@ class BeginnerSpokenEnglishMenuWidget extends StatelessWidget {
               str: title,
               fontSize: 12,
               maxLines: 1,
+              color: ColorRes.appColor,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w500,
             )
@@ -143,6 +146,7 @@ class HundredDaysSpokenEnglishMenuWidget extends StatelessWidget {
               str: title,
               fontSize: 12,
               maxLines: 1,
+              color: ColorRes.appColor,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w500,
             )
@@ -193,6 +197,7 @@ class SpokenEnglishPracticeMenuWidget extends StatelessWidget {
               str: title,
               fontSize: 12,
               maxLines: 1,
+              color: ColorRes.appColor,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w500,
             )
@@ -243,6 +248,7 @@ class EnglishGrammarCourseMenuWidget extends StatelessWidget {
               str: title,
               fontSize: 12,
               maxLines: 1,
+              color: ColorRes.appColor,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w500,
             )

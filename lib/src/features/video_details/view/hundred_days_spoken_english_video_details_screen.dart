@@ -54,7 +54,7 @@ class _HundredDaysSpokenEnglishVideoDetailsScreenState extends State<HundredDays
           return GlobalContainer(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: ColorRes.appNavyColor,
+            color: ColorRes.appBackgroundColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -91,7 +91,7 @@ class _HundredDaysSpokenEnglishVideoDetailsScreenState extends State<HundredDays
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: GlobalContainer(
-                        color: ColorRes.appNavyColor,
+                        color: ColorRes.appBackgroundColor,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
