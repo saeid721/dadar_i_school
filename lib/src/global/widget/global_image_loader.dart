@@ -38,7 +38,7 @@ class GlobalImageLoader extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white, // Border color
+                    color: Colors.black, // Border color
                     width: 1.0,         // Border width
                   ),
                 ),
@@ -65,7 +65,7 @@ class GlobalImageLoader extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white, // Border color
+                    color: Colors.black, // Border color
                     width: 1.0,         // Border width
                   ),
                 ),
@@ -91,7 +91,7 @@ class GlobalImageLoader extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white, // Border color
+                    color: Colors.black, // Border color
                     width: 1.0,         // Border width
                   ),
                 ),
