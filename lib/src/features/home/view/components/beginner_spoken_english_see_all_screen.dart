@@ -6,7 +6,7 @@ import '../../../../global/widget/global_container.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../../../video_details/view/beginner_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/beginner_spoken_english_see_all_widget.dart';
+import '../widget/see_all_widget.dart';
 
 class BeginnerSpokenEnglishSeeAllScreen extends StatefulWidget {
 
@@ -47,7 +47,7 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList?[index];
-                    return BeginnerSpokenEnglishSeeAllMenuWidget(
+                    return SeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {

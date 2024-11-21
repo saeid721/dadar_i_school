@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
-import 'package:dadar_i_school/src/global/widget/global_container.dart';
-import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
+import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_appbar.dart';
+import '../../../../global/widget/global_container.dart';
+import '../../../../global/widget/global_sized_box.dart';
 import '../../../video_details/view/english_grammar_course_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/english_grammar_course_see_all_widget.dart';
+import '../widget/see_all_widget.dart';
 
 class EnglishGrammarCourseSeeAllScreen extends StatefulWidget {
 
@@ -47,7 +47,7 @@ class _EnglishGrammarCourseSeeAllScreenState extends State<EnglishGrammarCourseS
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.englishGrammarCourseModel?.englishGrammarCourseList?[index];
-                    return EnglishGrammarCourseSeeAllMenuWidget(
+                    return SeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {

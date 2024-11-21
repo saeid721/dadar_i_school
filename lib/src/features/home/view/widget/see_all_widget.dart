@@ -5,11 +5,11 @@ import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_image_loader.dart';
 import '../../../../global/widget/global_text.dart';
 
-class HundredDaysBasicEnglishSeeAllMenuWidget extends StatelessWidget {
+class SeeAllMenuWidget extends StatelessWidget {
   final String thumbnail;
   final String title;
   final Function() onTap;
-  const HundredDaysBasicEnglishSeeAllMenuWidget({
+  const SeeAllMenuWidget({
     super.key,
     required this.thumbnail,
     required this.title,
@@ -57,9 +57,9 @@ class HundredDaysBasicEnglishSeeAllMenuWidget extends StatelessWidget {
                 str: title,
                 fontSize: 13,
                 maxLines: 2,
-                color: ColorRes.appColor,
+                color: ColorRes.textColor,
                 overflow: TextOverflow.ellipsis,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
               ),
             )
           ],

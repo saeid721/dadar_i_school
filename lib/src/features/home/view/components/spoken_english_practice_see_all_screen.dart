@@ -6,7 +6,7 @@ import '../../../../global/widget/global_container.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../../../video_details/view/spoken_english_practice_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/spoken_english_practice_see_all_widget.dart';
+import '../widget/see_all_widget.dart';
 
 class SpokenEnglishPracticeSeeAllScreen extends StatefulWidget {
 
@@ -47,7 +47,7 @@ class _SpokenEnglishPracticeSeeAllScreenState extends State<SpokenEnglishPractic
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.spokenEnglishPracticeModel?.spokenEnglishPracticeList?[index];
-                    return SpokenEnglishPracticeSeeAllMenuWidget(
+                    return SeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {

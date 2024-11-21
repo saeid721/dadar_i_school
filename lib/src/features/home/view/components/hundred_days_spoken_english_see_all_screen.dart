@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dadar_i_school/src/global/constants/colors_resources.dart';
-import 'package:dadar_i_school/src/global/widget/global_container.dart';
-import 'package:dadar_i_school/src/global/widget/global_sized_box.dart';
+import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_appbar.dart';
+import '../../../../global/widget/global_container.dart';
+import '../../../../global/widget/global_sized_box.dart';
 import '../../../video_details/view/hundred_days_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/hundred_days_spoken_english_see_all_widget.dart';
+import '../widget/see_all_widget.dart';
 
 class HundredDaysSpokenEnglishSeeAllScreen extends StatefulWidget {
 
@@ -47,7 +47,7 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
                   ),
                   itemBuilder: (ctx, index) {
                     final courseData = homePageController.hundredDaysSpokenEnglishModel?.hundredDaysSpokenEnglishList?[index];
-                    return HundredDaysSpokenEnglishSeeAllMenuWidget(
+                    return SeeAllMenuWidget(
                       thumbnail: courseData?.thumbnail ?? "",
                       title: courseData?.title ?? "",
                       onTap: () {

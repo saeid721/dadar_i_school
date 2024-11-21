@@ -22,7 +22,7 @@ class EnglishCourseMenuBarWidget extends StatelessWidget {
           child: GlobalText(
             str: text,
             fontSize: 16,
-            color: ColorRes.appCeruleanColor,
+            color: ColorRes.appColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -30,9 +30,9 @@ class EnglishCourseMenuBarWidget extends StatelessWidget {
           onTap: seeAllOnTap,
           child: const GlobalText(
             str: "See All",
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: ColorRes.black,
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: ColorRes.deep300,
           ),
         ) : const SizedBox.shrink()
       ],

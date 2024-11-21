@@ -28,6 +28,14 @@ class SeeAllMenuVerticalWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: ColorRes.appSecondaryColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(0, 1),
+              blurRadius: 5,
+              spreadRadius: .5,
+            ),
+          ],
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +69,7 @@ class SeeAllMenuVerticalWidget extends StatelessWidget {
                       str: title,
                       fontSize: 12,
                       maxLines: 2,
-                      color: ColorRes.textColor,
+                      color: ColorRes.appColor,
                       fontWeight: FontWeight.w500,
                       overflow: TextOverflow.ellipsis,
                     ),
