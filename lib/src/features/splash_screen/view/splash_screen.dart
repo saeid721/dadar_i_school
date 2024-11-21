@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
         height: size(context).height,
         width: size(context).width,
         padding: const EdgeInsets.symmetric(horizontal: 60),
-        decoration: const BoxDecoration(color: ColorRes.appColor),
+        decoration: const BoxDecoration(color: ColorRes.appBackgroundColor),
         child: const Center(
           child: GlobalImageLoader(
             imagePath: Images.appLogo,
