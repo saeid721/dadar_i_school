@@ -33,13 +33,13 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                 width: size(context).width,
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 decoration: BoxDecoration(
-                    color: ColorRes.bottomColor,
+                    color: ColorRes.black,
                     borderRadius: const BorderRadius.all(Radius.circular(24)),
                     boxShadow: [
                       BoxShadow(
-                          color: ColorRes.appColor.withOpacity(0.3),
-                          offset: const Offset(0, 20),
-                          blurRadius: 20
+                          color: ColorRes.deep400.withOpacity(0.3),
+                          offset: const Offset(0, 5),
+                          blurRadius: 5
                       )
                     ]
                 ),
