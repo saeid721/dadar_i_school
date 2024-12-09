@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../global/widget/global_progress_hub.dart';
 import '../../../../global/widget/global_sized_box.dart';
 import '../../../video_details/view/hundred_days_basic_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
@@ -25,40 +26,43 @@ class _HundredDaysBasicEnglishWidgetState extends State<HundredDaysBasicEnglishW
     return GetBuilder<HomePageController>(builder: (homePageController) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            sizedBoxH(10),
-            EnglishCourseMenuBarWidget(
-              text: "100 Days Basic English Course",
-              seeAllOnTap: () {
-                Get.to(() => const HundredDaysBasicEnglishSeeAllScreen());
-              },
-            ),
-            sizedBoxH(5),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
-                      return HundredDaysBasicEnglishMenuWidget(
-                        thumbnail: recent.thumbnail ?? "",
-                        title: recent.title ?? "",
-                        onTap: () {
-                          Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
-                                id: recent.id.toString(),
-                                title: recent.title ?? "",
-                                shortDescription: recent.shortDescription ?? "",
-                                thumbnail: recent.thumbnail ?? "",
-                                youtubeLink: recent.youtubeLink ?? "",
-                              ));
-                        },
-                      );
-                    }).toList() ??
-                    [],
+        child: ProgressHUD(
+          inAsyncCall: homePageController.isLoading,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              sizedBoxH(10),
+              EnglishCourseMenuBarWidget(
+                text: "100 Days Basic English Course",
+                seeAllOnTap: () {
+                  Get.to(() => const HundredDaysBasicEnglishSeeAllScreen());
+                },
               ),
-            ),
-          ],
+              sizedBoxH(5),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
+                        return HundredDaysBasicEnglishMenuWidget(
+                          thumbnail: recent.thumbnail ?? "",
+                          title: recent.title ?? "",
+                          onTap: () {
+                            Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
+                                  id: recent.id.toString(),
+                                  title: recent.title ?? "",
+                                  shortDescription: recent.shortDescription ?? "",
+                                  thumbnail: recent.thumbnail ?? "",
+                                  youtubeLink: recent.youtubeLink ?? "",
+                                ));
+                          },
+                        );
+                      }).toList() ??
+                      [],
+                ),
+              ),
+            ],
+          ),
         ),
       );
     });

@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
 import '../../../global/widget/global_container.dart';
+import '../../../global/widget/global_progress_hub.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../controller/home_controller.dart';
 import 'widget/beginner_spoken_english_widget.dart';
@@ -39,41 +40,47 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
     return GetBuilder<HomePageController>(
       builder: (homePageController) {
         return Scaffold(
-          body: GlobalContainer(
-            color: ColorRes.appBackgroundColor,
-            height: size(context).height,
-            width: size(context).width,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+          body: ProgressHUD(
+            inAsyncCall: homePageController.isLoading,
+            child: GlobalContainer(
+              color: ColorRes.appBackgroundColor,
+              height: size(context).height,
+              width: size(context).width,
+              child: CustomScrollView(
+                slivers: [
                   // Carousel Slider
-                  buildCarouselSlider(),
+                  SliverToBoxAdapter(
+                    child: buildCarouselSlider(),
+                  ),
 
                   // List of Sections
-                  ListView.builder(
-                    itemCount: homePageController.homeSectionList.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (ctx, index) {
-                      final sectionData = homePageController.homeSectionList[index];
-                      switch (sectionData.sectionType) {
-                        case "hundred_days_basic_english":
-                          return HundredDaysBasicEnglishWidget(id: sectionData.id);
-                        case "beginner_spoken_english":
-                          return BeginnerSpokenEnglishWidget(id: sectionData.id);
-                        case "hundred_days_spoken_english":
-                          return HundredDaysSpokenEnglishWidget(id: sectionData.id);
-                        case "spoken_english_practice":
-                          return SpokenEnglishPracticeWidget(id: sectionData.id);
-                        case "english_grammar_course":
-                          return EnglishGrammarCourseWidget(id: sectionData.id);
-                        default:
-                          return const SizedBox.shrink();
-                      }
-                    },
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                          (ctx, index) {
+                        final sectionData = homePageController.homeSectionList[index];
+                        switch (sectionData.sectionType) {
+                          case "hundred_days_basic_english":
+                            return HundredDaysBasicEnglishWidget(id: sectionData.id);
+                          case "beginner_spoken_english":
+                            return BeginnerSpokenEnglishWidget(id: sectionData.id);
+                          case "hundred_days_spoken_english":
+                            return HundredDaysSpokenEnglishWidget(id: sectionData.id);
+                          case "spoken_english_practice":
+                            return SpokenEnglishPracticeWidget(id: sectionData.id);
+                          case "english_grammar_course":
+                            return EnglishGrammarCourseWidget(id: sectionData.id);
+                          default:
+                            return const SizedBox.shrink();
+                        }
+                      },
+                      childCount: homePageController.homeSectionList.length,
+                    ),
                   ),
-                  const SizedBox(height: 100),
+
+                  // Extra spacing at the bottom
+                  SliverToBoxAdapter(
+                    child: const SizedBox(height: 100),
+                  ),
                 ],
               ),
             ),
