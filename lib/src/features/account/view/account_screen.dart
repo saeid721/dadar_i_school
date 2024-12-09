@@ -37,6 +37,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 str: "Dadar i School",
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
+                color: ColorRes.appColor,
               ),
             ),
             sizedBoxH(20),

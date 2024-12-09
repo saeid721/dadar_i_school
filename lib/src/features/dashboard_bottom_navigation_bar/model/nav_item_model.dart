@@ -18,10 +18,10 @@ List<NavItemModel> navItemList = [
   //     title: "Search",
   //     img: "assets/app_src/icon/search_ic.png"
   // ),
-  NavItemModel(
-      title: "Download",
-      img: "assets/app_src/icon/download_ic.png"
-  ),
+  // NavItemModel(
+  //     title: "Download",
+  //     img: "assets/app_src/icon/download_ic.png"
+  // ),
   NavItemModel(
       title: "Menu",
       img: "assets/app_src/icon/account_ic.png"

@@ -23,7 +23,7 @@ class DashboardBottomController extends GetxController implements GetxService {
   List<Widget> dashBoardBottomScreen = <Widget>[
     const HomeScreen(),
     //const SearchScreen(),
-    //const DownloadScreen(),
+    // const DownloadScreen(),
     const MenuScreen()
   ];
 
