@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_progress_hub.dart';
-import '../../../global/widget/global_sized_box.dart';
+import '../../../global/widget/global_text.dart';
 import '../controller/home_controller.dart';
 import 'widget/beginner_spoken_english_widget.dart';
 import 'widget/carousel_slider_widget/carousel_slider_widget.dart';
@@ -21,43 +21,73 @@ class HomeViewScreen extends StatefulWidget {
 }
 
 class _HomeViewScreenState extends State<HomeViewScreen> {
+  late final HomePageController homePageController;
+
   @override
   void initState() {
     super.initState();
-    final homePageController = HomePageController.current;
+    homePageController = HomePageController.current;
 
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await homePageController.getHundredDaysBasicEnglishList();
-      await homePageController.getBeginnerSpokenEnglishList();
-      await homePageController.getHundredDaysSpokenEnglishList();
-      await homePageController.getSpokenEnglishPracticeList();
-      await homePageController.getEnglishGrammarCourseList();
+      await Future.wait([
+        homePageController.getHundredDaysBasicEnglishList(),
+        homePageController.getBeginnerSpokenEnglishList(),
+        homePageController.getHundredDaysSpokenEnglishList(),
+        homePageController.getSpokenEnglishPracticeList(),
+        homePageController.getEnglishGrammarCourseList(),
+      ]);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
-      builder: (homePageController) {
+      builder: (controller) {
         return Scaffold(
           body: ProgressHUD(
-            inAsyncCall: homePageController.isLoading,
+            inAsyncCall: controller.isLoading,
             child: GlobalContainer(
               color: ColorRes.appBackgroundColor,
-              height: size(context).height,
-              width: size(context).width,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
               child: CustomScrollView(
                 slivers: [
-                  // Carousel Slider
-                  SliverToBoxAdapter(
-                    child: buildCarouselSlider(),
+                  SliverAppBar(
+                    toolbarHeight: 70,
+                    expandedHeight: 300.0,
+                    pinned: true,
+                    backgroundColor: ColorRes.appColor,
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: buildCarouselSlider(),
+                    ),
+                    bottom: PreferredSize(
+                      preferredSize: const Size.fromHeight(20),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: const BoxDecoration(
+                          color: ColorRes.appBackgroundColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                        ),
+                        child: const GlobalText(
+                          str: "Dadar i School - The English Learning School",
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          textAlign: TextAlign.center,
+                          color: ColorRes.appColor,
+                        ),
+                      ),
+                    ),
                   ),
 
                   // List of Sections
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                           (ctx, index) {
-                        final sectionData = homePageController.homeSectionList[index];
+                        final sectionData = controller.homeSectionList[index];
                         switch (sectionData.sectionType) {
                           case "hundred_days_basic_english":
                             return HundredDaysBasicEnglishWidget(id: sectionData.id);
@@ -73,13 +103,13 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                             return const SizedBox.shrink();
                         }
                       },
-                      childCount: homePageController.homeSectionList.length,
+                      childCount: controller.homeSectionList.length,
                     ),
                   ),
 
                   // Extra spacing at the bottom
-                  SliverToBoxAdapter(
-                    child: const SizedBox(height: 100),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: 100),
                   ),
                 ],
               ),
