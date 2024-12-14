@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
-import '../../../global/widget/global_progress_hub.dart';
 import '../../../global/widget/global_sized_box.dart';
 import '../controller/home_controller.dart';
 import 'home_view_screen.dart';

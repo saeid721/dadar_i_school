@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
+import '../../../global/widget/custom_drawer_widget.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_progress_hub.dart';
 import '../../../global/widget/global_text.dart';
@@ -44,6 +45,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
     return GetBuilder<HomePageController>(
       builder: (controller) {
         return Scaffold(
+          drawer: const CustomDrawerWidget(),
           body: ProgressHUD(
             inAsyncCall: controller.isLoading,
             child: GlobalContainer(
@@ -54,6 +56,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                 slivers: [
                   SliverAppBar(
                     toolbarHeight: 70,
+                    iconTheme: const IconThemeData(color: Colors.white),
                     expandedHeight: 300.0,
                     pinned: true,
                     backgroundColor: ColorRes.appColor,
@@ -109,7 +112,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
 
                   // Extra spacing at the bottom
                   const SliverToBoxAdapter(
-                    child: SizedBox(height: 100),
+                    child: SizedBox(height: 20),
                   ),
                 ],
               ),

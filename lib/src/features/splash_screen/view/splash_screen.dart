@@ -7,7 +7,7 @@ import '../../../global/constants/colors_resources.dart';
 import '../../../global/constants/images.dart';
 import '../../../global/widget/global_image_loader.dart';
 import '../../../global/widget/global_sized_box.dart';
-import '../../dashboard_bottom_navigation_bar/dashboard_bottom_navigation_bar.dart';
+import '../../home/view/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,7 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void route() {
     Timer(const Duration(seconds: 3), () {
-      Get.offAll(() => const DashboardBottomNavigationBar());
+      Get.offAll(() => const HomeScreen());
+      //Get.offAll(() => const DashboardBottomNavigationBar());
     });
   }
 

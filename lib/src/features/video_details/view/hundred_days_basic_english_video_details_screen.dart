@@ -122,7 +122,7 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
                                       color: Colors.white,
                                     ),
                                   ),
-                            const SizedBox(height: 80),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),

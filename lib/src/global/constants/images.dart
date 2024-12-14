@@ -2,6 +2,16 @@ class Images {
   Images._();
 
   //================/@ App Default Img @/==============
+  static const String appLogo = 'assets/app_src/dadar_i_school.png';
+  static const String appLogoShadow = 'assets/app_src/dhuum_shadow_logo.png';
+  static const String bmi = 'assets/app_src/icon/bmi.gif';
+  static const String checklist = 'assets/app_src/icons/checklist.gif';
+  static const String info = 'assets/app_src/icon/info.gif';
+  static const String stars = 'assets/app_src/icon/stars.gif';
+  static const String feedback = 'assets/app_src/icon/feedback.gif';
+  static const String share = 'assets/app_src/icon/share.gif';
+  static const String contact = 'assets/app_src/icon/contact.gif';
+
   static const String close = 'assets/app_src/icon/close.png';
   static const String scanner = 'assets/main_src/icons/scanner.png';
   static const String eye1 = 'assets/app_src/icon/eye1.png';
@@ -10,11 +20,7 @@ class Images {
 
   //==============/@ App Img
 
-  static const String appLogo = 'assets/app_src/dadar_i_school.png';
-  static const String appLogoShadow = 'assets/app_src/dhuum_shadow_logo.png';
-
   static const String textUre = 'assets/app_src/texture.jpg';
-
 
   //==============/@ Icon
   static const String playBuIc = 'assets/app_src/icon/play_button_ic.png';
@@ -52,15 +58,5 @@ class Images {
   static const String youtubeIc = 'assets/app_src/icon/social_ic/youtube.png';
   static const String twitterIc = 'assets/app_src/icon/social_ic/twitter.png';
 
-
-  //==============/@ Dummy Img
-  static const String justiceLeagueImg = 'assets/dummy_img/justice_league.jpg';
-  static const String johnWick2Img = 'assets/dummy_img/John_Wick_2_Poster.webp';
-  static const String johnWickCharter2Img = 'assets/dummy_img/john_wick_chapter_2.jpg';
-
-  static const String porineetaImg = 'assets/dummy_img/porineeta_img.jpg';
-  static const String dharmajuddhaImg = 'assets/dummy_img/dharmajuddha.jpg';
-  static const String golamMamunImg = 'assets/dummy_img/golam_mamun_img.jpg';
-  static const String starMarkImg = 'assets/dummy_img/star_mark.webp';
 
 }

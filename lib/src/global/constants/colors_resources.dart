@@ -5,14 +5,15 @@ class ColorRes {
   BuildContext context;
   ColorRes(this.context);
 
-  /// All Panel Color
-  static const Color superShopColor = Color(0xFF0173BD);
-  static const Color pharmacyShopColor = Color(0xffBC2C3D);
-  static const Color electronicsShopColor = Colors.teal;
-  static const Color resturantShopColor = Color(0xFFB60000);
+  // ==/@ App Color @/==
 
-  static const Color dark = Color(0xff252525);
-  static const Color darkGaro = Color(0xff2d2d2d);
+  static const Color appColor = Color(0xFF0D1282);
+  static const Color appBackgroundColor = Color(0xFFF4F2EE);
+  static const Color appSecondaryColor = Color(0xFFFFFFFF);
+  static const Color appCeruleanColor = Color(0xFFD71313);
+  static const Color textColor = Color(0xFF000000);
+  static const Color bottomColor = Color(0xFF0D1282);
+  static const Color listTileBackColor = Color(0xFFEEEFFF);
 
 
   /// ==@ All Color Res @==
@@ -63,18 +64,11 @@ class ColorRes {
   static const Color deep250 = Color(0xFF7C7C7C);
   static const Color deep300 = Color(0xFF545454);
   static const Color deep400 = Color(0xFF2D2D2D);
+  static const Color dark = Color(0xff252525);
+  static const Color darkGaro = Color(0xff2d2d2d);
+
 
   static const Color pink100 = Color(0xFFFE002E);
-
-  // ==/@ App Color @/==
-
-  static const Color appColor = Color(0xFF0D1282);
-  static const Color appBackgroundColor = Color(0xFFF4F2EE);
-  static const Color appSecondaryColor = Color(0xFFFFFFFF);
-  static const Color appCeruleanColor = Color(0xFFD71313);
-  static const Color textColor = Color(0xFF000000);
-  static const Color bottomColor = Color(0xFF0D1282);
-  static const Color listTileBackColor = Color(0xFFEEEFFF);
 
   static const List<Color> splashColor = [
     Color(0xFF7BC7E9), // #7BC7E9

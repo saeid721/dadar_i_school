@@ -122,7 +122,7 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
                                       color: Colors.white,
                                     ),
                                   ),
-                            const SizedBox(height: 80),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),

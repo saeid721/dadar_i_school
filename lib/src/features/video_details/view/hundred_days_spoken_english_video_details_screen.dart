@@ -122,7 +122,7 @@ class _HundredDaysSpokenEnglishVideoDetailsScreenState extends State<HundredDays
                                       color: Colors.white,
                                     ),
                                   ),
-                            const SizedBox(height: 80),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),

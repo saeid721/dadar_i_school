@@ -122,7 +122,7 @@ class _SpokenEnglishPracticeVideoDetailsScreenState extends State<SpokenEnglishP
                                       color: Colors.white,
                                     ),
                                   ),
-                            const SizedBox(height: 80),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),

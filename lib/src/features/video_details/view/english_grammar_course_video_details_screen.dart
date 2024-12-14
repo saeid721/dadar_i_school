@@ -122,7 +122,7 @@ class _EnglishGrammarCourseVideoDetailsScreenState extends State<EnglishGrammarC
                                       color: Colors.white,
                                     ),
                                   ),
-                            const SizedBox(height: 80),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),
