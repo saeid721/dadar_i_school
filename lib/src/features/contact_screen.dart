@@ -44,7 +44,7 @@ class ContactUsScreen extends StatelessWidget {
             backgroundColor: ColorRes.appColor,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                'assets/images/top_bg.jpg',
+                'assets/images/ischool.png',
                 width: Get.width,
                 fit: BoxFit.fill,
               ),
@@ -66,12 +66,14 @@ class ContactUsScreen extends StatelessWidget {
 """,
                     fontWeight: FontWeight.w500,
                     textAlign: TextAlign.center,
+                    color: ColorRes.textColor,
                   ),
                   GlobalText(
                     str: "www.facebook.com/FlutterBangla",
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
                     textAlign: TextAlign.center,
+                    color: ColorRes.appColor,
                   ),
                   SizedBox(height: 50),
                   GlobalText(
