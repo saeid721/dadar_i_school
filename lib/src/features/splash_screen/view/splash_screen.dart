@@ -3,7 +3,6 @@ import 'package:dadar_i_school/src/global/constants/enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import '../../../global/constants/colors_resources.dart';
 import '../../../global/constants/images.dart';
 import '../../../global/widget/global_image_loader.dart';
 import '../../../global/widget/global_sized_box.dart';
@@ -43,12 +42,22 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         height: size(context).height,
         width: size(context).width,
-        padding: const EdgeInsets.symmetric(horizontal: 60),
-        decoration: const BoxDecoration(color: ColorRes.appBackgroundColor),
+        padding: const EdgeInsets.symmetric(horizontal: 50),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: const FractionalOffset(0.0, 0.0),
+            end: const FractionalOffset(1.5, 0.0),
+            stops: [0.0, 1.0],
+            colors: [
+              const Color(0xFF361334),
+              const Color(0xFF4150B5),
+            ],
+          ),
+        ),
         child: const Center(
           child: GlobalImageLoader(
             imagePath: Images.appLogo,
-            width: 160,
+            width: 250,
             fit: BoxFit.fill,
             imageFor: ImageFor.asset,
           ),

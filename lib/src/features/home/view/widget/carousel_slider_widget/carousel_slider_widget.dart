@@ -20,7 +20,7 @@ Widget buildCarouselSlider() {
     items: imgList
         .map((item) => GlobalContainer(
               color: ColorRes.white,
-              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+              borderRadius: 10,
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 child: Image.asset(

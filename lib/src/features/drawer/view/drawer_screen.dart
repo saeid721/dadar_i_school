@@ -24,10 +24,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       width: 130,
       color: ColorRes.appBackgroundColor,
       margin: const EdgeInsets.only(top: 100, bottom: 200),
-      borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(5),
-          bottomRight: Radius.circular(5)
-      ),
+        borderRadius: 5,
       child: Column(
         children: [
           sizedBoxH(10),

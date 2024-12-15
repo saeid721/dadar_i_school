@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../features/about_screen.dart';
 import '../../features/contact_screen.dart';
 import '../constants/colors_resources.dart';
+import '../constants/enum.dart';
 import '../constants/images.dart';
 import 'global_image_loader.dart';
 
@@ -19,26 +20,41 @@ class CustomDrawerWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           SizedBox(
-            height: 150,
+            height: 185,
             child: DrawerHeader(
-              decoration: BoxDecoration(color: ColorRes.appColor),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    const Color(0xFF361334),
+                    const Color(0xFF4150B5),
+                  ],
+                ),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Dadar i School',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700),
+                  // Text(
+                  //   'Dadar i School',
+                  //   style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 22,
+                  //       fontWeight: FontWeight.w700),
+                  // ),
+                  GlobalImageLoader(
+                    imagePath: Images.appLogo,
+                    width: 120,
+                    fit: BoxFit.cover,
+                    imageFor: ImageFor.asset,
                   ),
-                  Text(
-                    ' The English Learning School',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600),
-                  ),
+                  // Text(
+                  //   ' The English Learning School',
+                  //   style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 18,
+                  //       fontWeight: FontWeight.w600),
+                  // ),
                 ],
               ),
             ),
@@ -103,10 +119,7 @@ class CustomDrawerWidget extends StatelessWidget {
               children: [
                 Text(
                   'Developed by',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey),
                   textAlign: TextAlign.center,
                 ),
                 Text(

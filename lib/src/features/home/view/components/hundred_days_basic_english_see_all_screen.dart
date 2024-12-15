@@ -41,7 +41,7 @@ class _HundredDaysBasicEnglishSeeAllScreenState extends State<HundredDaysBasicEn
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     decoration: const BoxDecoration(
-                      color: ColorRes.appBackgroundColor,
+                      color: ColorRes.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
