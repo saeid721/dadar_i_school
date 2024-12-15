@@ -4,13 +4,11 @@ class Images {
   //================/@ App Default Img @/==============
   static const String appLogo = 'assets/app_src/dadar_i_school.png';
   static const String appLogoShadow = 'assets/app_src/dhuum_shadow_logo.png';
-  static const String bmi = 'assets/app_src/icon/bmi.gif';
-  static const String checklist = 'assets/app_src/icons/checklist.gif';
-  static const String info = 'assets/app_src/icon/info.gif';
-  static const String stars = 'assets/app_src/icon/stars.gif';
-  static const String feedback = 'assets/app_src/icon/feedback.gif';
-  static const String share = 'assets/app_src/icon/share.gif';
-  static const String contact = 'assets/app_src/icon/contact.gif';
+  static const String info = 'assets/app_src/icon/info.png';
+  static const String stars = 'assets/app_src/icon/stars.png';
+  static const String feedback = 'assets/app_src/icon/feedback.png';
+  static const String share = 'assets/app_src/icon/share.png';
+  static const String contact = 'assets/app_src/icon/contact.png';
 
   static const String close = 'assets/app_src/icon/close.png';
   static const String scanner = 'assets/main_src/icons/scanner.png';

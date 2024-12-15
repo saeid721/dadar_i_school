@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../features/about_screen.dart';
-import '../../features/contact_screen.dart';
-import '../constants/colors_resources.dart';
-import '../constants/enum.dart';
-import '../constants/images.dart';
-import 'global_image_loader.dart';
+import '../../about_screen.dart';
+import '../../contact_screen.dart';
+import '../../../global/constants/colors_resources.dart';
+import '../../../global/constants/enum.dart';
+import '../../../global/constants/images.dart';
+import '../../../global/widget/global_image_loader.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   const CustomDrawerWidget({

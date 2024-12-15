@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
-import '../../../global/widget/custom_drawer_widget.dart';
+import '../../drawer/view/custom_drawer_widget.dart';
 import '../../../global/widget/global_container.dart';
 import '../../../global/widget/global_progress_hub.dart';
 import '../../../global/widget/global_text.dart';
