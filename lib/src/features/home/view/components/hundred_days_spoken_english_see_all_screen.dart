@@ -6,6 +6,7 @@ import '../../../../global/widget/global_text.dart';
 import '../../../video_details/view/hundred_days_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../widget/carousel_slider_widget/carousel_slider_widget.dart';
+import '../widget/global_sliver_app_bar_widget.dart';
 import '../widget/see_all_widget.dart';
 
 class HundredDaysSpokenEnglishSeeAllScreen extends StatefulWidget {
@@ -28,6 +29,15 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
           color: ColorRes.appBackgroundColor,
           child: CustomScrollView(
             slivers: [
+              GlobalSliverAppBar(
+                backgroundColor: Colors.red[500]!,
+                backgroundWidget: buildCarouselSlider(),
+                title: "100 Days Spoken English",
+                subtitle: "Advanced conversation skills",
+                icon: Icons.chat_bubble_outline,
+                titleColor: ColorRes.appColor,
+                subtitleColor: Colors.grey[600]!,
+              ),
               SliverAppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 toolbarHeight: 70,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_container.dart';
-import '../../../../global/widget/global_text.dart';
 import '../../../video_details/view/spoken_english_practice_video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../widget/carousel_slider_widget/carousel_slider_widget.dart';
+import '../widget/global_sliver_app_bar_widget.dart';
 import '../widget/see_all_widget.dart';
 
 class SpokenEnglishPracticeSeeAllScreen extends StatefulWidget {
@@ -28,36 +28,15 @@ class _SpokenEnglishPracticeSeeAllScreenState extends State<SpokenEnglishPractic
           color: ColorRes.appBackgroundColor,
           child: CustomScrollView(
             slivers: [
-              SliverAppBar(
-                iconTheme: const IconThemeData(color: Colors.white),
-                toolbarHeight: 70,
-                expandedHeight: 300.0,
-                pinned: true,
-                backgroundColor: ColorRes.appColor,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: buildCarouselSlider(),
-                ),
-                bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(20),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: const BoxDecoration(
-                      color: ColorRes.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                    ),
-                    child: const GlobalText(
-                      str: "100 Days Basic English Course",
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      textAlign: TextAlign.center,
-                      color: ColorRes.appColor,
-                    ),
-                  ),
-                ),
+              GlobalSliverAppBar(
+                backgroundColor: Colors.orange[500]!,
+                backgroundWidget: buildCarouselSlider(),
+                title: "Spoken English Practice",
+                subtitle: "Practice makes perfect",
+                icon: Icons.mic,
+                titleColor: ColorRes.appColor,
+                subtitleColor: Colors.grey[600]!,
+                expandedHeight: 250.0, // Custom height
               ),
               SliverPadding(
                 padding: const EdgeInsets.all(10),
