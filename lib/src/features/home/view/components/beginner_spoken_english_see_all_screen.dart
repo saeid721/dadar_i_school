@@ -29,7 +29,7 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
           child: CustomScrollView(
             slivers: [
               GlobalSliverAppBar(
-                backgroundColor: Colors.red[500]!,
+                backgroundColor: ColorRes.appColor,
                 backgroundWidget: buildCarouselSlider(),
                 title: "Beginner Spoken English",
                 subtitle: "Start speaking confidently",

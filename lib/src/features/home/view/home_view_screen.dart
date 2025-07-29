@@ -426,10 +426,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> with TickerProviderStat
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(0),
-            child: _buildSectionContent(sectionData),
-          ),
+          _buildSectionContent(sectionData),
         ],
       ),
     );

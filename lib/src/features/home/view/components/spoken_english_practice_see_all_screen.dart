@@ -29,7 +29,7 @@ class _SpokenEnglishPracticeSeeAllScreenState extends State<SpokenEnglishPractic
           child: CustomScrollView(
             slivers: [
               GlobalSliverAppBar(
-                backgroundColor: Colors.orange[500]!,
+                backgroundColor: ColorRes.appColor,
                 backgroundWidget: buildCarouselSlider(),
                 title: "Spoken English Practice",
                 subtitle: "Practice makes perfect",

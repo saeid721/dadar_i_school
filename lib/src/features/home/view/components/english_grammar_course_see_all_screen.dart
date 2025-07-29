@@ -29,7 +29,7 @@ class _EnglishGrammarCourseSeeAllScreenState extends State<EnglishGrammarCourseS
           child: CustomScrollView(
             slivers: [
               GlobalSliverAppBar(
-                backgroundColor: Colors.red[500]!,
+                backgroundColor: ColorRes.appColor,
                 backgroundWidget: buildCarouselSlider(),
                 title: "English Grammar Course",
                 subtitle: "Perfect your grammar",

@@ -30,7 +30,7 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
           child: CustomScrollView(
             slivers: [
               GlobalSliverAppBar(
-                backgroundColor: Colors.red[500]!,
+                backgroundColor: ColorRes.appColor,
                 backgroundWidget: buildCarouselSlider(),
                 title: "100 Days Spoken English",
                 subtitle: "Advanced conversation skills",
