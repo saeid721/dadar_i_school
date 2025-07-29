@@ -210,7 +210,7 @@ class _GlobalSearchTextFormFieldWidgetState extends State<GlobalSearchTextFormFi
                           margin: const EdgeInsets.symmetric(vertical: 2),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: ColorRes.grey.withOpacity(0.2),
+                            color: ColorRes.grey.withValues(alpha: 0.2),
                           ),
                           child: GlobalText(
                             str: tempDataList[index],

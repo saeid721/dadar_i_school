@@ -95,7 +95,7 @@ class _MiniScreenVideoPlayerState extends State<MiniScreenVideoPlayer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: ColorRes.black.withOpacity(0.5),
+                          color: ColorRes.black.withValues(alpha: 0.5),
                         ),
                       ),
                     ),

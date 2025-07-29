@@ -12,7 +12,7 @@ class GlobalContainer extends StatelessWidget {
   final Border? border;
   final Color color;
   final double elevation;
-  final Color? bottomBorderColor; // Dynamic bottom border color
+  final Color? bottomBorderColor;
 
   const GlobalContainer({
     super.key,
@@ -27,14 +27,14 @@ class GlobalContainer extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.borderCornerRadius,
     this.elevation = 0.0,
-    this.bottomBorderColor, // Add this parameter
+    this.bottomBorderColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return Material(
       elevation: elevation,
-      shadowColor: Colors.black.withOpacity(0.3),
+      shadowColor: Colors.black.withValues(alpha: 0.3),
       borderRadius: borderCornerRadius ?? BorderRadius.circular(borderRadius),
       child: Container(
         height: height,
@@ -49,7 +49,7 @@ class GlobalContainer extends StatelessWidget {
               Border(
                 bottom: BorderSide(
                   color: bottomBorderColor ??
-                      Colors.transparent, // Dynamic bottom border color
+                      Colors.transparent,
                   width: 1.0, // Adjust thickness if needed
                 ),
               ),

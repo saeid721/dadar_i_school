@@ -120,7 +120,7 @@ class _FullScreenVideoPlayerState extends State<FullScreenVideoPlayer> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: ColorRes.black.withOpacity(0.5),
+                        color: ColorRes.black.withValues(alpha: 0.5),
                       ),
                     ),
                   ),

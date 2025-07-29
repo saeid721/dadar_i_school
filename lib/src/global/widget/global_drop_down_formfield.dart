@@ -10,7 +10,7 @@ class GlobalDropDownFormField extends StatefulWidget {
   final TextStyle? titleStyle;
   final TextStyle? hintTextStyle;
   final TextStyle? labelTextStyle;
-  final String value; /// I can change this line
+  final String value;
   final bool? filled;
   final Color? fillColor;
   final double? height;
@@ -148,7 +148,7 @@ class _GlobalDropDownFormFieldState extends State<GlobalDropDownFormField> {
             filled: widget.filled,
             fillColor: widget.fillColor,
             // filled: true,
-            // fillColor: ColorRes.grey.withOpacity(0.2),
+            // fillColor: ColorRes.grey.withValues(alpha: 0.2),
           ) ?? inputDecoration.copyWith(
             contentPadding: widget.contentPadding,
             isDense: widget.isDense,
@@ -163,7 +163,7 @@ class _GlobalDropDownFormFieldState extends State<GlobalDropDownFormField> {
             labelStyle: widget.labelTextStyle,
             prefixIcon: widget.prefixIcon,
             // filled: true,
-            // fillColor: ColorRes.grey.withOpacity(0.2),
+            // fillColor: ColorRes.grey.withValues(alpha: 0.2),
             filled: widget.filled,
             fillColor: widget.fillColor,
           ),
@@ -327,7 +327,7 @@ class _GlobalDropdownField2State extends State<GlobalDropdownField2> {
             filled: widget.filled,
             fillColor: widget.fillColor,
             // filled: true,
-            // fillColor: ColorRes.grey.withOpacity(0.2),
+            // fillColor: ColorRes.grey.withValues(alpha: 0.2),
           ) ?? inputDecoration.copyWith(
             contentPadding: widget.contentPadding,
             isDense: widget.isDense,
@@ -342,7 +342,7 @@ class _GlobalDropdownField2State extends State<GlobalDropdownField2> {
             labelStyle: widget.labelTextStyle,
             prefixIcon: widget.prefixIcon,
             // filled: true,
-            // fillColor: ColorRes.grey.withOpacity(0.2),
+            // fillColor: ColorRes.grey.withValues(alpha: 0.2),
             filled: widget.filled,
             fillColor: widget.fillColor,
           ),

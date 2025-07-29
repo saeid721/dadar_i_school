@@ -63,7 +63,7 @@
 //                     width: 80,
 //                     decoration: BoxDecoration(
 //                         borderRadius: BorderRadius.circular(10),
-//                         color: ColorRes.grey.withOpacity(0.3)
+//                         color: ColorRes.grey.withValues(alpha: 0.3)
 //                     ),
 //                   ),
 //

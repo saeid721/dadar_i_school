@@ -22,8 +22,8 @@
 //         height: 75,
 //         width: size(context).width,
 //         color: homePageController.isScrolled
-//             ? ColorRes.black.withOpacity(0.7)
-//             : ColorRes.black.withOpacity(0.2),
+//             ? ColorRes.black.withValues(alpha: 0.7)
+//             : ColorRes.black.withValues(alpha: 0.2),
 //         child: Column(
 //           mainAxisAlignment: MainAxisAlignment.end,
 //           children: [

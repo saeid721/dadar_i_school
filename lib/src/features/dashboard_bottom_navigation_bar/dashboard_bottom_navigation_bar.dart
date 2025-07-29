@@ -37,7 +37,7 @@ class _DashboardBottomNavigationBarState extends State<DashboardBottomNavigation
                     borderRadius: const BorderRadius.all(Radius.circular(24)),
                     boxShadow: [
                       BoxShadow(
-                          color: ColorRes.deep400.withOpacity(0.3),
+                          color: ColorRes.deep400.withValues(alpha: 0.3),
                           offset: const Offset(0, 5),
                           blurRadius: 5
                       )

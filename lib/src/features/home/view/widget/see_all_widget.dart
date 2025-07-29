@@ -27,7 +27,7 @@ class SeeAllMenuWidget extends StatelessWidget {
           color: ColorRes.appSecondaryColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               offset: Offset(0, 1),
               blurRadius: 5,
               spreadRadius: .5,
