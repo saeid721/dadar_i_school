@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
+import '../../../../global/constants/images.dart';
 import '../../../../global/widget/global_container.dart';
 import '../../../video_details/view/hundred_days_basic_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
@@ -31,7 +32,7 @@ class _HundredDaysBasicEnglishSeeAllScreenState extends State<HundredDaysBasicEn
                 backgroundWidget: buildCarouselSlider(),
                 title: "100 Days Basic English",
                 subtitle: "Master the fundamentals",
-                icon: Icons.calendar_today,
+                imageUrl: Images.appLogo,
                 titleColor: ColorRes.appColor,
                 subtitleColor: Colors.grey[600]!,
               ),

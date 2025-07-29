@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 
-class GlobalSliverAppBar extends StatelessWidget {
-  final double toolbarHeight;
-  final double expandedHeight;
-  final bool pinned;
-  final Color backgroundColor;
-  final Widget backgroundWidget;
-  final String title;
-  final String subtitle;
-  final IconData icon;
-  final Color iconColor;
-  final Color titleColor;
-  final Color subtitleColor;
-  final Color containerColor;
+import '../../../../global/constants/colors_resources.dart';
+import '../../../../global/widget/global_image_loader.dart';
 
+class GlobalSliverAppBar extends StatelessWidget {
   const GlobalSliverAppBar({
     super.key,
     this.toolbarHeight = 70,
@@ -23,12 +13,24 @@ class GlobalSliverAppBar extends StatelessWidget {
     required this.backgroundWidget,
     required this.title,
     required this.subtitle,
-    required this.icon,
+    required this.imageUrl,
     this.iconColor = Colors.white,
     required this.titleColor,
     this.subtitleColor = Colors.grey,
     this.containerColor = Colors.white,
   });
+  final double toolbarHeight;
+  final double expandedHeight;
+  final bool pinned;
+  final Color backgroundColor;
+  final Widget backgroundWidget;
+  final String title;
+  final String subtitle;
+  final String imageUrl;
+  final Color iconColor;
+  final Color titleColor;
+  final Color subtitleColor;
+  final Color containerColor;
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +76,18 @@ class GlobalSliverAppBar extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(1),
                     decoration: BoxDecoration(
-                      color: backgroundColor.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(12),
+                      color: ColorRes.appColor,
+                      borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Icon(
-                      icon,
-                      color: backgroundColor,
-                      size: 24,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: GlobalImageLoader(
+                        imagePath: imageUrl,
+                        width: 50,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),

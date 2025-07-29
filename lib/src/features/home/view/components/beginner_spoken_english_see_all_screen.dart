@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
+import '../../../../global/constants/images.dart';
 import '../../../../global/widget/global_container.dart';
 import '../../../video_details/view/beginner_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
@@ -33,7 +34,7 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
                 backgroundWidget: buildCarouselSlider(),
                 title: "Beginner Spoken English",
                 subtitle: "Start speaking confidently",
-                icon: Icons.record_voice_over,
+                imageUrl: Images.appLogo,
                 titleColor: ColorRes.appColor,
                 subtitleColor: Colors.grey[600]!,
               ),

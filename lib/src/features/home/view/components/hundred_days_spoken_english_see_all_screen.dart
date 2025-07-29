@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
+import '../../../../global/constants/images.dart';
 import '../../../../global/widget/global_container.dart';
 import '../../../video_details/view/hundred_days_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
@@ -33,7 +34,7 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
                 backgroundWidget: buildCarouselSlider(),
                 title: "100 Days Spoken English",
                 subtitle: "Advanced conversation skills",
-                icon: Icons.chat_bubble_outline,
+                imageUrl: Images.appLogo,
                 titleColor: ColorRes.appColor,
                 subtitleColor: Colors.grey[600]!,
               ),

@@ -182,6 +182,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
+import '../../../global/widget/global_image_loader.dart';
 import '../../drawer/view/custom_drawer_widget.dart';
 import '../../../global/widget/global_progress_hub.dart';
 import '../controller/home_controller.dart';
@@ -294,15 +295,18 @@ class _HomeViewScreenState extends State<HomeViewScreen> with TickerProviderStat
                           Row(
                             children: [
                               Container(
-                                padding: const EdgeInsets.all(8),
+                                padding: EdgeInsets.all(1),
                                 decoration: BoxDecoration(
-                                  color: ColorRes.appColor.withValues(alpha: 0.1),
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                child: Icon(
-                                  Icons.school,
                                   color: ColorRes.appColor,
-                                  size: 24,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: GlobalImageLoader(
+                                    imagePath: "assets/app_src/dadar_i_school.png",
+                                    width: 50,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 12),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
+import '../../../../global/constants/images.dart';
 import '../../../../global/widget/global_container.dart';
 import '../../../video_details/view/spoken_english_practice_video_details_screen.dart';
 import '../../controller/home_controller.dart';
@@ -33,7 +34,7 @@ class _SpokenEnglishPracticeSeeAllScreenState extends State<SpokenEnglishPractic
                 backgroundWidget: buildCarouselSlider(),
                 title: "Spoken English Practice",
                 subtitle: "Practice makes perfect",
-                icon: Icons.mic,
+                imageUrl: Images.appLogo,
                 titleColor: ColorRes.appColor,
                 subtitleColor: Colors.grey[600]!,
                 expandedHeight: 250.0, // Custom height
