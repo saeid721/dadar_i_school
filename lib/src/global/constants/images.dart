@@ -17,7 +17,6 @@ class Images {
 
 
   //==============/@ App Img
-
   static const String textUre = 'assets/app_src/texture.jpg';
 
   //==============/@ Icon

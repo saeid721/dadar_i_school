@@ -8,7 +8,7 @@ import '../../../global/widget/global_text.dart';
 import '../../home/controller/home_controller.dart';
 import '../../home/view/widget/see_all_vertical_widget.dart';
 import '../controller/video_controller.dart';
-import 'hundred_days_basic_english_video_details_screen.dart';
+import 'hundred_days_basic_english_video_details_screen.dart' hide ExpandableDescription;
 
 class VideoDetailsScreen extends StatefulWidget {
   final String id;
@@ -72,11 +72,13 @@ class _VideoDetailsScreenState extends State<VideoDetailsScreen> {
                         GlobalText(
                           str: widget.title,
                           fontSize: 14,
+                          color: ColorRes.appColor,
                           fontWeight: FontWeight.w500,
                         ),
                         sizedBoxH(5),
-                        ExpandableDescription(
-                          description: widget.shortDescription,
+                        GlobalText(
+                          str: widget.shortDescription,
+                          color: ColorRes.grey,
                         ),
                         sizedBoxH(20),
                         Padding(

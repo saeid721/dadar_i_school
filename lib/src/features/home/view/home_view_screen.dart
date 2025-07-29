@@ -182,6 +182,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import '../../../global/constants/colors_resources.dart';
+import '../../../global/constants/images.dart';
 import '../../../global/widget/global_image_loader.dart';
 import '../../drawer/view/custom_drawer_widget.dart';
 import '../../../global/widget/global_progress_hub.dart';
@@ -189,6 +190,7 @@ import '../controller/home_controller.dart';
 import 'widget/beginner_spoken_english_widget.dart';
 import 'widget/carousel_slider_widget/carousel_slider_widget.dart';
 import 'widget/english_grammar_course_widget.dart';
+import 'widget/global_sliver_app_bar_widget.dart';
 import 'widget/hundred_days_basic_english_widget.dart';
 import 'widget/hundred_days_spoken_english_widget.dart';
 import 'widget/spoken_english_practice_english_widget.dart';
@@ -253,94 +255,15 @@ class _HomeViewScreenState extends State<HomeViewScreen> with TickerProviderStat
             child: CustomScrollView(
               physics: const BouncingScrollPhysics(),
               slivers: [
-                SliverAppBar(
-                  toolbarHeight: 70,
-                  iconTheme: const IconThemeData(color: Colors.white),
-                  expandedHeight: 300.0,
-                  pinned: true,
+                GlobalSliverAppBar(
                   backgroundColor: ColorRes.appColor,
-                  flexibleSpace: FlexibleSpaceBar(
-                    background: buildCarouselSlider(),
-                  ),
-                  bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(60),
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.1),
-                            blurRadius: 10,
-                            offset: const Offset(0, -5),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 40,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: Colors.grey[300],
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(1),
-                                decoration: BoxDecoration(
-                                  color: ColorRes.appColor,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: GlobalImageLoader(
-                                    imagePath: "assets/app_src/dadar_i_school.png",
-                                    width: 50,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Dadar i School",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: ColorRes.appColor,
-                                      ),
-                                    ),
-                                    Text(
-                                      "The English Learning School",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.grey[600],
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  backgroundWidget: buildCarouselSlider(),
+                  title: "Dadar i School",
+                  subtitle: "The English Learning School",
+                  imageUrl: Images.appLogo,
+                  titleColor: ColorRes.appColor,
+                  subtitleColor: Colors.grey[600]!,
                 ),
-
                 SliverPadding(
                   padding: const EdgeInsets.all(12),
                   sliver: SliverList(
