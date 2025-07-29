@@ -44,7 +44,7 @@ class _BeginnerSpokenEnglishSeeAllScreenState extends State<BeginnerSpokenEnglis
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 1.15,
+                    childAspectRatio: .90,
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (ctx, index) {

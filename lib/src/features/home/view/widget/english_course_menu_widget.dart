@@ -269,17 +269,8 @@ import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/constants/enum.dart';
 import '../../../../global/widget/global_image_loader.dart';
 
-class ModernCourseMenuWidget extends StatefulWidget {
-  final String thumbnail;
-  final String title;
-  final String? subtitle;
-  final Function() onTap;
-  final Color? primaryColor;
-  final IconData? icon;
-  final bool showProgress;
-  final double? progress;
-
-  const ModernCourseMenuWidget({
+class CourseMenuWidget extends StatefulWidget {
+  const CourseMenuWidget({
     super.key,
     required this.thumbnail,
     required this.title,
@@ -290,13 +281,21 @@ class ModernCourseMenuWidget extends StatefulWidget {
     this.showProgress = false,
     this.progress,
   });
+  final String thumbnail;
+  final String title;
+  final String? subtitle;
+  final Function() onTap;
+  final Color? primaryColor;
+  final IconData? icon;
+  final bool showProgress;
+  final double? progress;
+
 
   @override
-  State<ModernCourseMenuWidget> createState() => _ModernCourseMenuWidgetState();
+  State<CourseMenuWidget> createState() => _CourseMenuWidgetState();
 }
 
-class _ModernCourseMenuWidgetState extends State<ModernCourseMenuWidget>
-    with SingleTickerProviderStateMixin {
+class _CourseMenuWidgetState extends State<CourseMenuWidget> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
   bool _isPressed = false;
@@ -350,7 +349,7 @@ class _ModernCourseMenuWidgetState extends State<ModernCourseMenuWidget>
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: Colors.black.withValues(alpha: 0.1), // Border color
+                  color: Colors.black.withValues(alpha: 0.1),
                   width: .5, // Border width
                 ),
               ),
@@ -551,7 +550,7 @@ class HundredDaysBasicEnglishMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModernCourseMenuWidget(
+    return CourseMenuWidget(
       thumbnail: thumbnail,
       title: title,
       subtitle: "100 Day Challenge",
@@ -576,7 +575,7 @@ class BeginnerSpokenEnglishMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModernCourseMenuWidget(
+    return CourseMenuWidget(
       thumbnail: thumbnail,
       title: title,
       subtitle: "Speaking Basics",
@@ -601,7 +600,7 @@ class HundredDaysSpokenEnglishMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModernCourseMenuWidget(
+    return CourseMenuWidget(
       thumbnail: thumbnail,
       title: title,
       subtitle: "Advanced Speaking",
@@ -626,7 +625,7 @@ class SpokenEnglishPracticeMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModernCourseMenuWidget(
+    return CourseMenuWidget(
       thumbnail: thumbnail,
       title: title,
       subtitle: "Practice Sessions",
@@ -651,7 +650,7 @@ class EnglishGrammarCourseMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModernCourseMenuWidget(
+    return CourseMenuWidget(
       thumbnail: thumbnail,
       title: title,
       subtitle: "Grammar Rules",

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_container.dart';
-import '../../../../global/widget/global_text.dart';
 import '../../../video_details/view/hundred_days_spoken_english_video_details_screen.dart';
 import '../../controller/home_controller.dart';
 import '../widget/carousel_slider_widget/carousel_slider_widget.dart';
@@ -38,37 +37,6 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
                 titleColor: ColorRes.appColor,
                 subtitleColor: Colors.grey[600]!,
               ),
-              SliverAppBar(
-                iconTheme: const IconThemeData(color: Colors.white),
-                toolbarHeight: 70,
-                expandedHeight: 300.0,
-                pinned: true,
-                backgroundColor: ColorRes.appColor,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: buildCarouselSlider(),
-                ),
-                bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(20),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: const BoxDecoration(
-                      color: ColorRes.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                    ),
-                    child: const GlobalText(
-                      str: "100 Days Spoken English Practice",
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      textAlign: TextAlign.center,
-                      color: ColorRes.appColor,
-                    ),
-                  ),
-                ),
-              ),
               SliverPadding(
                 padding: const EdgeInsets.all(10),
                 sliver: SliverGrid(
@@ -76,7 +44,7 @@ class _HundredDaysSpokenEnglishSeeAllScreenState extends State<HundredDaysSpoken
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 1.15,
+                    childAspectRatio: .90,
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (ctx, index) {

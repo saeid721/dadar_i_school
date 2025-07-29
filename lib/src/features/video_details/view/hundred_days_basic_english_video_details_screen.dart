@@ -41,8 +41,6 @@ class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysB
     } else {
       videoController.initializeVideoPlayerController(widget.youtubeLink);
     }
-
-    // Lock the orientation to portrait
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
