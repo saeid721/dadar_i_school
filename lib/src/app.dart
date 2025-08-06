@@ -2,10 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'domain/local/preferences/local_storage.dart';
-import 'domain/server/http_client/app_config.dart';
 import 'features/splash_screen/view/splash_screen.dart';
-import 'global/constants/enum.dart';
-import 'global/method/get_device_info.dart';
 import 'initializer.dart';
 
 class MyApp extends StatefulWidget {
@@ -28,7 +25,6 @@ class _MyAppState extends State<MyApp> {
   // ==# App Initialization Logic
   Future<void> _initializeApp() async {
     LocalStorage localStorage = LocalStorage();
-    AppUrlExtention.setUrl(UrlLink.isDev);
     await localStorage.initLocalStorage();
     await init(localStorage);
     // await GetDeviceInfo.getDeviceInfo();

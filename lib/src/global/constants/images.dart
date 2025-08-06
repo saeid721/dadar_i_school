@@ -49,11 +49,14 @@ class Images {
   static const String checkIc = 'assets/app_src/icon/check.png';
 
   //==/@ Social
-  static const String facebookIc = 'assets/app_src/icon/social_ic/facebook.png';
-  static const String instagramIc = 'assets/app_src/icon/social_ic/instagram.png';
-  static const String linkedInIc = 'assets/app_src/icon/social_ic/linkedin.png';
-  static const String youtubeIc = 'assets/app_src/icon/social_ic/youtube.png';
-  static const String twitterIc = 'assets/app_src/icon/social_ic/twitter.png';
+  static const String facebookInc = 'assets/app_src/icon/social_ic/facebook.png';
+  static const String linkedInInc = 'assets/app_src/icon/social_ic/linkedin.png';
+  static const String twitterInc = 'assets/app_src/icon/social_ic/twitter.png';
+  static const String youTubeInc = 'assets/app_src/icon/social_ic/youtube.png';
+  static const String instagramInc = 'assets/app_src/icon/social_ic/instagram.png';
+  static const String threadsInc = 'assets/app_src/icon/social_ic/threads.png';
+  static const String whatsAppInc = 'assets/app_src/icon/social_ic/whatsapp.png';
+  static const String telegramInc = 'assets/app_src/icon/social_ic/telegram.png';
 
 
 }

@@ -14,14 +14,12 @@ Future<void> init(LocalStorage localStorage) async {
 
   // ==# Register dependencies with GetIt for core services
   locator.registerLazySingleton<LocalStorage>(() => localStorage);
-  locator.registerLazySingleton<RequestHandler>(() => RequestHandler(dio: Dio()));
   locator.registerLazySingleton<StorageController>(() => StorageController(prefs: prefs));
 
   // ==# UI Controllers using GetX lazyPut for screen management
   Get.lazyPut(() => HomePageController(), fenix: true);
 
   // ==# Register GetIt services within GetX for further access
-  Get.lazyPut(() => locator<RequestHandler>(), fenix: true);
   Get.lazyPut(() => locator<StorageController>(), fenix: true);
 
 }
