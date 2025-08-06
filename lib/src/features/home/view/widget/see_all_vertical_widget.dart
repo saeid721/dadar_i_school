@@ -40,7 +40,7 @@ class SeeAllMenuVerticalWidget extends StatelessWidget {
               ? ColorRes.appColor.withValues(alpha: 0.1)
               : ColorRes.appSecondaryColor,
           border: isSelected
-              ? Border.all(color: ColorRes.appColor, width: 2)
+              ? Border.all(color: ColorRes.appColor, width: .5)
               : null,
           boxShadow: [
             BoxShadow(
