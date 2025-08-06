@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:dadar_i_school/src/global/constants/enum.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../../../domain/server/http_client/request_handler.dart';
 import '../../../global/constants/images.dart';
 import '../../../global/widget/global_image_loader.dart';
 import '../../../global/widget/global_sized_box.dart';
@@ -29,12 +31,22 @@ class _SplashScreenState extends State<SplashScreen> {
     ]);
   }
 
+  // void route() {
+  //   Timer(const Duration(seconds: 3), () {
+  //     Get.offAll(() => const HomeScreen());
+  //   });
+  // }
   void route() {
     Timer(const Duration(seconds: 3), () {
+      // Register dependency here before moving to HomeScreen
+      if (!Get.isRegistered<RequestHandler>()) {
+        Get.put<RequestHandler>(RequestHandler(dio: Dio()));
+      }
+
       Get.offAll(() => const HomeScreen());
-      //Get.offAll(() => const DashboardBottomNavigationBar());
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
