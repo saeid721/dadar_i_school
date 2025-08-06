@@ -68,7 +68,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> with TickerProviderStat
       builder: (controller) {
         return Scaffold(
           backgroundColor: Colors.grey[50],
-          drawer: const CustomDrawerWidget(),
+          drawer: const CustomDrawerScreen(),
           body: ProgressHUD(
             inAsyncCall: controller.isLoading,
             child: CustomScrollView(

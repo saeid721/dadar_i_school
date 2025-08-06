@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../global/constants/colors_resources.dart';
-import '../global/widget/global_text.dart';
+import '../../global/constants/colors_resources.dart';
+import '../../global/widget/global_text.dart';
 
-class AboutUsScreen extends StatelessWidget {
-  const AboutUsScreen({super.key});
+class AboutTrainerScreen extends StatelessWidget {
+  const AboutTrainerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
