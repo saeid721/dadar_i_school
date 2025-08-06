@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../global/constants/colors_resources.dart';
-import '../../global/constants/images.dart';
-import '../../global/widget/global_image_loader.dart';
 import '../../global/widget/global_text.dart';
 
 class AboutUsScreen extends StatelessWidget {
@@ -10,61 +9,71 @@ class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorRes.white,
-      appBar: AppBar(
-        elevation: 1,
-        shadowColor: ColorRes.white200,
-        iconTheme: const IconThemeData(color: ColorRes.appColor),
-        title: const Text(
-          'Dadar i School',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-            color: ColorRes.appColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-      ),
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 15),
-            GlobalImageLoader(
-              imagePath: Images.appLogo,
-              height: 140,
-              width: 140,
-              fit: BoxFit.fill,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            toolbarHeight: 70,
+            iconTheme: const IconThemeData(color: Colors.white),
+            title: const GlobalText(
+              str: "About App",
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: ColorRes.white,
             ),
-            SizedBox(height: 10),
-            Padding(
-              padding: EdgeInsets.only(left: 15, right: 15),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(20),
+              child: Container(
+                width: Get.width,
+                padding: const EdgeInsets.only(top: 10, bottom: 10),
+                decoration: BoxDecoration(
+                  color: ColorRes.appBackgroundColor,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                ),
+                child: GlobalText(
+                  str: "About App",
+                  fontSize: 22,
+                  fontWeight: FontWeight.w700,
+                  textAlign: TextAlign.center,
+                  color: ColorRes.appColor,
+                ),
+              ),
+            ),
+            expandedHeight: 300.0,
+            pinned: true,
+            centerTitle: true,
+            backgroundColor: ColorRes.appColor,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+                'assets/app_src/ischool.png',
+                width: Get.width,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GlobalText(
                     str:
-                        """ "Welcome to our English Learning App, powered by the engaging video lessons of Dadar i School. Our mission is to make spoken English simple, practical, and fun for everyone.
+                    """ "Welcome to our English Learning App, powered by the engaging video lessons of Dadar i School. Our mission is to make spoken English simple, practical, and fun for everyone.
 Through carefully selected YouTube videos, we bring you step-by-step lessons, everyday conversations, pronunciation tips, and grammar guidance — all in one place.
 Whether you’re a beginner or improving your skills, our goal is to help you speak confidently and fluently in real life.
                         """,
-                    fontSize: 15,
                     color: ColorRes.black,
                     textAlign: TextAlign.justify,
                   ),
-                  SizedBox(height: 10),
                   GlobalText(
                     str: "Learn. Practice. Speak.",
-                    fontSize: 15,
+                    color: ColorRes.black,
                     fontWeight: FontWeight.w700,
                   ),
-                  SizedBox(height: 10),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

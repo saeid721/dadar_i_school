@@ -50,37 +50,18 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
           children: [
             Column(
               children: [
-                Container(
-                  width: Get.width,
-                  height: 160,
-                  padding: const EdgeInsets.only(
-                      left: 20, right: 10, top: 50, bottom: 10),
-
-                  decoration:  BoxDecoration(
-                    border:
-                    Border.all(color: ColorRes.appColor, width: 0.3),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFFFFE6F0), // Light pink
-                        Color(0xFFB3E5FC), // Light blue
-                      ],
-                    ),
-                  ),
-                  child: const ClipRRect(
-                    child: GlobalImageLoader(
-                      imagePath: Images.appLogo,
-                      height: 80,
-                      imageFor: ImageFor.asset,
-                    ),
+                ClipRRect(
+                  child: GlobalImageLoader(
+                    imagePath: 'assets/app_src/ischool.png',
+                    width: Get.width,
+                    fit: BoxFit.cover,
+                    imageFor: ImageFor.asset,
                   ),
                 ),
                 Expanded(
                   child: ListView.builder(
                     itemCount: menuItem.length,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     itemBuilder: (ctx, index) {
                       return GestureDetector(
                         onTap: () async {
@@ -153,13 +134,13 @@ class _CustomDrawerScreenState extends State<CustomDrawerScreen> {
             const Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 50.0),
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 50.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     GlobalText(
                       str: 'Version: 1.0.1',
-                      color: ColorRes.textColor,
+                      color: ColorRes.deep300,
                       fontSize: 13,
                       textAlign: TextAlign.center,
                     ),

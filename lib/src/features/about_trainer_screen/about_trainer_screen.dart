@@ -57,12 +57,14 @@ class AboutTrainerScreen extends StatelessWidget {
                 children: [
                   GlobalText(
                       str:
-                      """Hi, I'm Sudip Paul (SRP) an explorer, fitness influencer and Spoken English Trainer. I teach Spoken English and communication skills in my Mother tongue Bengali. I believe that English is not a tough language but due to a lot of obstacles and fear in mind people give up their learning and compromise on their Career, Social relationships and many possibilities. Through my videos I  always motivate people to learn and grow in all the aspects of their lives. 
+                      """Hi, I'm Sudip Paul (SRP) a Spoken English Trainer. I teach Spoken English and communication skills in my Mother tongue Bengali. I believe that English is not a tough language but due to a lot of obstacles and fear in mind people give up their learning and compromise on their Career, Social relationships and many possibilities. Through my videos I  always motivate people to learn and grow in all the aspects of their lives. 
 
 If you believe in yourself and practice enough you can do anything you want; English is just a language. 
 """,
-                    fontWeight: FontWeight.w500,
-                    textAlign: TextAlign.center,),
+                    color: ColorRes.black,
+                    textAlign: TextAlign.justify,
+
+                  ),
                   SizedBox(height: 10),
                 ],
               ),
