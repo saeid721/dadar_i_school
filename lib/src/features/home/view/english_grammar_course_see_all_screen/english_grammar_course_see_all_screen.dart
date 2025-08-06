@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/constants/images.dart';
 import '../../../../global/widget/global_container.dart';
-import '../../../video_details/view/english_grammar_course_video_details_screen.dart';
 import '../../controller/home_controller.dart';
-import '../widget/carousel_slider_widget/carousel_slider_widget.dart';
+import 'english_grammar_course_video_details_screen.dart';
+import '../widget/carousel_slider.dart';
 import '../widget/global_sliver_app_bar_widget.dart';
 import '../widget/see_all_widget.dart';
 
