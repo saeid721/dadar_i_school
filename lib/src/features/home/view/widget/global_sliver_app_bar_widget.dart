@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../global/constants/colors_resources.dart';
 import '../../../../global/widget/global_image_loader.dart';
 

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../global/widget/global_progress_hub.dart';
@@ -42,22 +41,25 @@ class _HundredDaysBasicEnglishWidgetState extends State<HundredDaysBasicEnglishW
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.map((recent) {
-                        return HundredDaysBasicEnglishMenuWidget(
-                          thumbnail: recent.thumbnail ?? "",
+                  children: homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList?.asMap().entries.map((entry) {
+                    int index = entry.key;
+                    var recent = entry.value;
+
+                    return HundredDaysBasicEnglishMenuWidget(
+                      thumbnail: recent.thumbnail ?? "",
+                      title: recent.title ?? "",
+                      onTap: () {
+                        Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
+                          id: recent.id.toString(),
                           title: recent.title ?? "",
-                          onTap: () {
-                            Get.to(() => HundredDaysBasicEnglishVideoDetailsScreen(
-                                  id: recent.id.toString(),
-                                  title: recent.title ?? "",
-                                  shortDescription: recent.shortDescription ?? "",
-                                  thumbnail: recent.thumbnail ?? "",
-                                  youtubeLink: recent.youtubeLink ?? "",
-                                ));
-                          },
-                        );
-                      }).toList() ??
-                      [],
+                          shortDescription: recent.shortDescription ?? "",
+                          thumbnail: recent.thumbnail ?? "",
+                          youtubeLink: recent.youtubeLink ?? "",
+                          initialVideoIndex: index, // Pass the index to start from this video
+                        ));
+                      },
+                    );
+                  }).toList() ?? [],
                 ),
               ),
             ),
