@@ -184,12 +184,12 @@ class _HomeViewScreenState extends State<HomeViewScreen> with TickerProviderStat
         return HundredDaysBasicEnglishWidget(id: sectionData.id);
       case "beginner_spoken_english":
         return BeginnerSpokenEnglishWidget(id: sectionData.id);
-      // case "hundred_days_spoken_english":
-      //   return HundredDaysSpokenEnglishWidget(id: sectionData.id);
-      // case "spoken_english_practice":
-      //   return SpokenEnglishPracticeWidget(id: sectionData.id);
-      // case "english_grammar_course":
-      //   return EnglishGrammarCourseWidget(id: sectionData.id);
+      case "hundred_days_spoken_english":
+        return HundredDaysSpokenEnglishWidget(id: sectionData.id);
+      case "spoken_english_practice":
+        return SpokenEnglishPracticeWidget(id: sectionData.id);
+      case "english_grammar_course":
+        return EnglishGrammarCourseWidget(id: sectionData.id);
       default:
         return const SizedBox.shrink();
     }
