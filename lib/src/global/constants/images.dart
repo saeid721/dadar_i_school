@@ -14,7 +14,7 @@ class Images {
   static const String playBuIc = 'assets/app_src/icon/play_button_ic.png';
 
   //==/@ App Src Icon
-  static const String homeInc = 'assets/app_src/icon/home-security.png';
+  static const String homeInc = 'assets/app_src/icon/home_screen-security.png';
   static const String aboutInc = 'assets/app_src/icon/information.png';
   static const String contactInc = 'assets/app_src/icon/contact-information.png';
   static const String shareInc = 'assets/app_src/icon/share.png';

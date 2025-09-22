@@ -11,7 +11,7 @@ import '../../../global/widget/global_text.dart';
 import '../../about_screen/about_screen.dart';
 import '../../about_trainer_screen/about_trainer_screen.dart';
 import '../../contact_screen/contact_screen.dart';
-import '../../home/view/home_screen.dart';
+import '../../home_screen/view/home_screen.dart';
 import '../../privacy_policy_screen/privacy_policy_screen.dart';
 
 class CustomDrawerScreen extends StatefulWidget {

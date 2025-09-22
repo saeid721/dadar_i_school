@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/storage_controller.dart';
-import 'features/home/controller/home_controller.dart';
+import 'features/home_screen/controller/home_controller.dart';
 
 final locator = GetIt.instance;
 

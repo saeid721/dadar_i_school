@@ -8,7 +8,7 @@ import '../../../domain/server/http_client/request_handler.dart';
 import '../../../global/constants/images.dart';
 import '../../../global/widget/global_image_loader.dart';
 import '../../../global/widget/global_sized_box.dart';
-import '../../home/view/home_screen.dart';
+import '../../home_screen/view/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
