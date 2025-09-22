@@ -69,7 +69,7 @@ class _EnglishGrammarCourseVideoDetailsScreenState extends State<EnglishGrammarC
   }
 
   void _initializeVideoController() {
-    final videoList = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList;
+    final videoList = homePageController.englishGrammarCourseModel?.englishGrammarCourseList;
 
     if (videoList != null && videoList.isNotEmpty) {
       videoController.setInitialVideo(

@@ -69,7 +69,7 @@ class _SpokenEnglishPracticeVideoDetailsScreenState extends State<SpokenEnglishP
   }
 
   void _initializeVideoController() {
-    final videoList = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList;
+    final videoList = homePageController.spokenEnglishPracticeModel?.spokenEnglishPracticeList;
 
     if (videoList != null && videoList.isNotEmpty) {
       videoController.setInitialVideo(

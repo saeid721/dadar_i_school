@@ -69,7 +69,7 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
   }
 
   void _initializeVideoController() {
-    final videoList = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList;
+    final videoList = homePageController.beginnerSpokenEnglishModel?.beginnerSpokenEnglishList;
 
     if (videoList != null && videoList.isNotEmpty) {
       videoController.setInitialVideo(
@@ -88,7 +88,47 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
       body: SafeArea(
         child: Column(
           children: [
-            _buildAppBar(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
+                    offset: const Offset(0, 2),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: ColorRes.appColor.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: ColorRes.appColor,
+                        size: 18,
+                      ),
+                    ),
+                  ),
+                  sizedBoxW(12),
+                  Expanded(
+                    child: GlobalText(
+                      str: "Course Details",
+                      fontSize: 18,
+                      color: ColorRes.black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             _buildVideoPlayer(),
             _buildVideoControls(),
             Expanded(
@@ -99,50 +139,6 @@ class _BeginnerSpokenEnglishVideoDetailsScreenState extends State<BeginnerSpoken
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildAppBar() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            offset: const Offset(0, 2),
-            blurRadius: 10,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          GestureDetector(
-            onTap: () => Navigator.pop(context),
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: ColorRes.appColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(
-                Icons.arrow_back_ios_new,
-                color: ColorRes.appColor,
-                size: 18,
-              ),
-            ),
-          ),
-          sizedBoxW(12),
-          Expanded(
-            child: GlobalText(
-              str: "Course Details",
-              fontSize: 18,
-              color: ColorRes.black,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
       ),
     );
   }

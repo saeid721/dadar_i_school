@@ -69,7 +69,7 @@ class _HundredDaysSpokenEnglishVideoDetailsScreenState extends State<HundredDays
   }
 
   void _initializeVideoController() {
-    final videoList = homePageController.hundredDaysBasicEnglishModel?.hundredDaysBasicEnglishList;
+    final videoList = homePageController.hundredDaysSpokenEnglishModel?.hundredDaysSpokenEnglishList;
 
     if (videoList != null && videoList.isNotEmpty) {
       videoController.setInitialVideo(
