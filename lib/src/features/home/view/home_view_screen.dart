@@ -182,8 +182,8 @@ class _HomeViewScreenState extends State<HomeViewScreen> with TickerProviderStat
     switch (sectionData.sectionType) {
       case "hundred_days_basic_english":
         return HundredDaysBasicEnglishWidget(id: sectionData.id);
-      // case "beginner_spoken_english":
-      //   return BeginnerSpokenEnglishWidget(id: sectionData.id);
+      case "beginner_spoken_english":
+        return BeginnerSpokenEnglishWidget(id: sectionData.id);
       // case "hundred_days_spoken_english":
       //   return HundredDaysSpokenEnglishWidget(id: sectionData.id);
       // case "spoken_english_practice":

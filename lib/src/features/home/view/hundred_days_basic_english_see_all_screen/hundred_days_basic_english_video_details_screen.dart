@@ -9,13 +9,6 @@ import '../../controller/video_controller.dart';
 import '../widget/see_all_vertical_widget.dart';
 
 class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
-  final String id;
-  final String youtubeLink;
-  final String title;
-  final String thumbnail;
-  final String shortDescription;
-  final int? initialVideoIndex;
-
   const HundredDaysBasicEnglishVideoDetailsScreen({
     super.key,
     required this.id,
@@ -25,14 +18,20 @@ class HundredDaysBasicEnglishVideoDetailsScreen extends StatefulWidget {
     required this.shortDescription,
     this.initialVideoIndex,
   });
+  final String id;
+  final String youtubeLink;
+  final String title;
+  final String thumbnail;
+  final String shortDescription;
+  final int? initialVideoIndex;
+
 
   @override
   State<HundredDaysBasicEnglishVideoDetailsScreen> createState() =>
       _HundredDaysBasicEnglishVideoDetailsScreenState();
 }
 
-class _HundredDaysBasicEnglishVideoDetailsScreenState
-    extends State<HundredDaysBasicEnglishVideoDetailsScreen>
+class _HundredDaysBasicEnglishVideoDetailsScreenState extends State<HundredDaysBasicEnglishVideoDetailsScreen>
     with SingleTickerProviderStateMixin {
 
   late VideoController videoController;
